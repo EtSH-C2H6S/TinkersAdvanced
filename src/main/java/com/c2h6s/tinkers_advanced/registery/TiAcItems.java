@@ -1,0 +1,68 @@
+package com.c2h6s.tinkers_advanced.registery;
+
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
+import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
+
+public class TiAcItems {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+
+    protected static List<RegistryObject<Item>> LIST_MIXC=new ArrayList<>( List.of());
+    protected static List<RegistryObject<Item>> LIST_MATERIAL=new ArrayList<>( List.of());
+    protected static List<RegistryObject<Item>> LIST_TOOL=new ArrayList<>( List.of());
+
+    protected static List<RegistryObject<Item>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
+    protected static List<RegistryObject<Item>> LIST_SIMPLE_ITEM_MODEL=new ArrayList<>( List.of());
+
+    public static List<RegistryObject<Item>> getListSimpleModel(){
+        return List.copyOf(LIST_SIMPLE_ITEM_MODEL);
+    }
+
+    public static List<RegistryObject<Item>> getListSimpleBlock(){
+        return List.copyOf(LIST_SIMPLE_BLOCK);
+    }
+
+    public static RegistryObject<Item> registerMixc(String name, Supplier<? extends Item> sup,boolean simpleModel){
+        RegistryObject<Item> object = ITEMS.register(name,sup);
+        LIST_MIXC.add(object);
+        if (simpleModel){
+            LIST_SIMPLE_ITEM_MODEL.add(object);
+        }
+        return object;
+    }
+    public static RegistryObject<Item> registerMaterial(String name, Supplier<? extends Item> sup,boolean simpleModel){
+        RegistryObject<Item> object = ITEMS.register(name,sup);
+        LIST_MATERIAL.add(object);
+        if (simpleModel){
+            LIST_SIMPLE_ITEM_MODEL.add(object);
+        }
+        return object;
+    }
+    public static RegistryObject<Item> registerToolOrPart(String name, Supplier<? extends Item> sup){
+        RegistryObject<Item> object = ITEMS.register(name,sup);
+        LIST_TOOL.add(object);
+        return object;
+    }
+    public static RegistryObject<Item> registerSimpleBlockItem(RegistryObject<? extends Block> block){
+        RegistryObject<Item> object = ITEMS.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
+        LIST_SIMPLE_BLOCK.add(object);
+        return object;
+    }
+
+
+    public static final RegistryObject<Item> BISMUTHINITE_ORE = registerSimpleBlockItem(TiAcBlocks.BISMUTHINITE);
+    public static final RegistryObject<Item> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(TiAcBlocks.BISMUTHINITE_DEEPSLATE);
+
+    public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial("bismuth_ingot",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> BISMUTHINITE = registerMaterial("bismuthinite",()->new Item(new Item.Properties()),true);
+
+}

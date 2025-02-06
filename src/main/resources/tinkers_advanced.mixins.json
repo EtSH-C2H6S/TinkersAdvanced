@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.c2h6s.tinkers_advanced.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.7",
+  "refmap": "tinkers_advanced.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
