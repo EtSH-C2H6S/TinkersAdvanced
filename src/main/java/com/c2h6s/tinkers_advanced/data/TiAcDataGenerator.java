@@ -1,5 +1,5 @@
 package com.c2h6s.tinkers_advanced.data;
-
+/*
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.data.providers.TiAcItemModelProvider;
 import net.minecraft.core.HolderLookup;
@@ -25,3 +25,5 @@ public class TiAcDataGenerator {
 
     }
 }
+
+ */

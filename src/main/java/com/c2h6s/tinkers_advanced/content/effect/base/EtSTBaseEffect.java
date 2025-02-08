@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.content.effect;
+package com.c2h6s.tinkers_advanced.content.effect.base;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;

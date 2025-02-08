@@ -19,7 +19,7 @@ public class TiAcTabs {
                 }
             }).build());
     public static final RegistryObject<CreativeModeTab> BLOCK_TAB = CREATIVE_MODE_TABS.register("tiac_block", () -> CreativeModeTab.builder()
-            .icon(() -> TiAcItems.BISMUTH_INGOT.get().getDefaultInstance())
+            .icon(() -> TiAcItems.BISMUTHINITE_ORE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 for (RegistryObject<Item> object:TiAcItems.LIST_SIMPLE_BLOCK){
                     output.accept(object.get());

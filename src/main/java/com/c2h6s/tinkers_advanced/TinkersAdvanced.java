@@ -1,8 +1,7 @@
 package com.c2h6s.tinkers_advanced;
 
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
-import com.c2h6s.tinkers_advanced.registery.TiAcItems;
-import com.c2h6s.tinkers_advanced.registery.TiAcTabs;
+import com.c2h6s.tinkers_advanced.eventHandler.LivingEventHandler;
+import com.c2h6s.tinkers_advanced.registery.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -51,7 +50,12 @@ public class TinkersAdvanced
         TiAcItems.ITEMS.register(modEventBus);
         TiAcBlocks.BLOCKS.register(modEventBus);
         TiAcTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        TiAcEffects.EFFECTS.register(modEventBus);
+        TiAcFluids.FLUIDS.register(modEventBus);
+        TiAcModifiers.MODIFIERS.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new LivingEventHandler());
 
         modEventBus.addListener(this::addCreative);
 
@@ -72,8 +76,7 @@ public class TinkersAdvanced
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -83,9 +86,7 @@ public class TinkersAdvanced
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
         }
     }
 }

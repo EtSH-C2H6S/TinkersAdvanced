@@ -1,0 +1,47 @@
+{
+  "itemGroup.tinkers_advanced.tiac_material": "Tinkers' Advanced Materials",
+  "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced Blocks",
+
+
+
+  "modifier.tinkers_advanced.fragile": "Fragile",
+  "modifier.tinkers_advanced.fragile.flavor": "Fragile material is not long-lasting.",
+  "modifier.tinkers_advanced.fragile.description": "For each level increases 10% chance of drawing extra 1 durability when damaged.",
+
+  "modifier.tinkers_advanced.tetanus": "Tetanus",
+  "modifier.tinkers_advanced.tetanus.flavor": "Leaving scraps in your enemy's body.",
+  "modifier.tinkers_advanced.tetanus.description": "Inflicts tetanus effect to your enemy.\nSlightly reduce it's armor and make it take 20% more damage on hurt.",
+
+  "modifier.tinkers_advanced.anisotropy": "Anisotropy",
+  "modifier.tinkers_advanced.anisotropy.flavor": "Basic feature of mono-crystals.",
+  "modifier.tinkers_advanced.anisotropy.description": "Increase damage on full charge attack.Decrease damage otherwise.\nAffects damage greater on tools less damaged.With a maximum 25% effect each level.",
+
+
+
+  "material.tinkers_advanced.bismuth": "Bismuth",
+  "material.tinkers_advanced.bismuth.flavor": "Brittle silvery metal.",
+  "material.tinkers_advanced.bismuth.description": "Bismuth is known for the beautiful shape of bismuth crystal.",
+
+  "material.tinkers_advanced.bismuthinite": "Bismuthinite",
+  "material.tinkers_advanced.bismuthinite.flavor": "Dark needle-shaped crystals.",
+  "material.tinkers_advanced.bismuthinite.description": "Basic form of bismuth ore in the nature.",
+
+
+
+  "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
+  "item.tinkers_advanced.bismuthinite": "Bismuthinite",
+
+
+
+  "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
+  "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
+
+
+
+  "fluid.tinkers_advanced.molten_bismuth": "Molten Bismuth",
+  "item.tinkers_advanced.molten_bismuth_bucket": "Molten Bismuth Bucket",
+
+
+
+  "effect.tinkers_advanced.tetanus": "Tetanus"
+}

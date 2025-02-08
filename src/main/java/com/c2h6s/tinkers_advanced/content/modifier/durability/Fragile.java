@@ -15,3 +15,4 @@ public class Fragile extends EtSTBaseModifier {
         return amount;
     }
 }
+

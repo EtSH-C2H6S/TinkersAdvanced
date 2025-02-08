@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "fluid": "tinkers_advanced:molten_bismuth",
+    "amount": 90
+  },
+  "temperature": 780,
+  "output": "tinkers_advanced:bismuth"
+}

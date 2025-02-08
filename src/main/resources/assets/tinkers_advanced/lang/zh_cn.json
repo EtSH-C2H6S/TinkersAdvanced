@@ -1,0 +1,47 @@
+{
+  "itemGroup.tinkers_advanced.tiac_material": "Tinkers' Advanced 材料",
+  "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced 方块",
+
+
+
+  "modifier.tinkers_advanced.fragile": "脆性",
+  "modifier.tinkers_advanced.fragile.flavor": "脆的材料通常不是很耐用",
+  "modifier.tinkers_advanced.fragile.description": "工具磨损时每级增加10%的概率额外消耗1点耐久。",
+
+  "modifier.tinkers_advanced.tetanus": "破伤风",
+  "modifier.tinkers_advanced.tetanus.flavor": "把碎渣留在伤口里可不是好事。",
+  "modifier.tinkers_advanced.tetanus.description": "对敌人施加破伤风效果，略微降低防御并使其受到的伤害增加20%。",
+
+  "modifier.tinkers_advanced.anisotropy": "各向异性",
+  "modifier.tinkers_advanced.anisotropy.flavor": "单晶的基本特性之一",
+  "modifier.tinkers_advanced.anisotropy.description": "增加工具全力打击时的伤害，减少不全力打击时的伤害，工具耐久越满这个效果越明显。\n每级最大增加/减少25%伤害。",
+
+
+
+  "material.tinkers_advanced.bismuth": "铋",
+  "material.tinkers_advanced.bismuth.flavor": "银白色的脆金属。",
+  "material.tinkers_advanced.bismuth.description": "铋以其独特的晶体形态和泛着彩色光泽的氧化膜而闻名。",
+
+  "material.tinkers_advanced.bismuthinite": "辉铋",
+  "material.tinkers_advanced.bismuthinite.flavor": "黑色的柱状晶体。",
+  "material.tinkers_advanced.bismuthinite.description": "铋的主要矿物形态，主要成分是三硫化二铋。",
+
+
+
+  "item.tinkers_advanced.bismuth_ingot": "铋锭",
+  "item.tinkers_advanced.bismuthinite": "辉铋矿晶体",
+
+
+
+  "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
+  "block.tinkers_advanced.bismuthinite_ore_deepslate": "深层辉铋矿",
+
+
+
+  "fluid.tinkers_advanced.molten_bismuth": "熔融铋",
+  "item.tinkers_advanced.molten_bismuth_bucket": "熔融铋桶",
+
+
+
+  "effect.tinkers_advanced.tetanus": "破伤风"
+}

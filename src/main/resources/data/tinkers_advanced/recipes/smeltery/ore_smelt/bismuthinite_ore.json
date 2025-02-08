@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:ore_melting",
+  "byproducts": [
+    {
+      "amount": 180,
+      "rate": "metal",
+      "fluid": "tinkers_advanced:molten_bismuth"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ores/bismuthinite"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 1500,
+    "fluid": "tconstruct:seared_stone"
+  },
+  "temperature": 1000,
+  "time": 80
+}
