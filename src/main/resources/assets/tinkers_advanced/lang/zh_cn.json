@@ -12,10 +12,6 @@
   "modifier.tinkers_advanced.tetanus.flavor": "把碎渣留在伤口里可不是好事。",
   "modifier.tinkers_advanced.tetanus.description": "对敌人施加破伤风效果，略微降低防御并使其受到的伤害增加20%。",
 
-  "modifier.tinkers_advanced.anisotropy": "各向异性",
-  "modifier.tinkers_advanced.anisotropy.flavor": "单晶的基本特性之一",
-  "modifier.tinkers_advanced.anisotropy.description": "增加工具全力打击时的伤害，减少不全力打击时的伤害，工具耐久越满这个效果越明显。\n每级最大增加/减少25%伤害。",
-
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -25,6 +21,14 @@
   "material.tinkers_advanced.bismuthinite": "辉铋",
   "material.tinkers_advanced.bismuthinite.flavor": "黑色的柱状晶体。",
   "material.tinkers_advanced.bismuthinite.description": "铋的主要矿物形态，主要成分是三硫化二铋。",
+
+  "material.tinkers_advanced.certus_quartz": "赛特斯石英",
+  "material.tinkers_advanced.certus_quartz.flavor": "赛特斯石英",
+  "material.tinkers_advanced.certus_quartz.description": "来自外星的神秘白色晶体。",
+
+  "material.tinkers_advanced.fluix_crystal": "福鲁伊克斯",
+  "material.tinkers_advanced.fluix_crystal.flavor": "福鲁伊克斯",
+  "material.tinkers_advanced.fluix_crystal.description": "人工合成的紫色晶体。",
 
 
 

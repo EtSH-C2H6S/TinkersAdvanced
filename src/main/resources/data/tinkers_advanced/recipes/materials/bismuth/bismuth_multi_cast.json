@@ -5,7 +5,7 @@
   },
   "cast_consumed": false,
   "fluid": {
-    "name": "tinkers_advanced:molten_bismuth",
+    "fluid": "tinkers_advanced:molten_bismuth",
     "amount": 90
   },
   "result": "tinkers_advanced:bismuth_ingot",

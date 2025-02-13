@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced;
 
+import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
 import com.c2h6s.tinkers_advanced.eventHandler.LivingEventHandler;
 import com.c2h6s.tinkers_advanced.registery.*;
 import com.mojang.logging.LogUtils;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -32,7 +34,6 @@ import org.slf4j.Logger;
 
 import java.util.Random;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersAdvanced.MODID)
 public class TinkersAdvanced
 {
@@ -53,6 +54,7 @@ public class TinkersAdvanced
         TiAcEffects.EFFECTS.register(modEventBus);
         TiAcFluids.FLUIDS.register(modEventBus);
         TiAcModifiers.MODIFIERS.register(modEventBus);
+        TiAcEntities.ENTITIES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new LivingEventHandler());
@@ -67,12 +69,10 @@ public class TinkersAdvanced
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
@@ -87,6 +87,11 @@ public class TinkersAdvanced
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+        }
+
+        @SubscribeEvent
+        public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event){
+            event.registerEntityRenderer(TiAcEntities.PLASMA_EXPLOSION.get(), PlasmaExplosionRenderer::new);
         }
     }
 }

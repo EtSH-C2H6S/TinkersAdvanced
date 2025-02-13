@@ -2,11 +2,11 @@
   "default": [
     {
       "level": 1,
-      "name": "tinkers_advanced:anisotropy"
+      "name": "etstlib:anisotropy"
     },
     {
       "level": 1,
-      "name": "tconstruct:heavy"
+      "name": "tinkers_advanced:fragile"
     }
   ]
 }

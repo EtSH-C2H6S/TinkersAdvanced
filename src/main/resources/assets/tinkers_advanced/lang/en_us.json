@@ -12,10 +12,6 @@
   "modifier.tinkers_advanced.tetanus.flavor": "Leaving scraps in your enemy's body.",
   "modifier.tinkers_advanced.tetanus.description": "Inflicts tetanus effect to your enemy.\nSlightly reduce it's armor and make it take 20% more damage on hurt.",
 
-  "modifier.tinkers_advanced.anisotropy": "Anisotropy",
-  "modifier.tinkers_advanced.anisotropy.flavor": "Basic feature of mono-crystals.",
-  "modifier.tinkers_advanced.anisotropy.description": "Increase damage on full charge attack.Decrease damage otherwise.\nAffects damage greater on tools less damaged.With a maximum 25% effect each level.",
-
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -25,6 +21,14 @@
   "material.tinkers_advanced.bismuthinite": "Bismuthinite",
   "material.tinkers_advanced.bismuthinite.flavor": "Dark needle-shaped crystals.",
   "material.tinkers_advanced.bismuthinite.description": "Basic form of bismuth ore in the nature.",
+
+  "material.tinkers_advanced.certus_quartz": "Certus Quartz",
+  "material.tinkers_advanced.certus_quartz.flavor": "Certus Quartz",
+  "material.tinkers_advanced.certus_quartz.description": "Mysterious white crystal from the outer space.",
+
+  "material.tinkers_advanced.fluix_crystal": "Fluix",
+  "material.tinkers_advanced.fluix_crystal.flavor": "Fluix",
+  "material.tinkers_advanced.fluix_crystal.description": "Man-made crystals.",
 
 
 

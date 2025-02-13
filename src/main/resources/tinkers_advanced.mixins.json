@@ -2,7 +2,7 @@
   "required": true,
   "package": "com.c2h6s.tinkers_advanced.mixin",
   "compatibilityLevel": "JAVA_17",
-  "minVersion": "0.7",
+  "minVersion": "0.8",
   "refmap": "tinkers_advanced.refmap.json",
   "mixins": [
   ],

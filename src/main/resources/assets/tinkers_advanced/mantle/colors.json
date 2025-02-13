@@ -1,11 +1,12 @@
 {
   "modifier.tinkers_advanced": {
     "fragile": "#877E73",
-    "tetanus": "#B96666",
-    "anisotropy": "#ABD9EA"
+    "tetanus": "#B96666"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
-    "bismuthinite": "#474747"
+    "bismuthinite": "#474747",
+    "certus_quartz": "#b8d8fc",
+    "fluix_crystal": "#915dcd"
   }
 }
