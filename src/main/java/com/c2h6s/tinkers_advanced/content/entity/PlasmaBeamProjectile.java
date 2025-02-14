@@ -1,22 +1,57 @@
 package com.c2h6s.tinkers_advanced.content.entity;
 
 import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
+import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.util.AttackUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.NotNull;
+import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.List;
 
 public class PlasmaBeamProjectile extends VisualScaledProjectile {
+    public static final EntityDataAccessor<Float> DATA_LENGTH = SynchedEntityData.defineId(PlasmaBeamProjectile.class, EntityDataSerializers.FLOAT);
+    public static final EntityDataAccessor<Boolean> DATA_RENDER = SynchedEntityData.defineId(PlasmaBeamProjectile.class, EntityDataSerializers.BOOLEAN);
+    public ToolStack tool;
+    public FluidStack fluidStack;
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_LENGTH,0f);
+        this.entityData.define(DATA_RENDER,false);
+    }
+
+    public boolean readyToRender(){
+        return this.entityData.get(DATA_RENDER);
+    }
+
+    public void setDataLength(float amount){
+        this.entityData.set(DATA_LENGTH,amount);
+    }
+    public float getDataLength(){
+        return this.entityData.get(DATA_LENGTH);
+    }
+
     public PlasmaBeamProjectile(EntityType<? extends VisualScaledProjectile> pEntityType, Level pLevel, float scale) {
         super(pEntityType, pLevel);
         this.setScale(scale);
@@ -24,37 +59,38 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
     public PlasmaBeamProjectile(EntityType<? extends VisualScaledProjectile> pEntityType, Level pLevel) {
         this(pEntityType, pLevel,1);
     }
-
-    @Override
-    public @NotNull AABB getBoundingBoxForCulling() {
-        return this.getBoundingBox().inflate((this.getScale()-1)*0.25);
+    public PlasmaBeamProjectile(Level pLevel,float Scale) {
+        this(TiAcEntities.PLASMA_BEAM.get(), pLevel,Scale);
     }
 
     @Override
     public void tick() {
         if (!this.level().isClientSide) {
-            if (this.firstTick) {
+            if (this.firstTick&&this.getOwner() instanceof Player player) {
                 this.tickCount = 0;
-                double distance = this.getDeltaMovement().length();
-                Vec3 direction = this.getDeltaMovement().normalize();
+                Vec3 initialPos = new Vec3(this.getX(),this.getY(),this.getZ());
+                double distance =this.getDataLength();
                 float scale = this.getScale();
-                for (double i = 0; i <= distance; i += scale) {
-                    AABB aabb = this.getBoundingBox().inflate((scale - 1) * 0.25);
-                    Vec3 position = this.position();
-                    Vec3 movement = position.add(direction.scale(scale));
-                    HitResult hitresult = this.level().clip(new ClipContext(position, movement, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
-                    if (hitresult.getType() != HitResult.Type.MISS) {
-                        movement = hitresult.getLocation();
+                Vec3 direction = this.getDeltaMovement().normalize();
+                Vec3 step = direction.scale(scale*0.5);
+                this.setDeltaMovement(step);
+                for (double i = 0; i <= distance; i += scale*0.5) {
+                    Vec3 pos = this.position();
+                    Vec3 toPos = pos.add(step);
+                    HitResult hitresult = this.level().clip(new ClipContext(pos, toPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
+                    if (hitresult.getType() == HitResult.Type.MISS){
+                        hitresult =null;
                     }
-                    EntityHitResult entityhitresult = this.findHitEntity(position, movement);
-                    if (entityhitresult != null&&this.getOwner() instanceof Player player) {
-                        entityhitresult.getEntity().hurt(this.damageSources().playerAttack(player),this.baseDamage);
-                    }
-                    entityhitresult = this.findHitLivingEntity(position, movement);
+                    EntityHitResult entityhitresult = this.findHitEntity(pos, toPos);
+                    EntityHitResult livinghitresult = this.findHitLivingEntity(pos, toPos);
                     if (entityhitresult != null) {
-                        hitresult =entityhitresult;
+                        hitresult = entityhitresult;
                     }
-                    if (hitresult.getType() == HitResult.Type.ENTITY) {
+                    if (livinghitresult!=null){
+                        entityhitresult = livinghitresult;
+                        hitresult = livinghitresult;
+                    }
+                    if (hitresult!=null&&hitresult.getType() == HitResult.Type.ENTITY) {
                         Entity entity = null;
                         if (hitresult instanceof EntityHitResult) {
                             entity = ((EntityHitResult)hitresult).getEntity();
@@ -65,17 +101,61 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
                             entityhitresult = null;
                         }
                     }
+
+                    this.setPos(toPos);
+
+                    if (entityhitresult!=null&&entityhitresult.getType()!= HitResult.Type.MISS){
+                        AttackUtil.attackEntity(tool,player,player.getUsedItemHand(),entityhitresult.getEntity(),()->1,false,player.getUsedItemHand()== InteractionHand.MAIN_HAND? EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND,true,this.baseDamage,true);
+                    }
                     if (hitresult!=null){
+                        Vec3 path = this.position().subtract(initialPos);
                         PlasmaExplosionProjectile projectile = new PlasmaExplosionProjectile(this.level(),scale);
-                        projectile.setPos(hitresult.getLocation());
+                        projectile.fluidStack = this.fluidStack;
+                        projectile.setPos(this.position());
                         projectile.baseDamage =this.baseDamage/2;
                         projectile.setOwner(this.getOwner());
                         this.level().addFreshEntity(projectile);
+                        float length = (float) (path.length());
+                        this.setDataLength(length);
+                        Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
+                        if (player.getUsedItemHand()==InteractionHand.OFF_HAND){
+                            offset.reverse();
+                        }
+                        Vec3 newDirection = path.subtract(offset).normalize();
+                        this.setDeltaMovement(newDirection);
+                        this.setPos(initialPos.add(offset));
+                        this.xOld=this.getX();
+                        this.yOld=this.getY();
+                        this.zOld=this.getZ();
+                        this.entityData.set(DATA_RENDER,true);
+                        break;
                     }
-
+                    if (i>=distance-scale){
+                        Vec3 path = this.position().subtract(initialPos);
+                        PlasmaExplosionProjectile projectile = new PlasmaExplosionProjectile(this.level(),scale);
+                        projectile.fluidStack = this.fluidStack;
+                        projectile.baseDamage =this.baseDamage/2;
+                        projectile.setPos(this.position());
+                        projectile.setOwner(this.getOwner());
+                        this.level().addFreshEntity(projectile);
+                        float length = (float) (path.length());
+                        this.setDataLength(length);
+                        Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
+                        if (player.getUsedItemHand()==InteractionHand.OFF_HAND){
+                            offset.reverse();
+                        }
+                        Vec3 newDirection = path.subtract(offset).normalize();
+                        this.setDeltaMovement(newDirection);
+                        this.setPos(initialPos.add(offset));
+                        this.xOld=this.getX();
+                        this.yOld=this.getY();
+                        this.zOld=this.getZ();
+                        this.entityData.set(DATA_RENDER,true);
+                        break;
+                    }
                 }
-            } else tickCount++;
-            if (this.tickCount >= 3) {
+            }
+            if (this.tickCount >= 9) {
                 this.discard();
             }
         }
@@ -83,9 +163,10 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
     }
     @Nullable
     protected EntityHitResult findHitLivingEntity(Vec3 pStartVec, Vec3 pEndVec) {
-        return ProjectileUtil.getEntityHitResult(this.level(), this, pStartVec, pEndVec, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity)->(entity instanceof LivingEntity)&&entity.canBeHitByProjectile());
+        return ProjectileUtil.getEntityHitResult(this.level(), this, pStartVec, pEndVec, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity)->(entity instanceof LivingEntity)&&entity.canBeHitByProjectile()&&entity!=this.getOwner());
     }
     protected EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
-        return ProjectileUtil.getEntityHitResult(this.level(), this, pStartVec, pEndVec, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity)->!(entity instanceof LivingEntity)&&entity.canBeHitByProjectile());
+        return ProjectileUtil.getEntityHitResult(this.level(), this, pStartVec, pEndVec, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity)->!(entity instanceof LivingEntity)&&entity.canBeHitByProjectile()&&entity!=this.getOwner());
     }
+
 }

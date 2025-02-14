@@ -1,7 +1,8 @@
 {
   "modifier.tinkers_advanced": {
     "fragile": "#877E73",
-    "tetanus": "#B96666"
+    "tetanus": "#B96666",
+    "sculk_resonance": "#4BFFE2"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",

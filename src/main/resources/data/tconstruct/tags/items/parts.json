@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "etshtinker:fluid_chamber",
+    "etshtinker:ionizer",
+    "etshtinker:plasma_generator"
+  ]
+}

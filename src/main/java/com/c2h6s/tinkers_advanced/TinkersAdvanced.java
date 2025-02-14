@@ -1,7 +1,10 @@
 package com.c2h6s.tinkers_advanced;
 
+import com.c2h6s.tinkers_advanced.client.renderer.PlasmaBeamRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
+import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
 import com.c2h6s.tinkers_advanced.eventHandler.LivingEventHandler;
+import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.registery.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -31,6 +34,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import slimeknights.tconstruct.library.client.model.TinkerItemProperties;
 
 import java.util.Random;
 
@@ -49,12 +53,15 @@ public class TinkersAdvanced
         modEventBus.addListener(this::commonSetup);
 
         TiAcItems.ITEMS.register(modEventBus);
+        TiAcItems.TINKER_ITEMS.register(modEventBus);
         TiAcBlocks.BLOCKS.register(modEventBus);
         TiAcTabs.CREATIVE_MODE_TABS.register(modEventBus);
         TiAcEffects.EFFECTS.register(modEventBus);
         TiAcFluids.FLUIDS.register(modEventBus);
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
+
+        TiAcPacketHandler.init();
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new LivingEventHandler());
@@ -66,7 +73,6 @@ public class TinkersAdvanced
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
@@ -86,12 +92,16 @@ public class TinkersAdvanced
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            event.enqueueWork(()->{
+                TinkerItemProperties.registerBrokenProperty(TiAcItems.IONIZED_CANNON.get());
+                TinkerItemProperties.registerToolProperties(TiAcItems.IONIZED_CANNON.get());
+            });
         }
 
         @SubscribeEvent
         public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event){
             event.registerEntityRenderer(TiAcEntities.PLASMA_EXPLOSION.get(), PlasmaExplosionRenderer::new);
+            event.registerEntityRenderer(TiAcEntities.PLASMA_BEAM.get(), PlasmaBeamRenderer::new);
         }
     }
 }

@@ -1,0 +1,47 @@
+{
+  "icon": {
+    "item": "tinkers_advanced:ionized_cannon",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "input_slots": [
+    {
+      "filter": {
+        "item": "tinkers_advanced:ionize_chamber"
+      },
+      "icon": "tinkers_advanced:ionize_chamber",
+      "translation_key": "item.tinkers_advanced.ionize_chamber",
+      "x": 30,
+      "y": 44
+    },
+    {
+      "filter": {
+        "item": "tconstruct:broad_blade"
+      },
+      "icon": "tconstruct:broad_blade",
+      "translation_key": "item.tconstruct.broad_blade",
+      "x": 12,
+      "y": 26
+    },
+    {
+      "filter": {
+        "item": "tconstruct:broad_blade"
+      },
+      "icon": "tconstruct:broad_blade",
+      "translation_key": "item.tconstruct.broad_blade",
+      "x": 12,
+      "y": 44
+    },
+
+    {
+      "filter": {
+        "item": "tconstruct:tough_handle"
+      },
+      "icon": "tconstruct:tough_handle",
+      "translation_key": "item.tconstruct.tough_handle",
+      "x": 48,
+      "y": 62
+    }
+  ],
+  "sortIndex": 1,
+  "translation_key": "item.tinkers_advanced.ionized_cannon"
+}

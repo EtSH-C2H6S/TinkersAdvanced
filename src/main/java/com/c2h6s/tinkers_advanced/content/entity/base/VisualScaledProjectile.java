@@ -33,11 +33,13 @@ public class VisualScaledProjectile extends Projectile {
 
     @Override
     protected void readAdditionalSaveData(CompoundTag compoundTag) {
+        super.readAdditionalSaveData(compoundTag);
         this.setScale(compoundTag.getFloat(KEY_SCALE));
         this.baseDamage = compoundTag.getFloat(KEY_DAMAGE);
     }
     @Override
     protected void addAdditionalSaveData(CompoundTag compoundTag) {
+        super.addAdditionalSaveData(compoundTag);
         compoundTag.putFloat(KEY_SCALE,this.getScale());
         compoundTag.putFloat(KEY_DAMAGE,this.baseDamage);
     }

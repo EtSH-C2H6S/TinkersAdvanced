@@ -1,11 +1,17 @@
 package com.c2h6s.tinkers_advanced.registery;
 
+import com.c2h6s.tinkers_advanced.content.item.IonizedCannonItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import slimeknights.mantle.registration.object.ItemObject;
+import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
+import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +21,8 @@ import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
 
 public class TiAcItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+
+    public static final ItemDeferredRegisterExtension TINKER_ITEMS = new ItemDeferredRegisterExtension(MODID);
 
     protected static List<RegistryObject<Item>> LIST_MIXC=new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_MATERIAL=new ArrayList<>( List.of());
@@ -65,4 +73,7 @@ public class TiAcItems {
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial("bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTHINITE = registerMaterial("bismuthinite",()->new Item(new Item.Properties()),true);
 
+    public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
+
+    public static final ItemObject<ModifiableItem> IONIZED_CANNON = TINKER_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
 }

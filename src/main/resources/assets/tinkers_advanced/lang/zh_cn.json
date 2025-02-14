@@ -1,6 +1,7 @@
 {
-  "itemGroup.tinkers_advanced.tiac_material": "Tinkers' Advanced 材料",
-  "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced 方块",
+  "itemGroup.tinkers_advanced.tiac_material": "前沿匠艺 | 材料",
+  "itemGroup.tinkers_advanced.tiac_block": "前沿匠艺 | 方块",
+  "itemGroup.tinkers_advanced.tiac_tool": "前沿匠艺 | 工具&部件",
 
 
 
@@ -11,6 +12,10 @@
   "modifier.tinkers_advanced.tetanus": "破伤风",
   "modifier.tinkers_advanced.tetanus.flavor": "把碎渣留在伤口里可不是好事。",
   "modifier.tinkers_advanced.tetanus.description": "对敌人施加破伤风效果，略微降低防御并使其受到的伤害增加20%。",
+
+  "modifier.tinkers_advanced.sculk_resonance": "幽匿共鸣",
+  "modifier.tinkers_advanced.sculk_resonance.flavor": "嗡嗡嗡（震动声）",
+  "modifier.tinkers_advanced.sculk_resonance.description": "将工具造成的伤害转换为声波伤害。",
 
 
 

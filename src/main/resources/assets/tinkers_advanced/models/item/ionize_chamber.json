@@ -1,0 +1,7 @@
+{
+  "parent": "forge:item/default",
+  "loader": "tconstruct:material",
+  "textures": {
+    "texture": "tinkers_advanced:item/tool/part/ionize_chamber/ionize_chamber"
+  }
+}

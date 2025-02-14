@@ -1,0 +1,32 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "broad_blade_1":   "tinkers_advanced:item/tool/ionized_cannon/broad_blade_1",
+    "broad_blade_2": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_2",
+    "ionize_chamber":  "tinkers_advanced:item/tool/ionized_cannon/ionize_chamber",
+    "tough_collar": "tinkers_advanced:item/tool/ionized_cannon/tough_collar"
+  },
+  "modifier_roots": [ "tinkers_advanced:item/tool/ionized_cannon/modifiers/" ],
+  "parts": [
+    { "name": "ionize_chamber",  "index": 0 },
+    { "name": "broad_blade_1", "index": 1 },
+    { "name": "broad_blade_2",   "index": 2 },
+    { "name": "tough_collar",  "index": 3 }
+  ],
+  "first_modifiers": [{ "name": "tconstruct:tank", "forced": true }],
+  "overrides": [
+    {
+      "predicate": {"tconstruct:charge": 0.5 },
+      "model": "tinkers_advanced:item/tool/ionized_cannon/charge"
+    },
+    {
+      "predicate": {"tconstruct:charge": 1.0 },
+      "model": "tinkers_advanced:item/tool/ionized_cannon/full_charge"
+    },
+    {
+      "predicate": { "tconstruct:broken": 1 },
+      "model": "tinkers_advanced:item/tool/ionized_cannon/broken"
+    }
+  ]
+}
