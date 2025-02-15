@@ -1,11 +1,14 @@
 package com.c2h6s.tinkers_advanced.content.item;
 
+import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.TiAcToolDefinitions;
 import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -37,6 +40,7 @@ import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickM
 import slimeknights.tconstruct.library.tools.IndestructibleItemEntity;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
+import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
@@ -57,6 +61,7 @@ import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHel
 
 public class IonizedCannonItem extends ModifiableItem {
     private ItemStack toolForRendering;
+    public static final ResourceLocation TAG_SOUND = new ResourceLocation(TinkersAdvanced.MODID,"cannon_sound");
 
     public IonizedCannonItem(Properties properties) {
         super(properties, TiAcToolDefinitions.IONIZE_CANNON);
@@ -206,7 +211,7 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
-        return EntityInteractionModifierHook.leftClickEntity(stack, player, target);
+        return target.hurt(player.damageSources().playerAttack(player),1);
     }
 
     @Override
@@ -263,10 +268,22 @@ public class IonizedCannonItem extends ModifiableItem {
             return InteractionResultHolder.fail(stack);
         }
 
-        int drawTime = (int) (40/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
+        int drawTime = (int) (60/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
+        tool.getPersistentData().putBoolean(TAG_SOUND,true);
         player.startUsingItem(hand);
         return InteractionResultHolder.consume(stack);
+    }
+
+    @Override
+    public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
+        int chargeTime = this.getUseDuration(pStack)-pRemainingUseDuration;
+        ToolStack toolStack = ToolStack.from(pStack);
+        float charge = GeneralInteractionModifierHook.getToolCharge(toolStack,chargeTime);
+        if (charge>=0.5f&&toolStack.getPersistentData().getBoolean(TAG_SOUND)){
+            pLevel.playSound(null,pLivingEntity.getX(),pLivingEntity.getY(),pLivingEntity.getZ(), SoundEvents.WARDEN_SONIC_CHARGE,pLivingEntity.getSoundSource(),1,1);
+            toolStack.getPersistentData().remove(TAG_SOUND);
+        }
     }
 
     @Override
@@ -283,7 +300,7 @@ public class IonizedCannonItem extends ModifiableItem {
         }
         int chargeTime = this.getUseDuration(stack)-timeLeft;
         float charge = GeneralInteractionModifierHook.getToolCharge(tool, chargeTime);
-        if (charge<0.5f){
+        if (charge<0.45f){
             return;
         }
         boolean creative = player.getAbilities().instabuild;
@@ -291,20 +308,26 @@ public class IonizedCannonItem extends ModifiableItem {
         float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
         fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume =Math.round( Math.min(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid()):5)/fluidEfficiency),1));
+        int consume =Math.round( Math.max(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid())*0.5F:10)/fluidEfficiency),1));
         float baseRange;
         float baseScale;
         float baseDamage;
 
         baseRange = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.RANGE);
-        baseScale = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.SCALE);
-        baseDamage =ConditionalStatModifierHook.getModifiedStat(tool,living,ToolStats.ATTACK_DAMAGE);
-        baseDamage*=effect.hasEffects()?2:4;
-        baseRange+= (float) (player.getEntityReach()*2);
-        baseScale *=(1+ (float) tool.getModifierLevel(TinkerModifiers.expanded.get()));
-        baseScale*=charge;
+        baseRange += (float) (player.getEntityReach()*2);
 
-        PlasmaBeamProjectile projectile = new PlasmaBeamProjectile(level,1);
+        baseScale = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.SCALE);
+        baseScale *= (1+ (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2);
+        baseScale *= charge;
+
+        consume= (int) (consume*baseScale);
+
+        baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool,living,stack.getEquipmentSlot());
+        baseDamage *= effect.hasEntityEffects()?3:1;
+        baseDamage *= charge;
+
+
+        PlasmaBeamProjectile projectile = new PlasmaBeamProjectile(level,baseScale);
         Vec3 vec3 = living.getLookAngle();
         projectile.tool = tool;
         projectile.fluidStack = fluidStack;
@@ -312,7 +335,6 @@ public class IonizedCannonItem extends ModifiableItem {
         projectile.setOwner(living);
         projectile.setPos(new Vec3(living.getX(),living.getEyeY(),living.getZ()));
         projectile.setDataLength(baseRange);
-        projectile.setScale(baseScale);
         projectile.baseDamage = baseDamage;
         level.addFreshEntity(projectile);
         if (!creative){

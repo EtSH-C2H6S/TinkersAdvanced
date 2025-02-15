@@ -39,14 +39,14 @@ public class PlasmaBeamRenderer extends EntityRenderer<PlasmaBeamProjectile> {
         float distance = pEntity.getDataLength();
         if (distance>1&&pEntity.tickCount>2&&pEntity.readyToRender()) {
             pPoseStack.pushPose();
-
             Vec3 direction = pEntity.getDeltaMovement().normalize();
             double d0 = direction.horizontalDistance();
             float yRot = (float)(Mth.atan2(direction.x, direction.z) * 57.2957763671875);
             float xRot =  (float)(Mth.atan2(-direction.y, d0) * 57.2957763671875);
             pPoseStack.mulPose(Axis.YP.rotationDegrees(yRot));
             pPoseStack.mulPose(Axis.XP.rotationDegrees(xRot));
-            pPoseStack.scale(pEntity.getScale(), pEntity.getScale(), pEntity.getScale());
+            float scale = 0.5f+pEntity.getScale()*0.5f;
+            pPoseStack.scale(scale, scale,1);
             PoseStack.Pose pose = pPoseStack.last();
             Matrix4f poseMatrix = pose.pose();
             Matrix3f normalMatrix = pose.normal();

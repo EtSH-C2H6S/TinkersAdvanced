@@ -22,6 +22,7 @@ import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.NotNull;
+import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -101,6 +102,7 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
                             entityhitresult = null;
                         }
                     }
+                    if (hitresult != null && hitresult.getType() == HitResult.Type.BLOCK) toPos = this.position();
 
                     this.setPos(toPos);
 

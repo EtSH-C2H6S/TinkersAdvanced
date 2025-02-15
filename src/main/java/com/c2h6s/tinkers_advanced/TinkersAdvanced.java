@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaBeamRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
+import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.eventHandler.LivingEventHandler;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.registery.*;
@@ -35,6 +36,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 import slimeknights.tconstruct.library.client.model.TinkerItemProperties;
+import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
 
 import java.util.Random;
 
@@ -66,6 +68,8 @@ public class TinkersAdvanced
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new LivingEventHandler());
 
+
+
         modEventBus.addListener(this::addCreative);
 
         //context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -73,6 +77,7 @@ public class TinkersAdvanced
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        EntityModifierCapability.registerEntityPredicate(entity -> entity instanceof VisualScaledProjectile);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)

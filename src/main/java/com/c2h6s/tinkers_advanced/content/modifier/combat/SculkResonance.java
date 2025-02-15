@@ -12,6 +12,11 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 public class SculkResonance extends EtSTBaseModifier{
 
     @Override
+    public boolean isNoLevels() {
+        return true;
+    }
+
+    @Override
     public int getPriority() {
         return 1000;
     }

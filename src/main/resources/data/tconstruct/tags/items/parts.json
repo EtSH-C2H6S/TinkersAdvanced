@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "etshtinker:fluid_chamber",
-    "etshtinker:ionizer",
-    "etshtinker:plasma_generator"
+    "tinkers_advanced:ionize_chamber"
   ]
 }

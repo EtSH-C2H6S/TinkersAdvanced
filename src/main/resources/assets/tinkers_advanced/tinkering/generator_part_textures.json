@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {
+      "path": "tinkers_advanced:item/tool/part/ionize_chamber/ionize_chamber",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/tough_collar",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/ionize_chamber",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_2",
+      "stat_type": "tconstruct:head"
+    },
+
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/tough_collar",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/ionize_chamber",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/broad_blade_1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/broad_blade_2",
+      "stat_type": "tconstruct:head"
+    }
+  ],
+  "replace": false
+}

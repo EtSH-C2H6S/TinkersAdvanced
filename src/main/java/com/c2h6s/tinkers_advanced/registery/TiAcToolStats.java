@@ -21,6 +21,6 @@ public class TiAcToolStats {
     static {
         FLUID_EFFICIENCY = register(new FloatToolStat(name("fluid_efficiency"), -3135232, 1.0F, 0.0F, 64.0F));
         RANGE = register(new FloatToolStat(name("range"), -3135232, 8.0F, 0.0F, 64.0F));
-        SCALE = register(new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 64.0F));
+        SCALE = register(new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 4.0F));
     }
 }

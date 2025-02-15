@@ -52,5 +52,10 @@
 
 
 
-  "effect.tinkers_advanced.tetanus": "破伤风"
+  "effect.tinkers_advanced.tetanus": "破伤风",
+
+
+  "item.tinkers_advanced.ionize_chamber": "离子肼",
+  "item.tinkers_advanced.ionized_cannon": "等离子射线炮",
+  "item.tinkers_advanced.ionized_cannon.description": "等离子射线炮是一种中距离近战武器。经过长时间蓄力后消耗流体发射一道等离子束，击中目标后造成声波伤害并对一定范围内的敌人施加流体效果（类似于喷溅强化）。\n古代文明的高新科技（确信）"
 }

@@ -5,7 +5,7 @@
       "parts": [
         {
           "item": "tinkers_advanced:ionize_chamber",
-          "scale": 0.75
+          "scale": 1
         },
         {
           "item": "tconstruct:broad_blade",
@@ -50,15 +50,15 @@
     {
       "type": "tconstruct:base_stats",
       "stats": {
-        "tconstruct:attack_damage": 1.2,
-        "tconstruct:attack_speed": 0.8
+        "tconstruct:attack_damage": 3.0,
+        "tconstruct:attack_speed": 1.0
       }
     },
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
-        "tconstruct:attack_damage": 1.2,
-        "tconstruct:mining_speed": 0.0
+        "tconstruct:attack_damage": 1.5,
+        "tconstruct:attack_speed": 0.7
       }
     },
     {
