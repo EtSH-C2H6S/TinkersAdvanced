@@ -40,14 +40,8 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
 
     @Override
     protected AABB makeBoundingBox() {
-        return super.makeBoundingBox().move(new Vec3(0,-this.getBbHeight()/2,0));
+        return super.makeBoundingBox().move(new Vec3(0,-this.getBbHeight()/2,0)).inflate(this.getScale());
     }
-
-    @Override
-    public @NotNull AABB getBoundingBoxForCulling() {
-        return this.getBoundingBox().inflate((this.getScale()-1)*2);
-    }
-
     @Override
     public void tick() {
         if (this.firstTick){
@@ -68,8 +62,8 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
                             entity.invulnerableTime = 0;
                             FluidEffects effects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                             FluidEffectContext.Entity context = new FluidEffectContext.Entity(this.level(), player, this, entity);
-                            effects.applyToEntity(new FluidStack(fluidStack.getFluid(), 1000), 2f*this.getScale(), context, IFluidHandler.FluidAction.EXECUTE);
-                        } else entity.hurt(this.damageSources().mobProjectile(this, player), 2);
+                            effects.applyToEntity(new FluidStack(fluidStack.getFluid(), 1000), baseDamage/2, context, IFluidHandler.FluidAction.EXECUTE);
+                        } else entity.hurt(this.damageSources().mobProjectile(this, player), baseDamage/4);
                     }
                 }
             }

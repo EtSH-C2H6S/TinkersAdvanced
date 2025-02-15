@@ -58,5 +58,8 @@
 
   "item.tinkers_advanced.ionize_chamber": "Ion Chamber",
   "item.tinkers_advanced.ionized_cannon": "Ionized Cannon",
-  "item.tinkers_advanced.ionized_cannon.description": "Ionized Cannon is a middle-ranged melee weapon that consume fluid to attack.Shoots plasma ray that deals sonic damage after charging.Cast fluid effects to nearby targets on hit (Effects similar to spilling modifier)."
+  "item.tinkers_advanced.ionized_cannon.description": "Ionized Cannon is a middle-ranged melee weapon that consume fluid to attack.Shoots plasma ray that deals sonic damage after charging.Cast fluid effects to nearby targets on hit (Effects similar to spilling modifier).",
+  "tooltip.tinkers_advanced.fluid_consumption": "Fluid Drain",
+  "tooltip.tinkers_advanced.range": "Attack Range",
+  "tooltip.tinkers_advanced.scale": "Effect Range"
 }

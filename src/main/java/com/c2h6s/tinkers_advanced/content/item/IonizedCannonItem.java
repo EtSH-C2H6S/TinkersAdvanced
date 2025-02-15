@@ -7,6 +7,7 @@ import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
@@ -21,6 +22,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
@@ -28,6 +30,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.FluidStack;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectManager;
 import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
@@ -53,6 +56,7 @@ import slimeknights.tconstruct.tools.modifiers.ability.interaction.BlockingModif
 import slimeknights.tconstruct.tools.modifiers.upgrades.ranged.ScopeModifier;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -268,7 +272,7 @@ public class IonizedCannonItem extends ModifiableItem {
             return InteractionResultHolder.fail(stack);
         }
 
-        int drawTime = (int) (60/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
+        int drawTime = (int) (80/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
         tool.getPersistentData().putBoolean(TAG_SOUND,true);
         player.startUsingItem(hand);
@@ -320,10 +324,10 @@ public class IonizedCannonItem extends ModifiableItem {
         baseScale *= (1+ (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2);
         baseScale *= charge;
 
-        consume= (int) (consume*baseScale);
+        consume= (int) (consume*(1+baseScale*0.5));
 
-        baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool,living,stack.getEquipmentSlot());
-        baseDamage *= effect.hasEntityEffects()?3:1;
+        baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool,living,player.getUsedItemHand()==InteractionHand.MAIN_HAND?EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND);
+        baseDamage *= effect.hasEntityEffects()?4:1;
         baseDamage *= charge;
 
 
@@ -336,6 +340,7 @@ public class IonizedCannonItem extends ModifiableItem {
         projectile.setPos(new Vec3(living.getX(),living.getEyeY(),living.getZ()));
         projectile.setDataLength(baseRange);
         projectile.baseDamage = baseDamage;
+        projectile.OffHand = player.getUsedItemHand()==InteractionHand.OFF_HAND;
         level.addFreshEntity(projectile);
         if (!creative){
             fluidStack.shrink(consume);
@@ -346,4 +351,26 @@ public class IonizedCannonItem extends ModifiableItem {
         player.awardStat(Stats.ITEM_USED.get(this));
     }
 
+    @Override
+    public List<Component> getStatInformation(IToolStackView tool, @org.jetbrains.annotations.Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
+        FluidStack fluidStack = TANK_HELPER.getFluid(tool);
+        float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
+        fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
+        FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+        int consume =Math.round( Math.max(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid())*0.5F:10)/fluidEfficiency),1));
+        float baseRange;
+        float baseScale;
+        baseRange = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.RANGE);
+        baseRange += (float) (player.getEntityReach()*2);
+
+        baseScale = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.SCALE);
+        baseScale *= (1+ (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2);
+
+        consume= (int) (consume*(1+baseScale*0.5));
+
+        tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4"+consume+" mB"));
+        tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : §e"+baseRange));
+        tooltips.add(Component.translatable("tooltip.tinkers_advanced.scale").append(" : §a"+baseScale));
+        return super.getStatInformation(tool, player, tooltips, key, tooltipFlag);
+    }
 }

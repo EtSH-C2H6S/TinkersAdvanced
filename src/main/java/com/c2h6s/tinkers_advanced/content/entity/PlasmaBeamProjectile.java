@@ -35,6 +35,7 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
     public static final EntityDataAccessor<Boolean> DATA_RENDER = SynchedEntityData.defineId(PlasmaBeamProjectile.class, EntityDataSerializers.BOOLEAN);
     public ToolStack tool;
     public FluidStack fluidStack;
+    public boolean OffHand;
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
@@ -120,8 +121,8 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
                         float length = (float) (path.length());
                         this.setDataLength(length);
                         Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
-                        if (player.getUsedItemHand()==InteractionHand.OFF_HAND){
-                            offset.reverse();
+                        if (OffHand){
+                            offset = offset.reverse();
                         }
                         Vec3 newDirection = path.subtract(offset).normalize();
                         this.setDeltaMovement(newDirection);
@@ -143,8 +144,8 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
                         float length = (float) (path.length());
                         this.setDataLength(length);
                         Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
-                        if (player.getUsedItemHand()==InteractionHand.OFF_HAND){
-                            offset.reverse();
+                        if (OffHand){
+                            offset = offset.reverse();
                         }
                         Vec3 newDirection = path.subtract(offset).normalize();
                         this.setDeltaMovement(newDirection);
