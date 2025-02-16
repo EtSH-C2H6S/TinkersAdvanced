@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced.content.item;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.TiAcToolDefinitions;
+import com.c2h6s.tinkers_advanced.registery.TiAcModifiers;
 import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -274,7 +275,9 @@ public class IonizedCannonItem extends ModifiableItem {
 
         int drawTime = (int) (80/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
-        tool.getPersistentData().putBoolean(TAG_SOUND,true);
+        if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())<=0) {
+            tool.getPersistentData().putBoolean(TAG_SOUND, true);
+        }
         player.startUsingItem(hand);
         return InteractionResultHolder.consume(stack);
     }
@@ -287,6 +290,9 @@ public class IonizedCannonItem extends ModifiableItem {
         if (charge>=0.5f&&toolStack.getPersistentData().getBoolean(TAG_SOUND)){
             pLevel.playSound(null,pLivingEntity.getX(),pLivingEntity.getY(),pLivingEntity.getZ(), SoundEvents.WARDEN_SONIC_CHARGE,pLivingEntity.getSoundSource(),1,1);
             toolStack.getPersistentData().remove(TAG_SOUND);
+        }
+        if (charge==1.0f&&toolStack.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())>0){
+            pLivingEntity.releaseUsingItem();
         }
     }
 
@@ -312,7 +318,7 @@ public class IonizedCannonItem extends ModifiableItem {
         float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
         fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume =Math.round( Math.max(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid())*0.5F:10)/fluidEfficiency),1));
+        int consume =Math.round( Math.max(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid())*0.5F:50)/fluidEfficiency),1));
         float baseRange;
         float baseScale;
         float baseDamage;
@@ -321,13 +327,13 @@ public class IonizedCannonItem extends ModifiableItem {
         baseRange += (float) (player.getEntityReach()*2);
 
         baseScale = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.SCALE);
-        baseScale *= (1+ (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2);
+        baseScale += (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2;
         baseScale *= charge;
 
         consume= (int) (consume*(1+baseScale*0.5));
 
         baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool,living,player.getUsedItemHand()==InteractionHand.MAIN_HAND?EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND);
-        baseDamage *= effect.hasEntityEffects()?4:1;
+        baseDamage *= effect.hasEntityEffects()?3:1;
         baseDamage *= charge;
 
 
@@ -353,24 +359,26 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public List<Component> getStatInformation(IToolStackView tool, @org.jetbrains.annotations.Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
-        FluidStack fluidStack = TANK_HELPER.getFluid(tool);
-        float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
-        fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
-        FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume =Math.round( Math.max(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid())*0.5F:10)/fluidEfficiency),1));
-        float baseRange;
-        float baseScale;
-        baseRange = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.RANGE);
-        baseRange += (float) (player.getEntityReach()*2);
+        if (player != null) {
+            FluidStack fluidStack = TANK_HELPER.getFluid(tool);
+            float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
+            fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
+            FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+            int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) / fluidEfficiency), 1));
+            float baseRange;
+            float baseScale;
+            baseRange = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.RANGE);
+            baseRange += (float) (player.getEntityReach() * 2);
 
-        baseScale = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.SCALE);
-        baseScale *= (1+ (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2);
+            baseScale = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.SCALE);
+            baseScale += (float) tool.getModifierLevel(TinkerModifiers.expanded.get()) / 2;
 
-        consume= (int) (consume*(1+baseScale*0.5));
+            consume = (int) (consume * (1 + baseScale * 0.5));
 
-        tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4"+consume+" mB"));
-        tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : §e"+baseRange));
-        tooltips.add(Component.translatable("tooltip.tinkers_advanced.scale").append(" : §a"+baseScale));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4" + consume + " mB"));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : §e" + baseRange));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.scale").append(" : §a" + baseScale));
+        }
         return super.getStatInformation(tool, player, tooltips, key, tooltipFlag);
     }
 }

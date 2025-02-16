@@ -52,27 +52,30 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
         }
         super.tick();
         if (this.tickCount ==7&&this.getOwner() instanceof Player player&&!this.level().isClientSide){
+            float scale = this.getScale();
+            float damageScale = 1+scale/4f;
             List<Entity> list = this.level().getEntitiesOfClass(Entity.class,this.getBoundingBoxForCulling());
             if (!list.isEmpty()){
                 for (Entity entity:list){
                     if (entity!=this.getOwner()) {
+                        boolean b = entity instanceof Player player1 && !player1.canHarmPlayer(player);
                         if (!(entity instanceof LivingEntity)) {
                             entity.hurt(this.damageSources().playerAttack(player), 2);
-                        } else if (this.fluidStack != null && FluidEffectManager.INSTANCE.find(fluidStack.getFluid()).hasEntityEffects()) {
+                        } else if (this.fluidStack != null && FluidEffectManager.INSTANCE.find(fluidStack.getFluid()).hasEntityEffects()&&!b) {
                             entity.invulnerableTime = 0;
                             FluidEffects effects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                             FluidEffectContext.Entity context = new FluidEffectContext.Entity(this.level(), player, this, entity);
-                            effects.applyToEntity(new FluidStack(fluidStack.getFluid(), 1000), baseDamage/2, context, IFluidHandler.FluidAction.EXECUTE);
-                        } else entity.hurt(this.damageSources().mobProjectile(this, player), baseDamage/4);
+                            effects.applyToEntity(new FluidStack(fluidStack.getFluid(), 1000), baseDamage*damageScale*0.25f, context, IFluidHandler.FluidAction.EXECUTE);
+                        } else entity.hurt(this.damageSources().mobProjectile(this, player), baseDamage/8);
                     }
                 }
             }
             if (this.level() instanceof ServerLevel serverLevel){
-                if (this.getScale()>2) {
+                if (scale>=2) {
                     serverLevel.sendParticles(ParticleTypes.FLASH, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0);
                 }
-                serverLevel.sendParticles(ParticleTypes.FIREWORK,this.getX(),this.getY(),this.getZ(),(int)( 12*this.getScale()),0.05*this.getScale(),0.05*this.getScale(),0.05*this.getScale(),this.getScale()*0.2F);
-                serverLevel.playSeededSound(null,this.getX(),this.getY(),this.getZ(), SoundEvents.WARDEN_SONIC_BOOM, SoundSource.PLAYERS,1,1, TinkersAdvanced.RANDOM.nextLong());
+                serverLevel.sendParticles(ParticleTypes.FIREWORK,this.getX(),this.getY(),this.getZ(),(int)( 12*scale),0.05*scale,0.05*scale,0.05*scale,scale*0.2F);
+                serverLevel.playSeededSound(null,this.getX(),this.getY(),this.getZ(), SoundEvents.WARDEN_SONIC_BOOM, SoundSource.PLAYERS,scale*0.5f,1, TinkersAdvanced.RANDOM.nextLong());
             }
         }
     }
