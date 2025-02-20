@@ -2,7 +2,7 @@
   "type": "tconstruct:ore_melting",
   "byproducts": [
     {
-      "amount": 90,
+      "amount": 30,
       "rate": "metal",
       "fluid": "tinkers_advanced:molten_bismuth"
     }

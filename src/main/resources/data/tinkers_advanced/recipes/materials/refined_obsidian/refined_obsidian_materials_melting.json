@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/refined_obsidian"
+      }
+    }
+  ],
+  "type": "tconstruct:material_melting",
+  "input": "tinkers_advanced:refined_obsidian",
+  "temperature": 1475,
+  "result": {
+    "fluid": "tconstruct:molten_refined_obsidian",
+    "amount": 90
+  }
+}

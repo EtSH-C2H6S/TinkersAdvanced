@@ -2,12 +2,19 @@
   "modifier.tinkers_advanced": {
     "fragile": "#877E73",
     "tetanus": "#B96666",
-    "sculk_resonance": "#4BFFE2"
+    "sculk_resonance": "#4BFFE2",
+    "auto_shot": "#CDA6FF",
+    "annihilate": "#FF3D3D",
+    "reactive_explosive_armor": "#FFC365"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
     "bismuthinite": "#474747",
     "certus_quartz": "#b8d8fc",
-    "fluix_crystal": "#915dcd"
+    "fluix_crystal": "#915dcd",
+    "alloy_atomic": "#b8d8fc",
+    "antimatter": "#915dcd",
+    "refined_glowstone": "#FEFF8C",
+    "refined_obsidian": "#391375"
   }
 }

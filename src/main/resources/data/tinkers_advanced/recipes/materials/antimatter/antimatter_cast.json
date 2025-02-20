@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:pellets/antimatter"
+      }
+    }
+  ],
+  "type": "tconstruct:casting_table",
+  "fluid": {
+    "fluid": "tinkers_advanced:molten_antimatter",
+    "amount": 250
+  },
+  "result": {
+    "tag": "forge:pellets/antimatter"
+  },
+  "cooling_time": 40
+}

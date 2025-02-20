@@ -1,0 +1,16 @@
+{
+  "entity_effects": [
+    {
+      "type": "tconstruct:damage",
+      "damage": 10.0,
+      "damage_type": {
+        "melee": "minecraft:explosion",
+        "ranged": "minecraft:explosion"
+      }
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "tag": "forge:molten_antimatter"
+  }
+}

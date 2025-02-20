@@ -15,6 +15,8 @@ public class TiAcFluids {
     public static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
 
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_BISMUTH = FLUIDS.register("molten_bismuth").type(hot("molten_bismuth")).bucket().block(createBurning(MapColor.COLOR_GRAY,1,4,0.5f)).commonTag().flowing();
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMATTER = FLUIDS.register("molten_antimatter").type(hot("molten_antimatter")).bucket().block(createBurning(MapColor.COLOR_GRAY,15,16384,15f)).commonTag().flowing();
+
 
     private static FluidType.Properties hot(String name) {
         return FluidType.Properties.create().density(2000).viscosity(10000).temperature(1000)

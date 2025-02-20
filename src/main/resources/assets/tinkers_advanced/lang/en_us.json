@@ -17,23 +17,56 @@
   "modifier.tinkers_advanced.sculk_resonance.flavor": "*Humming noise...",
   "modifier.tinkers_advanced.sculk_resonance.description": "Translate damage dealt into sonic boom.",
 
+  "modifier.tinkers_advanced.auto_shot": "Auto Shot",
+  "modifier.tinkers_advanced.auto_shot.flavor": "Auto Shot",
+  "modifier.tinkers_advanced.auto_shot.description": "Enable auto-shot when full charge on ionized cannon.",
+
+  "modifier.tinkers_advanced.annihilate": "Annihilate",
+  "modifier.tinkers_advanced.annihilate.flavor": "Not event a dust.",
+  "modifier.tinkers_advanced.annihilate.description": "Deal explosion damage to both you and targets in a range.\nMake your attack bypasses most of vanilla defense approach.",
+
+  "modifier.tinkers_advanced.reactive_explosive_armor": "Reactive Explosive Armor",
+  "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "Reactive Explosive Armor",
+  "modifier.tinkers_advanced.reactive_explosive_armor.description": "Blocks 25% damage taken and release them in the form of explosion.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
-  "material.tinkers_advanced.bismuth.flavor": "Brittle silvery metal.",
-  "material.tinkers_advanced.bismuth.description": "Bismuth is known for the beautiful shape of bismuth crystal.",
+  "material.tinkers_advanced.bismuth.flavor": "Bismuth is known for the beautiful shape of bismuth crystal.",
+  "material.tinkers_advanced.bismuth.encyclopedia": "Each levels of tetanus reduces 2 armor.",
+  "material.tinkers_advanced.bismuth.ranged": "Each levels of tetanus reduces 2 armor.",
+  "material.tinkers_advanced.bismuth.armor": "Each levels of tetanus reduces 2 armor.",
 
   "material.tinkers_advanced.bismuthinite": "Bismuthinite",
-  "material.tinkers_advanced.bismuthinite.flavor": "Dark needle-shaped crystals.",
-  "material.tinkers_advanced.bismuthinite.description": "Basic form of bismuth ore in the nature.",
+  "material.tinkers_advanced.bismuthinite.flavor": "Basic form of bismuth ore in the nature.",
+  "material.tinkers_advanced.bismuthinite.encyclopedia": "Increase/decrease 20% damage on full durability.",
+  "material.tinkers_advanced.bismuthinite.ranged": "Increase/decrease 10% damage on full durability.",
+  "material.tinkers_advanced.bismuthinite.armor": "Reduce 20% damage when below 5,otherwise increase 10%,after armor value is calculated.",
 
   "material.tinkers_advanced.certus_quartz": "Certus Quartz",
-  "material.tinkers_advanced.certus_quartz.flavor": "Certus Quartz",
-  "material.tinkers_advanced.certus_quartz.description": "Mysterious white crystal from the outer space.",
+  "material.tinkers_advanced.certus_quartz.flavor": "Mysterious white crystal from the outer space.",
+  "material.tinkers_advanced.certus_quartz.encyclopedia": "Increase/decrease 20% damage on full durability.",
+  "material.tinkers_advanced.certus_quartz.ranged": "Increase/decrease 10% damage on full durability.",
+  "material.tinkers_advanced.certus_quartz.armor": "Reduce 20% damage when below 5,otherwise increase 10%,after armor value is calculated.",
 
   "material.tinkers_advanced.fluix_crystal": "Fluix",
-  "material.tinkers_advanced.fluix_crystal.flavor": "Fluix",
-  "material.tinkers_advanced.fluix_crystal.description": "Man-made crystals.",
+  "material.tinkers_advanced.fluix_crystal.flavor": "Man-made crystals.",
+  "material.tinkers_advanced.fluix_crystal.encyclopedia": "Deals 3 + modifier's level of magic damage.Each durability loss requires 25 AE to fix.Fix faster with higher modifier level.",
+  "material.tinkers_advanced.fluix_crystal.ranged": "Deals 3 + modifier's level of magic damage.Each durability loss requires 25 AE to fix.Fix faster with higher modifier level.",
+  "material.tinkers_advanced.fluix_crystal.armor": "Deals 3 + modifier's level of magic damage.Each durability loss requires 25 AE to fix.Fix faster with higher modifier level.",
+
+  "material.tinkers_advanced.alloy_atomic": "Atomic Alloy",
+  "material.tinkers_advanced.alloy_atomic.flavor": "Atomic-grade technology",
+
+  "material.tinkers_advanced.antimatter": "Antimatter",
+  "material.tinkers_advanced.antimatter.flavor": "It's funny to see how antimatter can be safely put into a smeltery.",
+
+  "material.tinkers_advanced.refined_obsidian": "Refined Obsidian",
+  "material.tinkers_advanced.refined_obsidian.flavor": "Dense,strong and durable.",
+  "material.tinkers_advanced.refined_obsidian.encyclopedia": "Boosts 5% attack speed per level on use,with a maximum 50% each level.",
+
+  "material.tinkers_advanced.refined_glowstone": "Refined Glowstone",
+  "material.tinkers_advanced.refined_glowstone.flavor": "Glowing shiny treasures.",
 
 
 
@@ -49,6 +82,9 @@
 
   "fluid.tinkers_advanced.molten_bismuth": "Molten Bismuth",
   "item.tinkers_advanced.molten_bismuth_bucket": "Molten Bismuth Bucket",
+
+  "fluid.tinkers_advanced.molten_antimatter": "Molten Antimatter",
+  "item.tinkers_advanced.molten_antimatter_bucket": "Molten Antimatter Bucket",
 
 
 

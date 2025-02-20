@@ -1,0 +1,20 @@
+{
+  "perStat": {
+    "tconstruct:melee_harvest": [
+      {
+        "name": "etstlib:glowing",
+        "level": 1
+      }
+    ],
+    "tconstruct:armor": [
+      {
+        "name": "etstlib:glowing",
+        "level": 1
+      },
+      {
+        "name": "tconstruct:golden",
+        "level": 1
+      }
+    ]
+  }
+}

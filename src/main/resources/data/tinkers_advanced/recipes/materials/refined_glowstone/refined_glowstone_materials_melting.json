@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/refined_glowstone"
+      }
+    }
+  ],
+  "type": "tconstruct:material_melting",
+  "input": "tinkers_advanced:refined_glowstone",
+  "temperature": 825,
+  "result": {
+    "fluid": "tconstruct:molten_refined_glowstone",
+    "amount": 90
+  }
+}

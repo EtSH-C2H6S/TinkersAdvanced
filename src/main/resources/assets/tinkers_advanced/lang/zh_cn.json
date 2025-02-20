@@ -17,23 +17,56 @@
   "modifier.tinkers_advanced.sculk_resonance.flavor": "嗡嗡嗡（震动声）",
   "modifier.tinkers_advanced.sculk_resonance.description": "将工具造成的伤害转换为声波伤害。",
 
+  "modifier.tinkers_advanced.auto_shot": "自动开火",
+  "modifier.tinkers_advanced.auto_shot.flavor": "自动开火",
+  "modifier.tinkers_advanced.auto_shot.description": "让你的离子化射线炮在满蓄力时自动开火",
+
+  "modifier.tinkers_advanced.annihilate": "湮灭反应",
+  "modifier.tinkers_advanced.annihilate.flavor": "灰都不剩！",
+  "modifier.tinkers_advanced.annihilate.description": "对你和目标同时造成等额爆炸伤害，随后造成不破坏地形的爆炸。\n你的攻击无视大部分原版防御手段。",
+
+  "modifier.tinkers_advanced.reactive_explosive_armor": "爆炸反应装甲",
+  "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "爆炸反应装甲",
+  "modifier.tinkers_advanced.reactive_explosive_armor.description": "减少25%所受伤害并将伤害以爆炸的形式释放。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
-  "material.tinkers_advanced.bismuth.flavor": "银白色的脆金属。",
-  "material.tinkers_advanced.bismuth.description": "铋以其独特的晶体形态和泛着彩色光泽的氧化膜而闻名。",
+  "material.tinkers_advanced.bismuth.flavor": "铋以其独特的晶体形态和泛着彩色光泽的氧化膜而闻名。",
+  "material.tinkers_advanced.bismuth.encyclopedia": "每级破伤风减少2点护甲。",
+  "material.tinkers_advanced.bismuth.ranged": "每级破伤风减少2点护甲。",
+  "material.tinkers_advanced.bismuth.armor": "每级破伤风减少2点护甲。",
 
   "material.tinkers_advanced.bismuthinite": "辉铋",
-  "material.tinkers_advanced.bismuthinite.flavor": "黑色的柱状晶体。",
-  "material.tinkers_advanced.bismuthinite.description": "铋的主要矿物形态，主要成分是三硫化二铋。",
+  "material.tinkers_advanced.bismuthinite.flavor": "铋的主要矿物形态，主要成分是三硫化二铋。",
+  "material.tinkers_advanced.bismuthinite.encyclopedia": "满耐久时，每级最大增加20%全力打击伤害，降低20%不全力打击伤害。",
+  "material.tinkers_advanced.bismuthinite.ranged": "满耐久时，每级最大增加10%满蓄力箭矢伤害，降低10%不满蓄力箭矢伤害。",
+  "material.tinkers_advanced.bismuthinite.armor": "受到伤害小于5点时减伤20%，否则增伤10%，计算于护甲减伤之后。",
 
   "material.tinkers_advanced.certus_quartz": "赛特斯石英",
-  "material.tinkers_advanced.certus_quartz.flavor": "赛特斯石英",
-  "material.tinkers_advanced.certus_quartz.description": "来自外星的神秘白色晶体。",
+  "material.tinkers_advanced.certus_quartz.flavor": "来自外星的神秘晶体",
+  "material.tinkers_advanced.certus_quartz.encyclopedia": "满耐久时，每级最大增加20%全力打击伤害，降低20%不全力打击伤害。",
+  "material.tinkers_advanced.certus_quartz.ranged": "满耐久时，每级最大增加10%满蓄力箭矢伤害，降低10%不满蓄力箭矢伤害。",
+  "material.tinkers_advanced.certus_quartz.armor": "受到伤害小于5点时减伤20%，否则增伤10%，计算于护甲减伤之后。",
 
   "material.tinkers_advanced.fluix_crystal": "福鲁伊克斯",
-  "material.tinkers_advanced.fluix_crystal.flavor": "福鲁伊克斯",
-  "material.tinkers_advanced.fluix_crystal.description": "人工合成的紫色晶体。",
+  "material.tinkers_advanced.fluix_crystal.flavor": "人工合成的不那么神秘的晶体",
+  "material.tinkers_advanced.fluix_crystal.encyclopedia": "造成3+属性等级的魔法伤害。每点耐久需要25AE修复，等级越高修复越快。",
+  "material.tinkers_advanced.fluix_crystal.ranged": "造成3+属性等级的魔法伤害。每点耐久需要25AE修复，等级越高修复越快。",
+  "material.tinkers_advanced.fluix_crystal.armor": "造成3+属性等级的魔法伤害。每点耐久需要25AE修复，等级越高修复越快。",
+
+  "material.tinkers_advanced.alloy_atomic": "原子合金",
+  "material.tinkers_advanced.alloy_atomic.flavor": "100%保真原子级工艺！",
+
+  "material.tinkers_advanced.antimatter": "反物质",
+  "material.tinkers_advanced.antimatter.flavor": "匠魂特色：装在冶炼炉里的反物质",
+
+  "material.tinkers_advanced.refined_obsidian": "强化黑曜石",
+  "material.tinkers_advanced.refined_obsidian.flavor": "致密、坚固且耐用",
+  "material.tinkers_advanced.refined_obsidian.encyclopedia": "每次攻击增加每级5%攻速，最大每级50%。攻速增益每级每秒减少2%。",
+
+  "material.tinkers_advanced.refined_glowstone": "强化荧石",
+  "material.tinkers_advanced.refined_glowstone.flavor": "不是金子也会发光！",
 
 
 
@@ -49,6 +82,9 @@
 
   "fluid.tinkers_advanced.molten_bismuth": "熔融铋",
   "item.tinkers_advanced.molten_bismuth_bucket": "熔融铋桶",
+
+  "fluid.tinkers_advanced.molten_antimatter": "熔融反物质",
+  "item.tinkers_advanced.molten_antimatter_bucket": "熔融反物质桶",
 
 
 

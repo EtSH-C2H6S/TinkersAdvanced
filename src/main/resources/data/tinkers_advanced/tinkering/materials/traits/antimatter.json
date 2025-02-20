@@ -1,0 +1,20 @@
+{
+  "perStat": {
+    "tconstruct:melee_harvest": [
+      {
+        "name": "tinkers_advanced:annihilate",
+        "level": 1
+      },
+      {
+        "name": "etstlib:atomic_decompose",
+        "level": 1
+      }
+    ],
+    "tconstruct:armor": [
+      {
+        "name": "tinkers_advanced:reactive_explosive_armor",
+        "level": 1
+      }
+    ]
+  }
+}
