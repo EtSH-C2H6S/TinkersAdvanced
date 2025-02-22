@@ -5,7 +5,14 @@
     "sculk_resonance": "#4BFFE2",
     "auto_shot": "#CDA6FF",
     "annihilate": "#FF3D3D",
-    "reactive_explosive_armor": "#FFC365"
+    "reactive_explosive_armor": "#FFC365",
+
+    "atom_grade": "#A561C7",
+    "edging_technology": "#F3C7FF",
+    "quantum_technology": "#9FBDFF",
+    "deep_catalysis": "#D5FF99",
+    "focusing_array": "#FFE1C8",
+    "resonance_amplifier": "#D0FDFF"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",

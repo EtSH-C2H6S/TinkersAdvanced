@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "inputs": [
+    {
+      "item": "minecraft:calibrated_sculk_sensor"
+    },
+    {
+      "item": "minecraft:spyglass"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": "tinkers_advanced:resonance_amplifier",
+  "tools": {
+    "item": "tinkers_advanced:ionized_cannon"
+  }
+}

@@ -29,6 +29,30 @@
   "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "爆炸反应装甲",
   "modifier.tinkers_advanced.reactive_explosive_armor.description": "减少25%所受伤害并将伤害以爆炸的形式释放。",
 
+  "modifier.tinkers_advanced.atom_grade": "原子级工艺",
+  "modifier.tinkers_advanced.atom_grade.flavor": "如此精密",
+  "modifier.tinkers_advanced.atom_grade.description": "为工具增加1个升级槽。",
+
+  "modifier.tinkers_advanced.edging_technology": "尖端科技",
+  "modifier.tinkers_advanced.edging_technology.flavor": "没有什么比这个更高级了",
+  "modifier.tinkers_advanced.edging_technology.description": "为工具增加能力槽和升级槽各一个。",
+
+  "modifier.tinkers_advanced.quantum_technology": "量子科技",
+  "modifier.tinkers_advanced.quantum_technology.flavor": "科技的尽头...是量子！",
+  "modifier.tinkers_advanced.quantum_technology.description": "为工具增加能力槽和升级槽各一个。",
+
+  "modifier.tinkers_advanced.deep_catalysis": "深度催化",
+  "modifier.tinkers_advanced.deep_catalysis.flavor": "环保无污染！",
+  "modifier.tinkers_advanced.deep_catalysis.description": "每级增加20%流体效率，让工具使用更少的流体。",
+
+  "modifier.tinkers_advanced.focusing_array": "聚焦阵列",
+  "modifier.tinkers_advanced.focusing_array.flavor": "为了保证月球的安全，内部不含相控阵。",
+  "modifier.tinkers_advanced.focusing_array.description": "每级增加100%的流体效果作用半径。",
+
+  "modifier.tinkers_advanced.resonance_amplifier": "共振增幅",
+  "modifier.tinkers_advanced.resonance_amplifier.flavor": "你知道怎么利用驻波测定介质长度吗？",
+  "modifier.tinkers_advanced.resonance_amplifier.description": "每级增加10m射程。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",

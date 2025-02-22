@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "ae2:cell_component_256k"
+    },
+    {
+      "item": "ae2:singularity"
+    },
+    {
+      "item": "ae2:singularity"
+    },
+    {
+      "item": "ae2:singularity"
+    },
+    {
+      "item": "ae2:singularity"
+    }
+  ],
+  "level": 1,
+  "result": "tinkers_advanced:quantum_technology",
+  "tools": {
+    "tag": "tconstruct:modifiable/bonus_slots"
+  }
+}
