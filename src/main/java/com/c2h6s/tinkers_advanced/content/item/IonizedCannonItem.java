@@ -159,7 +159,6 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public boolean isRepairable(ItemStack stack) {
-        // handle in the tinker station
         return false;
     }
 
@@ -369,9 +368,10 @@ public class IonizedCannonItem extends ModifiableItem {
             float baseScale;
             baseRange = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.RANGE);
             baseRange += (float) (player.getEntityReach() * 2);
+            baseRange += (float) tool.getModifierLevel(TinkerModifiers.expanded.get()) * 7.5f;
 
             baseScale = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.SCALE);
-            baseScale += (float) tool.getModifierLevel(TinkerModifiers.expanded.get()) / 2;
+            baseScale += (float) tool.getModifierLevel(TinkerModifiers.expanded.get()) * 0.75f;
 
             consume = (int) (consume * (1 + baseScale * 0.5));
 
