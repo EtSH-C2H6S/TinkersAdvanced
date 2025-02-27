@@ -29,49 +29,49 @@ public class TiAcItems {
     protected static List<RegistryObject<Item>> LIST_TOOL=new ArrayList<>( List.of());
 
     protected static List<RegistryObject<Item>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
-    protected static List<RegistryObject<Item>> LIST_SIMPLE_ITEM_MODEL=new ArrayList<>( List.of());
+    protected static List<RegistryObject<Item>> LIST_MATERIAL_ITEM_MODEL =new ArrayList<>( List.of());
 
     public static List<RegistryObject<Item>> getListSimpleModel(){
-        return List.copyOf(LIST_SIMPLE_ITEM_MODEL);
+        return List.copyOf(LIST_MATERIAL_ITEM_MODEL);
     }
 
     public static List<RegistryObject<Item>> getListSimpleBlock(){
         return List.copyOf(LIST_SIMPLE_BLOCK);
     }
 
-    public static RegistryObject<Item> registerMixc(String name, Supplier<? extends Item> sup,boolean simpleModel){
-        RegistryObject<Item> object = ITEMS.register(name,sup);
+    public static RegistryObject<Item> registerMixc(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup,boolean simpleModel){
+        RegistryObject<Item> object = register.register(name,sup);
         LIST_MIXC.add(object);
         if (simpleModel){
-            LIST_SIMPLE_ITEM_MODEL.add(object);
+            LIST_MATERIAL_ITEM_MODEL.add(object);
         }
         return object;
     }
-    public static RegistryObject<Item> registerMaterial(String name, Supplier<? extends Item> sup,boolean simpleModel){
-        RegistryObject<Item> object = ITEMS.register(name,sup);
+    public static RegistryObject<Item> registerMaterial(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup,boolean simpleModel){
+        RegistryObject<Item> object = register.register(name,sup);
         LIST_MATERIAL.add(object);
         if (simpleModel){
-            LIST_SIMPLE_ITEM_MODEL.add(object);
+            LIST_MATERIAL_ITEM_MODEL.add(object);
         }
         return object;
     }
-    public static RegistryObject<Item> registerToolOrPart(String name, Supplier<? extends Item> sup){
-        RegistryObject<Item> object = ITEMS.register(name,sup);
+    public static RegistryObject<Item> registerToolOrPart(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup){
+        RegistryObject<Item> object = register.register(name,sup);
         LIST_TOOL.add(object);
         return object;
     }
-    public static RegistryObject<Item> registerSimpleBlockItem(RegistryObject<? extends Block> block){
-        RegistryObject<Item> object = ITEMS.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
+    public static RegistryObject<Item> registerSimpleBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
+        RegistryObject<Item> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
         LIST_SIMPLE_BLOCK.add(object);
         return object;
     }
 
 
-    public static final RegistryObject<Item> BISMUTHINITE_ORE = registerSimpleBlockItem(TiAcBlocks.BISMUTHINITE);
-    public static final RegistryObject<Item> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(TiAcBlocks.BISMUTHINITE_DEEPSLATE);
+    public static final RegistryObject<Item> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
+    public static final RegistryObject<Item> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE_DEEPSLATE);
 
-    public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial("bismuth_ingot",()->new Item(new Item.Properties()),true);
-    public static final RegistryObject<Item> BISMUTHINITE = registerMaterial("bismuthinite",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> BISMUTHINITE = registerMaterial(ITEMS,"bismuthinite",()->new Item(new Item.Properties()),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
 

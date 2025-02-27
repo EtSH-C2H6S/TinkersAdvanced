@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced;
 
+import com.c2h6s.etstlib.util.ModListConstants;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaBeamRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
@@ -10,6 +11,7 @@ import com.c2h6s.tinkers_advanced.registery.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -46,10 +48,12 @@ public class TinkersAdvanced
     public static final String MODID = "tinkers_advanced";
     private static final Logger LOGGER = LogUtils.getLogger();
     public static Random RANDOM = new Random();
+    public static ResourceLocation getLocation(String name){return new ResourceLocation(MODID,name);}
 
 
-    public TinkersAdvanced(FMLJavaModLoadingContext context)
+    public TinkersAdvanced()
     {
+        FMLJavaModLoadingContext context = FMLJavaModLoadingContext.get();
         IEventBus modEventBus = context.getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -60,6 +64,9 @@ public class TinkersAdvanced
         TiAcTabs.CREATIVE_MODE_TABS.register(modEventBus);
         TiAcEffects.EFFECTS.register(modEventBus);
         TiAcFluids.FLUIDS.register(modEventBus);
+        if (ModListConstants.MekLoaded){
+            TiAcFluids.MEK_FLUIDS.register(modEventBus);
+        }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
 

@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "mantle:tag_empty",
+        "registry": "minecraft:item",
+        "tag": "forge:pellets/antimatter"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:pellets/antimatter"
+  },
+  "material": "tinkers_advanced:antimatter",
+  "needed": 1,
+  "value": 1
+}

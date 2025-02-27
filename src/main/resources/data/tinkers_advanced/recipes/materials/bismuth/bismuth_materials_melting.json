@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material_melting",
-  "input": "tinkers_advanced:bismuth",
-  "temperature": 780,
-  "result": {
-    "fluid": "tinkers_advanced:molten_bismuth",
-    "amount": 90
-  }
-}

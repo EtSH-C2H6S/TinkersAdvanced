@@ -271,8 +271,11 @@ public class IonizedCannonItem extends ModifiableItem {
         if (fluidStack.getAmount()<consume&&!creative){
             return InteractionResultHolder.fail(stack);
         }
-
-        int drawTime = (int) (80/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
+        int drawTime;
+        if (hand==InteractionHand.MAIN_HAND){
+            drawTime = Math.round(player.getCurrentItemAttackStrengthDelay()*4);
+        }
+        else drawTime = (int) (80/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
         if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())<=0) {
             tool.getPersistentData().putBoolean(TAG_SOUND, true);

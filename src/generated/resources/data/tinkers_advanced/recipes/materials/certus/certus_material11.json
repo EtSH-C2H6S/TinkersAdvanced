@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "mantle:tag_empty",
+        "registry": "minecraft:item",
+        "tag": "forge:gems/certus_quartz"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gems/certus_quartz"
+  },
+  "material": "tinkers_advanced:certus_quartz",
+  "needed": 1,
+  "value": 1
+}

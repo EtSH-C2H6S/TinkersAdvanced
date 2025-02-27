@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "mantle:tag_empty",
+        "registry": "minecraft:item",
+        "tag": "forge:gems/fluix"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gems/fluix"
+  },
+  "material": "tinkers_advanced:fluix_crystal",
+  "needed": 1,
+  "value": 1
+}
