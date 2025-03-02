@@ -22,19 +22,19 @@
     },
 
     {
-      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/tough_collar",
+      "path": "tinkers_advanced:item/tool/ionized_cannon/tough_collar_broken",
       "stat_type": "tconstruct:handle"
     },
     {
-      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/ionize_chamber",
+      "path": "tinkers_advanced:item/tool/ionized_cannon/ionize_chamber_broken",
       "stat_type": "tconstruct:handle"
     },
     {
-      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/broad_blade_1",
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_1_broken",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tinkers_advanced:item/tool/ionized_cannon/broken/broad_blade_2",
+      "path": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_2_broken",
       "stat_type": "tconstruct:head"
     }
   ],

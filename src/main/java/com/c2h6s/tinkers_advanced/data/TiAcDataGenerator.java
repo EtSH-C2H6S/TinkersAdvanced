@@ -1,10 +1,8 @@
 package com.c2h6s.tinkers_advanced.data;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.providers.TiAcFluidTagProvider;
-import com.c2h6s.tinkers_advanced.data.providers.TiAcFluidTextureProvider;
-import com.c2h6s.tinkers_advanced.data.providers.TiAcItemModelProvider;
-import com.c2h6s.tinkers_advanced.data.providers.TiAcMaterialRecipeProvider;
+import com.c2h6s.tinkers_advanced.data.providers.*;
+import com.c2h6s.tinkers_advanced.data.providers.tinker.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -14,6 +12,11 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
+import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
+import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
+import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -27,11 +30,18 @@ public class TiAcDataGenerator {
         CompletableFuture<HolderLookup.Provider> lookupProvider=event.getLookupProvider();
         ExistingFileHelper helper=event.getExistingFileHelper();
 
+        generator.addProvider(event.includeClient(),new TiAcBlockStateProvider(output,helper));
         generator.addProvider(event.includeClient(),new TiAcItemModelProvider(output,helper));
         generator.addProvider(event.includeClient(),new TiAcFluidTextureProvider(output));
         generator.addProvider(event.includeClient(),new TiAcFluidTagProvider(output,lookupProvider,helper));
         generator.addProvider(event.includeClient(),new TiAcMaterialRecipeProvider(output));
-
+        generator.addProvider(event.includeClient(),new TiAcMaterialProvider(output));
+        generator.addProvider(event.includeClient(),new TiAcMaterialStatProvider(output));
+        generator.addProvider(event.includeClient(),new TiAcMaterialModifierProvider(output));
+        generator.addProvider(event.includeClient(),new TiAcMaterialRenderInfoProvider(output,new TiAcMaterialSpriteProvider(),helper));
+        //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TiAcPartSpriteProvider(), new TiAcMaterialSpriteProvider()));
+        //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TinkerPartSpriteProvider(), new TiAcMaterialSpriteProvider()));
+        //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TiAcPartSpriteProvider(), new TinkerMaterialSpriteProvider()));
     }
 }
 

@@ -2,27 +2,47 @@ package com.c2h6s.tinkers_advanced.data.enums;
 
 import com.c2h6s.etstlib.register.EtSTLibModifier;
 import com.c2h6s.tinkers_advanced.registery.TiAcModifiers;
+import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
-import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
-
-import static com.c2h6s.tinkers_advanced.util.MaterialStatIdConstants.*;
+import slimeknights.tconstruct.tools.stats.*;
 
 public enum EnumMaterialModifier {
-    ALLOY_ATOMIC(BINDING,entry(EtSTLibModifier.atomic_decompose.getId())),
-    BISMUTH(DEFAULT,entry(TiAcModifiers.TETANUS.getId()),entry(ModifierIds.heavy))
+    ALLOY_ATOMIC(StatlessMaterialStats.BINDING.getIdentifier(),entry(EtSTLibModifier.atomic_decompose.getId())),
+    BISMUTH(null,entry(TiAcModifiers.TETANUS.getId()),entry(ModifierIds.heavy)),
+    BISMUTHINITE(null,entry(TiAcModifiers.FRAGILE.getId()),entry(EtSTLibModifier.ANISOTROPY.getId())),
+
+    CERTUS_DEFAULT(null,entry(EtSTLibModifier.ANISOTROPY.getId())),
+    CERTUS_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.ANISOTROPY.getId())),
+
+    FLUIX_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.CRYSTAL_ARMOR.getId()),entry(EtSTLibModifier.clearing.getId())),
+    FLUIX_GRIP(GripMaterialStats.ID,entry(EtSTLibModifier.ANISOTROPY.getId()),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
+    FLUIX_LIMB(LimbMaterialStats.ID,entry(EtSTLibModifier.ANISOTROPY.getId()),entry(EtSTLibModifier.EtSTLibModifierAE.energetic_attack.getId())),
+    FLUIX_HEAD(HeadMaterialStats.ID,entry(EtSTLibModifier.ANISOTROPY.getId()),entry(EtSTLibModifier.EtSTLibModifierAE.energetic_attack.getId())),
+    FLUIX_HANDLE(HandleMaterialStats.ID,entry(ModifierIds.looting),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
+    FLUIX_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(ModifierIds.fortune),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
+
+    ANTIMATTER_MELEE(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.ANNIHILATE.getId()),entry(EtSTLibModifier.atomic_decompose.getId())),
+    ANTIMATTER_ARMOR(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.REACTIVE_EXPLOSIVE_ARMOR.getId())),
+
+    REFINED_GLOWSTONE_DEFAULT(null,entry(EtSTLibModifier.glowing.getId())),
+    REFINED_GLOWSTONE_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.glowing.getId()),entry(TinkerModifiers.golden.getId())),
+
+    REFINED_OBSIDIAN_DEFAULT(null,entry(EtSTLibModifier.momentum_accelerate.getId()),entry(ModifierIds.dense)),
+    REFINED_OBSIDIAN_ARMOR(MaterialRegistry.ARMOR,entry(ModifierIds.ductile,2),entry(ModifierIds.dense)),
+
+    IRRADIUM_DEFAULT(null,entry(EtSTLibModifier.EtSTLibModifierMek.radiation_inflict.getId()),entry(EtSTLibModifier.glowing.getId())),
+    IRRADIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.RADIOACTIVE_ARMOR.getId()),entry(EtSTLibModifier.glowing.getId())),
     ;
-    private final ModifierEntry[] modifiers;
-    private final String statType;
-    EnumMaterialModifier(String statType, ModifierEntry... modifiers){
+
+    public final ModifierEntry[] modifiers;
+    public final MaterialStatsId statType;
+    EnumMaterialModifier(MaterialStatsId statType, ModifierEntry... modifiers){
         this.modifiers = modifiers;
         this.statType = statType;
-    }
-    EnumMaterialModifier(MaterialStatsId id,ModifierEntry... modifiers){
-        this.modifiers = modifiers;
-        this.statType = id.getNamespace()+":"+id.getPath();
     }
     public static ModifierEntry entry(ModifierId id,int level){
         return new ModifierEntry(id,level);

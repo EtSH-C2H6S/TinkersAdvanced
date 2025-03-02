@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.registery;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -46,7 +47,7 @@ public class TiAcTabs {
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_block"))
             .icon(() -> TiAcItems.BISMUTHINITE_ORE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                for (RegistryObject<Item> object:TiAcItems.LIST_SIMPLE_BLOCK){
+                for (RegistryObject<BlockItem> object:TiAcItems.LIST_SIMPLE_BLOCK){
                     output.accept(object.get());
                 }
             })

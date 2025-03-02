@@ -1,0 +1,23 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:not",
+        "value": {
+          "type": "mantle:tag_empty",
+          "registry": "minecraft:item",
+          "tag": "forge:gems/fluix"
+        }
+      }
+    ]
+  },
+  "craftable": true,
+  "hidden": false,
+  "sortOrder": 8,
+  "tier": 2
+}

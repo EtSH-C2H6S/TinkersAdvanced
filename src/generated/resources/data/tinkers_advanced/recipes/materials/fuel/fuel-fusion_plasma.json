@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting_fuel",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "duration": 100,
+  "fluid": {
+    "amount": 50,
+    "fluid": "tinkers_advanced:fusion_plasma"
+  },
+  "rate": 38,
+  "temperature": 3840
+}

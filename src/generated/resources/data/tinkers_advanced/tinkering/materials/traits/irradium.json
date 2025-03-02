@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:radiation_inflict"
+    },
+    {
+      "level": 1,
+      "name": "etstlib:glowing"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:radioactive_armor"
+      },
+      {
+        "level": 1,
+        "name": "etstlib:glowing"
+      }
+    ]
+  }
+}

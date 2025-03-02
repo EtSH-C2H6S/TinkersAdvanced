@@ -65,7 +65,9 @@ public class TinkersAdvanced
         TiAcEffects.EFFECTS.register(modEventBus);
         TiAcFluids.FLUIDS.register(modEventBus);
         if (ModListConstants.MekLoaded){
+            TiAcItems.MEK_ITEMS.register(modEventBus);
             TiAcFluids.MEK_FLUIDS.register(modEventBus);
+            TiAcModifiers.MEK_MODIFIERS.register(modEventBus);
         }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);

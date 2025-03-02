@@ -5,6 +5,7 @@ import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -29,7 +30,7 @@ public class TiAcItemModelProvider extends ItemModelProvider {
     public void generateItemModel(RegistryObject<Item> object,String typePath){
         withExistingParent( object.getId().getPath(), PARENT_SIMPLE_ITEM).texture("layer0",getItemLocation(object.getId().getPath(),typePath));
     }
-    public void generateBlockItemModel(RegistryObject<Item> object){
+    public void generateBlockItemModel(RegistryObject<BlockItem> object){
         withExistingParent(object.getId().getPath(), getBlockItemLocation(object.getId().getPath()));
     }
     public void generateBucketItemModel(FluidObject<ForgeFlowingFluid> object,boolean flip){
@@ -51,7 +52,7 @@ public class TiAcItemModelProvider extends ItemModelProvider {
         for (RegistryObject<Item> object: TiAcItems.getListSimpleModel()){
             generateItemModel(object,"material");
         }
-        for (RegistryObject<Item> object:TiAcItems.getListSimpleBlock()){
+        for (RegistryObject<BlockItem> object:TiAcItems.getListSimpleBlock()){
             generateBlockItemModel(object);
         }
         Map<FluidObject<ForgeFlowingFluid>,Boolean> map = TiAcFluids.getFluidMap();

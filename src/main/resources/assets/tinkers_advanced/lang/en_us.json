@@ -53,6 +53,10 @@
   "modifier.tinkers_advanced.resonance_amplifier.flavor": "How do you use standing waves to measure distance?",
   "modifier.tinkers_advanced.resonance_amplifier.description": "Increase 10m range each level.",
 
+  "modifier.tinkers_advanced.radioactive_armor": "Radioactive Armor",
+  "modifier.tinkers_advanced.radioactive_armor.flavor": "Have you worn a lead pants?",
+  "modifier.tinkers_advanced.radioactive_armor.description": "Inflicts 100mSv radiation to attacker",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -92,6 +96,9 @@
   "material.tinkers_advanced.refined_glowstone": "Refined Glowstone",
   "material.tinkers_advanced.refined_glowstone.flavor": "Glowing shiny treasures.",
 
+  "material.tinkers_advanced.irradium": "Irradium",
+  "material.tinkers_advanced.irradium.flavor": "Hard and radioactive.Best material to play a trick on your enemy!",
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -101,6 +108,7 @@
 
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
   "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
+  "item.tinkers_advanced.irradium_ingot": "Irradium Ingot",
 
 
 
@@ -109,6 +117,12 @@
 
   "fluid.tinkers_advanced.molten_antimatter": "Molten Antimatter",
   "item.tinkers_advanced.molten_antimatter_bucket": "Molten Antimatter Bucket",
+
+  "fluid.tinkers_advanced.molten_irradium": "Molten Irradium",
+  "item.tinkers_advanced.molten_irradium_bucket": "Molten Irradium Bucket",
+
+  "fluid.tinkers_advanced.fusion_plasma": "Fusion Plasma",
+  "item.tinkers_advanced.fusion_plasma_bucket": "Fusion Plasma Bucket",
 
 
 
@@ -121,5 +135,7 @@
   "item.tinkers_advanced.ionized_cannon.description": "Ionized Cannon is a middle-ranged melee weapon that consume fluid to attack.Shoots plasma ray that deals sonic damage after charging.Cast fluid effects to nearby targets on hit (Effects similar to spilling modifier).",
   "tooltip.tinkers_advanced.fluid_consumption": "Fluid Drain",
   "tooltip.tinkers_advanced.range": "Attack Range",
-  "tooltip.tinkers_advanced.scale": "Effect Range"
+  "tooltip.tinkers_advanced.scale": "Effect Range",
+
+  "death.attack.plasma": "%1$s was decomposed into ions."
 }

@@ -21,6 +21,7 @@ import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
 
 public class TiAcItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> MEK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final ItemDeferredRegisterExtension TINKER_ITEMS = new ItemDeferredRegisterExtension(MODID);
 
@@ -28,14 +29,14 @@ public class TiAcItems {
     protected static List<RegistryObject<Item>> LIST_MATERIAL=new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_TOOL=new ArrayList<>( List.of());
 
-    protected static List<RegistryObject<Item>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
+    protected static List<RegistryObject<BlockItem>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_MATERIAL_ITEM_MODEL =new ArrayList<>( List.of());
 
     public static List<RegistryObject<Item>> getListSimpleModel(){
         return List.copyOf(LIST_MATERIAL_ITEM_MODEL);
     }
 
-    public static List<RegistryObject<Item>> getListSimpleBlock(){
+    public static List<RegistryObject<BlockItem>> getListSimpleBlock(){
         return List.copyOf(LIST_SIMPLE_BLOCK);
     }
 
@@ -60,15 +61,15 @@ public class TiAcItems {
         LIST_TOOL.add(object);
         return object;
     }
-    public static RegistryObject<Item> registerSimpleBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
-        RegistryObject<Item> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
+    public static RegistryObject<BlockItem> registerSimpleBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
+        RegistryObject<BlockItem> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
         LIST_SIMPLE_BLOCK.add(object);
         return object;
     }
 
 
-    public static final RegistryObject<Item> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
-    public static final RegistryObject<Item> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE_DEEPSLATE);
+    public static final RegistryObject<BlockItem> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
+    public static final RegistryObject<BlockItem> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE_DEEPSLATE);
 
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTHINITE = registerMaterial(ITEMS,"bismuthinite",()->new Item(new Item.Properties()),true);
@@ -76,4 +77,8 @@ public class TiAcItems {
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
 
     public static final ItemObject<ModifiableItem> IONIZED_CANNON = TINKER_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
+
+
+
+    public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties()),true);
 }

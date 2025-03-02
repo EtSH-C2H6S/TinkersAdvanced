@@ -2,10 +2,10 @@
   "loader": "tconstruct:tool",
   "parent": "forge:item/default-tool",
   "textures": {
-    "broad_blade_1":   "tinkers_advanced:item/tool/ionized_cannon/broken/broad_blade_1",
-    "broad_blade_2": "tinkers_advanced:item/tool/ionized_cannon/broken/broad_blade_2",
-    "ionize_chamber":  "tinkers_advanced:item/tool/ionized_cannon/broken/ionize_chamber",
-    "tough_collar": "tinkers_advanced:item/tool/ionized_cannon/broken/tough_collar"
+    "broad_blade_1":   "tinkers_advanced:item/tool/ionized_cannon/broad_blade_1_broken",
+    "broad_blade_2": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_2_broken",
+    "ionize_chamber":  "tinkers_advanced:item/tool/ionized_cannon/ionize_chamber_broken",
+    "tough_collar": "tinkers_advanced:item/tool/ionized_cannon/tough_collar"
   },
   "modifier_roots": [ "tinkers_advanced:item/tool/ionized_cannon/modifiers/" ],
   "first_modifiers": [{ "name": "tconstruct:tank", "forced": true }],

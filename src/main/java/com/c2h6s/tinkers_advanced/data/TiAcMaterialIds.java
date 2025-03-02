@@ -9,9 +9,10 @@ public class TiAcMaterialIds {
 
     public static class Mekanism{
         public static final MaterialId ANTIMATTER =new MaterialId(TinkersAdvanced.getLocation("antimatter"));
-        public static final MaterialId ALLOY_ATOMIC =new MaterialId(TinkersAdvanced.getLocation("bismuth"));
+        public static final MaterialId ALLOY_ATOMIC =new MaterialId(TinkersAdvanced.getLocation("alloy_atomic"));
         public static final MaterialId REFINED_GLOWSTONE =new MaterialId(TinkersAdvanced.getLocation("refined_glowstone"));
         public static final MaterialId REFINED_OBSIDIAN =new MaterialId(TinkersAdvanced.getLocation("refined_obsidian"));
+        public static final MaterialId IRRADIUM =new MaterialId(TinkersAdvanced.getLocation("irradium"));
     }
 
     public static class AE2{

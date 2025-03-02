@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "tconstruct:binding": {},
+    "tconstruct:handle": {
+      "durability": -0.5,
+      "melee_damage": 0.75,
+      "melee_speed": -0.5,
+      "mining_speed": 0.75
+    },
+    "tconstruct:head": {
+      "durability": 590,
+      "melee_attack": 10.0,
+      "mining_speed": 8.0,
+      "mining_tier": "minecraft:netherite"
+    },
+    "tconstruct:maille": {},
+    "tconstruct:plating_boots": {
+      "armor": 4.0,
+      "durability": 481
+    },
+    "tconstruct:plating_chestplate": {
+      "armor": 9.0,
+      "durability": 592
+    },
+    "tconstruct:plating_helmet": {
+      "armor": 5.0,
+      "durability": 407
+    },
+    "tconstruct:plating_leggings": {
+      "armor": 8.0,
+      "durability": 555
+    },
+    "tconstruct:plating_shield": {
+      "durability": 666
+    }
+  }
+}

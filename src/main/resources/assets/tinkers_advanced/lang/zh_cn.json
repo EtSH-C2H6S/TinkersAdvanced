@@ -53,6 +53,10 @@
   "modifier.tinkers_advanced.resonance_amplifier.flavor": "你知道怎么利用驻波测定介质长度吗？",
   "modifier.tinkers_advanced.resonance_amplifier.description": "每级增加10m射程。",
 
+  "modifier.tinkers_advanced.radioactive_armor": "放射性护甲",
+  "modifier.tinkers_advanced.radioactive_armor.flavor": "有辐同享！",
+  "modifier.tinkers_advanced.radioactive_armor.description": "对攻击者施加100mSv辐射。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -92,10 +96,14 @@
   "material.tinkers_advanced.refined_glowstone": "强化荧石",
   "material.tinkers_advanced.refined_glowstone.flavor": "不是金子也会发光！",
 
+  "material.tinkers_advanced.irradium": "镭光合金",
+  "material.tinkers_advanced.irradium.flavor": "既坚固，又有强放射性，用来恶心你的敌人的最佳材料！",
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "铋锭",
   "item.tinkers_advanced.bismuthinite": "辉铋矿晶体",
+  "item.tinkers_advanced.irradium_ingot": "镭光合金锭",
 
 
 
@@ -110,6 +118,12 @@
   "fluid.tinkers_advanced.molten_antimatter": "熔融反物质",
   "item.tinkers_advanced.molten_antimatter_bucket": "熔融反物质桶",
 
+  "fluid.tinkers_advanced.molten_irradium": "熔融镭光合金",
+  "item.tinkers_advanced.molten_irradium_bucket": "熔融镭光合金桶",
+
+  "fluid.tinkers_advanced.fusion_plasma": "聚变等离子体",
+  "item.tinkers_advanced.fusion_plasma_bucket": "聚变等离子体桶",
+
 
 
   "effect.tinkers_advanced.tetanus": "破伤风",
@@ -120,5 +134,8 @@
   "item.tinkers_advanced.ionized_cannon.description": "等离子射线炮是一种中距离近战武器。经过长时间蓄力后消耗流体发射一道等离子束，击中目标后造成声波伤害并对一定范围内的敌人施加流体效果（类似于喷溅强化）。\n古代文明的高新科技（确信）",
   "tooltip.tinkers_advanced.fluid_consumption": "流体消耗",
   "tooltip.tinkers_advanced.range": "有效射程",
-  "tooltip.tinkers_advanced.scale": "范围倍率"
+  "tooltip.tinkers_advanced.scale": "范围倍率",
+
+
+  "death.attack.plasma": "%1$s被灼热的正负离子解离了。"
 }

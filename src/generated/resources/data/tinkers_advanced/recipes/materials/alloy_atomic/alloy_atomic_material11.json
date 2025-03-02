@@ -13,7 +13,7 @@
   "ingredient": {
     "tag": "mekanism:alloys/atomic"
   },
-  "material": "tinkers_advanced:bismuth",
+  "material": "tinkers_advanced:alloy_atomic",
   "needed": 1,
   "value": 1
 }
