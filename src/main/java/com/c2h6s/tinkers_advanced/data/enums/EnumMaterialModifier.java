@@ -16,7 +16,7 @@ public enum EnumMaterialModifier {
     BISMUTHINITE(null,entry(TiAcModifiers.FRAGILE.getId()),entry(EtSTLibModifier.ANISOTROPY.getId())),
 
     CERTUS_DEFAULT(null,entry(EtSTLibModifier.ANISOTROPY.getId())),
-    CERTUS_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.ANISOTROPY.getId())),
+    CERTUS_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.CRYSTAL_ARMOR.getId())),
 
     FLUIX_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.CRYSTAL_ARMOR.getId()),entry(EtSTLibModifier.clearing.getId())),
     FLUIX_GRIP(GripMaterialStats.ID,entry(EtSTLibModifier.ANISOTROPY.getId()),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
