@@ -84,10 +84,8 @@ public enum EnumMaterialStats {
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
-            new HandleMaterialStats(0.0f,0.1f,0.0f,0.05f),
-            new HeadMaterialStats(790,5.5f, Tiers.DIAMOND,1.85f),
-            new GripMaterialStats(0.05f,0.05f,1.8f),
-            new LimbMaterialStats(790,0.05f,-0.05f,0.1f)
+            new HandleMaterialStats(0.1f,0.1f,-0.2f,-0.05f),
+            new HeadMaterialStats(990,6.5f, Tiers.NETHERITE,2.05f)
     )
 
 
