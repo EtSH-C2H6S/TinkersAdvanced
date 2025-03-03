@@ -1,0 +1,34 @@
+{
+  "type": "tconstruct:alloy",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "amount": 1000,
+      "catalyst": true,
+      "fluid": "tconstruct:blazing_blood"
+    },
+    {
+      "amount": 1000,
+      "fluid": "mekanismgenerators:fusion_fuel"
+    }
+  ],
+  "result": {
+    "amount": 500,
+    "fluid": "tinkers_advanced:fusion_plasma"
+  },
+  "temperature": 1440
+}

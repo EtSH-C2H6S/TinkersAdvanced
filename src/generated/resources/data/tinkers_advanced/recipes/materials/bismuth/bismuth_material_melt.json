@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tinkers_advanced:bismuth",
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_bismuth"
+  },
+  "temperature": 770
+}

@@ -1,0 +1,16 @@
+{
+  "type": "mekanism:combining",
+  "extraInput": {
+    "ingredient": {
+      "item": "mekanism:pellet_polonium"
+    }
+  },
+  "mainInput": {
+    "ingredient": {
+      "item": "tconstruct:manyullyn_ingot"
+    }
+  },
+  "output": {
+    "item": "tinkers_advanced:irradium_ingot"
+  }
+}

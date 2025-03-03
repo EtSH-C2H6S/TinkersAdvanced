@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "mantle:tag_empty",
+        "registry": "minecraft:item",
+        "tag": "forge:pellets/antimatter"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:pellets/antimatter"
+  },
+  "result": {
+    "amount": 250,
+    "fluid": "tinkers_advanced:molten_antimatter"
+  },
+  "temperature": 1490,
+  "time": 133
+}

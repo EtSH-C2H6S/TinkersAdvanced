@@ -1,0 +1,20 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:glowing"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "etstlib:glowing"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:golden"
+      }
+    ]
+  }
+}

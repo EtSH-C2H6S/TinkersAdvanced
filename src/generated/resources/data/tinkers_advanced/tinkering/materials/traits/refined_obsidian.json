@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:momentum_accelerate"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:dense"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 2,
+        "name": "tconstruct:ductile"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:dense"
+      }
+    ]
+  }
+}

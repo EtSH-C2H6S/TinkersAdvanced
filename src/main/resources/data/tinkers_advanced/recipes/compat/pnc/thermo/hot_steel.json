@@ -1,0 +1,23 @@
+{
+  "type": "pneumaticcraft:thermo_plant",
+  "air_use_multiplier": 3.0,
+  "exothermic": false,
+  "fluid_input": {
+    "type": "pneumaticcraft:fluid",
+    "amount": 1000,
+    "fluid": "tconstruct:blazing_blood"
+  },
+  "item_input": {
+    "tag": "forge:ingots/steel"
+  },
+  "item_output": {
+    "count": 1,
+    "item": "tinkers_advanced:hot_reinforced_steel"
+  },
+  "pressure": 9.0,
+  "speed": 350,
+  "temperature": {
+    "min_temp": 673
+  }
+
+}

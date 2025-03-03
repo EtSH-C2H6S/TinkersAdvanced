@@ -1,0 +1,18 @@
+{
+  "type": "pneumaticcraft:heat_frame_cooling",
+  "input": [
+    {
+      "type": "pneumaticcraft:stacked_item",
+      "count": 1,
+      "item": "tinkers_advanced:hot_reinforced_steel"
+    }],
+  "bonus_output":
+  {
+    "limit": 0.25,
+    "multiplier": 0.005
+  },
+  "max_temp": 73,
+  "result": {
+    "item": "tinkers_advanced:penumatic_reinforced_steel"
+  }
+}

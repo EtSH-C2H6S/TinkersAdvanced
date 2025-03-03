@@ -1,0 +1,10 @@
+{
+  "perStat": {
+    "tconstruct:binding": [
+      {
+        "level": 1,
+        "name": "etstlib:atomic_decompose"
+      }
+    ]
+  }
+}

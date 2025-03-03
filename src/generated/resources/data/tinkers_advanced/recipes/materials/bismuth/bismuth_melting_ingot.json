@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:ingots/bismuth"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tinkers_advanced:molten_bismuth"
+  },
+  "temperature": 770,
+  "time": 59
+}

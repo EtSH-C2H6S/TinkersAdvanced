@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:aerial_reinforced"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:air_slash"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "etstlib:aerial_reinforced"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:aerial_protection"
+      }
+    ]
+  }
+}
