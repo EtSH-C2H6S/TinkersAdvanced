@@ -57,6 +57,14 @@
   "modifier.tinkers_advanced.radioactive_armor.flavor": "有辐同享！",
   "modifier.tinkers_advanced.radioactive_armor.description": "对攻击者施加100mSv辐射。",
 
+  "modifier.tinkers_advanced.air_slash": "空气斩",
+  "modifier.tinkers_advanced.air_slash.flavor": "压缩空气抛射",
+  "modifier.tinkers_advanced.air_slash.description": "挥舞武器，消耗压缩空气释放毁灭性斩击。",
+
+  "modifier.tinkers_advanced.aerial_protection": "压缩空气防护",
+  "modifier.tinkers_advanced.aerial_protection.flavor": "氮气护盾！",
+  "modifier.tinkers_advanced.aerial_protection.description": "消耗压缩空气格挡5点伤害，对于大于5的伤害提供10%减免。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -99,11 +107,18 @@
   "material.tinkers_advanced.irradium": "镭光合金",
   "material.tinkers_advanced.irradium.flavor": "既坚固，又有强放射性，用来恶心你的敌人的最佳材料！",
 
+  "material.tinkers_advanced.pneumatic_steel": "气锻钢",
+  "material.tinkers_advanced.pneumatic_steel.flavor": "复合相材料，产自极端的高温高压与骤热骤冷。",
+  "material.tinkers_advanced.pneumatic_steel.encyclopedia": "挥舞工具时消耗100mL压缩空气释放斩击。",
+  "material.tinkers_advanced.pneumatic_steel.armor": "每点伤害需要400mL压缩空气来抵消。",
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "铋锭",
   "item.tinkers_advanced.bismuthinite": "辉铋矿晶体",
   "item.tinkers_advanced.irradium_ingot": "镭光合金锭",
+  "item.tinkers_advanced.hot_reinforced_steel": "过热的复合钢",
+  "item.tinkers_advanced.penumatic_reinforced_steel": "气锻复合钢",
 
 
 

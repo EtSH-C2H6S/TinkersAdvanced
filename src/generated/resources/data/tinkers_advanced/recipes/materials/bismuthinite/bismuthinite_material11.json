@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material",
-  "ingredient": {
-    "item": "tinkers_advanced:bismuthinite"
-  },
-  "material": "tinkers_advanced:bismuthinite",
-  "needed": 1,
-  "value": 1
-}

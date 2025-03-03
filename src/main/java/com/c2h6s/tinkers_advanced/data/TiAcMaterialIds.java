@@ -20,4 +20,8 @@ public class TiAcMaterialIds {
         public static final MaterialId CERTUS =new MaterialId(TinkersAdvanced.getLocation("certus_quartz"));
     }
 
+    public static class PnC{
+        public static final MaterialId PNEUMATIC_STEEL =new MaterialId(TinkersAdvanced.getLocation("pneumatic_steel"));
+    }
+
 }

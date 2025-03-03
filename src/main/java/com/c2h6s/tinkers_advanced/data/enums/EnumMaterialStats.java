@@ -13,7 +13,7 @@ public enum EnumMaterialStats {
             StatlessMaterialStats.BINDING
     ),
     BISMUTH(
-            armor(70,4.5f,9,6,4),
+            armor(70,4.5f,9,6,4).toughness(0),
             true,
             StatlessMaterialStats.BINDING,
             new HandleMaterialStats(-0.1f,0.2f,-0.1f,0.1f),
@@ -52,7 +52,7 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(396,0.15f,-0.05f,0.1f)
     ),
     ANTIMATTER(
-            armor(37,5f,9,8,4),
+            armor(37,5f,9,8,4).toughness(1),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
@@ -70,7 +70,7 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(790,0.05f,-0.05f,0.1f)
     ),
     IRRADIUM(
-            armor(59,4f,8.5f,7,3.5f),
+            armor(59,4f,8.5f,7,3.5f).toughness(3.5f),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
@@ -80,12 +80,19 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(1020,0.25f,0.075f,0.1f)
     ),
     REFINED_OBSIDIAN(
-            armor(55,2,7,5,2),
+            armor(55,2,7,5,2).toughness(2),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
             new HandleMaterialStats(0.1f,0.1f,-0.2f,-0.05f),
             new HeadMaterialStats(990,6.5f, Tiers.NETHERITE,2.05f)
+    ),
+    PNEUMATIC_STEEL(
+            armor(60,3,8,6,3).toughness(3),
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(0.2f,-0.1f,-0.25f,0.05f),
+            new HeadMaterialStats(1105,5.5f, Tiers.NETHERITE,2.55f)
     )
 
 

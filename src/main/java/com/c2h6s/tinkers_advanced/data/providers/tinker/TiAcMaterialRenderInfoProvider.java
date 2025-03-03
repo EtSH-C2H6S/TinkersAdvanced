@@ -33,6 +33,7 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN).color(0xFF391375).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.Mekanism.ANTIMATTER).color(0xFFD479E5).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.Mekanism.IRRADIUM).color(0xFF17CBEB).fallbacks("metal").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.PnC.PNEUMATIC_STEEL).color(0xFF9797B1).fallbacks("metal");
     }
 
     public static final Set<MaterialStatsId> allStats = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,MaterialRegistry.ARMOR));

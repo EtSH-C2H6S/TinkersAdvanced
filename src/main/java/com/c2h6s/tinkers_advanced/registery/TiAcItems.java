@@ -22,6 +22,7 @@ import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
 public class TiAcItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> MEK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> PNC_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final ItemDeferredRegisterExtension TINKER_ITEMS = new ItemDeferredRegisterExtension(MODID);
 
@@ -81,4 +82,9 @@ public class TiAcItems {
 
 
     public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties()),true);
+
+
+
+    public static final RegistryObject<Item> PNEUMATIC_STEEL = registerMaterial(PNC_ITEMS,"penumatic_reinforced_steel",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> PNEUMATIC_STEEL_HOT = registerMaterial(PNC_ITEMS,"hot_reinforced_steel",()->new Item(new Item.Properties()),true);
 }

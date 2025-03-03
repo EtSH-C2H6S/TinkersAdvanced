@@ -4,6 +4,8 @@ import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadioactiveArmor;
+import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AirSlash;
+import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AerialProtection;
 import com.c2h6s.tinkers_advanced.content.modifier.defense.*;
 import com.c2h6s.tinkers_advanced.content.modifier.durability.*;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -12,7 +14,7 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 public class TiAcModifiers {
     public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
     public static ModifierDeferredRegister MEK_MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
-
+    public static ModifierDeferredRegister PNC_MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
 
     //无联动属性
     public static StaticModifier<Fragile> FRAGILE = MODIFIERS.register("fragile", Fragile::new);
@@ -30,4 +32,9 @@ public class TiAcModifiers {
 
     //mek联动属性
     public static StaticModifier<RadioactiveArmor> RADIOACTIVE_ARMOR = MEK_MODIFIERS.register("radioactive_armor", RadioactiveArmor::new);
+
+
+    //PnC联动属性
+    public static StaticModifier<AirSlash> AIR_SLASH = MEK_MODIFIERS.register("air_slash", AirSlash::new);
+    public static StaticModifier<AerialProtection> AERIAL_PROTECTION = MEK_MODIFIERS.register("aerial_protection", AerialProtection::new);
 }

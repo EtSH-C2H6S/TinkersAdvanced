@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced;
 
 import com.c2h6s.etstlib.util.ModListConstants;
+import com.c2h6s.tinkers_advanced.client.renderer.AirSlashRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaBeamRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
@@ -69,6 +70,10 @@ public class TinkersAdvanced
             TiAcFluids.MEK_FLUIDS.register(modEventBus);
             TiAcModifiers.MEK_MODIFIERS.register(modEventBus);
         }
+        if (ModListConstants.PnCLoaded){
+            TiAcItems.PNC_ITEMS.register(modEventBus);
+            TiAcModifiers.PNC_MODIFIERS.register(modEventBus);
+        }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
 
@@ -116,6 +121,7 @@ public class TinkersAdvanced
         public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event){
             event.registerEntityRenderer(TiAcEntities.PLASMA_EXPLOSION.get(), PlasmaExplosionRenderer::new);
             event.registerEntityRenderer(TiAcEntities.PLASMA_BEAM.get(), PlasmaBeamRenderer::new);
+            event.registerEntityRenderer(TiAcEntities.AIR_SLASH.get(), AirSlashRenderer::new);
         }
     }
 }

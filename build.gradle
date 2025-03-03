@@ -162,6 +162,7 @@ dependencies {
     implementation fg.deobf("curse.maven:jei-238222:6075247")
     implementation fg.deobf("curse.maven:applied-energistics-2-223794:6091401")
     implementation fg.deobf("curse.maven:mekanism-generators-268566:6123081")
+    implementation fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:6142963")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")

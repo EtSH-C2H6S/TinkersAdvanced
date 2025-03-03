@@ -25,6 +25,7 @@ public enum EnumMaterial {
     REFINED_GLOWSTONE(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,3,true,false,EnumMaterialStats.REFINED_GLOWSTONE,tagEmpty(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE),REFINED_GLOWSTONE_DEFAULT,REFINED_GLOWSTONE_ARMOR),
     REFINED_OBSIDIAN(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,4,true,false,EnumMaterialStats.REFINED_OBSIDIAN,tagEmpty(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),REFINED_OBSIDIAN_ARMOR,REFINED_OBSIDIAN_DEFAULT),
     IRRADIUM(TiAcMaterialIds.Mekanism.IRRADIUM,4,false,false,EnumMaterialStats.IRRADIUM,modLoaded("mekanism"),IRRADIUM_DEFAULT,IRRADIUM_ARMOR),
+    PNEUMATIC_STEEL(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,4,true,false,EnumMaterialStats.PNEUMATIC_STEEL,modLoaded("pneumaticcraft"),PNEUMATIC_STEEL_ARMOR,PNEUMATIC_STEEL_DEFAULT),
     ;
     public final MaterialId id;
     public final int tier;

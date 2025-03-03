@@ -7,13 +7,14 @@
     "annihilate": "#FF3D3D",
     "reactive_explosive_armor": "#FFC365",
     "radioactive_armor": "#82FFFF",
-
     "atom_grade": "#A561C7",
     "edging_technology": "#F3C7FF",
     "quantum_technology": "#9FBDFF",
     "deep_catalysis": "#D5FF99",
     "focusing_array": "#FFE1C8",
-    "resonance_amplifier": "#D0FDFF"
+    "resonance_amplifier": "#D0FDFF",
+    "air_slash": "#9191B3",
+    "aerial_protection": "#9191B3"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
@@ -24,6 +25,7 @@
     "antimatter": "#915dcd",
     "refined_glowstone": "#FEFF8C",
     "refined_obsidian": "#391375",
-    "irradium": "#82FFFF"
+    "irradium": "#82FFFF",
+    "pneumatic_steel": "#9191B3"
   }
 }

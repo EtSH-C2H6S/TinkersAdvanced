@@ -36,6 +36,9 @@ public enum EnumMaterialModifier {
 
     IRRADIUM_DEFAULT(null,entry(EtSTLibModifier.EtSTLibModifierMek.radiation_inflict.getId()),entry(EtSTLibModifier.glowing.getId())),
     IRRADIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.RADIOACTIVE_ARMOR.getId()),entry(EtSTLibModifier.glowing.getId())),
+
+    PNEUMATIC_STEEL_DEFAULT(null,entry(EtSTLibModifier.EtSTLibModifierPnC.aerial_reinforced.getId()),entry(TiAcModifiers.AIR_SLASH.getId())),
+    PNEUMATIC_STEEL_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.EtSTLibModifierPnC.aerial_reinforced.getId()),entry(TiAcModifiers.AERIAL_PROTECTION.getId())),
     ;
 
     public final ModifierEntry[] modifiers;

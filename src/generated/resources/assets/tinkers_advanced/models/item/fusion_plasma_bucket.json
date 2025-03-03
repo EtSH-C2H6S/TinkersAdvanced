@@ -1,6 +1,0 @@
-{
-  "parent": "forge:item/bucket_drip",
-  "flip_gas": true,
-  "fluid": "tinkers_advanced:fusion_plasma",
-  "loader": "forge:fluid_container"
-}

@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ],
+  "type": "pneumaticcraft:pressure_chamber",
+  "inputs": [
+    {
+      "item": "pneumaticcraft:compressed_iron_helmet"
+    },
+    {
+      "type": "pneumaticcraft:stacked_item",
+      "count": 3,
+      "item": "tinkers_advanced:penumatic_reinforced_steel"
+    }
+  ],
+  "pressure": 2.0,
+  "results": [
+    {
+      "item": "tconstruct:helmet_plating",
+      "count": 1,
+      "nbt": "{Material:\"tinkers_advanced:pneumatic_steel\"}"
+    }
+  ]
+}

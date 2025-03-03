@@ -63,10 +63,10 @@ public class TiAcFluids {
     public static final FluidObject<ForgeFlowingFluid> FUSION_PLASMA = registerFluid(MEK_FLUIDS,"fusion_plasma",3840, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-            super.entityInside(state, level, pos, entity);
             if (entity instanceof LivingEntity living) {
                 RadiationManager.get().radiate(living,0.0005);
                 living.hurt(LegacyDamageSource.any(living.damageSources().generic()).setBypassInvulnerableTime().setBypassArmor().setBypassEnchantment().setBypassMagic().setBypassShield().setMsgId("plasma"),2);
+                living.setSecondsOnFire(100000);
             }
         }
     },true);

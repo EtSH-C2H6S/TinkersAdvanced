@@ -57,6 +57,14 @@
   "modifier.tinkers_advanced.radioactive_armor.flavor": "Have you worn a lead pants?",
   "modifier.tinkers_advanced.radioactive_armor.description": "Inflicts 100mSv radiation to attacker",
 
+  "modifier.tinkers_advanced.air_slash": "Air Slash",
+  "modifier.tinkers_advanced.air_slash.flavor": "Pressurized air ejection.",
+  "modifier.tinkers_advanced.air_slash.description": "Shoots powerful slash when swinging.Consumes air.",
+
+  "modifier.tinkers_advanced.aerial_protection": "Aerial Protection",
+  "modifier.tinkers_advanced.aerial_protection.flavor": "Gaseous shield.",
+  "modifier.tinkers_advanced.aerial_protection.description": "Blocks 5 damage,reduces damage above 5 by 10%.Consumes air.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -99,6 +107,11 @@
   "material.tinkers_advanced.irradium": "Irradium",
   "material.tinkers_advanced.irradium.flavor": "Hard and radioactive.Best material to play a trick on your enemy!",
 
+  "material.tinkers_advanced.pneumatic_steel": "Pneumatic Steel",
+  "material.tinkers_advanced.pneumatic_steel.flavor": "Composed-phase material.Strengthened by rapid cooling.",
+  "material.tinkers_advanced.pneumatic_steel.encyclopedia": "100mL of air is needed for a slash.",
+  "material.tinkers_advanced.pneumatic_steel.armor": "Each damage consume 100mL of air.",
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -109,6 +122,8 @@
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
   "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
   "item.tinkers_advanced.irradium_ingot": "Irradium Ingot",
+  "item.tinkers_advanced.hot_reinforced_steel": "Over Heated Reinforced Steel",
+  "item.tinkers_advanced.penumatic_reinforced_steel": "Pneumatic Reinforced Steel",
 
 
 
