@@ -11,6 +11,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -64,7 +65,7 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
                         } else if (this.fluidStack != null && FluidEffectManager.INSTANCE.find(fluidStack.getFluid()).hasEntityEffects()&&!b) {
                             entity.invulnerableTime = 0;
                             FluidEffects effects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-                            FluidEffectContext.Entity context = new FluidEffectContext.Entity(this.level(), player, this, entity);
+                            FluidEffectContext.Entity context = new FluidEffectContext.Entity(this.level(), player, this, (LivingEntity) entity);
                             effects.applyToEntity(new FluidStack(fluidStack.getFluid(), 1000), baseDamage*damageScale*0.25f, context, IFluidHandler.FluidAction.EXECUTE);
                         } else entity.hurt(this.damageSources().mobProjectile(this, player), baseDamage/8);
                     }

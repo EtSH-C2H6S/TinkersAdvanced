@@ -8,7 +8,6 @@ import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import mekanism.api.datagen.recipe.builder.CombinerRecipeBuilder;
 import mekanism.common.recipe.ingredient.creator.ItemStackIngredientCreator;
-import mekanism.common.registries.MekanismFluids;
 import mekanism.common.registries.MekanismItems;
 import mekanism.common.tags.MekanismTags;
 import mekanism.generators.common.registries.GeneratorsFluids;
@@ -24,13 +23,12 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.common.crafting.conditions.NotCondition;
 import net.minecraftforge.common.crafting.conditions.OrCondition;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
+import slimeknights.mantle.recipe.condition.TagFilledCondition;
 import slimeknights.mantle.recipe.helper.FluidOutput;
 import slimeknights.mantle.recipe.helper.ItemOutput;
-import slimeknights.mantle.recipe.helper.TagEmptyCondition;
 import slimeknights.mantle.recipe.ingredient.FluidIngredient;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.json.ConfigEnabledCondition;
@@ -81,33 +79,33 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         folder = namedFolder("bismuthinite");
         materialRecipe(TiAcMaterialIds.BISMUTHINITE,Ingredient.of(TiAcItems.BISMUTHINITE.get()),1,1,consumer,folder);
         //AE2
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(ConventionTags.FLUIX_CRYSTAL)));
+        Conditional = withCondition(consumer,tagFilled(ConventionTags.FLUIX_CRYSTAL));
         folder = namedFolder("fluix");
         materialRecipe(TiAcMaterialIds.AE2.FLUIX,Ingredient.of(ConventionTags.FLUIX_CRYSTAL),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(ConventionTags.CERTUS_QUARTZ)));
+        Conditional = withCondition(consumer,tagFilled(ConventionTags.CERTUS_QUARTZ));
         folder = namedFolder("certus_quartz");
         materialRecipe(TiAcMaterialIds.AE2.CERTUS,Ingredient.of(ConventionTags.CERTUS_QUARTZ),1,1, Conditional,folder);
         //Mekanism
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.ALLOYS_ATOMIC)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.ALLOYS_ATOMIC));
         folder = namedFolder("alloy_atomic");
         materialRecipe(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC,Ingredient.of(MekanismTags.Items.ALLOYS_ATOMIC),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE));
         folder = namedFolder("refined_glowstone");
         meltMaterial(TinkerFluids.moltenRefinedGlowstone.get(), 90,TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,825,Conditional,folder);
         materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE));
         materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE),9,1, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE)),new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE),tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN));
         materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE),MekanismTags.Items.INGOTS_REFINED_GLOWSTONE,1,9, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE));
         folder = namedFolder("refined_obsidian");
         meltMaterial(TinkerFluids.moltenRefinedObsidian.get(), 90,TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,1475,Conditional,folder);
         materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN));
         materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN),9,1, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN)),new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN),tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN));
         materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN),MekanismTags.Items.INGOTS_REFINED_OBSIDIAN,1,9, Conditional,folder);
-        Conditional = withCondition(consumer,new NotCondition(new TagEmptyCondition<>(MekanismTags.Items.PELLETS_ANTIMATTER)));
+        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER));
         folder = namedFolder("antimatter");
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_ANTIMATTER,250,TiAcMaterialIds.Mekanism.ANTIMATTER,1490,Conditional,folder);
         melt1Slimeball(TiAcFluids.MOLTEN_ANTIMATTER.get(),MekanismTags.Items.PELLETS_ANTIMATTER,1490,Conditional,folder);
@@ -200,8 +198,8 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
     public static ICondition modLoaded(String modId){
         return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new ModLoadedCondition(modId));
     }
-    public static ICondition tagEmpty(TagKey<Item> tagKey){
-        return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new NotCondition(new TagEmptyCondition<Item>(tagKey)));
+    public static ICondition tagFilled(TagKey<Item> tagKey){
+        return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new TagFilledCondition<>(tagKey));
     }
 
 

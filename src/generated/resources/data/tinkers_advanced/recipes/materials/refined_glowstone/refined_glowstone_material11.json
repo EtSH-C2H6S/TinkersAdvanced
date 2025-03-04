@@ -2,12 +2,17 @@
   "type": "tconstruct:material",
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "mantle:tag_empty",
-        "registry": "minecraft:item",
-        "tag": "forge:ingots/refined_glowstone"
-      }
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "mantle:tag_filled",
+          "tag": "forge:ingots/refined_glowstone"
+        }
+      ]
     }
   ],
   "ingredient": {

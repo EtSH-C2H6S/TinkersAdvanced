@@ -7,9 +7,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.common.crafting.conditions.NotCondition;
 import net.minecraftforge.common.crafting.conditions.OrCondition;
-import slimeknights.mantle.recipe.helper.TagEmptyCondition;
+import slimeknights.mantle.recipe.condition.TagFilledCondition;
 import slimeknights.tconstruct.common.json.ConfigEnabledCondition;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
@@ -18,12 +17,12 @@ import static com.c2h6s.tinkers_advanced.data.enums.EnumMaterialModifier.*;
 public enum EnumMaterial {
     BISMUTH(TiAcMaterialIds.BISMUTH,4,false,false,EnumMaterialStats.BISMUTH,null,EnumMaterialModifier.BISMUTH),
     BISMUTHINITE(TiAcMaterialIds.BISMUTHINITE,2,true,false,EnumMaterialStats.BISMUTHINITE,null,EnumMaterialModifier.BISMUTHINITE),
-    ALLOY_ATOMIC(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC,3,true,false,EnumMaterialStats.ALLOY_ATOMIC,tagEmpty(MekanismTags.Items.ALLOYS_ATOMIC),EnumMaterialModifier.ALLOY_ATOMIC),
-    FLUIX(TiAcMaterialIds.AE2.FLUIX,2,true,false,EnumMaterialStats.FLUIX,tagEmpty(ConventionTags.FLUIX_CRYSTAL),FLUIX_ARMOR,FLUIX_BINDING,FLUIX_GRIP,FLUIX_HEAD,FLUIX_HANDLE,FLUIX_LIMB),
-    CERTUS(TiAcMaterialIds.AE2.CERTUS,1,true,false,EnumMaterialStats.CERTUS,tagEmpty(ConventionTags.CERTUS_QUARTZ),CERTUS_ARMOR,CERTUS_DEFAULT),
-    ANTIMATTER(TiAcMaterialIds.Mekanism.ANTIMATTER,4,false,false,EnumMaterialStats.ANTIMATTER,tagEmpty(MekanismTags.Items.PELLETS_ANTIMATTER),ANTIMATTER_ARMOR,ANTIMATTER_MELEE),
-    REFINED_GLOWSTONE(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,3,true,false,EnumMaterialStats.REFINED_GLOWSTONE,tagEmpty(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE),REFINED_GLOWSTONE_DEFAULT,REFINED_GLOWSTONE_ARMOR),
-    REFINED_OBSIDIAN(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,4,true,false,EnumMaterialStats.REFINED_OBSIDIAN,tagEmpty(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),REFINED_OBSIDIAN_ARMOR,REFINED_OBSIDIAN_DEFAULT),
+    ALLOY_ATOMIC(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC,3,true,false,EnumMaterialStats.ALLOY_ATOMIC, tagFilled(MekanismTags.Items.ALLOYS_ATOMIC),EnumMaterialModifier.ALLOY_ATOMIC),
+    FLUIX(TiAcMaterialIds.AE2.FLUIX,2,true,false,EnumMaterialStats.FLUIX, tagFilled(ConventionTags.FLUIX_CRYSTAL),FLUIX_ARMOR,FLUIX_BINDING,FLUIX_GRIP,FLUIX_HEAD,FLUIX_HANDLE,FLUIX_LIMB),
+    CERTUS(TiAcMaterialIds.AE2.CERTUS,1,true,false,EnumMaterialStats.CERTUS, tagFilled(ConventionTags.CERTUS_QUARTZ),CERTUS_ARMOR,CERTUS_DEFAULT),
+    ANTIMATTER(TiAcMaterialIds.Mekanism.ANTIMATTER,4,false,false,EnumMaterialStats.ANTIMATTER, tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER),ANTIMATTER_ARMOR,ANTIMATTER_MELEE),
+    REFINED_GLOWSTONE(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,3,true,false,EnumMaterialStats.REFINED_GLOWSTONE, tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE),REFINED_GLOWSTONE_DEFAULT,REFINED_GLOWSTONE_ARMOR),
+    REFINED_OBSIDIAN(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,4,true,false,EnumMaterialStats.REFINED_OBSIDIAN, tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),REFINED_OBSIDIAN_ARMOR,REFINED_OBSIDIAN_DEFAULT),
     IRRADIUM(TiAcMaterialIds.Mekanism.IRRADIUM,4,false,false,EnumMaterialStats.IRRADIUM,modLoaded("mekanism"),IRRADIUM_DEFAULT,IRRADIUM_ARMOR),
     PNEUMATIC_STEEL(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,4,true,false,EnumMaterialStats.PNEUMATIC_STEEL,modLoaded("pneumaticcraft"),PNEUMATIC_STEEL_ARMOR,PNEUMATIC_STEEL_DEFAULT),
     ;
@@ -46,7 +45,7 @@ public enum EnumMaterial {
     public static ICondition modLoaded(String modId){
         return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new ModLoadedCondition(modId));
     }
-    public static ICondition tagEmpty(TagKey<Item> tagKey){
-        return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new NotCondition(new TagEmptyCondition<Item>(tagKey)));
+    public static ICondition tagFilled(TagKey<Item> tagKey){
+        return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS, new TagFilledCondition<>(tagKey));
     }
 }
