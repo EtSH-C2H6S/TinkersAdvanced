@@ -12,7 +12,7 @@ import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
 public class TiAcEntities {
     public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(TinkersAdvanced.MODID);
 
-    public static final RegistryObject<EntityType<PlasmaExplosionProjectile>> PLASMA_EXPLOSION = ENTITIES.register("plasma_explosion",()->EntityType.Builder.<PlasmaExplosionProjectile>of(PlasmaExplosionProjectile::new, MobCategory.MISC).sized(1,1).setCustomClientFactory(((spawnEntity, level) -> new PlasmaExplosionProjectile(level,1))).setTrackingRange(8).setShouldReceiveVelocityUpdates(false).setUpdateInterval(0));
+    public static final RegistryObject<EntityType<PlasmaExplosionProjectile>> PLASMA_EXPLOSION = ENTITIES.register("plasma_explosion",()->EntityType.Builder.<PlasmaExplosionProjectile>of(PlasmaExplosionProjectile::new, MobCategory.MISC).sized(1,1).setCustomClientFactory(((spawnEntity, level) -> new PlasmaExplosionProjectile(level,1))).setTrackingRange(8).setShouldReceiveVelocityUpdates(false).setUpdateInterval(4));
     public static final RegistryObject<EntityType<PlasmaBeamProjectile>> PLASMA_BEAM = ENTITIES.register("plasma_beam",()->EntityType.Builder.<PlasmaBeamProjectile>of(PlasmaBeamProjectile::new, MobCategory.MISC).sized(0.5f,0.5f).setCustomClientFactory(((spawnEntity, level) -> new PlasmaBeamProjectile(level,1))).setTrackingRange(8).setShouldReceiveVelocityUpdates(true).setUpdateInterval(4));
     public static final RegistryObject<EntityType<AirSlashProjectile>> AIR_SLASH = ENTITIES.register("air_slash",()->
             EntityType.Builder.<AirSlashProjectile>of(AirSlashProjectile::new, MobCategory.MISC)
