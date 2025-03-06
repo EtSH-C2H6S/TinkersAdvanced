@@ -23,6 +23,7 @@ public class TiAcItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> MEK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> PNC_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> THERMAL_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final ItemDeferredRegisterExtension TINKER_ITEMS = new ItemDeferredRegisterExtension(MODID);
 
@@ -87,4 +88,10 @@ public class TiAcItems {
 
     public static final RegistryObject<Item> PNEUMATIC_STEEL = registerMaterial(PNC_ITEMS,"penumatic_reinforced_steel",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> PNEUMATIC_STEEL_HOT = registerMaterial(PNC_ITEMS,"hot_reinforced_steel",()->new Item(new Item.Properties()),true);
+
+
+
+    public static final RegistryObject<Item> BASALZ_SIGNALUM = registerMaterial(THERMAL_ITEMS,"basalz_signalum",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> BLITZ_LUMIUM = registerMaterial(THERMAL_ITEMS,"blitz_lumium",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> BLIZZ_ENDERIUM = registerMaterial(THERMAL_ITEMS,"blizz_enderium",()->new Item(new Item.Properties()),true);
 }

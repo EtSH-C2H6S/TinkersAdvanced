@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ],
   "type": "pneumaticcraft:heat_frame_cooling",
   "input": [
     {

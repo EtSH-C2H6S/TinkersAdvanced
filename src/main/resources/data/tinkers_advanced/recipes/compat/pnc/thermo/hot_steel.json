@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ],
   "type": "pneumaticcraft:thermo_plant",
   "air_use_multiplier": 3.0,
   "exothermic": false,

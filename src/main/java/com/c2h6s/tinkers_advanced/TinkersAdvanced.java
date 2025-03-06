@@ -74,6 +74,11 @@ public class TinkersAdvanced
             TiAcItems.PNC_ITEMS.register(modEventBus);
             TiAcModifiers.PNC_MODIFIERS.register(modEventBus);
         }
+        if (ModListConstants.COFHLoaded){
+            TiAcItems.THERMAL_ITEMS.register(modEventBus);
+            TiAcFluids.THERMAL_FLUIDS.register(modEventBus);
+            TiAcModifiers.THERMAL_MODIFIERS.register(modEventBus);
+        }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
 

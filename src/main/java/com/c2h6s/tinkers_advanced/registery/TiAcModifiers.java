@@ -3,9 +3,11 @@ package com.c2h6s.tinkers_advanced.registery;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
+import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadioactiveArmor;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AirSlash;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AerialProtection;
+import com.c2h6s.tinkers_advanced.content.modifier.compat.thermal.*;
 import com.c2h6s.tinkers_advanced.content.modifier.defense.*;
 import com.c2h6s.tinkers_advanced.content.modifier.durability.*;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -15,6 +17,7 @@ public class TiAcModifiers {
     public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
     public static ModifierDeferredRegister MEK_MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
     public static ModifierDeferredRegister PNC_MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
+    public static ModifierDeferredRegister THERMAL_MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
 
     //无联动属性
     public static StaticModifier<Fragile> FRAGILE = MODIFIERS.register("fragile", Fragile::new);
@@ -23,6 +26,8 @@ public class TiAcModifiers {
     public static StaticModifier<AutoShot> AUTO_SHOT = MODIFIERS.register("auto_shot", AutoShot::new);
     public static StaticModifier<Annihilate> ANNIHILATE = MODIFIERS.register("annihilate", Annihilate::new);
     public static StaticModifier<ReactiveExplosiveArmor> REACTIVE_EXPLOSIVE_ARMOR = MODIFIERS.register("reactive_explosive_armor", ReactiveExplosiveArmor::new);
+    public static StaticModifier<SensorInterrupt> SENSOR_INTERRUPT = MODIFIERS.register("sensor_interrupt", SensorInterrupt::new);
+    public static StaticModifier<Metamorphium> METAMORPHIUM = MODIFIERS.register("metamorphium", Metamorphium::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);
@@ -35,6 +40,15 @@ public class TiAcModifiers {
 
 
     //PnC联动属性
-    public static StaticModifier<AirSlash> AIR_SLASH = MEK_MODIFIERS.register("air_slash", AirSlash::new);
-    public static StaticModifier<AerialProtection> AERIAL_PROTECTION = MEK_MODIFIERS.register("aerial_protection", AerialProtection::new);
+    public static StaticModifier<AirSlash> AIR_SLASH = PNC_MODIFIERS.register("air_slash", AirSlash::new);
+    public static StaticModifier<AerialProtection> AERIAL_PROTECTION = PNC_MODIFIERS.register("aerial_protection", AerialProtection::new);
+
+
+    //热力联动属性
+    public static StaticModifier<BasalzDefense> BASALZ_DEFENSE = THERMAL_MODIFIERS.register("basalz_defense", BasalzDefense::new);
+    public static StaticModifier<BasalzInflict> BASALZ_INFLICT = THERMAL_MODIFIERS.register("basalz_inflict", BasalzInflict::new);
+    public static StaticModifier<BlitzDefense> Blitz_DEFENSE = THERMAL_MODIFIERS.register("blitz_defense", BlitzDefense::new);
+    public static StaticModifier<BlitzInflict> Blitz_INFLICT = THERMAL_MODIFIERS.register("blitz_inflict", BlitzInflict::new);
+    public static StaticModifier<BlizzDefense> BLIZZ_DEFENSE = THERMAL_MODIFIERS.register("blizz_defense", BlizzDefense::new);
+    public static StaticModifier<BlizzInflict> BLIZZ_INFLICT = THERMAL_MODIFIERS.register("blizz_inflict", BlizzInflict::new);
 }

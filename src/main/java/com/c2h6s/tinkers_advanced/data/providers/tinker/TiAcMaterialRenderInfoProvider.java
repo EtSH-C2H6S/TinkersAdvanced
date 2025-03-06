@@ -6,9 +6,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
-import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
-import slimeknights.tconstruct.library.client.data.spritetransformer.RecolorSpriteTransformer;
-import slimeknights.tconstruct.library.client.materials.MaterialGeneratorInfo;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
@@ -34,6 +31,9 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.Mekanism.ANTIMATTER).color(0xFFD479E5).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.Mekanism.IRRADIUM).color(0xFF17CBEB).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.PnC.PNEUMATIC_STEEL).color(0xFF9797B1).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM).color(0xFFFF4E11).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.Thermal.BLITZ_LUMIUM).color(0xFFFFFB9F).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM).color(0xFF39FFD1).fallbacks("metal");
     }
 
     public static final Set<MaterialStatsId> allStats = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,MaterialRegistry.ARMOR));

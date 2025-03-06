@@ -157,12 +157,15 @@ dependencies {
 
     implementation fg.deobf("curse.maven:tinkers-construct-74072:6258596")
     implementation fg.deobf("curse.maven:mantle-74924:6258424")
-    implementation fg.deobf("curse.maven:etst-lib-1206379:6259846")
+    implementation fg.deobf("curse.maven:etst-lib-1206379:6266577")
     implementation fg.deobf("curse.maven:mekanism-268560:6123077")
     implementation fg.deobf("curse.maven:jei-238222:6075247")
     implementation fg.deobf("curse.maven:applied-energistics-2-223794:6091401")
     implementation fg.deobf("curse.maven:mekanism-generators-268566:6123081")
     implementation fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:6142963")
+    implementation fg.deobf("curse.maven:thermal-expansion-69163:5372749")
+    implementation fg.deobf("curse.maven:thermal-foundation-222880:5443583")
+    implementation fg.deobf("curse.maven:cofh-core-69162:5374122")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")

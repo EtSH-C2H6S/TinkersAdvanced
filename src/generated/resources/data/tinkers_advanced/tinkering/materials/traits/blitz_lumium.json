@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:glowing"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:blitz_inflict"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "etstlib:glowing"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:blitz_defense"
+      }
+    ]
+  }
+}

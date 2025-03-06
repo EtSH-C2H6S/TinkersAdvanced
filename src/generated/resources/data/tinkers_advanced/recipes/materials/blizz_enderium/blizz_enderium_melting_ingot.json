@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cofh_core"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "tinkers_advanced:blizz_enderium"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tinkers_advanced:molten_blizz_enderium"
+  },
+  "temperature": 1440,
+  "time": 79
+}

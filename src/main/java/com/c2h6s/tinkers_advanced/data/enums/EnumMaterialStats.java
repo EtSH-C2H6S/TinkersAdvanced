@@ -93,7 +93,38 @@ public enum EnumMaterialStats {
             StatlessMaterialStats.BINDING,
             new HandleMaterialStats(0.2f,-0.1f,-0.25f,0.05f),
             new HeadMaterialStats(1105,5.5f, Tiers.NETHERITE,2.55f)
-    )
+    ),
+    BASALZ_SIGNALUM(
+            armor(32,1.5f,6f,4.5f,1.5f).toughness(1),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(0.15f,0.15f,-0.2f,0.1f),
+            new HeadMaterialStats(540,7.5f, Tiers.DIAMOND,3.0f),
+            new GripMaterialStats(0.15f,0.1f,3.0f),
+            new LimbMaterialStats(540,-0.2f,0.1f,0.1f)
+    ),
+    BLITZ_LUMIUM(
+            armor(23,1.25f,5.75f,4.25f,1.25f).toughness(3),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(-0.15f,0.0f,0.25f,-0.1f),
+            new HeadMaterialStats(370,4.5f, Tiers.DIAMOND,2.5f),
+            new GripMaterialStats(-0.15f,-0.02f,3.0f),
+            new LimbMaterialStats(370,0.25f,-0.1f,-0.01f)
+    ),
+    BLIZZ_ENDERIUM(
+            armor(45,2,7,5,2).toughness(7),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(0.15f,0.1f,0.1f,0.15f),
+            new HeadMaterialStats(710,6.5f, Tiers.NETHERITE,3.5f),
+            new GripMaterialStats(0.1f,0.05f,3.5f),
+            new LimbMaterialStats(710,0.1f,0.1f,0.05f)
+    ),
+
 
 
     ;

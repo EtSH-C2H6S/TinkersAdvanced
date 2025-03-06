@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "type": "thermal:smelter",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/signalum",
+      "count": 2
+    },
+    {
+      "item": "thermal:basalz_powder",
+      "count": 1
+    }
+  ],
+  "result": [
+    {
+      "item": "tinkers_advanced:basalz_signalum",
+      "count": 2
+    }
+  ],
+  "energy": 3600
+}

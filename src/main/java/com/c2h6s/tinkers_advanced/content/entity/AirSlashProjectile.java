@@ -48,7 +48,6 @@ public class AirSlashProjectile extends Projectile {
                     entity.hurt(LegacyDamageSource.any(this.damageSources().mobProjectile(this,this.getOwner() instanceof LivingEntity living?living:null)).setBypassEnchantment().setBypassInvulnerableTime().setBypassMagic(),this.baseDamage);
                     set.add(entity.getId());
                     this.baseDamage*=0.75f;
-                    setDeltaMovement(this.getDeltaMovement().scale(0.75));
                 }
             }
         }

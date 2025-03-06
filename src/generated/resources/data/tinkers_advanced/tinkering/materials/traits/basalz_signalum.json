@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:short_circuit"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:basalz_inflict"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:sensor_interrupt"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:basalz_defense"
+      }
+    ]
+  }
+}

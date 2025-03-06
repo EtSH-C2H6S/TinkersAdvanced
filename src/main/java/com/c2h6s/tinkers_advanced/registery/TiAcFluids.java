@@ -1,10 +1,12 @@
 package com.c2h6s.tinkers_advanced.registery;
 
+import cofh.core.init.CoreMobEffects;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import mekanism.common.lib.radiation.RadiationManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -28,6 +30,7 @@ import static slimeknights.tconstruct.fluids.block.BurningLiquidBlock.createBurn
 public class TiAcFluids {
     public static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     public static final FluidDeferredRegister MEK_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
+    public static final FluidDeferredRegister THERMAL_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     protected static Map<FluidObject<ForgeFlowingFluid>,Boolean> FLUID_MAP = new HashMap<>();
     public static Set<FluidObject<ForgeFlowingFluid>> getFluids(){
         return FLUID_MAP.keySet();
@@ -70,6 +73,32 @@ public class TiAcFluids {
             }
         }
     },true);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BASALZ_SIGNALUM = registerFluid(THERMAL_FLUIDS,"molten_basalz_signalum",950, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 7), 200, 5){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            super.entityInside(state, level, pos, entity);
+            if (entity instanceof LivingEntity living) {
+                living.addEffect(new MobEffectInstance(CoreMobEffects.SUNDERED.get(),100));
+            }
+        }
+    },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BILTZ_LUMIUM = registerFluid(THERMAL_FLUIDS,"molten_biltz_lumium",1440, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 5){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            super.entityInside(state, level, pos, entity);
+            if (entity instanceof LivingEntity living) {
+                living.addEffect(new MobEffectInstance(CoreMobEffects.SHOCKED.get(),100));
+            }
+        }
+    },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLIZZ_ENDERIUM = registerFluid(THERMAL_FLUIDS,"molten_blizz_enderium",0, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 0, 0){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            if (entity instanceof LivingEntity living) {
+                living.addEffect(new MobEffectInstance(CoreMobEffects.CHILLED.get(),100));
+            }
+        }
+    },false);
 
 
     private static FluidType.Properties hot(String name,int Temp) {

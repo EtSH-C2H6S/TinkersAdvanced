@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "type": "thermal:smelter",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/enderium",
+      "count": 2
+    },
+    {
+      "item": "thermal:blizz_powder",
+      "count": 1
+    }
+  ],
+  "result": [
+    {
+      "item": "tinkers_advanced:blizz_enderium",
+      "count": 2
+    }
+  ],
+  "energy": 3600
+}

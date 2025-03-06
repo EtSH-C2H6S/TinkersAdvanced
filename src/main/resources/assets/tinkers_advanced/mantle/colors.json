@@ -14,7 +14,15 @@
     "focusing_array": "#FFE1C8",
     "resonance_amplifier": "#D0FDFF",
     "air_slash": "#9191B3",
-    "aerial_protection": "#9191B3"
+    "aerial_protection": "#9191B3",
+    "basalz_defense": "#E04830",
+    "basalz_inflict": "#E04830",
+    "blitz_defense": "#FFEA96",
+    "blitz_inflict": "#FFEA96",
+    "blizz_defense": "#96E1FF",
+    "blizz_inflict": "#96E1FF",
+    "sensor_interrupt": "#5100A1",
+    "metamorphium": "#0A4239"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",

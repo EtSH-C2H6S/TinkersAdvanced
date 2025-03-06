@@ -39,6 +39,16 @@ public enum EnumMaterialModifier {
 
     PNEUMATIC_STEEL_DEFAULT(null,entry(EtSTLibModifier.EtSTLibModifierPnC.aerial_reinforced.getId()),entry(TiAcModifiers.AIR_SLASH.getId())),
     PNEUMATIC_STEEL_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.EtSTLibModifierPnC.aerial_reinforced.getId()),entry(TiAcModifiers.AERIAL_PROTECTION.getId())),
+
+    BASALZ_SIGNALUM_DEFAULT(null,entry(EtSTLibModifier.SHORT_CIRCUIT.getId()),entry(TiAcModifiers.BASALZ_INFLICT.getId())),
+    BASALZ_SIGNALUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.SENSOR_INTERRUPT.getId()),entry(TiAcModifiers.BASALZ_DEFENSE.getId())),
+
+    BLITZ_LUMIUM_DEFAULT(null,entry(EtSTLibModifier.glowing.getId()),entry(TiAcModifiers.Blitz_INFLICT.getId())),
+    BLITZ_LUMIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.glowing.getId()),entry(TiAcModifiers.Blitz_DEFENSE.getId())),
+
+    BLIZZ_ENDERIUM_DEFAULT(null,entry(TiAcModifiers.METAMORPHIUM.getId()),entry(TiAcModifiers.BLIZZ_INFLICT.getId())),
+    BLIZZ_ENDERIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.METAMORPHIUM.getId()),entry(TiAcModifiers.BLIZZ_DEFENSE.getId())),
+
     ;
 
     public final ModifierEntry[] modifiers;

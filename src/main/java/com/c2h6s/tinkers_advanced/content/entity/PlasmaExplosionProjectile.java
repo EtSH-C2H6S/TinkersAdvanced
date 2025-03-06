@@ -41,7 +41,7 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
 
     @Override
     protected AABB makeBoundingBox() {
-        return super.makeBoundingBox().move(new Vec3(0,-this.getBbHeight()/2,0)).inflate(this.getScale());
+        return super.makeBoundingBox().move(new Vec3(0,-this.getBbHeight()/2,0)).inflate(this.getScale()*2);
     }
     @Override
     public void tick() {

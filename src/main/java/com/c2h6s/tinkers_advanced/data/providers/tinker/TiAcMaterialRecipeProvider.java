@@ -120,6 +120,21 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         Conditional = withCondition(consumer,modLoaded("pneumaticcraft"));
         folder = namedFolder("pneumatic_steel");
         materialRecipe(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,Ingredient.of(TiAcItems.PNEUMATIC_STEEL.get()),1,1, Conditional,folder);
+        //Thermal
+        Conditional = withCondition(consumer,modLoaded("cofh_core"));
+        folder = namedFolder("basalz_signalum");
+        materialRecipe(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,Ingredient.of(TiAcItems.BASALZ_SIGNALUM.get()),1,1, Conditional,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),TiAcItems.BASALZ_SIGNALUM.get(),995,Conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),90,TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,995,Conditional,folder);
+        folder = namedFolder("blitz_lumium");
+        materialRecipe(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),1,1, Conditional,folder);
+        cast1Ingot(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),TiAcItems.BLITZ_LUMIUM.get(),995,Conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),90,TiAcMaterialIds.Thermal.BLITZ_LUMIUM,995,Conditional,folder);
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),FluidOutput.fromFluid(TinkerFluids.moltenLumium.get(), 60),1000,30).addByproduct(new FluidStack(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),30)).save(Conditional,new ResourceLocation(folder+"_melting_foundry"));
+        folder = namedFolder("blizz_enderium");
+        materialRecipe(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,Ingredient.of(TiAcItems.BLIZZ_ENDERIUM.get()),1,1, Conditional,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),TiAcItems.BLIZZ_ENDERIUM.get(),1440,Conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),90,TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,1440,Conditional,folder);
     }
 
     public void melt1B(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
@@ -171,6 +186,10 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
     }
     public void melt1Ingot(Fluid fluid, TagKey<Item> ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
+    }
+    public void cast1Ingot(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
     }

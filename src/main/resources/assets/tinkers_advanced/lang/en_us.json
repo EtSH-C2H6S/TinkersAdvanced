@@ -65,6 +65,38 @@
   "modifier.tinkers_advanced.aerial_protection.flavor": "Gaseous shield.",
   "modifier.tinkers_advanced.aerial_protection.description": "Blocks 5 damage,reduces damage above 5 by 10%.Consumes air.",
 
+  "modifier.tinkers_advanced.sensor_interrupt": "Sensor Interrupt",
+  "modifier.tinkers_advanced.sensor_interrupt.flavor": "EMP detected.",
+  "modifier.tinkers_advanced.sensor_interrupt.description": "Make you less visible to hostile enemies.",
+
+  "modifier.tinkers_advanced.metamorphium": "Metamorphium",
+  "modifier.tinkers_advanced.metamorphium.flavor": "It's reshaping...",
+  "modifier.tinkers_advanced.metamorphium.description": "Every damage taken by your tool will increase its strength.",
+
+  "modifier.tinkers_advanced.basalz_defense": "Basalz Defense",
+  "modifier.tinkers_advanced.basalz_defense.flavor": "Solid as a stone.",
+  "modifier.tinkers_advanced.basalz_defense.description": "Slightly increase damage.Gain explosion resistance",
+
+  "modifier.tinkers_advanced.basalz_inflict": "Shattered",
+  "modifier.tinkers_advanced.basalz_inflict.flavor": "Shattered",
+  "modifier.tinkers_advanced.basalz_inflict.description": "Inflicts sundering effect on hit.",
+
+  "modifier.tinkers_advanced.blitz_defense": "Blitz Defence",
+  "modifier.tinkers_advanced.blitz_defense.flavor": "Quick as an arc.",
+  "modifier.tinkers_advanced.blitz_defense.description": "Gain lightning resistance effect.Have 5% chance to cancel damage and shock attacker.",
+
+  "modifier.tinkers_advanced.blitz_inflict": "Shocked",
+  "modifier.tinkers_advanced.blitz_inflict.flavor": "It's 'shocking'.",
+  "modifier.tinkers_advanced.blitz_inflict.description": "Cause arcs striking toward other targets in a range.",
+
+  "modifier.tinkers_advanced.blizz_inflict": "Frost Plating",
+  "modifier.tinkers_advanced.blizz_inflict.flavor": "Cooling on it's own.What is the first law of thermal dynamics doing?",
+  "modifier.tinkers_advanced.blizz_inflict.description": "Freeze target on hit.Deals 2x damage to ignited enemies.",
+
+  "modifier.tinkers_advanced.blizz_defense": "Blizz Defense",
+  "modifier.tinkers_advanced.blizz_defense.flavor": "Nitro process.",
+  "modifier.tinkers_advanced.blizz_defense.description": "Gain frost resistance and fire resistance.Freeze attacker.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -112,6 +144,23 @@
   "material.tinkers_advanced.pneumatic_steel.encyclopedia": "100mL of air is needed for a slash.",
   "material.tinkers_advanced.pneumatic_steel.armor": "Each damage consume 100mL of air.",
 
+  "material.tinkers_advanced.basalz_signalum": "Basalz Signalum",
+  "material.tinkers_advanced.basalz_signalum.flavor": "Magical material that has a close relation with terra.",
+  "material.tinkers_advanced.basalz_signalum.encyclopedia": "Sundered effect reduces 25% armor each level.",
+  "material.tinkers_advanced.basalz_signalum.ranged": "Sundered effect reduces 25% armor each level.",
+  "material.tinkers_advanced.basalz_signalum.armor": "Detect range reduced to 5/level .",
+
+  "material.tinkers_advanced.blitz_lumium": "Blitz Lumium",
+  "material.tinkers_advanced.blitz_lumium.flavor": "Radiant material that constantly sending electric impulses.",
+  "material.tinkers_advanced.blitz_lumium.encyclopedia": "Shocked effect reduces 3 damage each level.The arc deals 2+0.5*level damage",
+  "material.tinkers_advanced.blitz_lumium.ranged": "Shocked effect reduces 3 damage each level.The arc deals 2+0.5*level damage",
+
+  "material.tinkers_advanced.blizz_enderium": "Blizz Enderium",
+  "material.tinkers_advanced.blizz_enderium.flavor": "Looks cold,touched chilling.",
+  "material.tinkers_advanced.blizz_enderium.encyclopedia": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
+  "material.tinkers_advanced.blizz_enderium.armor": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
+  "material.tinkers_advanced.blizz_enderium.ranged": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -124,6 +173,9 @@
   "item.tinkers_advanced.irradium_ingot": "Irradium Ingot",
   "item.tinkers_advanced.hot_reinforced_steel": "Over Heated Reinforced Steel",
   "item.tinkers_advanced.penumatic_reinforced_steel": "Pneumatic Reinforced Steel",
+  "item.tinkers_advanced.basalz_signalum": "Basalz Signalum",
+  "item.tinkers_advanced.blitz_lumium": "Blitz Lumium",
+  "item.tinkers_advanced.blizz_enderium": "Blizz Enderium",
 
 
 
@@ -138,6 +190,15 @@
 
   "fluid.tinkers_advanced.fusion_plasma": "Fusion Plasma",
   "item.tinkers_advanced.fusion_plasma_bucket": "Fusion Plasma Bucket",
+
+  "fluid.tinkers_advanced.molten_basalz_signalum": "Molten Basalz Signalum",
+  "item.tinkers_advanced.molten_basalz_signalum_bucket": "Molten Basalz Signalum Bucket",
+
+  "fluid.tinkers_advanced.molten_biltz_lumium": "Molten Blitz Lumium",
+  "item.tinkers_advanced.molten_biltz_lumium_bucket": "Molten Blitz Lumium Bucket",
+
+  "fluid.tinkers_advanced.molten_blizz_enderium": "Molten Blizz Enderium",
+  "item.tinkers_advanced.molten_blizz_enderium_bucket": "Molten Blizz Enderium Bucket",
 
 
 

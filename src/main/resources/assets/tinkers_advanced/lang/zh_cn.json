@@ -65,6 +65,38 @@
   "modifier.tinkers_advanced.aerial_protection.flavor": "氮气护盾！",
   "modifier.tinkers_advanced.aerial_protection.description": "消耗压缩空气格挡5点伤害，对于大于5的伤害提供10%减免。",
 
+  "modifier.tinkers_advanced.sensor_interrupt": "信息素扰乱",
+  "modifier.tinkers_advanced.sensor_interrupt.flavor": "检测到可疑电磁波干扰...",
+  "modifier.tinkers_advanced.sensor_interrupt.description": "极大降低怪物能感知到你的最大距离。",
+
+  "modifier.tinkers_advanced.metamorphium": "形变体",
+  "modifier.tinkers_advanced.metamorphium.flavor": "它在变化...",
+  "modifier.tinkers_advanced.metamorphium.description": "每次磨损工具都有可能让它变得更加强力。",
+
+  "modifier.tinkers_advanced.basalz_defense": "石肤",
+  "modifier.tinkers_advanced.basalz_defense.flavor": "岩石的能量让你更加坚固",
+  "modifier.tinkers_advanced.basalz_defense.description": "每级护甲值、护甲韧性+1，获得爆裂抗性效果。",
+
+  "modifier.tinkers_advanced.basalz_inflict": "碎裂",
+  "modifier.tinkers_advanced.basalz_inflict.flavor": "震碎护甲！",
+  "modifier.tinkers_advanced.basalz_inflict.description": "全力打击时对目标施加碎裂效果，减少目标护甲。",
+
+  "modifier.tinkers_advanced.blitz_defense": "涌流",
+  "modifier.tinkers_advanced.blitz_defense.flavor": "如闪电般灵活",
+  "modifier.tinkers_advanced.blitz_defense.description": "获得闪电抗性效果，被攻击时有5%概率闪避并电击攻击者。",
+
+  "modifier.tinkers_advanced.blitz_inflict": "震荡",
+  "modifier.tinkers_advanced.blitz_inflict.flavor": "你知道吗：击穿1mm空气需要1000~2000V的高压",
+  "modifier.tinkers_advanced.blitz_inflict.description": "全力打击时释放弧向附近生物的脉冲，造成施加震荡效果。",
+
+  "modifier.tinkers_advanced.blizz_inflict": "霜附",
+  "modifier.tinkers_advanced.blizz_inflict.flavor": "拿在手里自动就会降温，热力学不存在了！",
+  "modifier.tinkers_advanced.blizz_inflict.description": "攻击时冻结敌人，对着火的生物造成2倍伤害。",
+
+  "modifier.tinkers_advanced.blizz_defense": "坚冰",
+  "modifier.tinkers_advanced.blizz_defense.flavor": "冰冷的外表，坚硬的芯",
+  "modifier.tinkers_advanced.blizz_defense.description": "获得霜冻抗性和抗火效果，冻结攻击者。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -112,6 +144,24 @@
   "material.tinkers_advanced.pneumatic_steel.encyclopedia": "挥舞工具时消耗100mL压缩空气释放斩击。",
   "material.tinkers_advanced.pneumatic_steel.armor": "每点伤害需要400mL压缩空气来抵消。",
 
+  "material.tinkers_advanced.basalz_signalum": "地岩信素",
+  "material.tinkers_advanced.basalz_signalum.flavor": "蕴含大地能量的奇妙材料，具有独特的反应特性。",
+  "material.tinkers_advanced.basalz_signalum.encyclopedia": "割裂效果每级减少目标 25% 护甲。",
+  "material.tinkers_advanced.basalz_signalum.ranged": "割裂效果每级减少目标 25% 护甲。",
+  "material.tinkers_advanced.basalz_signalum.armor": "每级 +1 护甲和护甲韧性。将敌人被动发现你的最大半径缩减至 5/属性等级 。",
+
+  "material.tinkers_advanced.blitz_lumium": "震荡流明",
+  "material.tinkers_advanced.blitz_lumium.flavor": "蕴含光耀能量的奇妙材料，不断发射出高能脉冲。",
+  "material.tinkers_advanced.blitz_lumium.encyclopedia": "震荡效果每级减少目标3伤害。脉冲造成 2+0.5*属性等级 伤害。",
+  "material.tinkers_advanced.blitz_lumium.ranged": "震荡效果每级减少目标3伤害。脉冲造成 2+0.5*属性等级 伤害。",
+
+  "material.tinkers_advanced.blizz_enderium": "极寒末影",
+  "material.tinkers_advanced.blizz_enderium.flavor": "看着冷，摸起来更冷。",
+  "material.tinkers_advanced.blizz_enderium.encyclopedia": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
+  "material.tinkers_advanced.blizz_enderium.armor": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
+  "material.tinkers_advanced.blizz_enderium.ranged": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
+
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "铋锭",
@@ -119,6 +169,9 @@
   "item.tinkers_advanced.irradium_ingot": "镭光合金锭",
   "item.tinkers_advanced.hot_reinforced_steel": "过热的复合钢",
   "item.tinkers_advanced.penumatic_reinforced_steel": "气锻复合钢",
+  "item.tinkers_advanced.basalz_signalum": "地岩信素锭",
+  "item.tinkers_advanced.blitz_lumium": "震荡流明锭",
+  "item.tinkers_advanced.blizz_enderium": "极寒末影锭",
 
 
 
@@ -138,6 +191,16 @@
 
   "fluid.tinkers_advanced.fusion_plasma": "聚变等离子体",
   "item.tinkers_advanced.fusion_plasma_bucket": "聚变等离子体桶",
+
+  "fluid.tinkers_advanced.molten_basalz_signalum": "熔融地岩信素",
+  "item.tinkers_advanced.molten_basalz_signalum_bucket": "熔融地岩信素桶",
+
+  "fluid.tinkers_advanced.molten_biltz_lumium": "熔融震荡流明",
+  "item.tinkers_advanced.molten_biltz_lumium_bucket": "熔融震荡流明桶",
+
+  "fluid.tinkers_advanced.molten_blizz_enderium": "熔融极寒末影",
+  "item.tinkers_advanced.molten_blizz_enderium_bucket": "熔融极寒末影桶",
+
 
 
 

@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tinkers_advanced:metamorphium"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:blizz_inflict"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:metamorphium"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:blizz_defense"
+      }
+    ]
+  }
+}

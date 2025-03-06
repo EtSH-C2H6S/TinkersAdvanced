@@ -1,0 +1,6 @@
+{
+  "parent": "forge:item/bucket_drip",
+  "flip_gas": false,
+  "fluid": "tinkers_advanced:molten_blizz_enderium",
+  "loader": "forge:fluid_container"
+}

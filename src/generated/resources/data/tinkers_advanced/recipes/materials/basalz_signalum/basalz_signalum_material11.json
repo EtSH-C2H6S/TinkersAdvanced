@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cofh_core"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "tinkers_advanced:basalz_signalum"
+  },
+  "material": "tinkers_advanced:basalz_signalum",
+  "needed": 1,
+  "value": 1
+}

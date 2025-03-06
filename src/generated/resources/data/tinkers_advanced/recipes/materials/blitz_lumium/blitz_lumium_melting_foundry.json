@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 30,
+      "fluid": "tinkers_advanced:molten_biltz_lumium"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cofh_core"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "tinkers_advanced:blitz_lumium"
+  },
+  "result": {
+    "amount": 60,
+    "fluid": "tconstruct:molten_lumium"
+  },
+  "temperature": 1000,
+  "time": 30
+}

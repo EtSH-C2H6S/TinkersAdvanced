@@ -24,4 +24,10 @@ public class TiAcMaterialIds {
         public static final MaterialId PNEUMATIC_STEEL =new MaterialId(TinkersAdvanced.getLocation("pneumatic_steel"));
     }
 
+    public static class Thermal{
+        public static final MaterialId BASALZ_SIGNALUM =new MaterialId(TinkersAdvanced.getLocation("basalz_signalum"));
+        public static final MaterialId BLITZ_LUMIUM =new MaterialId(TinkersAdvanced.getLocation("blitz_lumium"));
+        public static final MaterialId BLIZZ_ENDERIUM =new MaterialId(TinkersAdvanced.getLocation("blizz_enderium"));
+    }
+
 }

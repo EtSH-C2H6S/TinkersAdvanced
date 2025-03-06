@@ -93,5 +93,29 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(178,0xFF393950)
                 .addARGB(216,0xFF606070)
                 .addARGB(255,0xFF76768A).build());
+        this.buildMaterial(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF210D00)
+                .addARGB(102,0xFF3D1800)
+                .addARGB(140,0xFF9E250D)
+                .addARGB(178,0xFFCF4424)
+                .addARGB(216,0xFFFF6B44)
+                .addARGB(255,0xFFFF855A).build());
+        this.buildMaterial(TiAcMaterialIds.Thermal.BLITZ_LUMIUM).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFFFDE44)
+                .addARGB(102,0xFFFAFF62)
+                .addARGB(140,0xFFD6A547)
+                .addARGB(178,0xFFFFE778)
+                .addARGB(216,0xFFFFF9B3)
+                .addARGB(255,0xFFFFFDD5).build());
+        this.buildMaterial(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFADDDFF)
+                .addARGB(102,0xFFADF4FF)
+                .addARGB(140,0xFF011D36)
+                .addARGB(178,0xFF0A2F56)
+                .addARGB(216,0xFF1D7D8A)
+                .addARGB(255,0xFF2BA6AD).build());
     }
 }
