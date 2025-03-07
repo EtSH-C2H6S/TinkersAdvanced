@@ -64,7 +64,7 @@ public class BlitzInflict extends EtSTBaseModifier {
                 Entity entity = list.get(RANDOM.nextInt(list.size()));
                 list.remove(entity);
                 if (entity.hurt(source,2+modifier.getLevel()*0.5f)&&entity.level() instanceof ServerLevel serverLevel){
-                    serverLevel.sendParticles(new BiColorParticleOptions(CoreParticles.STRAIGHT_ARC.get(), 0.2F, 4.0F, 0.0F, -1, -240988),target.getX(),target.getY()+0.5*target.getBbHeight(),target.getZ(),0,entity.getX(),entity.getY()+0.5*entity.getBbHeight(),entity.getZ(),0);
+                    serverLevel.sendParticles(new BiColorParticleOptions(CoreParticles.STRAIGHT_ARC.get(), 0.2F, 4.0F, 0.0F, -1, -240988),target.getX(),target.getY()+0.5*target.getBbHeight(),target.getZ(),0,entity.getX(),entity.getY()+0.5*entity.getBbHeight(),entity.getZ(),1);
                     if (entity instanceof LivingEntity livingEntity){
                         livingEntity.forceAddEffect(new MobEffectInstance(CoreMobEffects.SHOCKED.get(),80+40*modifier.getLevel(),modifier.getLevel()-1),attacker);
                         livingEntity.forceAddEffect(new MobEffectInstance(MobEffects.GLOWING,100*modifier.getLevel(),0),attacker);

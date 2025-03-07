@@ -41,7 +41,7 @@ public class BlitzDefense extends EtSTBaseModifier implements DamageBlockModifie
             if (!source.is(DamageTypeTags.AVOIDS_GUARDIAN_THORNS)){
                 LegacyDamageSource damageSource = LegacyDamageSource.any(new DamageSource(living.damageSources().lightningBolt().typeHolder(),context.getEntity())).setBypassArmor().setBypassInvulnerableTime().setThorn();
                 if (living.hurt(damageSource,2+0.5f*modifier.getLevel())&&living.level() instanceof ServerLevel serverLevel){
-                    serverLevel.sendParticles(new BiColorParticleOptions(CoreParticles.STRAIGHT_ARC.get(), 0.2F, 4.0F, 0.0F, -1, -240988),context.getEntity().getX(),context.getEntity().getY()+0.5*context.getEntity().getBbHeight(),context.getEntity().getZ(),0,living.getX(),living.getY()+0.5*living.getBbHeight(),living.getZ(),0);
+                    serverLevel.sendParticles(new BiColorParticleOptions(CoreParticles.STRAIGHT_ARC.get(), 0.2F, 4.0F, 0.0F, -1, -240988),context.getEntity().getX(),context.getEntity().getY()+0.5*context.getEntity().getBbHeight(),context.getEntity().getZ(),0,living.getX(),living.getY()+0.5*living.getBbHeight(),living.getZ(),1);
                 }
             }
             return true;
