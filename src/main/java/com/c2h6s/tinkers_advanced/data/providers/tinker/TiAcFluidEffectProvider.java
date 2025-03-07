@@ -1,0 +1,94 @@
+package com.c2h6s.tinkers_advanced.data.providers.tinker;
+
+import cofh.core.init.CoreMobEffects;
+import com.c2h6s.tinkers_advanced.TinkersAdvanced;
+import com.c2h6s.tinkers_advanced.registery.TiAcEffects;
+import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
+import mekanism.common.registries.MekanismDamageTypes;
+import mekanism.common.tags.MekanismTags;
+import net.minecraft.data.PackOutput;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Explosion;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.OrCondition;
+import slimeknights.mantle.recipe.condition.TagFilledCondition;
+import slimeknights.tconstruct.common.json.ConfigEnabledCondition;
+import slimeknights.tconstruct.library.data.tinkering.AbstractFluidEffectProvider;
+import slimeknights.tconstruct.library.json.LevelingValue;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidMobEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.TimeAction;
+import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.entity.PotionFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.general.ExplosionFluidEffect;
+import slimeknights.tconstruct.tools.TinkerModifiers;
+
+public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
+    public TiAcFluidEffectProvider(PackOutput packOutput) {
+        super(packOutput, TinkersAdvanced.MODID);
+    }
+
+    @Override
+    protected void addFluids() {
+        addFluid(TiAcFluids.MOLTEN_BISMUTH.get(),10)
+                .fireDamage(2.5f)
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(TiAcEffects.TETANUS.get(), 200,3)
+                        .buildEntity(TimeAction.ADD));
+        addFluid(TiAcFluids.MOLTEN_ANTIMATTER.get(),50)
+                .addDamage(10,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
+                .addBlockEffect(ExplosionFluidEffect
+                        .radius(10,2)
+                        .blockInteraction(Explosion.BlockInteraction.DESTROY)
+                        .placeFire()
+                        .damage(new LevelingValue(10,2)).build())
+                .addCondition(tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER));
+        addFluid(TiAcFluids.MOLTEN_IRRADIUM.get(),10)
+                .addDamage(7,new DamageFluidEffect.DamageTypePair(MekanismDamageTypes.RADIATION.key(),MekanismDamageTypes.RADIATION.key()))
+                .addCondition(modLoaded("mekanism"));
+        addFluid(TiAcFluids.FUSION_PLASMA.get(),100)
+                .fireDamage(4.5f)
+                .addCondition(modLoaded("mekanism"));
+        addFluid(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),10)
+                .fireDamage(2.5f)
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SUNDERED.get(), 200,3)
+                        .buildEntity(TimeAction.ADD))
+                .addBlockEffect(new BreakBlockFluidEffect(100, Enchantments.BLOCK_FORTUNE,5))
+                .addCondition(modLoaded("cofh_core"));
+        addFluid(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),10)
+                .fireDamage(3.5f)
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SHOCKED.get(), 200,3)
+                        .buildEntity(TimeAction.ADD))
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(MobEffects.GLOWING, 200,1)
+                        .buildEntity(TimeAction.ADD))
+                .addCondition(modLoaded("cofh_core"));
+        addFluid(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),10)
+                .coldDamage(4.5f)
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.CHILLED.get(), 200,3)
+                        .buildEntity(TimeAction.ADD))
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(TinkerModifiers.enderferenceEffect.get(), 200,1)
+                        .buildEntity(TimeAction.ADD))
+                .addCondition(modLoaded("cofh_core"));
+    }
+    public static ICondition modLoaded(String modId){
+        return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new ModLoadedCondition(modId));
+    }
+    public static ICondition tagFilled(TagKey<Item> tagKey){
+        return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new TagFilledCondition<>(tagKey));
+    }
+
+    @Override
+    public String getName() {
+        return "Tinkers' Advanced Fluid Effect Provider.";
+    }
+}

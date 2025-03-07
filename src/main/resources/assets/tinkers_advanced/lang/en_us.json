@@ -181,24 +181,31 @@
 
   "fluid.tinkers_advanced.molten_bismuth": "Molten Bismuth",
   "item.tinkers_advanced.molten_bismuth_bucket": "Molten Bismuth Bucket",
+  "fluid.tinkers_advanced.molten_bismuth.fluid_effect": "Reduce armor and increase damage taken.",
 
   "fluid.tinkers_advanced.molten_antimatter": "Molten Antimatter",
   "item.tinkers_advanced.molten_antimatter_bucket": "Molten Antimatter Bucket",
+  "fluid.tinkers_advanced.molten_antimatter.fluid_effect": "Antimatter is highly explosive.Don't spill it over!",
 
   "fluid.tinkers_advanced.molten_irradium": "Molten Irradium",
   "item.tinkers_advanced.molten_irradium_bucket": "Molten Irradium Bucket",
+  "fluid.tinkers_advanced.molten_irradium.fluid_effect": "Radioactive fluid.",
 
   "fluid.tinkers_advanced.fusion_plasma": "Fusion Plasma",
   "item.tinkers_advanced.fusion_plasma_bucket": "Fusion Plasma Bucket",
+  "fluid.tinkers_advanced.fusion_plasma.fluid_effect": "Fusion Plasma deals massive fire damage.",
 
   "fluid.tinkers_advanced.molten_basalz_signalum": "Molten Basalz Signalum",
   "item.tinkers_advanced.molten_basalz_signalum_bucket": "Molten Basalz Signalum Bucket",
+  "fluid.tinkers_advanced.molten_basalz_signalum.fluid_effect": "Basalz Signalum is the best fluid to pierce your enemies' armor.Also good for mining.",
 
   "fluid.tinkers_advanced.molten_biltz_lumium": "Molten Blitz Lumium",
   "item.tinkers_advanced.molten_biltz_lumium_bucket": "Molten Blitz Lumium Bucket",
+  "fluid.tinkers_advanced.molten_biltz_lumium.fluid_effect": "Blitz Lumium can disable enemies and reduce their damage.",
 
   "fluid.tinkers_advanced.molten_blizz_enderium": "Molten Blizz Enderium",
   "item.tinkers_advanced.molten_blizz_enderium_bucket": "Molten Blizz Enderium Bucket",
+  "fluid.tinkers_advanced.molten_blizz_enderium.fluid_effect": "Blizz Enderium is extremely cold ,capable of freezing targets.",
 
 
 
@@ -213,5 +220,10 @@
   "tooltip.tinkers_advanced.range": "Attack Range",
   "tooltip.tinkers_advanced.scale": "Effect Range",
 
-  "death.attack.plasma": "%1$s was decomposed into ions."
+
+  "death.attack.plasma": "%1$s was decomposed into ions.",
+
+
+  "fluid_effect.tconstruct.damage.explosion": "%s Explosion Damage",
+  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s Radiation Damage"
 }

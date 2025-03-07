@@ -1,0 +1,49 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cofh_core"
+        }
+      ]
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:conditional",
+      "effect": {
+        "type": "tconstruct:damage",
+        "damage": 4.5,
+        "damage_type": {
+          "melee": "tconstruct:fluid_cold_melee",
+          "ranged": "tconstruct:fluid_cold_ranged"
+        }
+      },
+      "target": "mantle:can_freeze"
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "add",
+      "effect": "cofh_core:chilled",
+      "level": 3,
+      "time": 200
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "add",
+      "effect": "tconstruct:enderference",
+      "level": 1,
+      "time": 200
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "fluid": "tinkers_advanced:molten_blizz_enderium"
+  }
+}

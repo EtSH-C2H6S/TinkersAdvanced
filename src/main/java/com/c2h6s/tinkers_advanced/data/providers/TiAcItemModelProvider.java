@@ -55,9 +55,9 @@ public class TiAcItemModelProvider extends ItemModelProvider {
         for (RegistryObject<BlockItem> object:TiAcItems.getListSimpleBlock()){
             generateBlockItemModel(object);
         }
-        Map<FluidObject<ForgeFlowingFluid>,Boolean> map = TiAcFluids.getFluidMap();
-        for (FluidObject<ForgeFlowingFluid> object : map.keySet()){
-            generateBucketItemModel(object,map.get(object));
-        }
+//        Map<FluidObject<ForgeFlowingFluid>,Boolean> map = TiAcFluids.getFluidMap();
+//        for (FluidObject<ForgeFlowingFluid> object : map.keySet()){
+//            generateBucketItemModel(object,map.get(object));
+//        }
     }
 }

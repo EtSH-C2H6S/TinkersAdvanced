@@ -11,6 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
@@ -63,6 +64,7 @@ public class BlitzInflict extends EtSTBaseModifier {
             while (i<amount&&!list.isEmpty()){
                 Entity entity = list.get(RANDOM.nextInt(list.size()));
                 list.remove(entity);
+                if (entity instanceof ItemEntity) continue;
                 if (entity.hurt(source,2+modifier.getLevel()*0.5f)&&entity.level() instanceof ServerLevel serverLevel){
                     serverLevel.sendParticles(new BiColorParticleOptions(CoreParticles.STRAIGHT_ARC.get(), 0.2F, 4.0F, 0.0F, -1, -240988),target.getX(),target.getY()+0.5*target.getBbHeight(),target.getZ(),0,entity.getX(),entity.getY()+0.5*entity.getBbHeight(),entity.getZ(),1);
                     if (entity instanceof LivingEntity livingEntity){

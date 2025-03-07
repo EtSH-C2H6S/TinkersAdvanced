@@ -39,12 +39,12 @@ public class TiAcFluids {
         return FLUID_MAP;
     }
     private static FluidObject<ForgeFlowingFluid> registerHotBurning(FluidDeferredRegister register,String name,int temp,int lightLevel,int burnTime,float damage,boolean gas){
-        FluidObject<ForgeFlowingFluid> object = register.register(name).type(hot(name,temp)).bucket().block(createBurning(MapColor.COLOR_GRAY,lightLevel,burnTime,damage)).commonTag().flowing();
+        FluidObject<ForgeFlowingFluid> object = register.register(name).type(hot(name,temp,gas)).bucket().block(createBurning(MapColor.COLOR_GRAY,lightLevel,burnTime,damage)).commonTag().flowing();
         FLUID_MAP.put(object,gas);
         return object;
     }
     private static FluidObject<ForgeFlowingFluid> registerFluid(FluidDeferredRegister register, String name,int temp, Function<Supplier<? extends FlowingFluid>, LiquidBlock> blockFunction, boolean gas){
-        FluidObject<ForgeFlowingFluid> object = register.register(name).type(hot(name,temp)).bucket().block(blockFunction).commonTag().flowing();
+        FluidObject<ForgeFlowingFluid> object = register.register(name).type(hot(name,temp,gas)).bucket().block(blockFunction).commonTag().flowing();
         FLUID_MAP.put(object,gas);
         return object;
     }
@@ -101,8 +101,8 @@ public class TiAcFluids {
     },false);
 
 
-    private static FluidType.Properties hot(String name,int Temp) {
-        return FluidType.Properties.create().density(2000).viscosity(10000).temperature(Temp)
+    private static FluidType.Properties hot(String name,int Temp,boolean gas) {
+        return FluidType.Properties.create().density(gas?-2000:2000).viscosity(10000).temperature(Temp)
                 .descriptionId("fluid."+TinkersAdvanced.MODID+"."+name)
                 .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
                 .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)

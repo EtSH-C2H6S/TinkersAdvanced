@@ -1,0 +1,49 @@
+{
+  "block_effects": [
+    {
+      "type": "tconstruct:explosion",
+      "block_interaction": "destroy",
+      "damage": {
+        "each_level": 2.0,
+        "flat": 10.0
+      },
+      "knockback": {
+        "flat": 1.0
+      },
+      "place_fire": true,
+      "radius": {
+        "each_level": 2.0,
+        "flat": 10.0
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "mantle:tag_filled",
+          "tag": "forge:pellets/antimatter"
+        }
+      ]
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:damage",
+      "damage": 10.0,
+      "damage_type": {
+        "melee": "minecraft:explosion",
+        "ranged": "minecraft:explosion"
+      }
+    }
+  ],
+  "fluid": {
+    "amount": 50,
+    "fluid": "tinkers_advanced:molten_antimatter"
+  }
+}

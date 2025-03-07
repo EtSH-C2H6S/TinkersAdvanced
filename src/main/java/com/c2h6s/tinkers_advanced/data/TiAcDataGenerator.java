@@ -13,6 +13,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.fluids.data.FluidBucketModelProvider;
 import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
 import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
 import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
@@ -38,6 +39,8 @@ public class TiAcDataGenerator {
         generator.addProvider(event.includeClient(),new TiAcMaterialProvider(output));
         generator.addProvider(event.includeClient(),new TiAcMaterialStatProvider(output));
         generator.addProvider(event.includeClient(),new TiAcMaterialModifierProvider(output));
+        generator.addProvider(event.includeClient(),new TiAcFluidEffectProvider(output));
+        generator.addProvider(event.includeClient(),new FluidBucketModelProvider(output,TinkersAdvanced.MODID));
         generator.addProvider(event.includeClient(),new TiAcMaterialRenderInfoProvider(output,new TiAcMaterialSpriteProvider(),helper));
         //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TiAcPartSpriteProvider(), new TiAcMaterialSpriteProvider()));
         //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TinkerPartSpriteProvider(), new TiAcMaterialSpriteProvider()));
