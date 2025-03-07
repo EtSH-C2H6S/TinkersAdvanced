@@ -28,6 +28,7 @@ public class TiAcModifiers {
     public static StaticModifier<ReactiveExplosiveArmor> REACTIVE_EXPLOSIVE_ARMOR = MODIFIERS.register("reactive_explosive_armor", ReactiveExplosiveArmor::new);
     public static StaticModifier<SensorInterrupt> SENSOR_INTERRUPT = MODIFIERS.register("sensor_interrupt", SensorInterrupt::new);
     public static StaticModifier<Metamorphium> METAMORPHIUM = MODIFIERS.register("metamorphium", Metamorphium::new);
+    public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

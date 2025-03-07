@@ -97,6 +97,10 @@
   "modifier.tinkers_advanced.blizz_defense.flavor": "Nitro process.",
   "modifier.tinkers_advanced.blizz_defense.description": "Gain frost resistance and fire resistance.Freeze attacker.",
 
+  "modifier.tinkers_advanced.over_hold": "Over Capacity",
+  "modifier.tinkers_advanced.over_hold.flavor": "This is not okay.",
+  "modifier.tinkers_advanced.over_hold.description": "+900% Fluid capacity.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -219,6 +223,10 @@
   "tooltip.tinkers_advanced.fluid_consumption": "Fluid Drain",
   "tooltip.tinkers_advanced.range": "Attack Range",
   "tooltip.tinkers_advanced.scale": "Effect Range",
+
+  "item.tinkers_advanced.particle_container": "Particle Container",
+  "item.tinkers_advanced.matter_manipulator": "Matter Manipulator",
+  "item.tinkers_advanced.matter_manipulator.description": "Matter Manipulator is an efficient mining tool.It shoots mining laser.It can either utilize block effects of fluid stored to mine block or performing block effects during combat.Right-click in inventory to switch mode.",
 
 
   "death.attack.plasma": "%1$s was decomposed into ions.",

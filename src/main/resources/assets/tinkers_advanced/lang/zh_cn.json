@@ -97,6 +97,10 @@
   "modifier.tinkers_advanced.blizz_defense.flavor": "冰冷的外表，坚硬的芯",
   "modifier.tinkers_advanced.blizz_defense.description": "获得霜冻抗性和抗火效果，冻结攻击者。",
 
+  "modifier.tinkers_advanced.over_hold": "超容",
+  "modifier.tinkers_advanced.over_hold.flavor": "这是非法改装！",
+  "modifier.tinkers_advanced.over_hold.description": "+900%流体容量。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -214,12 +218,16 @@
   "effect.tinkers_advanced.tetanus": "破伤风",
 
 
-  "item.tinkers_advanced.ionize_chamber": "离子肼",
+  "item.tinkers_advanced.ionize_chamber": "离子化腔",
   "item.tinkers_advanced.ionized_cannon": "等离子射线炮",
   "item.tinkers_advanced.ionized_cannon.description": "等离子射线炮是一种中距离近战武器。经过长时间蓄力后消耗流体发射一道等离子束，击中目标后造成声波伤害并对一定范围内的敌人施加流体效果（类似于喷溅强化）。\n古代文明的高新科技（确信）",
   "tooltip.tinkers_advanced.fluid_consumption": "流体消耗",
   "tooltip.tinkers_advanced.range": "有效射程",
   "tooltip.tinkers_advanced.scale": "范围倍率",
+
+  "item.tinkers_advanced.particle_container": "粒子容器",
+  "item.tinkers_advanced.matter_manipulator": "物质操纵器",
+  "item.tinkers_advanced.matter_manipulator.description": "物质操纵器是一种十分高效的挖掘工具，左键时它将会释放一束挖掘激光并远距离挖掘方块。它既能消耗流体并利用其流体效果挖掘，也能将流体效果施加在方块上用于战斗，在背包中右键以切换形态。",
 
 
   "death.attack.plasma": "%1$s被灼热的正负离子解离了。",
