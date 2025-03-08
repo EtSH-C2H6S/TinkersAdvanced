@@ -12,16 +12,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
-import net.minecraft.world.level.ClipBlockStateContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.phys.*;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class PlasmaBeamProjectile extends VisualScaledProjectile {
@@ -137,12 +133,4 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
         }
         super.tick();
     }
-    @Nullable
-    protected EntityHitResult findHitLivingEntity(Vec3 pStartVec, Vec3 pEndVec) {
-        return ProjectileUtil.getEntityHitResult(this.level(), this, pStartVec, pEndVec, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity)->(entity instanceof LivingEntity)&&entity.canBeHitByProjectile()&&entity!=this.getOwner());
-    }
-    protected EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
-        return ProjectileUtil.getEntityHitResult(this.level(), this, pStartVec, pEndVec, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity)->!(entity instanceof LivingEntity)&&entity.canBeHitByProjectile()&&entity!=this.getOwner());
-    }
-
 }

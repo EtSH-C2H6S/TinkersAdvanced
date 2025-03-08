@@ -1,6 +1,6 @@
 {
   "loader": "tconstruct:tool",
-  "parent": "forge:item/default-tool",
+  "parent": "tconstruct:item/base/bow",
   "textures": {
     "particle_container": "tinkers_advanced:item/tool/matter_manipulator/particle_container",
     "pick_head": "tinkers_advanced:item/tool/matter_manipulator/pick_head",
@@ -14,41 +14,5 @@
     { "name": "tough_collar",   "index": 2 },
     { "name": "tough_handle",  "index": 3 }
   ],
-  "first_modifiers": [{ "name": "tconstruct:tank", "forced": true }],
-  "display": {
-    "thirdperson_lefthand": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        0,
-        -2,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    },
-    "thirdperson_righthand": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        0,
-        -2,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    }
-  }
+  "first_modifiers": [{ "name": "tconstruct:tank", "forced": true }]
 }

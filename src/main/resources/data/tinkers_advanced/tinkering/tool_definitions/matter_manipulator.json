@@ -8,7 +8,7 @@
           "scale": 1
         },
         "tconstruct:pick_head",
-        "tconstruct:tough_collar",
+        "tconstruct:tough_binding",
         {
           "item": "tconstruct:tough_handle",
           "scale": 0.25

@@ -65,24 +65,10 @@ import static slimeknights.tconstruct.library.modifiers.hook.interaction.General
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.*;
 
 public class IonizedCannonItem extends ModifiableItem {
-    private ItemStack toolForRendering;
     public static final ResourceLocation TAG_SOUND = new ResourceLocation(TinkersAdvanced.MODID,"cannon_sound");
 
     public IonizedCannonItem(Properties properties) {
         super(properties, TiAcToolDefinitions.IONIZE_CANNON);
-    }
-
-    @Override
-    public ItemStack getRenderTool() {
-        if (toolForRendering == null) {
-            toolForRendering = ToolBuildHandler.buildToolForRendering(this, this.getToolDefinition());
-        }
-        return toolForRendering;
-    }
-
-    @Override
-    public int getMaxStackSize(ItemStack stack) {
-        return 1;
     }
 
     @Override
@@ -98,16 +84,6 @@ public class IonizedCannonItem extends ModifiableItem {
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return false;
-    }
-
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        return enchantment.isCurse() && super.canApplyAtEnchantingTable(stack, enchantment);
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return 0;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.content.item.IonizedCannonItem;
+import com.c2h6s.tinkers_advanced.content.item.MatterManipulator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -77,8 +78,10 @@ public class TiAcItems {
     public static final RegistryObject<Item> BISMUTHINITE = registerMaterial(ITEMS,"bismuthinite",()->new Item(new Item.Properties()),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
+    public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
 
     public static final ItemObject<ModifiableItem> IONIZED_CANNON = TINKER_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
+    public static final ItemObject<ModifiableItem> MATTER_MANIPULATOR = TINKER_ITEMS.register("matter_manipulator",()->new MatterManipulator(new Item.Properties().stacksTo(1)));
 
 
 

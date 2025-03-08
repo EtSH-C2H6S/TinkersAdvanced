@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced;
 
 import com.c2h6s.etstlib.util.ModListConstants;
 import com.c2h6s.tinkers_advanced.client.renderer.AirSlashRenderer;
+import com.c2h6s.tinkers_advanced.client.renderer.MiningBeamRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaBeamRenderer;
 import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
@@ -127,6 +128,7 @@ public class TinkersAdvanced
             event.registerEntityRenderer(TiAcEntities.PLASMA_EXPLOSION.get(), PlasmaExplosionRenderer::new);
             event.registerEntityRenderer(TiAcEntities.PLASMA_BEAM.get(), PlasmaBeamRenderer::new);
             event.registerEntityRenderer(TiAcEntities.AIR_SLASH.get(), AirSlashRenderer::new);
+            event.registerEntityRenderer(TiAcEntities.MINING_BEAM.get(), MiningBeamRenderer::new);
         }
     }
 }

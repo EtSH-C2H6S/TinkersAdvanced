@@ -5,4 +5,5 @@ import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class TiAcToolDefinitions {
     public static final ToolDefinition IONIZE_CANNON = ToolDefinition.create(TiAcItems.IONIZED_CANNON);
+    public static final ToolDefinition MATTER_MANIPULATOR = ToolDefinition.create(TiAcItems.MATTER_MANIPULATOR);
 }

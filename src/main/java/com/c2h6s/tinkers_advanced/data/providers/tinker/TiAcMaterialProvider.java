@@ -15,7 +15,7 @@ public class TiAcMaterialProvider extends AbstractMaterialDataProvider {
     protected void addMaterials() {
         Logger logger = LogUtils.getLogger();
         for (EnumMaterial material:EnumMaterial.values()){
-            logger.info("Now generating: {}", material.id);
+            //logger.info("Now generating: {}", material.id);
             addMaterial(material.id,material.tier,8, material.craftable, material.hidden, material.condition);
         }
     }
