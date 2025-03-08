@@ -13,13 +13,16 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.level.ClipBlockStateContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.phys.*;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class PlasmaBeamProjectile extends VisualScaledProjectile {
     public static final EntityDataAccessor<Float> DATA_LENGTH = SynchedEntityData.defineId(PlasmaBeamProjectile.class, EntityDataSerializers.FLOAT);
@@ -67,86 +70,65 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
                 Vec3 direction = this.getDeltaMovement().normalize();
                 Vec3 step = direction.scale(scale*0.5);
                 this.setDeltaMovement(step);
+                HitResult hitResult = this.level().clip(new ClipContext(initialPos,initialPos.add(direction.scale(distance)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE,null));
                 for (double i = 0; i <= distance; i += scale*0.5) {
-                    Vec3 pos = this.position();
-                    Vec3 toPos = pos.add(step);
-                    HitResult hitresult = this.level().clip(new ClipContext(pos, toPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
-                    if (hitresult.getType() == HitResult.Type.MISS){
-                        hitresult =null;
-                    }
-                    EntityHitResult entityhitresult = this.findHitEntity(pos, toPos);
-                    EntityHitResult livinghitresult = this.findHitLivingEntity(pos, toPos);
-                    if (entityhitresult != null) {
-                        hitresult = entityhitresult;
-                    }
-                    if (livinghitresult!=null){
-                        entityhitresult = livinghitresult;
-                        hitresult = livinghitresult;
-                    }
-                    if (hitresult!=null&&hitresult.getType() == HitResult.Type.ENTITY) {
-                        Entity entity = null;
-                        if (hitresult instanceof EntityHitResult) {
-                            entity = ((EntityHitResult)hitresult).getEntity();
-                        }
-                        Entity entity1 = this.getOwner();
-                        if (entity instanceof Player && entity1 instanceof Player && !((Player)entity1).canHarmPlayer((Player)entity)) {
-                            hitresult = null;
-                            entityhitresult = null;
+                    Vec3 pos = initialPos.add(direction.scale(i));
+                    AABB aabb = new AABB(pos.x-scale*0.5,pos.y-scale*0.5,pos.z-scale*0.5,pos.x+scale*0.5,pos.y+scale*0.5,pos.z+scale*0.5);
+                    aabb.expandTowards(step);
+                    List<Entity> entities = this.level().getEntitiesOfClass(Entity.class,aabb);
+                    for (Entity entity:entities){
+                        if (entity==this.getOwner()) continue;
+                        if (entity instanceof LivingEntity living){
+                            if (living instanceof Player player1&&!player.canHarmPlayer(player1)) continue;
+                            hitResult = new EntityHitResult(living,pos.add(step.scale(0.5)));
+                        }else if (entity.canBeHitByProjectile()){
+                            entity.hurt(this.damageSources().thrown(this,this.getOwner()),this.baseDamage);
                         }
                     }
-                    if (hitresult != null && hitresult.getType() == HitResult.Type.BLOCK) toPos = this.position();
-
-                    this.setPos(toPos);
-
-                    if (entityhitresult!=null&&entityhitresult.getType()!= HitResult.Type.MISS){
-                        AttackUtil.attackEntity(tool,player,player.getUsedItemHand(),entityhitresult.getEntity(),()->1,false,player.getUsedItemHand()== InteractionHand.MAIN_HAND? EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND,true,this.baseDamage,true);
+                    if (hitResult instanceof EntityHitResult) break;
+                }
+                if (hitResult.getType()== HitResult.Type.MISS){
+                    Vec3 path = direction.scale(distance);
+                    PlasmaExplosionProjectile projectile = new PlasmaExplosionProjectile(this.level(),scale);
+                    projectile.fluidStack = this.fluidStack;
+                    projectile.baseDamage =this.baseDamage/2;
+                    projectile.setPos(initialPos.add(path));
+                    projectile.setOwner(this.getOwner());
+                    this.level().addFreshEntity(projectile);
+                    Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
+                    if (OffHand){
+                        offset = offset.reverse();
                     }
-                    if (hitresult!=null){
-                        Vec3 path = this.position().subtract(initialPos);
-                        PlasmaExplosionProjectile projectile = new PlasmaExplosionProjectile(this.level(),scale);
-                        projectile.fluidStack = this.fluidStack;
-                        projectile.setPos(this.position());
-                        projectile.baseDamage =this.baseDamage/2;
-                        projectile.setOwner(this.getOwner());
-                        this.level().addFreshEntity(projectile);
-                        float length = (float) (path.length());
-                        this.setDataLength(length);
-                        Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
-                        if (OffHand){
-                            offset = offset.reverse();
-                        }
-                        Vec3 newDirection = path.subtract(offset).normalize();
-                        this.setDeltaMovement(newDirection);
-                        this.setPos(initialPos.add(offset));
-                        this.xOld=this.getX();
-                        this.yOld=this.getY();
-                        this.zOld=this.getZ();
-                        this.entityData.set(DATA_RENDER,true);
-                        break;
+                    Vec3 newDirection = path.subtract(offset).normalize();
+                    this.setDeltaMovement(newDirection);
+                    this.setPos(initialPos.add(offset));
+                    this.xOld=this.getX();
+                    this.yOld=this.getY();
+                    this.zOld=this.getZ();
+                    this.entityData.set(DATA_RENDER,true);
+                } else {
+                    Vec3 path = hitResult.getLocation().subtract(initialPos);
+                    this.setDataLength((float) path.length());
+                    if (hitResult instanceof EntityHitResult result&&tool!=null){
+                        AttackUtil.attackEntity(tool,player,player.getUsedItemHand(),result.getEntity(),()->1,false,player.getUsedItemHand()==InteractionHand.OFF_HAND?EquipmentSlot.OFFHAND:EquipmentSlot.MAINHAND,true,this.baseDamage,true);
                     }
-                    if (i>=distance-scale){
-                        Vec3 path = this.position().subtract(initialPos);
-                        PlasmaExplosionProjectile projectile = new PlasmaExplosionProjectile(this.level(),scale);
-                        projectile.fluidStack = this.fluidStack;
-                        projectile.baseDamage =this.baseDamage/2;
-                        projectile.setPos(this.position());
-                        projectile.setOwner(this.getOwner());
-                        this.level().addFreshEntity(projectile);
-                        float length = (float) (path.length());
-                        this.setDataLength(length);
-                        Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
-                        if (OffHand){
-                            offset = offset.reverse();
-                        }
-                        Vec3 newDirection = path.subtract(offset).normalize();
-                        this.setDeltaMovement(newDirection);
-                        this.setPos(initialPos.add(offset));
-                        this.xOld=this.getX();
-                        this.yOld=this.getY();
-                        this.zOld=this.getZ();
-                        this.entityData.set(DATA_RENDER,true);
-                        break;
+                    PlasmaExplosionProjectile projectile = new PlasmaExplosionProjectile(this.level(),scale);
+                    projectile.fluidStack = this.fluidStack;
+                    projectile.baseDamage =this.baseDamage/2;
+                    projectile.setPos(initialPos.add(path).subtract(step.scale(0.5)));
+                    projectile.setOwner(this.getOwner());
+                    this.level().addFreshEntity(projectile);
+                    Vec3 offset = player.getLookAngle().cross(new Vec3(0,1,0)).normalize().scale(0.6f);
+                    if (OffHand){
+                        offset = offset.reverse();
                     }
+                    Vec3 newDirection = path.subtract(offset).normalize();
+                    this.setDeltaMovement(newDirection);
+                    this.setPos(initialPos.add(offset));
+                    this.xOld=this.getX();
+                    this.yOld=this.getY();
+                    this.zOld=this.getZ();
+                    this.entityData.set(DATA_RENDER,true);
                 }
             }
             if (this.tickCount >= 9) {

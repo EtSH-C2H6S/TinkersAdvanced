@@ -4,6 +4,10 @@
       "path": "tinkers_advanced:item/tool/part/ionize_chamber/ionize_chamber",
       "stat_type": "tconstruct:handle"
     },
+    {
+      "path": "tinkers_advanced:item/tool/part/particle_container/particle_container",
+      "stat_type": "tconstruct:handle"
+    },
 
     {
       "path": "tinkers_advanced:item/tool/ionized_cannon/tough_collar",
@@ -33,6 +37,23 @@
     {
       "path": "tinkers_advanced:item/tool/ionized_cannon/broad_blade_2_broken",
       "stat_type": "tconstruct:head"
+    },
+
+    {
+      "path": "tinkers_advanced:item/tool/matter_manipulator/particle_container",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/matter_manipulator/tough_handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/matter_manipulator/pick_head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/matter_manipulator/tough_collar",
+      "stat_type": "tconstruct:binding"
     }
   ],
   "replace": false
