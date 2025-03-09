@@ -226,7 +226,14 @@
 
   "item.tinkers_advanced.particle_container": "Particle Container",
   "item.tinkers_advanced.matter_manipulator": "Matter Manipulator",
-  "item.tinkers_advanced.matter_manipulator.description": "Matter Manipulator is an efficient mining tool.It shoots mining laser.It can either utilize block effects of fluid stored to mine block or performing block effects during combat.Right-click in inventory to switch mode.",
+  "item.tinkers_advanced.matter_manipulator.description": "Matter Manipulator is an efficient mining tool,shoots mining laser when using.It can either simply mine block or performing block effects during combat.Right-click in inventory to switch mode.",
+  "tooltip.tinkers_advanced.speed_addup": "Mining Speed Boost",
+  "tooltip.tinkers_advanced.expand_mining": "Interact Mode-AOE | Range: ",
+  "tooltip.tinkers_advanced.single_mining": "Interact Mode-Single",
+  "tooltip.tinkers_advanced.mining_mode": "Main Mode-Mining",
+  "tooltip.tinkers_advanced.splashing_mode": "Main Mode-Splashing",
+  "tooltip.tinkers_advanced.primary_mode_info": "Right click with a tool handle to switch mode.",
+  "tooltip.tinkers_advanced.secondary_mode_info": "Right click with a tool handle to switch mode.",
 
 
   "death.attack.plasma": "%1$s was decomposed into ions.",

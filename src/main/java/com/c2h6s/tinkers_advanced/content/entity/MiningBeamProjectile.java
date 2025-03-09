@@ -16,6 +16,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class MiningBeamProjectile extends VisualScaledProjectile {
     public static final EntityDataAccessor<Integer> DATA_TICK = SynchedEntityData.defineId(MiningBeamProjectile.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> DATA_PROGRESS = SynchedEntityData.defineId(MiningBeamProjectile.class, EntityDataSerializers.INT);
     public ItemStack stack;
     public MiningBeamProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -32,6 +33,7 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_TICK,0);
+        this.entityData.define(DATA_PROGRESS,0);
     }
     public int getTick(){
         return this.entityData.get(DATA_TICK);
@@ -40,8 +42,16 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
         this.entityData.set(DATA_TICK,value);
     }
 
+    public int getProgress(){
+        return this.entityData.get(DATA_PROGRESS);
+    }
+    public void setProgress(int value){
+        this.entityData.set(DATA_PROGRESS,value);
+    }
+
     @Override
     public void tick() {
+        super.tick();
         this.setTick(this.getTick()+1);
         if (this.getOwner() instanceof Player player&&stack!=null&&stack.getItem() instanceof MatterManipulator item){
             if (this.getTick()<2) {
@@ -56,9 +66,11 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
             if (OffHand) {
                 offset = offset.reverse();
             }
-            this.setPos(player.getEyePosition().add(offset));
+            Vec3 finalpos = player.getEyePosition().add(offset);
+            Vec3 delta = finalpos.subtract(this.position());
+            this.setDeltaMovement(delta);
+            this.setPos(finalpos);
         }
         if (this.getTick()>7) this.discard();
-        super.tick();
     }
 }

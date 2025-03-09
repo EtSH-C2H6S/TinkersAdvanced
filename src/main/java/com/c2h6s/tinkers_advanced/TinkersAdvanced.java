@@ -30,6 +30,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -75,7 +76,7 @@ public class TinkersAdvanced
             TiAcItems.PNC_ITEMS.register(modEventBus);
             TiAcModifiers.PNC_MODIFIERS.register(modEventBus);
         }
-        if (ModListConstants.COFHLoaded){
+        if (ModList.get().isLoaded("thermal")){
             TiAcItems.THERMAL_ITEMS.register(modEventBus);
             TiAcFluids.THERMAL_FLUIDS.register(modEventBus);
             TiAcModifiers.THERMAL_MODIFIERS.register(modEventBus);

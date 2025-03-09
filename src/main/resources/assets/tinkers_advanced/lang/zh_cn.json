@@ -227,7 +227,14 @@
 
   "item.tinkers_advanced.particle_container": "粒子容器",
   "item.tinkers_advanced.matter_manipulator": "物质操纵器",
-  "item.tinkers_advanced.matter_manipulator.description": "物质操纵器是一种十分高效的挖掘工具，左键时它将会释放一束挖掘激光并远距离挖掘方块。它既能消耗流体并利用其流体效果挖掘，也能将流体效果施加在方块上用于战斗，在背包中右键以切换形态。",
+  "item.tinkers_advanced.matter_manipulator.description": "物质操纵器是一种十分高效的挖掘工具，使用时它会消耗流体释放一束挖掘激光并远距离挖掘方块。它既能挖掘方块也能将流体效果施加在方块上用于战斗。在背包中右键以切换作用模式，shift-右键切换范围模式。",
+  "tooltip.tinkers_advanced.speed_addup": "挖掘速度增幅",
+  "tooltip.tinkers_advanced.expand_mining": "范围模式-范围：",
+  "tooltip.tinkers_advanced.single_mining": "范围模式-单格",
+  "tooltip.tinkers_advanced.mining_mode": "作用模式-挖掘",
+  "tooltip.tinkers_advanced.splashing_mode": "作用模式-喷溅",
+  "tooltip.tinkers_advanced.primary_mode_info": "用工具手柄右键以切换作用模式",
+  "tooltip.tinkers_advanced.secondary_mode_info": "右键以切换范围模式",
 
 
   "death.attack.plasma": "%1$s被灼热的正负离子解离了。",

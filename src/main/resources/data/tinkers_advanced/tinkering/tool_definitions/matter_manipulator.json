@@ -38,17 +38,32 @@
       ]
     },
     {
-      "type": "tconstruct:base_stats",
-      "stats": {
-        "tconstruct:attack_speed": 1.0
-      }
-    },
-    {
       "type": "tconstruct:modifier_slots",
       "slots": {
         "abilities": 1,
         "upgrades": 5
       }
+    },
+    {
+      "type": "tconstruct:box_aoe",
+      "bonus": {
+        "height": 1,
+        "width": 1
+      },
+      "expansion_direction": "tconstruct:side_hit",
+      "expansions": [
+        {
+          "width": 1
+        },
+        {
+          "height": 1
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:is_effective",
+      "predicate_type": "mantle:tag",
+      "tag": "tinkers_advanced:mineable/matter_manipulator"
     },
     {
       "type": "tconstruct:traits",

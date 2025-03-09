@@ -1,4 +1,26 @@
 {
+  "block_effects": [
+    {
+      "type": "tconstruct:mob_effect_cloud",
+      "effects": [
+        {
+          "effect": "cofh_core:shocked",
+          "level": 3,
+          "time": 200
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:mob_effect_cloud",
+      "effects": [
+        {
+          "effect": "minecraft:glowing",
+          "level": 3,
+          "time": 200
+        }
+      ]
+    }
+  ],
   "conditions": [
     {
       "type": "forge:or",

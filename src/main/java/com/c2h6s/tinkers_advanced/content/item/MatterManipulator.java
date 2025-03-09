@@ -12,14 +12,17 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -29,21 +32,30 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fluids.FluidStack;
-import slimeknights.tconstruct.library.modifiers.fluid.FluidEffect;
-import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectContext;
-import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectManager;
-import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import org.jetbrains.annotations.Nullable;
+import slimeknights.mantle.client.TooltipKey;
+import slimeknights.tconstruct.library.modifiers.fluid.*;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
+import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
+import slimeknights.tconstruct.library.tools.definition.module.aoe.AreaOfEffectIterator;
+import slimeknights.tconstruct.library.tools.definition.module.mining.IsEffectiveToolHook;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.tools.TinkerModifiers;
+import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.modifiers.ability.interaction.BlockingModifier;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.TANK_HELPER;
 
@@ -68,6 +80,32 @@ public class MatterManipulator extends ModifiableItem {
         return true;
     }
 
+    public static final ResourceLocation LOCATION_SEC_MODE = TinkersAdvanced.getLocation("mining_mode_secondary");
+    public static final ResourceLocation LOCATION_PRI_MODE = TinkersAdvanced.getLocation("mining_mode_primary");
+
+    @Override
+    public boolean overrideOtherStackedOnMe(ItemStack slotStack, ItemStack held, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        if (slot.allowModification(player)&&action==ClickAction.SECONDARY){
+            ToolStack tool = ToolStack.from(slotStack);
+            if (held.isEmpty()) {
+                tool.getPersistentData().putBoolean(LOCATION_SEC_MODE, !tool.getPersistentData().getBoolean(LOCATION_SEC_MODE));
+            }
+            if (held.is(TinkerToolParts.toolHandle.asItem())){
+                tool.getPersistentData().putBoolean(LOCATION_PRI_MODE, !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE));
+            }
+            super.overrideOtherStackedOnMe(slotStack, held, slot, action, player, access);
+            return true;
+        }
+        return super.overrideOtherStackedOnMe(slotStack, held, slot, action, player, access);
+    }
+
+    @Override
+    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player player) {
+        ItemStack stack = player.getItemInHand(player.getUsedItemHand());
+        ToolStack tool = ToolStack.from(stack);
+        return tool.getPersistentData().getBoolean(LOCATION_MINING);
+    }
+
     @Override
     public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
         ToolStack tool = ToolStack.from(stack);
@@ -90,7 +128,6 @@ public class MatterManipulator extends ModifiableItem {
         Map<Enchantment, Integer> map = EnchantmentModifierHook.getAllEnchantments(stack);
         ToolStack tool = ToolStack.from(stack);
         FluidStack fluidStack = TANK_HELPER.getFluid(tool);
-        int i = 0;
         if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null) {
             FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
             if (fluidEffects.hasBlockEffects()) {
@@ -174,37 +211,87 @@ public class MatterManipulator extends ModifiableItem {
                 projectile1.setOwner(player);
                 level.addFreshEntity(projectile1);
                 tool.getPersistentData().putInt(LOCATION_ENTITY_ID, projectile1.getId());
+                projectile = projectile1;
             }
 
             BlockHitResult result = level.clip(new ClipContext(living.getEyePosition(),living.getEyePosition().add(living.getLookAngle().normalize().scale(baseRange)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE,null));
-            if (result.getType()!= HitResult.Type.MISS&&level instanceof ServerLevel serverLevel&&player instanceof ServerPlayer serverPlayer){
-                UseOnContext context = new UseOnContext(player,player.getUsedItemHand(),result);
+            if (result.getType()!= HitResult.Type.MISS&&level instanceof ServerLevel serverLevel&&player instanceof ServerPlayer serverPlayer) {
+                UseOnContext context = new UseOnContext(level,player, player.getUsedItemHand(),stack, result);
                 Direction direction = result.getDirection();
                 BlockPos blockPos = result.getBlockPos();
                 BlockState blockState = level.getBlockState(blockPos);
-                BlockPos legacy =new BlockPos(player.getPersistentData().getInt(KEY_BLOCK_POSX),player.getPersistentData().getInt(KEY_BLOCK_POSY),player.getPersistentData().getInt(KEY_BLOCK_POSZ));
-                if (!result.getBlockPos().equals(legacy)){
-                    player.getPersistentData().putInt(KEY_DESTORY,0);
+                boolean isEffective = IsEffectiveToolHook.isEffective(tool, blockState);
+                Random random = new Random();
+                float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
+                fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
+                if (random.nextFloat()<1/(fluidEfficiency)&&!player.getAbilities().instabuild){
+                    TANK_HELPER.setFluid(tool,new FluidStack(fluidStack.getFluid(),fluidStack.getAmount()-1));
                 }
-                player.getPersistentData().putInt(KEY_BLOCK_POSX, result.getBlockPos().getX());
-                player.getPersistentData().putInt(KEY_BLOCK_POSY, result.getBlockPos().getY());
-                player.getPersistentData().putInt(KEY_BLOCK_POSZ, result.getBlockPos().getZ());
-                float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level,blockPos);
+                if (isEffective&&!tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
+                    BlockPos legacy = new BlockPos(player.getPersistentData().getInt(KEY_BLOCK_POSX), player.getPersistentData().getInt(KEY_BLOCK_POSY), player.getPersistentData().getInt(KEY_BLOCK_POSZ));
+                    if (!result.getBlockPos().equals(legacy)) {
+                        player.getPersistentData().putInt(KEY_DESTORY, 0);
+                    }
+                    player.getPersistentData().putInt(KEY_BLOCK_POSX, result.getBlockPos().getX());
+                    player.getPersistentData().putInt(KEY_BLOCK_POSY, result.getBlockPos().getY());
+                    player.getPersistentData().putInt(KEY_BLOCK_POSZ, result.getBlockPos().getZ());
+                    float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level, blockPos);
+                    float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
 
-                float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
-                float breakSpeed = tool.getStats().get(ToolStats.MINING_SPEED);
-                destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 1, 10 - destroyProgress);
-                serverLevel.destroyBlockProgress(player.getId(),blockPos,(int) destroyProgress);
+                    float breakSpeed = tool.getStats().get(ToolStats.MINING_SPEED);
+                    breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 100f;
+                    FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+                    if (fluidEffects.hasBlockEffects()) {
+                        for (FluidEffect<? super FluidEffectContext.Block> effect : fluidEffects.blockEffects()) {
+                            if (effect instanceof BreakBlockFluidEffect effect1) {
+                                breakSpeed += effect1.hardness();
+                            }
+                        }
+                    }
 
-                if (destroyProgress>=10) {
-                    serverLevel.destroyBlockProgress(player.getId(),blockPos,-1);
-                    HarvestLogic.breakBlockAndTeleport(tool,stack,new ToolHarvestContext(serverLevel,serverPlayer,blockState,blockPos,result.getDirection(),blockState.canHarvestBlock(level,blockPos,serverPlayer),this.isCorrectToolForDrops(blockState)),player.blockPosition());
-                    player.getPersistentData().putInt(KEY_DESTORY,0);
-                }else player.getPersistentData().putFloat(KEY_DESTORY,destroyProgress);
+                    breakSpeed = ForgeEventFactory.getBreakSpeed(player, blockState, breakSpeed, blockPos);
+                    if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
+                        breakSpeed /= 4;
+                    }
+                    destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 1, 10 - destroyProgress);
+                    level.destroyBlockProgress(player.getId(),blockPos, (int) destroyProgress);
+                    if (destroyProgress >= 10) {
+                        HarvestLogic.breakBlockAndTeleport(tool, stack, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)), player.blockPosition());
+                        serverLevel.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1);
+                        if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
+                            for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
+                                BlockState blockState1 = level.getBlockState(blockPos1);
+                                if (IsEffectiveToolHook.isEffective(tool, blockState1)) {
+                                    HarvestLogic.breakBlockAndTeleport(tool, stack, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)), player.blockPosition());
+                                }
+                            }
+                        }
+                        player.getPersistentData().putInt(KEY_DESTORY, 0);
+                        destroyProgress = 0;
+                    } else player.getPersistentData().putFloat(KEY_DESTORY, destroyProgress);
+                    projectile.setProgress((int) destroyProgress);
+                } else if (tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)){
+                    FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+                    List<FluidEffect<? super FluidEffectContext.Block>> list = List.of();
+                    if (fluidEffects.hasBlockEffects()) {
+                        fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000),2,new FluidEffectContext.Block(level,player,null,result), IFluidHandler.FluidAction.EXECUTE);
+                        if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
+                            for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
+                                BlockHitResult result1 = new BlockHitResult(blockPos1.getCenter(),result.getDirection(),blockPos1,true);
+                                fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000),2,new FluidEffectContext.Block(level,player,null,result1), IFluidHandler.FluidAction.EXECUTE);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
+    @Override
+    public void releaseUsing(ItemStack stack, Level worldIn, LivingEntity entityLiving, int timeLeft) {
+        super.releaseUsing(stack, worldIn, entityLiving, timeLeft);
+        entityLiving.getPersistentData().putInt(KEY_DESTORY, 0);
+    }
 
     public static Direction.Axis getSuitableAxis(Direction direction){
         Direction.Axis axis;
@@ -216,4 +303,36 @@ public class MatterManipulator extends ModifiableItem {
         return axis;
     }
 
+    @Override
+    public List<Component> getStatInformation(IToolStackView tool, @org.jetbrains.annotations.Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
+        if (player != null) {
+            FluidStack fluidStack = TANK_HELPER.getFluid(tool);
+            float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
+            fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
+            float baseRange = ConditionalStatModifierHook.getModifiedStat(tool,player, TiAcToolStats.RANGE);
+            baseRange += (float) (player.getEntityReach()*2);
+
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4" + String.format("%.1f",100/fluidEfficiency) + "% * 1mB"));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : §e" + baseRange));
+        }
+        super.getStatInformation(tool, player, tooltips, key, tooltipFlag);
+
+        return tooltips;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        ToolStack tool = ToolStack.from(stack);
+        tooltip.add(Component.translatable(tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)?"tooltip.tinkers_advanced.splashing_mode":"tooltip.tinkers_advanced.mining_mode").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.BOLD));
+
+        tooltip.add(Component.translatable("tooltip.tinkers_advanced.primary_mode_info").withStyle(ChatFormatting.DARK_AQUA));
+
+        int expandw = 3+2*((tool.getModifierLevel(TinkerModifiers.expanded.getId())+1)/2);
+        int expandh = 3+2*(tool.getModifierLevel(TinkerModifiers.expanded.getId())/2);
+        tooltip.add(Component.translatable(tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)?"tooltip.tinkers_advanced.expand_mining":"tooltip.tinkers_advanced.single_mining").append(tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)? expandw + " * " + expandh :"").withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(ChatFormatting.BOLD));
+
+        tooltip.add(Component.translatable("tooltip.tinkers_advanced.secondary_mode_info").withStyle(ChatFormatting.DARK_PURPLE));
+
+    }
 }

@@ -1,0 +1,23 @@
+{
+  "values": [
+    "#minecraft:mineable/shovel",
+    "#minecraft:mineable/pickaxe",
+    "#minecraft:mineable/axe",
+    "#minecraft:mineable/hoe",
+    "#forge:mineable/sword",
+    "#forge:mineable/shears",
+    "#minecraft:leaves",
+    "#minecraft:crops",
+    "minecraft:attached_melon_stem",
+    "minecraft:attached_pumpkin_stem",
+    "minecraft:big_dripleaf_stem",
+    "minecraft:big_dripleaf",
+    "minecraft:kelp",
+    "minecraft:kelp_plant",
+    "minecraft:nether_wart",
+    "minecraft:small_dripleaf",
+    "minecraft:spore_blossom",
+    "minecraft:sugar_cane",
+    "minecraft:sweet_berry_bush"
+  ]
+}

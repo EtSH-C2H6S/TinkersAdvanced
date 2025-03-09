@@ -121,7 +121,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         folder = namedFolder("pneumatic_steel");
         materialRecipe(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,Ingredient.of(TiAcItems.PNEUMATIC_STEEL.get()),1,1, Conditional,folder);
         //Thermal
-        Conditional = withCondition(consumer,modLoaded("cofh_core"));
+        Conditional = withCondition(consumer,modLoaded("thermal"));
         folder = namedFolder("basalz_signalum");
         materialRecipe(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,Ingredient.of(TiAcItems.BASALZ_SIGNALUM.get()),1,1, Conditional,folder);
         melt1Ingot(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),TiAcItems.BASALZ_SIGNALUM.get(),995,Conditional,folder);

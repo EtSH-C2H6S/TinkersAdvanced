@@ -25,9 +25,9 @@ public enum EnumMaterial {
     REFINED_OBSIDIAN(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,4,true,false,EnumMaterialStats.REFINED_OBSIDIAN, tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),REFINED_OBSIDIAN_ARMOR,REFINED_OBSIDIAN_DEFAULT),
     IRRADIUM(TiAcMaterialIds.Mekanism.IRRADIUM,4,false,false,EnumMaterialStats.IRRADIUM,modLoaded("mekanism"),IRRADIUM_DEFAULT,IRRADIUM_ARMOR),
     PNEUMATIC_STEEL(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,4,true,false,EnumMaterialStats.PNEUMATIC_STEEL,modLoaded("pneumaticcraft"),PNEUMATIC_STEEL_ARMOR,PNEUMATIC_STEEL_DEFAULT),
-    BASALZ_SIGNALUM(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,3,false,false,EnumMaterialStats.BASALZ_SIGNALUM,modLoaded("cofh_core"),BASALZ_SIGNALUM_ARMOR,BASALZ_SIGNALUM_DEFAULT),
-    BLITZ_LUMIUM(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,4,false,false,EnumMaterialStats.BLITZ_LUMIUM,modLoaded("cofh_core"),BLITZ_LUMIUM_ARMOR,BLITZ_LUMIUM_DEFAULT),
-    BLIZZ_ENDERIUM(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,4,false,false,EnumMaterialStats.BLIZZ_ENDERIUM,modLoaded("cofh_core"),BLIZZ_ENDERIUM_ARMOR,BLIZZ_ENDERIUM_DEFAULT),
+    BASALZ_SIGNALUM(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,3,false,false,EnumMaterialStats.BASALZ_SIGNALUM,modLoaded("thermal"),BASALZ_SIGNALUM_ARMOR,BASALZ_SIGNALUM_DEFAULT),
+    BLITZ_LUMIUM(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,4,false,false,EnumMaterialStats.BLITZ_LUMIUM,modLoaded("thermal"),BLITZ_LUMIUM_ARMOR,BLITZ_LUMIUM_DEFAULT),
+    BLIZZ_ENDERIUM(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,4,false,false,EnumMaterialStats.BLIZZ_ENDERIUM,modLoaded("thermal"),BLIZZ_ENDERIUM_ARMOR,BLIZZ_ENDERIUM_DEFAULT),
     ;
     public final MaterialId id;
     public final int tier;

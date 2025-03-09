@@ -23,6 +23,7 @@ import slimeknights.tconstruct.library.json.LevelingValue;
 import slimeknights.tconstruct.library.modifiers.fluid.FluidMobEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.TimeAction;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.block.MobEffectCloudFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.entity.PotionFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ExplosionFluidEffect;
@@ -39,7 +40,11 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                 .fireDamage(2.5f)
                 .addEntityEffects(FluidMobEffect.builder()
                         .effect(TiAcEffects.TETANUS.get(), 200,3)
-                        .buildEntity(TimeAction.ADD));
+                        .buildEntity(TimeAction.ADD))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(TiAcEffects.TETANUS.get(), 200,3)
+                        .buildCloud()
+                        .effects()));
         addFluid(TiAcFluids.MOLTEN_ANTIMATTER.get(),50)
                 .addDamage(10,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
                 .addBlockEffect(ExplosionFluidEffect
@@ -69,6 +74,14 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                 .addEntityEffects(FluidMobEffect.builder()
                         .effect(MobEffects.GLOWING, 200,1)
                         .buildEntity(TimeAction.ADD))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SHOCKED.get(), 200,3)
+                        .buildCloud()
+                        .effects()))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(MobEffects.GLOWING, 200,3)
+                        .buildCloud()
+                        .effects()))
                 .addCondition(modLoaded("cofh_core"));
         addFluid(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),10)
                 .coldDamage(4.5f)
@@ -78,6 +91,14 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                 .addEntityEffects(FluidMobEffect.builder()
                         .effect(TinkerModifiers.enderferenceEffect.get(), 200,1)
                         .buildEntity(TimeAction.ADD))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.CHILLED.get(), 200,3)
+                        .buildCloud()
+                        .effects()))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(TinkerModifiers.enderferenceEffect.get(), 200,3)
+                        .buildCloud()
+                        .effects()))
                 .addCondition(modLoaded("cofh_core"));
     }
     public static ICondition modLoaded(String modId){
