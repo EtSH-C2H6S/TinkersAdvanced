@@ -18,6 +18,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SlotAccess;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
@@ -103,13 +104,6 @@ public class MatterManipulator extends ModifiableItem {
     }
 
     @Override
-    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player player) {
-        ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        ToolStack tool = ToolStack.from(stack);
-        return tool.getPersistentData().getBoolean(LOCATION_MINING);
-    }
-
-    @Override
     public UseAnim getUseAnimation(ItemStack stack) {
         return BlockingModifier.blockWhileCharging(ToolStack.from(stack), UseAnim.BOW);
     }
@@ -190,7 +184,8 @@ public class MatterManipulator extends ModifiableItem {
                 Random random = new Random();
                 float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
                 fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
-                if (random.nextFloat()<1/(fluidEfficiency)&&!player.getAbilities().instabuild){
+                float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+                if (random.nextFloat()<fluidFactor&&!player.getAbilities().instabuild){
                     TANK_HELPER.setFluid(tool,new FluidStack(fluidStack.getFluid(),fluidStack.getAmount()-1));
                 }
                 if (isEffective&&!tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
@@ -204,7 +199,7 @@ public class MatterManipulator extends ModifiableItem {
                     float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level, blockPos);
                     float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
 
-                    float breakSpeed = tool.getStats().get(ToolStats.MINING_SPEED);
+                    float breakSpeed = (float) (tool.getStats().get(ToolStats.MINING_SPEED)*player.getAttributeValue(Attributes.ATTACK_SPEED)/4);
                     breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 100f;
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     ItemStack stack1 = stack.copy();

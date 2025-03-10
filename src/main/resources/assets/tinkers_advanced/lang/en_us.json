@@ -43,7 +43,7 @@
 
   "modifier.tinkers_advanced.deep_catalysis": "Deep Catalysis",
   "modifier.tinkers_advanced.deep_catalysis.flavor": "Environmental friendly.",
-  "modifier.tinkers_advanced.deep_catalysis.description": "Increase 0.2 fluid efficiency,which reduces fluid consumption.",
+  "modifier.tinkers_advanced.deep_catalysis.description": "Reduces 10% fluid consumption each level.",
 
   "modifier.tinkers_advanced.focusing_array": "Focusing Array",
   "modifier.tinkers_advanced.focusing_array.flavor": "Similar to the dish antenna in your home.",

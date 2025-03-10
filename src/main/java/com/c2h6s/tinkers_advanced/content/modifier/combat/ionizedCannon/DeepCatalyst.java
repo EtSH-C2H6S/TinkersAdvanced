@@ -18,6 +18,6 @@ public class DeepCatalyst extends Modifier implements ToolStatsModifierHook {
 
     @Override
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
-        TiAcToolStats.FLUID_EFFICIENCY.add(modifierStatsBuilder,0.2);
+        TiAcToolStats.FLUID_EFFICIENCY.add(modifierStatsBuilder,0.1);
     }
 }

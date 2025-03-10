@@ -41,6 +41,6 @@ public class SculkResonance extends EtSTBaseModifier implements ToolStatsModifie
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder builder) {
         TiAcToolStats.RANGE.update(builder,12f);
         TiAcToolStats.SCALE.update(builder,1f);
-        TiAcToolStats.FLUID_EFFICIENCY.update(builder,1f);
+        TiAcToolStats.FLUID_EFFICIENCY.update(builder,0f);
     }
 }

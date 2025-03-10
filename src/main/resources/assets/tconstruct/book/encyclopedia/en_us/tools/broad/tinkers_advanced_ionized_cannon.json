@@ -1,7 +1,7 @@
 {
   "tool": "tinkers_advanced:ionized_cannon",
   "text": [
-    { "text": "Ionized Cannon is a melee weapon that fires plasma beam consuming fluids.When effective fluid is loaded,It will gain 200% damage boost." },
+    { "text": "Ionized Cannon is a melee weapon that fires plasma beam consuming fluids.When fluid has entity effects ,It will gain 200% damage boost." },
     { "text": "Fluid effect level is determined by damage.Can be enhanced by Expanding modifier.Attack range affects range of beam.", "paragraph": false }
   ],
   "properties": [

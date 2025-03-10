@@ -1,0 +1,12 @@
+{
+  "tool": "tinkers_advanced:matter_manipulator",
+  "text": [
+    { "text": "Matter Manipulator is a powerful mining tool. It shoots mining laser on using. Capable of mining or applying fluid effects." },
+    { "text": "In mining mode, dig speed will be enhanced by fluid temperature and block effect.Enchantments from fluid will be applied.", "paragraph": false }
+  ],
+  "properties": [
+    "Infinite durability",
+    "Come with 3*3 AOE mining",
+    "Cast ichor on echo shard and then cast molten material on it to obtain core part."
+  ]
+}

@@ -242,8 +242,9 @@ public class IonizedCannonItem extends ModifiableItem {
         }
         float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
         fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
+        float fluidFactor =Math.max(0,1-fluidEfficiency) ;
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume =Math.round( Math.min(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid()):5)/fluidEfficiency),1));
+        int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
         if (fluidStack.getAmount()<consume&&!creative){
             return InteractionResultHolder.fail(stack);
         }
@@ -295,8 +296,10 @@ public class IonizedCannonItem extends ModifiableItem {
 
         float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
         fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
+        float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume =Math.round( Math.max(((effect.hasEntityEffects()?effect.getAmount(fluidStack.getFluid())*0.5F:50)/fluidEfficiency),1));
+        int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
         float baseRange;
         float baseScale;
         float baseDamage;
@@ -341,8 +344,10 @@ public class IonizedCannonItem extends ModifiableItem {
             FluidStack fluidStack = TANK_HELPER.getFluid(tool);
             float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
             fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
+            float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+
             FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-            int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) / fluidEfficiency), 1));
+            int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
             float baseRange;
             float baseScale;
             baseRange = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.RANGE);

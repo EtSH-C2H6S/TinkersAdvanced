@@ -23,6 +23,6 @@ public class OverHold extends NoLevelsModifier implements ToolStatsModifierHook 
         ToolTankHelper.CAPACITY_STAT.percent(builder,9);
         TiAcToolStats.RANGE.update(builder,16f);
         TiAcToolStats.SCALE.update(builder,1f);
-        TiAcToolStats.FLUID_EFFICIENCY.update(builder,1f);
+        TiAcToolStats.FLUID_EFFICIENCY.update(builder,0f);
     }
 }
