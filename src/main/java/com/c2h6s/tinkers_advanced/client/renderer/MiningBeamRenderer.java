@@ -2,45 +2,29 @@ package com.c2h6s.tinkers_advanced.client.renderer;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.MiningBeamProjectile;
-import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.SheetedDecalTextureGenerator;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Random;
-import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
-import slimeknights.tconstruct.library.tools.definition.module.aoe.AreaOfEffectIterator;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
-
-import java.util.Iterator;
 
 import static com.c2h6s.tinkers_advanced.util.RenderUtil.drawPipe;
 
@@ -50,9 +34,24 @@ public class MiningBeamRenderer extends EntityRenderer<MiningBeamProjectile> {
     }
     @Override
     public boolean shouldRender(MiningBeamProjectile entity, Frustum pCamera, double pCamX, double pCamY, double pCamZ) {
+        if (entity.tickCount<=1) return false;
         Vec3 vec3 = entity.position().add(entity.getDeltaMovement().scale(entity.getScale()));
         Vec3 vec32 = entity.position().add(entity.getDeltaMovement().scale(entity.getScale()/2f));
         Vec3 cameraPos = new Vec3(pCamX,pCamY,pCamZ);
+
+        Player player = entity.getOwner() instanceof Player player1?player1:null;
+        if (player!=null) {
+            InteractionHand hand = player.getUsedItemHand();
+            Vec3 offset = player.getLookAngle().cross(new Vec3(0, 1, 0)).normalize().scale(0.3f);
+            boolean OffHand = hand == InteractionHand.OFF_HAND;
+            if (offset.length() == 0) offset = new Vec3(0.3, 0, 0);
+            if (OffHand) {
+                offset = offset.reverse();
+            }
+            Vec3 finalpos = player.getEyePosition().add(offset);
+            entity.setPos(finalpos);
+        } else return false;
+
         return entity.position().subtract(cameraPos).length()<64||vec3.subtract(cameraPos).length()<64||vec32.subtract(cameraPos).length()<64;
     }
 
@@ -63,10 +62,9 @@ public class MiningBeamRenderer extends EntityRenderer<MiningBeamProjectile> {
             ClientLevel level = Minecraft.getInstance().level;
             Player player = pEntity.getOwner() instanceof Player player1?player1:null;
             if (level==null||player==null) return;
-//            ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-//            ToolStack toolStack = ToolStack.from(stack);
             BlockHitResult result = level.clip(new ClipContext(player.getEyePosition(),player.getEyePosition().add(player.getLookAngle().normalize().scale(pEntity.getScale())), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE,null));
             Vec3 vec3 = result.getLocation().subtract(pEntity.position());
+
             distance = (float) vec3.length();
             double d0 = vec3.horizontalDistance();
             float yRot = (float)(Mth.atan2(vec3.x, vec3.z) * 57.2957763671875);

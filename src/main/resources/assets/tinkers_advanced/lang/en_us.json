@@ -180,6 +180,7 @@
   "item.tinkers_advanced.basalz_signalum": "Basalz Signalum",
   "item.tinkers_advanced.blitz_lumium": "Blitz Lumium",
   "item.tinkers_advanced.blizz_enderium": "Blizz Enderium",
+  "item.tinkers_advanced.disintegrate_crystal": "Disassemble Crystal",
 
 
 
@@ -233,7 +234,7 @@
   "tooltip.tinkers_advanced.mining_mode": "Main Mode-Mining",
   "tooltip.tinkers_advanced.splashing_mode": "Main Mode-Splashing",
   "tooltip.tinkers_advanced.primary_mode_info": "Right click with a tool handle to switch mode.",
-  "tooltip.tinkers_advanced.secondary_mode_info": "Right click with a tool handle to switch mode.",
+  "tooltip.tinkers_advanced.secondary_mode_info": "Right click to switch mode.",
 
 
   "death.attack.plasma": "%1$s was decomposed into ions.",

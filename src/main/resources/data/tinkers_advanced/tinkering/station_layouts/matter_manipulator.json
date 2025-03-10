@@ -1,0 +1,47 @@
+{
+  "icon": {
+    "item": "tinkers_advanced:matter_manipulator",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "input_slots": [
+    {
+      "filter": {
+        "item": "tinkers_advanced:particle_container"
+      },
+      "icon": "tinkers_advanced:particle_container",
+      "translation_key": "item.tinkers_advanced.particle_container",
+      "x": 30,
+      "y": 62
+    },
+    {
+      "filter": {
+        "item": "tconstruct:pick_head"
+      },
+      "icon": "tconstruct:pick_head",
+      "translation_key": "item.tconstruct.pick_head",
+      "x": 12,
+      "y": 26
+    },
+    {
+      "filter": {
+        "item": "tconstruct:tough_binding"
+      },
+      "icon": "tconstruct:tough_binding",
+      "translation_key": "item.tconstruct.tough_binding",
+      "x": 30,
+      "y": 44
+    },
+
+    {
+      "filter": {
+        "item": "tconstruct:tough_handle"
+      },
+      "icon": "tconstruct:tough_handle",
+      "translation_key": "item.tconstruct.tough_handle",
+      "x": 48,
+      "y": 44
+    }
+  ],
+  "sortIndex": 1,
+  "translation_key": "item.tinkers_advanced.matter_manipulator"
+}

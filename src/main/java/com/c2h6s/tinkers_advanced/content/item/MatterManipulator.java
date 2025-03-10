@@ -26,6 +26,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -39,6 +41,7 @@ import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.fluid.*;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.general.ConditionalFluidEffect;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
@@ -111,35 +114,35 @@ public class MatterManipulator extends ModifiableItem {
         ToolStack tool = ToolStack.from(stack);
         FluidStack fluidStack = TANK_HELPER.getFluid(tool);
         int i = EnchantmentModifierHook.getEnchantmentLevel(stack, enchantment);
-        if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null){
-            FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-            if (fluidEffects.hasBlockEffects()){
-                for (FluidEffect<? super FluidEffectContext.Block> effect:fluidEffects.blockEffects()){
-                    if (effect instanceof BreakBlockFluidEffect effect1&& effect1.enchantments().containsKey(enchantment)){
-                        i+=effect1.enchantments().get(enchantment);
-                    }
-                }
-            }
-        }
+//        if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null){
+//            FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+//            if (fluidEffects.hasBlockEffects()){
+//                for (FluidEffect<? super FluidEffectContext.Block> effect:fluidEffects.blockEffects()){
+//                    if (effect instanceof BreakBlockFluidEffect effect1&& effect1.enchantments().containsKey(enchantment)){
+//                        i+=effect1.enchantments().get(enchantment);
+//                    }
+//                }
+//            }
+//        }
         return i;
     }
     @Override
     public Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
         Map<Enchantment, Integer> map = EnchantmentModifierHook.getAllEnchantments(stack);
-        ToolStack tool = ToolStack.from(stack);
-        FluidStack fluidStack = TANK_HELPER.getFluid(tool);
-        if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null) {
-            FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-            if (fluidEffects.hasBlockEffects()) {
-                for (FluidEffect<? super FluidEffectContext.Block> effect : fluidEffects.blockEffects()) {
-                    if (effect instanceof BreakBlockFluidEffect effect1){
-                        for (Enchantment enchantment: effect1.enchantments().keySet()){
-                            map.merge(enchantment,effect1.enchantments().get(enchantment),Integer::sum);
-                        }
-                    }
-                }
-            }
-        }
+//        ToolStack tool = ToolStack.from(stack);
+//        FluidStack fluidStack = TANK_HELPER.getFluid(tool);
+//        if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null) {
+//            FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+//            if (fluidEffects.hasBlockEffects()) {
+//                for (FluidEffect<? super FluidEffectContext.Block> effect : fluidEffects.blockEffects()) {
+//                    if (effect instanceof BreakBlockFluidEffect effect1){
+//                        for (Enchantment enchantment: effect1.enchantments().keySet()){
+//                            map.merge(enchantment,effect1.enchantments().get(enchantment),Integer::sum);
+//                        }
+//                    }
+//                }
+//            }
+//        }
         return map;
     }
 
@@ -241,14 +244,22 @@ public class MatterManipulator extends ModifiableItem {
                     float breakSpeed = tool.getStats().get(ToolStats.MINING_SPEED);
                     breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 100f;
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
+                    ItemStack stack1 = stack.copy();
+                    Map<Enchantment, Integer> map = stack1.getAllEnchantments();
                     if (fluidEffects.hasBlockEffects()) {
                         for (FluidEffect<? super FluidEffectContext.Block> effect : fluidEffects.blockEffects()) {
+                            if (effect instanceof ConditionalFluidEffect<? super FluidEffectContext.Block> effect1)
+                                effect = effect1.effect();
                             if (effect instanceof BreakBlockFluidEffect effect1) {
-                                breakSpeed += effect1.hardness();
+                                if (!effect1.enchantments().isEmpty()) {
+                                    breakSpeed += effect1.hardness();
+                                    effect1.enchantments().forEach((enchantment, integer) -> map.merge(enchantment, integer, Integer::sum));
+                                }
                             }
                         }
                     }
-
+                    EnchantmentHelper.setEnchantments(map,stack1);
+                    ToolStack copy = ToolStack.from(stack1);
                     breakSpeed = ForgeEventFactory.getBreakSpeed(player, blockState, breakSpeed, blockPos);
                     if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
                         breakSpeed /= 4;
@@ -256,13 +267,15 @@ public class MatterManipulator extends ModifiableItem {
                     destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 1, 10 - destroyProgress);
                     level.destroyBlockProgress(player.getId(),blockPos, (int) destroyProgress);
                     if (destroyProgress >= 10) {
-                        HarvestLogic.breakBlockAndTeleport(tool, stack, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)), player.blockPosition());
+
+                        HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)));
                         serverLevel.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1);
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
                             for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
                                 BlockState blockState1 = level.getBlockState(blockPos1);
-                                if (IsEffectiveToolHook.isEffective(tool, blockState1)) {
-                                    HarvestLogic.breakBlockAndTeleport(tool, stack, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)), player.blockPosition());
+                                float destroySpeed1 = blockState1.getDestroySpeed(level, blockPos1);
+                                if (IsEffectiveToolHook.isEffective(tool, blockState1)&&destroySpeed1<=destroySpeed+0.5) {
+                                    HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)));
                                 }
                             }
                         }

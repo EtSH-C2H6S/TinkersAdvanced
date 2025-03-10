@@ -3,8 +3,10 @@ package com.c2h6s.tinkers_advanced.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -60,6 +62,58 @@ public class HarvestLogic {
 
         if (removed && exp > 0) {
             block.popExperience(world, lootPos, exp);
+        }
+
+        if (!tool.isBroken() && removed) {
+            for (ModifierEntry entry : tool.getModifierList()) {
+                entry.getHook(ModifierHooks.BLOCK_BREAK).afterBlockBreak(tool, entry, context);
+            }
+            ToolDamageUtil.damageAnimated(tool, damage, player);
+        }
+
+        return true;
+    }
+    public static boolean breakBlockAndGiveItem(ToolStack tool, ItemStack stack, ToolHarvestContext context) {
+        ServerPlayer player = Objects.requireNonNull(context.getPlayer());
+        ServerLevel world = context.getWorld();
+        BlockPos pos = context.getPos();
+        GameType type = player.gameMode.getGameModeForPlayer();
+        int exp = ForgeHooks.onBlockBreakEvent(world, type, player, pos);
+        if (exp == -1) {
+            return false;
+        }
+        if (player.blockActionRestricted(world, pos, type)) {
+            return false;
+        }
+
+        if (player.isCreative()) {
+            removeBlock(tool, context);
+            return true;
+        }
+
+        BlockState state = context.getState();
+        int damage = getDamage(tool, world, pos, state);
+
+        boolean canHarvest = context.canHarvest();
+        BlockEntity te = canHarvest ? world.getBlockEntity(pos) : null;
+        boolean removed = removeBlock(tool, context);
+
+        Block block = state.getBlock();
+        List<ItemStack> list;
+        if (removed && canHarvest) {
+            list = Block.getDrops(state,world,pos,te,player,stack);
+            list.forEach(item->{
+                ItemStack itemStack = item.copy();
+                if (!player.addItem(itemStack)&&itemStack.getCount()>0){
+                    ItemEntity entity = new ItemEntity(world,player.position().x,player.position().y+player.getBbHeight()/2,player.position().z,item,0,0,0);
+                    entity.setNoPickUpDelay();
+                    world.addFreshEntity(entity);
+                }
+            });
+        }
+
+        if (removed && exp > 0) {
+            block.popExperience(world, player.blockPosition(), exp);
         }
 
         if (!tool.isBroken() && removed) {

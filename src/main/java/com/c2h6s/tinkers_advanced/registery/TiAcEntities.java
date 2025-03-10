@@ -27,7 +27,7 @@ public class TiAcEntities {
                     .sized(0.01f,0.01f)
                     .setCustomClientFactory(((spawnEntity, level) -> new MiningBeamProjectile(level)))
                     .setTrackingRange(8)
-                    .setShouldReceiveVelocityUpdates(true)
-                    .setUpdateInterval(4));
+                    .setShouldReceiveVelocityUpdates(false)
+                    .setUpdateInterval(1));
 
 }

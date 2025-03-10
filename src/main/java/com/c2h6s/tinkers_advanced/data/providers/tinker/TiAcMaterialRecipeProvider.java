@@ -18,9 +18,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import net.minecraftforge.common.crafting.conditions.OrCondition;
@@ -43,6 +45,7 @@ import slimeknights.tconstruct.library.recipe.material.MaterialRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.melting.IMeltingRecipe;
 import slimeknights.tconstruct.library.recipe.melting.MaterialMeltingRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
+import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 
 import java.util.function.Consumer;
@@ -65,6 +68,9 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         ResourceLocation folder;
         Consumer<FinishedRecipe> Conditional;
+        folder = namedFolder("mixc");
+        ItemCastingRecipeBuilder.tableRecipe(ItemOutput.fromItem(TiAcItems.DISINTEGRATE_CRYSTAL.get())).setCast(Items.ECHO_SHARD.asItem(),true).setFluid(TinkerFluids.ichor.get(), 1000).setCoolingTime(100).save(consumer,new ResourceLocation(folder+"/disintegrate_crystal_create"));
+        ToolBuildingRecipeBuilder.toolBuildingRecipe(TiAcItems.MATTER_MANIPULATOR.get()).save(consumer,new ResourceLocation(folder+"/matter_manipulator"));
 
         folder = namedFolder("fuel");
         Conditional = withCondition(consumer,modLoaded("mekanism"));
