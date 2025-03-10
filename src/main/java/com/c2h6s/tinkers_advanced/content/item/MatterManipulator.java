@@ -110,43 +110,6 @@ public class MatterManipulator extends ModifiableItem {
     }
 
     @Override
-    public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
-        ToolStack tool = ToolStack.from(stack);
-        FluidStack fluidStack = TANK_HELPER.getFluid(tool);
-        int i = EnchantmentModifierHook.getEnchantmentLevel(stack, enchantment);
-//        if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null){
-//            FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-//            if (fluidEffects.hasBlockEffects()){
-//                for (FluidEffect<? super FluidEffectContext.Block> effect:fluidEffects.blockEffects()){
-//                    if (effect instanceof BreakBlockFluidEffect effect1&& effect1.enchantments().containsKey(enchantment)){
-//                        i+=effect1.enchantments().get(enchantment);
-//                    }
-//                }
-//            }
-//        }
-        return i;
-    }
-    @Override
-    public Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
-        Map<Enchantment, Integer> map = EnchantmentModifierHook.getAllEnchantments(stack);
-//        ToolStack tool = ToolStack.from(stack);
-//        FluidStack fluidStack = TANK_HELPER.getFluid(tool);
-//        if (!fluidStack.isEmpty()&&fluidStack.getFluid()!=null) {
-//            FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-//            if (fluidEffects.hasBlockEffects()) {
-//                for (FluidEffect<? super FluidEffectContext.Block> effect : fluidEffects.blockEffects()) {
-//                    if (effect instanceof BreakBlockFluidEffect effect1){
-//                        for (Enchantment enchantment: effect1.enchantments().keySet()){
-//                            map.merge(enchantment,effect1.enchantments().get(enchantment),Integer::sum);
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        return map;
-    }
-
-    @Override
     public UseAnim getUseAnimation(ItemStack stack) {
         return BlockingModifier.blockWhileCharging(ToolStack.from(stack), UseAnim.BOW);
     }
