@@ -209,7 +209,7 @@ public class MatterManipulator extends ModifiableItem {
                     float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
 
                     float breakSpeed = (float) (tool.getStats().get(ToolStats.MINING_SPEED) * player.getAttributeValue(Attributes.ATTACK_SPEED) / 4);
-                    breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 100f;
+                    breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 500f;
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     ItemStack stack1 = stack.copy();
                     Map<Enchantment, Integer> map = stack1.getAllEnchantments();
