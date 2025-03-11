@@ -31,7 +31,7 @@
 
   "modifier.tinkers_advanced.atom_grade": "原子级工艺",
   "modifier.tinkers_advanced.atom_grade.flavor": "如此精密",
-  "modifier.tinkers_advanced.atom_grade.description": "为工具增加1个升级槽。",
+  "modifier.tinkers_advanced.atom_grade.description": "为工具增加一个防御槽或者升级槽，取决于工具类型。",
 
   "modifier.tinkers_advanced.edging_technology": "尖端科技",
   "modifier.tinkers_advanced.edging_technology.flavor": "没有什么比这个更高级了",

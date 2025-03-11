@@ -113,7 +113,7 @@ public class HarvestLogic {
         }
 
         if (removed && exp > 0) {
-            block.popExperience(world, player.blockPosition(), exp);
+            ForgeHooks.dropXpForBlock(state,world,player.blockPosition(),stack);
         }
 
         if (!tool.isBroken() && removed) {

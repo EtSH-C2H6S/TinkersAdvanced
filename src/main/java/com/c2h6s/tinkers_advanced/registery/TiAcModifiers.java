@@ -3,7 +3,10 @@ package com.c2h6s.tinkers_advanced.registery;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
+import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
+import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
 import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
+import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadioactiveArmor;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AirSlash;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AerialProtection;
@@ -38,6 +41,7 @@ public class TiAcModifiers {
 
     //mek联动属性
     public static StaticModifier<RadioactiveArmor> RADIOACTIVE_ARMOR = MEK_MODIFIERS.register("radioactive_armor", RadioactiveArmor::new);
+    public static StaticModifier<AtomGrade> ATOM_GRADE = MODIFIERS.register("atom_grade", AtomGrade::new);
 
 
     //PnC联动属性

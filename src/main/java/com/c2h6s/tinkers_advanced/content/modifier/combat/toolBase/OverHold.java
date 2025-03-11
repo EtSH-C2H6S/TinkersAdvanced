@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.content.modifier.combat;
+package com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase;
 
 import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -10,7 +10,12 @@ import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
 import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 
-public class OverHold extends NoLevelsModifier implements ToolStatsModifierHook {
+public class OverHold extends FluidDisplayBaseModifier implements ToolStatsModifierHook {
+
+    @Override
+    public boolean isNoLevels() {
+        return true;
+    }
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {

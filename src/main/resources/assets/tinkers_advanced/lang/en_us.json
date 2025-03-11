@@ -31,7 +31,7 @@
 
   "modifier.tinkers_advanced.atom_grade": "Atom-grade Techs",
   "modifier.tinkers_advanced.atom_grade.flavor": "Though It's still less complex than a human brain.",
-  "modifier.tinkers_advanced.atom_grade.description": "Adds 1 upgrade slot to your tool.",
+  "modifier.tinkers_advanced.atom_grade.description": "Adds 1 defense slot or upgrade slot to your tool,depends on the type of tool.",
 
   "modifier.tinkers_advanced.edging_technology": "Edging Technology",
   "modifier.tinkers_advanced.edging_technology.flavor": "Nothing is more exotic than this.",

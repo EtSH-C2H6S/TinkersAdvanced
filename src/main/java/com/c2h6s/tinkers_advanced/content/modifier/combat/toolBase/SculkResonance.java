@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.content.modifier.combat;
+package com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase;
 
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
@@ -15,7 +15,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 
-public class SculkResonance extends EtSTBaseModifier implements ToolStatsModifierHook {
+public class SculkResonance extends FluidDisplayBaseModifier implements ToolStatsModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
