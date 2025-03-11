@@ -50,6 +50,7 @@ public class MiningBeamRenderer extends EntityRenderer<MiningBeamProjectile> {
             }
             Vec3 finalpos = player.getEyePosition().add(offset);
             entity.setPos(finalpos);
+            entity.render=true;
         } else return false;
 
         return entity.position().subtract(cameraPos).length()<64||vec3.subtract(cameraPos).length()<64||vec32.subtract(cameraPos).length()<64;
@@ -58,7 +59,8 @@ public class MiningBeamRenderer extends EntityRenderer<MiningBeamProjectile> {
     @Override
     public void render(MiningBeamProjectile pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         float distance = pEntity.getScale();
-        if (distance>1) {
+        if (distance>1&&pEntity.render) {
+            pEntity.render=false;
             ClientLevel level = Minecraft.getInstance().level;
             Player player = pEntity.getOwner() instanceof Player player1?player1:null;
             if (level==null||player==null) return;

@@ -18,6 +18,7 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
     public static final EntityDataAccessor<Integer> DATA_TICK = SynchedEntityData.defineId(MiningBeamProjectile.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> DATA_PROGRESS = SynchedEntityData.defineId(MiningBeamProjectile.class, EntityDataSerializers.INT);
     public ItemStack stack;
+    public boolean render =false;
     public MiningBeamProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
