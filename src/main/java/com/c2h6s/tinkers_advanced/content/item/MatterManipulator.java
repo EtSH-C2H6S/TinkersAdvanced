@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
@@ -35,11 +36,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
+import slimeknights.tconstruct.library.json.predicate.HarvestTierPredicate;
 import slimeknights.tconstruct.library.modifiers.fluid.*;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ConditionalFluidEffect;
@@ -49,12 +52,15 @@ import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
 import slimeknights.tconstruct.library.tools.definition.module.aoe.AreaOfEffectIterator;
 import slimeknights.tconstruct.library.tools.definition.module.mining.IsEffectiveToolHook;
+import slimeknights.tconstruct.library.tools.definition.module.mining.MiningTierToolHook;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.library.utils.HarvestTiers;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerToolParts;
+import slimeknights.tconstruct.tools.data.FluidEffectProvider;
 import slimeknights.tconstruct.tools.modifiers.ability.interaction.BlockingModifier;
 
 import java.util.List;
@@ -174,9 +180,9 @@ public class MatterManipulator extends ModifiableItem {
                 projectile = projectile1;
             }
 
-            BlockHitResult result = level.clip(new ClipContext(living.getEyePosition(),living.getEyePosition().add(living.getLookAngle().normalize().scale(baseRange)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE,null));
-            if (result.getType()!= HitResult.Type.MISS&&level instanceof ServerLevel serverLevel&&player instanceof ServerPlayer serverPlayer) {
-                UseOnContext context = new UseOnContext(level,player, player.getUsedItemHand(),stack, result);
+            BlockHitResult result = level.clip(new ClipContext(living.getEyePosition(), living.getEyePosition().add(living.getLookAngle().normalize().scale(baseRange)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, null));
+            if (result.getType() != HitResult.Type.MISS && level instanceof ServerLevel serverLevel && player instanceof ServerPlayer serverPlayer) {
+                UseOnContext context = new UseOnContext(level, player, player.getUsedItemHand(), stack, result);
                 Direction direction = result.getDirection();
                 BlockPos blockPos = result.getBlockPos();
                 BlockState blockState = level.getBlockState(blockPos);
@@ -184,11 +190,13 @@ public class MatterManipulator extends ModifiableItem {
                 Random random = new Random();
                 float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
                 fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
-                float fluidFactor =Math.max(0,1-fluidEfficiency) ;
-                if (random.nextFloat()<fluidFactor&&!player.getAbilities().instabuild){
-                    TANK_HELPER.setFluid(tool,new FluidStack(fluidStack.getFluid(),fluidStack.getAmount()-1));
+                float fluidFactor = Math.max(0, 1 - fluidEfficiency);
+                if (random.nextFloat() < fluidFactor && !player.getAbilities().instabuild) {
+                    TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount() - 1));
                 }
-                if (isEffective&&!tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
+                Tier tier = MiningTierToolHook.getTier(tool);
+                if (isEffective && !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
+
                     BlockPos legacy = new BlockPos(player.getPersistentData().getInt(KEY_BLOCK_POSX), player.getPersistentData().getInt(KEY_BLOCK_POSY), player.getPersistentData().getInt(KEY_BLOCK_POSZ));
                     if (!result.getBlockPos().equals(legacy)) {
                         player.getPersistentData().putInt(KEY_DESTORY, 0);
@@ -199,15 +207,16 @@ public class MatterManipulator extends ModifiableItem {
                     float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level, blockPos);
                     float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
 
-                    float breakSpeed = (float) (tool.getStats().get(ToolStats.MINING_SPEED)*player.getAttributeValue(Attributes.ATTACK_SPEED)/4);
+                    float breakSpeed = (float) (tool.getStats().get(ToolStats.MINING_SPEED) * player.getAttributeValue(Attributes.ATTACK_SPEED) / 4);
                     breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 100f;
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     ItemStack stack1 = stack.copy();
                     Map<Enchantment, Integer> map = stack1.getAllEnchantments();
                     if (fluidEffects.hasBlockEffects()) {
                         for (FluidEffect<? super FluidEffectContext.Block> effect : fluidEffects.blockEffects()) {
-                            if (effect instanceof ConditionalFluidEffect<? super FluidEffectContext.Block> effect1)
+                            if (effect instanceof ConditionalFluidEffect<? super FluidEffectContext.Block> effect1) {
                                 effect = effect1.effect();
+                            }
                             if (effect instanceof BreakBlockFluidEffect effect1) {
                                 if (!effect1.enchantments().isEmpty()) {
                                     breakSpeed += effect1.hardness();
@@ -216,40 +225,44 @@ public class MatterManipulator extends ModifiableItem {
                             }
                         }
                     }
-                    EnchantmentHelper.setEnchantments(map,stack1);
-                    ToolStack copy = ToolStack.from(stack1);
-                    breakSpeed = ForgeEventFactory.getBreakSpeed(player, blockState, breakSpeed, blockPos);
-                    if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
-                        breakSpeed /= 4;
-                    }
-                    destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 1, 10 - destroyProgress);
-                    level.destroyBlockProgress(player.getId(),blockPos, (int) destroyProgress);
-                    if (destroyProgress >= 10) {
 
-                        HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)));
-                        serverLevel.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1);
+                    if (TierSortingRegistry.isCorrectTierForDrops(tier, blockState)) {
+
+                        EnchantmentHelper.setEnchantments(map, stack1);
+                        ToolStack copy = ToolStack.from(stack1);
+                        breakSpeed = ForgeEventFactory.getBreakSpeed(player, blockState, breakSpeed, blockPos);
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
-                            for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
-                                BlockState blockState1 = level.getBlockState(blockPos1);
-                                float destroySpeed1 = blockState1.getDestroySpeed(level, blockPos1);
-                                if (IsEffectiveToolHook.isEffective(tool, blockState1)&&destroySpeed1<=destroySpeed+0.5) {
-                                    HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)));
+                            breakSpeed /= 4;
+                        }
+                        destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 1, 10 - destroyProgress);
+                        level.destroyBlockProgress(player.getId(), blockPos, (int) destroyProgress);
+                        if (destroyProgress >= 10) {
+                            HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)));
+                            serverLevel.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1);
+                            if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
+                                for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
+                                    BlockState blockState1 = level.getBlockState(blockPos1);
+                                    float destroySpeed1 = blockState1.getDestroySpeed(level, blockPos1);
+                                    BlockHitResult result1 = new BlockHitResult(blockPos1.getCenter(), result.getDirection(), blockPos1, true);
+                                    if (IsEffectiveToolHook.isEffective(tool, blockState1) && destroySpeed1 <= destroySpeed + 0.5 &&(TierSortingRegistry.isCorrectTierForDrops(tier, blockState1))) {
+                                        HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)));
+                                    }
                                 }
                             }
-                        }
-                        player.getPersistentData().putInt(KEY_DESTORY, 0);
-                        destroyProgress = 0;
-                    } else player.getPersistentData().putFloat(KEY_DESTORY, destroyProgress);
-                    projectile.setProgress((int) destroyProgress);
-                } else if (tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)){
+                            player.getPersistentData().putInt(KEY_DESTORY, 0);
+                            destroyProgress = 0;
+                        } else player.getPersistentData().putFloat(KEY_DESTORY, destroyProgress);
+                        projectile.setProgress((int) destroyProgress);
+                    }
+                } else if (tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     List<FluidEffect<? super FluidEffectContext.Block>> list = List.of();
                     if (fluidEffects.hasBlockEffects()) {
-                        fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000),2,new FluidEffectContext.Block(level,player,null,result), IFluidHandler.FluidAction.EXECUTE);
+                        fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.EXECUTE);
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
                             for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
-                                BlockHitResult result1 = new BlockHitResult(blockPos1.getCenter(),result.getDirection(),blockPos1,true);
-                                fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000),2,new FluidEffectContext.Block(level,player,null,result1), IFluidHandler.FluidAction.EXECUTE);
+                                BlockHitResult result1 = new BlockHitResult(blockPos1.getCenter(), result.getDirection(), blockPos1, true);
+                                fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result1), IFluidHandler.FluidAction.EXECUTE);
                             }
                         }
                     }
@@ -282,8 +295,8 @@ public class MatterManipulator extends ModifiableItem {
             fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
             float baseRange = ConditionalStatModifierHook.getModifiedStat(tool,player, TiAcToolStats.RANGE);
             baseRange += (float) (player.getEntityReach()*2);
-
-            tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4" + String.format("%.1f",100/fluidEfficiency) + "% * 1mB"));
+            float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4" + String.format("%.1f",100*fluidFactor) + "% * 1mB"));
             tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : §e" + baseRange));
         }
         super.getStatInformation(tool, player, tooltips, key, tooltipFlag);

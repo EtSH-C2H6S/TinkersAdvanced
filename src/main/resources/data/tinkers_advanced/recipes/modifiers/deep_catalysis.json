@@ -17,7 +17,12 @@
     "upgrades": 1
   },
   "result": "tinkers_advanced:deep_catalysis",
-  "tools": {
-    "item": "tinkers_advanced:ionized_cannon"
-  }
+  "tools":[
+    {
+      "item": "tinkers_advanced:ionized_cannon"
+    },
+    {
+      "item": "tinkers_advanced:matter_manipulator"
+    }
+  ]
 }

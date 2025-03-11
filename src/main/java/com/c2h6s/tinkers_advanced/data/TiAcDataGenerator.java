@@ -6,23 +6,16 @@ import com.c2h6s.tinkers_advanced.data.providers.tinker.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.fluids.data.FluidBucketModelProvider;
-import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
-import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
-import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
-import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
+
 
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = TinkersAdvanced.MODID,bus=Mod.EventBusSubscriber.Bus.MOD)
-@OnlyIn(Dist.CLIENT)
 public class TiAcDataGenerator {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event){
@@ -42,9 +35,6 @@ public class TiAcDataGenerator {
         generator.addProvider(event.includeClient(),new TiAcFluidEffectProvider(output));
         generator.addProvider(event.includeClient(),new FluidBucketModelProvider(output,TinkersAdvanced.MODID));
         generator.addProvider(event.includeClient(),new TiAcMaterialRenderInfoProvider(output,new TiAcMaterialSpriteProvider(),helper));
-        //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TiAcPartSpriteProvider(), new TiAcMaterialSpriteProvider()));
-        //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TinkerPartSpriteProvider(), new TiAcMaterialSpriteProvider()));
-        //generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output, helper, new TiAcPartSpriteProvider(), new TinkerMaterialSpriteProvider()));
     }
 }
 

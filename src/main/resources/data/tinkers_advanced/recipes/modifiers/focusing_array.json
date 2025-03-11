@@ -11,18 +11,13 @@
     }
   ],
   "level": {
-    "max": 9
+    "max": 3
   },
   "slots": {
     "upgrades": 1
   },
   "result": "tinkers_advanced:focusing_array",
-  "tools":[
-    {
-      "item": "tinkers_advanced:ionized_cannon"
-    },
-    {
-      "item": "tinkers_advanced:matter_manipulator"
-    }
-  ]
+  "tools": {
+    "item": "tinkers_advanced:ionized_cannon"
+  }
 }
