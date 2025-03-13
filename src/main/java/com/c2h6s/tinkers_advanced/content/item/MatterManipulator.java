@@ -191,13 +191,12 @@ public class MatterManipulator extends ModifiableItem {
                 float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
                 fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
                 float fluidFactor = Math.max(0, 1 - fluidEfficiency);
-                if (random.nextFloat() < fluidFactor && !player.getAbilities().instabuild) {
-                    fluidStack.shrink(1);
-                    TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount()));
-                }
                 Tier tier = MiningTierToolHook.getTier(tool);
                 if (isEffective && !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
-
+                    if (random.nextFloat() < fluidFactor && !player.getAbilities().instabuild) {
+                        fluidStack.shrink(1);
+                        TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount()));
+                    }
                     BlockPos legacy = new BlockPos(player.getPersistentData().getInt(KEY_BLOCK_POSX), player.getPersistentData().getInt(KEY_BLOCK_POSY), player.getPersistentData().getInt(KEY_BLOCK_POSZ));
                     if (!result.getBlockPos().equals(legacy)) {
                         player.getPersistentData().putInt(KEY_DESTORY, 0);
@@ -263,13 +262,20 @@ public class MatterManipulator extends ModifiableItem {
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     List<FluidEffect<? super FluidEffectContext.Block>> list = List.of();
                     if (fluidEffects.hasBlockEffects()) {
-                        fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.EXECUTE);
+                         if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.SIMULATE)>0){
+                             fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.EXECUTE));
+                         }
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
                             for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
                                 BlockHitResult result1 = new BlockHitResult(blockPos1.getCenter(), result.getDirection(), blockPos1, true);
-                                fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result1), IFluidHandler.FluidAction.EXECUTE);
+                                if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result1), IFluidHandler.FluidAction.SIMULATE)>0){
+                                    fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result1), IFluidHandler.FluidAction.EXECUTE));
+                                }
                             }
                         }
+                    }
+                    if (!player.getAbilities().instabuild) {
+                        TANK_HELPER.setFluid(tool, fluidStack);
                     }
                 }
             }

@@ -36,6 +36,6 @@ public abstract class FluidDisplayBaseModifier extends EtSTBaseModifier implemen
 
     @Override
     public int getBarRGB(IToolStackView iToolStackView, ModifierEntry modifierEntry, int i) {
-        return 0xffffeedd;
+        return 0xffff987a;
     }
 }

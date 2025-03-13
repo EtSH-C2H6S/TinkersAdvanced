@@ -52,13 +52,12 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
 
     @Override
     public void tick() {
-        super.tick();
         this.setTick(this.getTick()+1);
         if (this.getOwner() instanceof Player player&&stack!=null&&stack.getItem() instanceof MatterManipulator item&&!this.level().isClientSide) {
-            if (this.getTick() < 2) {
+            if (this.getTick() < 10) {
                 if (player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() instanceof MatterManipulator) {
                     this.setTick(0);
-                } else this.setTick(2);
+                } else this.setTick(10);
             }
             InteractionHand hand = player.getUsedItemHand();
             Vec3 offset = player.getLookAngle().cross(new Vec3(0, 1, 0)).normalize().scale(0.3f);
@@ -70,7 +69,7 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
             Vec3 finalpos = player.getEyePosition().add(offset);
             this.setPos(finalpos);
         }
-        if (this.getTick()>7) this.discard();
+        if (this.getTick()>15) this.discard();
 
     }
 }
