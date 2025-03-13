@@ -29,7 +29,6 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -42,11 +41,11 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
-import slimeknights.tconstruct.library.json.predicate.HarvestTierPredicate;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.fluid.*;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ConditionalFluidEffect;
-import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
@@ -57,10 +56,8 @@ import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import slimeknights.tconstruct.library.utils.HarvestTiers;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerToolParts;
-import slimeknights.tconstruct.tools.data.FluidEffectProvider;
 import slimeknights.tconstruct.tools.modifiers.ability.interaction.BlockingModifier;
 
 import java.util.List;
@@ -183,7 +180,6 @@ public class MatterManipulator extends ModifiableItem {
             BlockHitResult result = level.clip(new ClipContext(living.getEyePosition(), living.getEyePosition().add(living.getLookAngle().normalize().scale(baseRange)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, null));
             if (result.getType() != HitResult.Type.MISS && level instanceof ServerLevel serverLevel && player instanceof ServerPlayer serverPlayer) {
                 UseOnContext context = new UseOnContext(level, player, player.getUsedItemHand(), stack, result);
-                Direction direction = result.getDirection();
                 BlockPos blockPos = result.getBlockPos();
                 BlockState blockState = level.getBlockState(blockPos);
                 boolean isEffective = IsEffectiveToolHook.isEffective(tool, blockState);
@@ -192,7 +188,7 @@ public class MatterManipulator extends ModifiableItem {
                 fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
                 float fluidFactor = Math.max(0, 1 - fluidEfficiency);
                 Tier tier = MiningTierToolHook.getTier(tool);
-                if ((isEffective||!blockState.requiresCorrectToolForDrops()) && !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
+                if ((isEffective||(!blockState.requiresCorrectToolForDrops()&&blockState.getDestroySpeed(level,blockPos)>=0)) && !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
                     if (random.nextFloat() < fluidFactor && !player.getAbilities().instabuild) {
                         fluidStack.shrink(1);
                         TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount()));
@@ -238,16 +234,22 @@ public class MatterManipulator extends ModifiableItem {
                         level.destroyBlockProgress(player.getId(), blockPos, (int) destroyProgress);
                         if (destroyProgress >= 10) {
                             HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)));
+                            for(ModifierEntry entry:tool.getModifierList()){
+                                entry.getHook(ModifierHooks.TOOL_DAMAGE).onDamageTool(tool,entry,1,player);
+                            }
                             serverLevel.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1);
                             if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
                                 for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
                                     BlockState blockState1 = level.getBlockState(blockPos1);
                                     float destroySpeed1 = blockState1.getDestroySpeed(level, blockPos1);
-                                    if ((IsEffectiveToolHook.isEffective(tool, blockState1)||!blockState1.requiresCorrectToolForDrops()) && destroySpeed1 <= destroySpeed + 0.5 &&(TierSortingRegistry.isCorrectTierForDrops(tier, blockState1))) {
+                                    if ((IsEffectiveToolHook.isEffective(tool, blockState1)||(!blockState.requiresCorrectToolForDrops()&&blockState.getDestroySpeed(level,blockPos)>=0)) && destroySpeed1 <= destroySpeed + 0.5 &&(TierSortingRegistry.isCorrectTierForDrops(tier, blockState1))) {
                                        if (HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)))){
                                            if (random.nextFloat() < fluidFactor*0.25f && !player.getAbilities().instabuild) {
                                                fluidStack.shrink(1);
                                                TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount()));
+                                           }
+                                           for(ModifierEntry entry:tool.getModifierList()){
+                                               entry.getHook(ModifierHooks.TOOL_DAMAGE).onDamageTool(tool,entry,1,player);
                                            }
                                        }
                                     }
@@ -260,7 +262,6 @@ public class MatterManipulator extends ModifiableItem {
                     }
                 } else if (tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-                    List<FluidEffect<? super FluidEffectContext.Block>> list = List.of();
                     if (fluidEffects.hasBlockEffects()) {
                          if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.SIMULATE)>0){
                              fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.EXECUTE));
@@ -288,20 +289,9 @@ public class MatterManipulator extends ModifiableItem {
         entityLiving.getPersistentData().putInt(KEY_DESTORY, 0);
     }
 
-    public static Direction.Axis getSuitableAxis(Direction direction){
-        Direction.Axis axis;
-        switch (direction){
-            case SOUTH, NORTH -> axis = Direction.Axis.Y;
-            case WEST, EAST -> axis = Direction.Axis.Z;
-            default -> axis = Direction.Axis.X;
-        }
-        return axis;
-    }
-
     @Override
     public List<Component> getStatInformation(IToolStackView tool, @org.jetbrains.annotations.Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
         if (player != null) {
-            FluidStack fluidStack = TANK_HELPER.getFluid(tool);
             float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
             fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
             float baseRange = ConditionalStatModifierHook.getModifiedStat(tool,player, TiAcToolStats.RANGE);
