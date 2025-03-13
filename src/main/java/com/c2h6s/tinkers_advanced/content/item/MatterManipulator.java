@@ -192,7 +192,7 @@ public class MatterManipulator extends ModifiableItem {
                 fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
                 float fluidFactor = Math.max(0, 1 - fluidEfficiency);
                 Tier tier = MiningTierToolHook.getTier(tool);
-                if (isEffective && !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
+                if ((isEffective||!blockState.requiresCorrectToolForDrops()) && !tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
                     if (random.nextFloat() < fluidFactor && !player.getAbilities().instabuild) {
                         fluidStack.shrink(1);
                         TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount()));
@@ -243,7 +243,7 @@ public class MatterManipulator extends ModifiableItem {
                                 for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
                                     BlockState blockState1 = level.getBlockState(blockPos1);
                                     float destroySpeed1 = blockState1.getDestroySpeed(level, blockPos1);
-                                    if (IsEffectiveToolHook.isEffective(tool, blockState1) && destroySpeed1 <= destroySpeed + 0.5 &&(TierSortingRegistry.isCorrectTierForDrops(tier, blockState1))) {
+                                    if ((IsEffectiveToolHook.isEffective(tool, blockState1)||!blockState1.requiresCorrectToolForDrops()) && destroySpeed1 <= destroySpeed + 0.5 &&(TierSortingRegistry.isCorrectTierForDrops(tier, blockState1))) {
                                        if (HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)))){
                                            if (random.nextFloat() < fluidFactor*0.25f && !player.getAbilities().instabuild) {
                                                fluidStack.shrink(1);
