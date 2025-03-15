@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:storage_blocks/redstone"
+  },
+  "result": {
+    "amount": 900,
+    "fluid": "thermal:redstone"
+  },
+  "temperature": 850,
+  "time": 240
+}

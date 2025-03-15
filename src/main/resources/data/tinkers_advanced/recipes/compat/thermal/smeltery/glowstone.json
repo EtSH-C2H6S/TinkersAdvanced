@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:dusts/glowstone"
+  },
+  "result": {
+    "amount": 250,
+    "fluid": "thermal:glowstone"
+  },
+  "temperature": 1000,
+  "time": 100
+}
