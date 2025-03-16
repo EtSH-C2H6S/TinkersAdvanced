@@ -7,12 +7,14 @@ import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
 import mekanism.common.registries.MekanismDamageTypes;
 import mekanism.common.tags.MekanismTags;
 import net.minecraft.data.PackOutput;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import net.minecraftforge.common.crafting.conditions.OrCondition;
@@ -24,8 +26,9 @@ import slimeknights.tconstruct.library.modifiers.fluid.FluidMobEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.TimeAction;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.block.MobEffectCloudFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.block.PlaceBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect;
-import slimeknights.tconstruct.library.modifiers.fluid.entity.PotionFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.entity.FireFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ExplosionFluidEffect;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
@@ -65,7 +68,7 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                         .effect(CoreMobEffects.SUNDERED.get(), 200,3)
                         .buildEntity(TimeAction.ADD))
                 .addBlockEffect(new BreakBlockFluidEffect(100, Enchantments.BLOCK_FORTUNE,5))
-                .addCondition(modLoaded("cofh_core"));
+                .addCondition(modLoaded("thermal"));
         addFluid(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),10)
                 .fireDamage(3.5f)
                 .addEntityEffects(FluidMobEffect.builder()
@@ -82,7 +85,7 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                         .effect(MobEffects.GLOWING, 200,3)
                         .buildCloud()
                         .effects()))
-                .addCondition(modLoaded("cofh_core"));
+                .addCondition(modLoaded("thermal"));
         addFluid(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),10)
                 .coldDamage(4.5f)
                 .addEntityEffects(FluidMobEffect.builder()
@@ -99,7 +102,36 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                         .effect(TinkerModifiers.enderferenceEffect.get(), 200,3)
                         .buildCloud()
                         .effects()))
-                .addCondition(modLoaded("cofh_core"));
+                .addCondition(modLoaded("thermal"));
+        addFluid(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),10)
+                .fireDamage(4f).coldDamage(4f)
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.CHILLED.get(), 200,2)
+                        .buildEntity(TimeAction.ADD))
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SUNDERED.get(), 200,2)
+                        .buildEntity(TimeAction.ADD))
+                .addEntityEffects(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SHOCKED.get(), 200,2)
+                        .buildEntity(TimeAction.ADD))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.CHILLED.get(), 200,2)
+                        .buildCloud()
+                        .effects()))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SHOCKED.get(), 200,2)
+                        .buildCloud()
+                        .effects()))
+                .addBlockEffect(new MobEffectCloudFluidEffect(FluidMobEffect.builder()
+                        .effect(CoreMobEffects.SUNDERED.get(), 200,2)
+                        .buildCloud()
+                        .effects()))
+                .addBlockEffect(new BreakBlockFluidEffect(256,Enchantments.BLOCK_FORTUNE,10))
+                .addCondition(modLoaded("thermal"));
+        addFluid(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),10)
+                .fireDamage(3f).addDamage(3f,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
+                .addBlockEffect(new PlaceBlockFluidEffect(Blocks.FIRE, SoundEvents.FLINTANDSTEEL_USE))
+                .addBlockEffect(ExplosionFluidEffect.radius(5,2.5f).ignoreBlocks().placeFire().build());
     }
     public static ICondition modLoaded(String modId){
         return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new ModLoadedCondition(modId));

@@ -1,0 +1,51 @@
+{
+  "block_effects": [
+    {
+      "type": "tconstruct:place_block",
+      "block": "minecraft:fire",
+      "sound": "minecraft:item.flintandsteel.use"
+    },
+    {
+      "type": "tconstruct:explosion",
+      "block_interaction": "keep",
+      "damage": {},
+      "knockback": {
+        "flat": 1.0
+      },
+      "place_fire": true,
+      "radius": {
+        "each_level": 2.5,
+        "flat": 5.0
+      }
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:conditional",
+      "effect": {
+        "type": "tconstruct:damage",
+        "damage": 3.0,
+        "damage_type": {
+          "melee": "tconstruct:fluid_fire_melee",
+          "ranged": "tconstruct:fluid_fire_ranged"
+        }
+      },
+      "target": {
+        "type": "mantle:inverted",
+        "inverted_type": "mantle:fire_immune"
+      }
+    },
+    {
+      "type": "tconstruct:damage",
+      "damage": 3.0,
+      "damage_type": {
+        "melee": "minecraft:explosion",
+        "ranged": "minecraft:explosion"
+      }
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "fluid": "tinkers_advanced:molten_blaze_netherite"
+  }
+}

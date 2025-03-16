@@ -4,8 +4,8 @@
       "type": "tconstruct:mob_effect_cloud",
       "effects": [
         {
-          "effect": "cofh_core:shocked",
-          "level": 3,
+          "effect": "cofh_core:chilled",
+          "level": 2,
           "time": 200
         }
       ]
@@ -14,11 +14,28 @@
       "type": "tconstruct:mob_effect_cloud",
       "effects": [
         {
-          "effect": "minecraft:glowing",
-          "level": 3,
+          "effect": "cofh_core:shocked",
+          "level": 2,
           "time": 200
         }
       ]
+    },
+    {
+      "type": "tconstruct:mob_effect_cloud",
+      "effects": [
+        {
+          "effect": "cofh_core:sundered",
+          "level": 2,
+          "time": 200
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:break_block",
+      "enchantments": {
+        "minecraft:fortune": 10
+      },
+      "hardness": 256.0
     }
   ],
   "conditions": [
@@ -41,7 +58,7 @@
       "type": "tconstruct:conditional",
       "effect": {
         "type": "tconstruct:damage",
-        "damage": 3.5,
+        "damage": 4.0,
         "damage_type": {
           "melee": "tconstruct:fluid_fire_melee",
           "ranged": "tconstruct:fluid_fire_ranged"
@@ -53,22 +70,41 @@
       }
     },
     {
+      "type": "tconstruct:conditional",
+      "effect": {
+        "type": "tconstruct:damage",
+        "damage": 4.0,
+        "damage_type": {
+          "melee": "tconstruct:fluid_cold_melee",
+          "ranged": "tconstruct:fluid_cold_ranged"
+        }
+      },
+      "target": "mantle:can_freeze"
+    },
+    {
       "type": "tconstruct:mob_effect",
       "action": "add",
-      "effect": "cofh_core:shocked",
-      "level": 3,
+      "effect": "cofh_core:chilled",
+      "level": 2,
       "time": 200
     },
     {
       "type": "tconstruct:mob_effect",
       "action": "add",
-      "effect": "minecraft:glowing",
-      "level": 1,
+      "effect": "cofh_core:sundered",
+      "level": 2,
+      "time": 200
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "add",
+      "effect": "cofh_core:shocked",
+      "level": 2,
       "time": 200
     }
   ],
   "fluid": {
     "amount": 10,
-    "fluid": "tinkers_advanced:molten_biltz_lumium"
+    "fluid": "tinkers_advanced:molten_activated_chromatic_steel"
   }
 }
