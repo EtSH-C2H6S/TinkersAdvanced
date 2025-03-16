@@ -18,6 +18,6 @@ public class ResonanceAmplifier extends Modifier implements ToolStatsModifierHoo
 
     @Override
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
-        TiAcToolStats.RANGE.add(modifierStatsBuilder,10);
+        TiAcToolStats.RANGE.add(modifierStatsBuilder,10*modifierEntry.getLevel());
     }
 }

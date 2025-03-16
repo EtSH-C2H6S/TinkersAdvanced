@@ -1,4 +1,17 @@
 {
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "forge:mod_loaded",
+        "modid": "mekanism"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "ae2"
+      }
+    ]
+  },
   "level_display": "tconstruct:single_level",
   "modules": [
     {

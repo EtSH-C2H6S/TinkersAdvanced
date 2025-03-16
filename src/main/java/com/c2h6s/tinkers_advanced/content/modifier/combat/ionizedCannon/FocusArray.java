@@ -18,6 +18,6 @@ public class FocusArray extends Modifier implements ToolStatsModifierHook {
 
     @Override
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
-        TiAcToolStats.SCALE.add(modifierStatsBuilder,1);
+        TiAcToolStats.SCALE.add(modifierStatsBuilder, modifierEntry.getLevel());
     }
 }

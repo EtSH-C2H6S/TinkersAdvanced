@@ -1,7 +1,16 @@
 {
   "values": [
-    "tinkers_advanced:atom_grade",
-    "tinkers_advanced:edging_technology",
-    "tinkers_advanced:quantum_technology"
+    {
+      "id": "tinkers_advanced:atom_grade",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:edging_technology",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:quantum_technology",
+      "required": false
+    }
   ]
 }
