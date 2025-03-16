@@ -128,10 +128,11 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                         .effects()))
                 .addBlockEffect(new BreakBlockFluidEffect(256,Enchantments.BLOCK_FORTUNE,10))
                 .addCondition(modLoaded("thermal"));
-        addFluid(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),10)
+        addFluid(TiAcFluids.PYROTHEUM.get(),50)
                 .fireDamage(3f).addDamage(3f,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
                 .addBlockEffect(new PlaceBlockFluidEffect(Blocks.FIRE, SoundEvents.FLINTANDSTEEL_USE))
-                .addBlockEffect(ExplosionFluidEffect.radius(5,2.5f).ignoreBlocks().placeFire().build());
+                .addBlockEffect(ExplosionFluidEffect.radius(5,2.5f).ignoreBlocks().placeFire().build())
+                .addCondition(modLoaded("thermal"));
     }
     public static ICondition modLoaded(String modId){
         return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new ModLoadedCondition(modId));

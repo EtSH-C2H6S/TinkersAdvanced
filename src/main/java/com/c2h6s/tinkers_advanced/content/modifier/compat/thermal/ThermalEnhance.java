@@ -155,7 +155,7 @@ public class ThermalEnhance extends EtSTBaseModifier implements OnAttackedModifi
             holder.addEffect(new MobEffectInstance(CoreMobEffects.LIGHTNING_RESISTANCE.get(),10,0,false,false));
             holder.addEffect(new MobEffectInstance(CoreMobEffects.EXPLOSION_RESISTANCE.get(), 10, 0, false, false));
             holder.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, false, false));
-            holder.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 10, 0, false, false));
+            holder.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0, false, false));
             if (holder.isOnFire()||holder.isInLava()){
                 if (tool.getDamage()>0&&RANDOM.nextInt(40)<modifier.getLevel()&&!world.isClientSide){
                     tool.setDamage(tool.getDamage()-1);

@@ -1,4 +1,19 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ]
+    }
+  ],
   "block_effects": [
     {
       "type": "tconstruct:place_block",
@@ -45,7 +60,7 @@
     }
   ],
   "fluid": {
-    "amount": 10,
-    "fluid": "tinkers_advanced:molten_blaze_netherite"
+    "amount": 50,
+    "fluid": "tinkers_advanced:pyrotheum"
   }
 }
