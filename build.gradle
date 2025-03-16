@@ -166,6 +166,7 @@ dependencies {
     implementation fg.deobf("curse.maven:thermal-expansion-69163:5372749")
     implementation fg.deobf("curse.maven:thermal-foundation-222880:5443583")
     implementation fg.deobf("curse.maven:cofh-core-69162:5374122")
+    implementation fg.deobf("curse.maven:geckolib-388172:6027567")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")

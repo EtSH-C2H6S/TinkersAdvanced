@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tinkers_advanced:flame_adaptive"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:netherite"
+    }
+  ]
+}

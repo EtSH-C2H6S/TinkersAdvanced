@@ -27,7 +27,6 @@ public class BlizzDefense extends EtSTBaseModifier implements OnAttackedModifier
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (isCorrectSlot) {
             holder.addEffect(new MobEffectInstance(CoreMobEffects.COLD_RESISTANCE.get(), 10, 0, false, false));
-            holder.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, false, false));
         }
     }
 

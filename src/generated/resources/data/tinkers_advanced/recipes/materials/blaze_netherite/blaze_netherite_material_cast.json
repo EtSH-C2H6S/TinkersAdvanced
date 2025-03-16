@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "amount": 90,
+    "fluid": "tinkers_advanced:molten_blaze_netherite"
+  },
+  "output": "tinkers_advanced:blaze_netherite",
+  "temperature": 1480
+}

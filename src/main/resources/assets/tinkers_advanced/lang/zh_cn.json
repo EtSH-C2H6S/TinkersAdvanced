@@ -101,6 +101,32 @@
   "modifier.tinkers_advanced.over_hold.flavor": "这是非法改装！",
   "modifier.tinkers_advanced.over_hold.description": "+900%流体容量。",
 
+  "modifier.tinkers_advanced.flame_adaptive": "渴燃",
+  "modifier.tinkers_advanced.flame_adaptive.flavor": "“摸起来很热”",
+  "modifier.tinkers_advanced.flame_adaptive.description": "装备后获得抗火效果，装备者着火时缓缓恢复耐久。",
+
+
+  "modifier.tinkers_advanced.flux_infused": "通量注入",
+  "modifier.tinkers_advanced.flux_infused.flavor": "来一次与红石通量的邂逅",
+  "modifier.tinkers_advanced.flux_infused.description": "每级获得2MFE的能量存储，工具使用时优先消耗能量存储而非耐久。按CoFH-循环模式键可以切换工具的模式。",
+
+  "modifier.tinkers_advanced.thermal_enhance": "元素之力",
+  "modifier.tinkers_advanced.thermal_enhance.flavor": "四元素的力量在你的工具中显现...",
+  "modifier.tinkers_advanced.thermal_enhance.description": "拥有石肤、碎裂、涌流、震荡、霜覆、坚冰、渴燃的全部属性。",
+
+  "modifier.tinkers_advanced.flux_arrow": "通量赋能-箭矢",
+  "modifier.tinkers_advanced.flux_arrow.flavor": "把通量附加在工具上，红石能转化为机械能！",
+  "modifier.tinkers_advanced.flux_arrow.description": "激活模式下消耗能量存储凭空产生箭矢；注能模式下增加箭矢初速度并使其在击中时爆炸。",
+
+  "modifier.tinkers_advanced.thermal_slash": "通量赋能-近战",
+  "modifier.tinkers_advanced.thermal_slash.flavor": "把通量附加在工具上，红石能转化为机械能！",
+  "modifier.tinkers_advanced.thermal_slash.description": "+1时运、抢夺等级。激活模式下消耗能量增加挖掘速度并在攻击时附加2点穿甲伤害；注能模式下挥舞时释放元素剑气。",
+
+  "modifier.tinkers_advanced.flux_defense": "通量赋能-装甲",
+  "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
+  "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有10%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多40%的伤害。",
+
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -165,6 +191,17 @@
   "material.tinkers_advanced.blizz_enderium.armor": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
   "material.tinkers_advanced.blizz_enderium.ranged": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
 
+  "material.tinkers_advanced.blaze_netherite": "狱烬下界合金",
+  "material.tinkers_advanced.blaze_netherite.flavor": "这种金属在热能的作用下能自动修复。",
+
+  "material.tinkers_advanced.activated_chromatic_steel": "活化彩钢",
+  "material.tinkers_advanced.activated_chromatic_steel.activated": "激活的活化彩钢",
+  "material.tinkers_advanced.activated_chromatic_steel.empowered": "注能的活化彩钢",
+  "material.tinkers_advanced.activated_chromatic_steel.flavor": "高活性的金属与元素能量的混合物，看似分裂实则一体。",
+  "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "每500FE抵消1耐久消耗。激活模式下：消耗100FE使挖掘速度+100%，消耗250FE施加4穿甲伤害；注能模式下：挥舞时消耗500FE释放剑气，造成5+锋利等级/2的伤害。",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，额外消耗500FE使箭矢爆炸，爆炸不破坏地形。",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗10kFE；注能模式下，每1kFE格挡1伤害。",
+
 
 
 
@@ -177,6 +214,8 @@
   "item.tinkers_advanced.blitz_lumium": "震荡流明锭",
   "item.tinkers_advanced.blizz_enderium": "极寒末影锭",
   "item.tinkers_advanced.disintegrate_crystal": "解离水晶",
+  "item.tinkers_advanced.activated_chromatic_steel": "活化彩钢板",
+  "item.tinkers_advanced.blaze_netherite": "狱烬下界合金锭",
 
 
 
@@ -213,6 +252,18 @@
   "item.tinkers_advanced.molten_blizz_enderium_bucket": "熔融极寒末影桶",
   "fluid.tinkers_advanced.molten_blizz_enderium.fluid_effect": "极寒末影是冷的，能冻住敌人。",
 
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel": "熔融活化彩钢",
+  "item.tinkers_advanced.molten_activated_chromatic_steel_bucket": "熔融活化彩钢桶",
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel.fluid_effect": "融合了4元素之力，是既昂贵又高效的对付敌人的手段！",
+
+  "fluid.tinkers_advanced.pyrotheum": "烈焰之炽焱",
+  "item.tinkers_advanced.pyrotheum_bucket": "烈焰之炽焱桶",
+  "fluid.tinkers_advanced.pyrotheum.fluid_effect": "火元素的具象化形式，毫无疑问的热门话题！",
+
+  "fluid.tinkers_advanced.molten_blaze_netherite": "熔融狱烬下界合金",
+  "item.tinkers_advanced.molten_blaze_netherite_bucket": "熔融狱烬下界合金桶",
+
+
 
 
 
@@ -242,5 +293,9 @@
 
 
   "fluid_effect.tconstruct.damage.explosion": "%s 爆炸伤害",
-  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s 辐射伤害"
+  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s 辐射伤害",
+
+  "msg.tinkers_advanced.flux_mode.thermal_slash.0": "休眠",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.1": "激活",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "注能"
 }

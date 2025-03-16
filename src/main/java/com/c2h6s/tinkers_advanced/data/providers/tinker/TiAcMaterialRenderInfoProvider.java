@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
+import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
@@ -34,6 +35,10 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM).color(0xFFFF4E11).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.Thermal.BLITZ_LUMIUM).color(0xFFFFFB9F).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM).color(0xFF39FFD1).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.BLAZE_NETHERITE).color(0xFFCF6D4F).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL).color(0xFFFFC7E7).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED).color(0xFFFFC7E7).fallbacks("metal").luminosity(6);
+        buildRenderInfo(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED).color(0xFFFFC7E7).fallbacks("metal").luminosity(15);
     }
 
     public static final Set<MaterialStatsId> allStats = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,MaterialRegistry.ARMOR));

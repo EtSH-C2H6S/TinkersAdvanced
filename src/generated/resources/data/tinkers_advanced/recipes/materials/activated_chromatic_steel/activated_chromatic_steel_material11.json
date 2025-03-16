@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "tinkers_advanced:activated_chromatic_steel"
+  },
+  "material": "tinkers_advanced:activated_chromatic_steel",
+  "needed": 1,
+  "value": 1
+}

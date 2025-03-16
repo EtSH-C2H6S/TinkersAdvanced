@@ -1,10 +1,7 @@
 package com.c2h6s.tinkers_advanced;
 
 import com.c2h6s.etstlib.util.ModListConstants;
-import com.c2h6s.tinkers_advanced.client.renderer.AirSlashRenderer;
-import com.c2h6s.tinkers_advanced.client.renderer.MiningBeamRenderer;
-import com.c2h6s.tinkers_advanced.client.renderer.PlasmaBeamRenderer;
-import com.c2h6s.tinkers_advanced.client.renderer.PlasmaExplosionRenderer;
+import com.c2h6s.tinkers_advanced.client.renderer.*;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
 import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.eventHandler.LivingEventHandler;
@@ -80,6 +77,7 @@ public class TinkersAdvanced
             TiAcItems.THERMAL_ITEMS.register(modEventBus);
             TiAcFluids.THERMAL_FLUIDS.register(modEventBus);
             TiAcModifiers.THERMAL_MODIFIERS.register(modEventBus);
+            TiAcEntities.THERMAL_ENTITIES.register(modEventBus);
         }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
@@ -130,6 +128,9 @@ public class TinkersAdvanced
             event.registerEntityRenderer(TiAcEntities.PLASMA_BEAM.get(), PlasmaBeamRenderer::new);
             event.registerEntityRenderer(TiAcEntities.AIR_SLASH.get(), AirSlashRenderer::new);
             event.registerEntityRenderer(TiAcEntities.MINING_BEAM.get(), MiningBeamRenderer::new);
+            if (ModList.get().isLoaded("thermal")){
+                event.registerEntityRenderer(TiAcEntities.THERMAL_SLASH.get(), RenderThermalSlash::new);
+            }
         }
     }
 }

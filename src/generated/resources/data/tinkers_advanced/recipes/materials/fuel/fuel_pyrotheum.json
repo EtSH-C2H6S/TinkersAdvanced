@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:alloy",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "amount": 1250,
+      "fluid": "tconstruct:blazing_blood"
+    },
+    {
+      "amount": 1000,
+      "fluid": "thermal:refined_fuel"
+    },
+    {
+      "amount": 750,
+      "fluid": "thermal:creosote"
+    }
+  ],
+  "result": {
+    "amount": 500,
+    "fluid": "tinkers_advanced:pyrotheum"
+  },
+  "temperature": 1320
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tinkers_advanced:blaze_netherite"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tinkers_advanced:molten_blaze_netherite"
+  },
+  "temperature": 1480,
+  "time": 80
+}

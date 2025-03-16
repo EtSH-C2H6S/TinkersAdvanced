@@ -23,7 +23,13 @@
     "blizz_inflict": "#96E1FF",
     "sensor_interrupt": "#5100A1",
     "metamorphium": "#0A4239",
-    "over_hold": "#423E3A"
+    "over_hold": "#423E3A",
+    "flame_adaptive": "#FF9363",
+    "flux_infused": "#FF1200",
+    "thermal_slash": "#FF9C88",
+    "thermal_enhance": "#CEA0FF",
+    "flux_arrow": "#D0FF9C",
+    "flux_defense": "#9DFFF8"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
@@ -35,6 +41,12 @@
     "refined_glowstone": "#FEFF8C",
     "refined_obsidian": "#391375",
     "irradium": "#82FFFF",
-    "pneumatic_steel": "#9191B3"
+    "pneumatic_steel": "#9191B3",
+
+    "blaze_netherite": "#873000",
+    "basalz_signalum": "#B31D1D",
+    "blitz_lumium": "#FFFD90",
+    "blizz_enderium": "#B7FBFF",
+    "activated_chromatic_steel": "#E89FFF"
   }
 }

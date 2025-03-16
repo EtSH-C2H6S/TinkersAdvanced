@@ -50,11 +50,12 @@ public class TiAcFluids {
     }
 
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_BISMUTH = registerHotBurning(FLUIDS,"molten_bismuth",770,1,4,0.5f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLAZE_NETHERITE = registerHotBurning(FLUIDS,"molten_blaze_netherite",1920,15,1920,9f,false);
 
 
-
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMATTER = registerHotBurning(MEK_FLUIDS,"molten_antimatter",2980,15,16384,15f,true);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRRADIUM = registerFluid(MEK_FLUIDS,"molten_irradium",2250, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMATTER = registerHotBurning(MEK_FLUIDS,"molten_antimatter",2980,15,16384,17.5f,true);
+    public static final FluidObject<ForgeFlowingFluid> PYROTHEUM = registerHotBurning(THERMAL_FLUIDS,"pyrotheum",3273,15,2560,15f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRRADIUM = registerFluid(MEK_FLUIDS,"molten_irradium",2250, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
@@ -63,7 +64,7 @@ public class TiAcFluids {
             }
         }
     },false);
-    public static final FluidObject<ForgeFlowingFluid> FUSION_PLASMA = registerFluid(MEK_FLUIDS,"fusion_plasma",3840, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+    public static final FluidObject<ForgeFlowingFluid> FUSION_PLASMA = registerFluid(MEK_FLUIDS,"fusion_plasma",3840, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             if (entity instanceof LivingEntity living) {
@@ -73,7 +74,7 @@ public class TiAcFluids {
             }
         }
     },true);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BASALZ_SIGNALUM = registerFluid(THERMAL_FLUIDS,"molten_basalz_signalum",950, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 7), 200, 5){
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BASALZ_SIGNALUM = registerFluid(THERMAL_FLUIDS,"molten_basalz_signalum",950, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 7), 200, 5){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
@@ -82,7 +83,7 @@ public class TiAcFluids {
             }
         }
     },false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BILTZ_LUMIUM = registerFluid(THERMAL_FLUIDS,"molten_biltz_lumium",1440, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 5){
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BILTZ_LUMIUM = registerFluid(THERMAL_FLUIDS,"molten_biltz_lumium",1440, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 5){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
@@ -91,11 +92,23 @@ public class TiAcFluids {
             }
         }
     },false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLIZZ_ENDERIUM = registerFluid(THERMAL_FLUIDS,"molten_blizz_enderium",0, (Function<Supplier<? extends FlowingFluid>, LiquidBlock>) supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 0, 0){
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLIZZ_ENDERIUM = registerFluid(THERMAL_FLUIDS,"molten_blizz_enderium",0, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 0, 0){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             if (entity instanceof LivingEntity living) {
                 living.addEffect(new MobEffectInstance(CoreMobEffects.CHILLED.get(),100));
+            }
+        }
+    },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ACTIVATED_CHROMATIC_STEEL = registerFluid(THERMAL_FLUIDS,"molten_activated_chromatic_steel",2440, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 0, 0){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            if (entity instanceof LivingEntity living) {
+                living.addEffect(new MobEffectInstance(CoreMobEffects.CHILLED.get(),100));
+                living.addEffect(new MobEffectInstance(CoreMobEffects.SHOCKED.get(),100));
+                living.addEffect(new MobEffectInstance(CoreMobEffects.SUNDERED.get(),100));
+                living.invulnerableTime=0;
+                living.hurt(level.damageSources().lava(),0.5f);
             }
         }
     },false);

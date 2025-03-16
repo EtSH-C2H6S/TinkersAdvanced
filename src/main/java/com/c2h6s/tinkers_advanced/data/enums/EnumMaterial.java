@@ -28,6 +28,8 @@ public enum EnumMaterial {
     BASALZ_SIGNALUM(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,3,false,false,EnumMaterialStats.BASALZ_SIGNALUM,modLoaded("thermal"),BASALZ_SIGNALUM_ARMOR,BASALZ_SIGNALUM_DEFAULT),
     BLITZ_LUMIUM(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,4,false,false,EnumMaterialStats.BLITZ_LUMIUM,modLoaded("thermal"),BLITZ_LUMIUM_ARMOR,BLITZ_LUMIUM_DEFAULT),
     BLIZZ_ENDERIUM(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,4,false,false,EnumMaterialStats.BLIZZ_ENDERIUM,modLoaded("thermal"),BLIZZ_ENDERIUM_ARMOR,BLIZZ_ENDERIUM_DEFAULT),
+    ACTIVATED_CHROMATIC_STEEL(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,4,false,false,EnumMaterialStats.ACTIVATED_CHROMA_STEEL,modLoaded("thermal"),ACTIVATED_CHROMA_STEEL_MELEE,ACTIVATED_CHROMA_STEEL_ARMOR,ACTIVATED_CHROMA_STEEL_RANGED),
+    BLAZE_NETHERITE(TiAcMaterialIds.BLAZE_NETHERITE,4,false,false,EnumMaterialStats.BLAZE_NETHERITE,null,EnumMaterialModifier.BLAZE_NETHERITE),
     ;
     public final MaterialId id;
     public final int tier;

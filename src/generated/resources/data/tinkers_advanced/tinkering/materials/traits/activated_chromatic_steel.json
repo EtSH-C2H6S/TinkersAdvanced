@@ -1,0 +1,46 @@
+{
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:flux_infused"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:thermal_enhance"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:flux_defense"
+      }
+    ],
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:flux_infused"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:thermal_enhance"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:thermal_slash"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:flux_infused"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:thermal_enhance"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:flux_arrow"
+      }
+    ]
+  }
+}

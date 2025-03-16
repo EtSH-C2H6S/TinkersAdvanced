@@ -13,13 +13,13 @@ public enum EnumMaterialStats {
             StatlessMaterialStats.BINDING
     ),
     BISMUTH(
-            armor(70,4.5f,9,6,4).toughness(0),
+            armor(60,4.5f,9,6,4).toughness(0),
             true,
             StatlessMaterialStats.BINDING,
             new HandleMaterialStats(-0.1f,0.2f,-0.1f,0.1f),
-            new HeadMaterialStats(1020,7f, Tiers.NETHERITE,2.45f),
+            new HeadMaterialStats(880,7f, Tiers.NETHERITE,2.45f),
             new GripMaterialStats(0.05f,-0.05f,2.45f),
-            new LimbMaterialStats(980,-0.3f,0.25f,0.1f),
+            new LimbMaterialStats(880,-0.3f,0.25f,0.1f),
             StatlessMaterialStats.MAILLE
     ),
     BISMUTHINITE(
@@ -123,6 +123,26 @@ public enum EnumMaterialStats {
             new HeadMaterialStats(710,6.5f, Tiers.NETHERITE,3.5f),
             new GripMaterialStats(0.1f,0.05f,3.5f),
             new LimbMaterialStats(710,0.1f,0.1f,0.05f)
+    ),
+    ACTIVATED_CHROMA_STEEL(
+            armor(40,4,9,6,3).toughness(5),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(0.1f,0.1f,0.2f,0.1f),
+            new HeadMaterialStats(794,7.5f, Tiers.NETHERITE,3.75f),
+            new GripMaterialStats(0.1f,0.1f,3.75f),
+            new LimbMaterialStats(794,0.2f,-0.1f,0.1f)
+    ),
+    BLAZE_NETHERITE(
+            armor(65,2.5f,7.5f,6,2).toughness(4),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(0.1f,0.1f,-0.2f,0.15f),
+            new HeadMaterialStats(892,5.5f, Tiers.NETHERITE,3.5f),
+            new GripMaterialStats(0.1f,0.01f,3.5f),
+            new LimbMaterialStats(892,-0.2f,0.2f,0.01f)
     ),
 
 

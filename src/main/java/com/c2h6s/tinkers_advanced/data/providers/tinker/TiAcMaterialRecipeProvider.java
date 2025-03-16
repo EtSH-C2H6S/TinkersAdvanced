@@ -58,6 +58,8 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
     public static final TagKey<Item> GEM_SINGLECAST = TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), TConstruct.getResource("casts/single_use/gem"));
     public static final TagKey<Item> INGOT_MULTICAST = TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), TConstruct.getResource("casts/multi_use/ingot"));
     public static final TagKey<Item> INGOT_SINGLECAST = TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), TConstruct.getResource("casts/single_use/ingot"));
+    public static final TagKey<Item> PLATE_MULTICAST = TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), TConstruct.getResource("casts/multi_use/plate"));
+    public static final TagKey<Item> PLATE_SINGLECAST = TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), TConstruct.getResource("casts/single_use/plate"));
 
     public static final ResourceLocation baseFolder = new ResourceLocation(TinkersAdvanced.MODID,"materials/");
     public static ResourceLocation namedFolder(String name){
@@ -77,6 +79,9 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         fuel("fusion_plasma",FluidIngredient.of(TiAcFluids.FUSION_PLASMA.get(),50),100,3840,Conditional);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.FUSION_PLASMA.get(),500)),1440).addCatalyst(FluidIngredient.of(TinkerFluids.blazingBlood.get(),1000)).addInput(GeneratorsFluids.FUSION_FUEL.getFluidStack(1000)).save(Conditional,new ResourceLocation(folder+"_fusion_alloy"));
         fuel("antimatter",FluidIngredient.of(TiAcFluids.MOLTEN_ANTIMATTER.get(),10),1000,9999,Conditional);
+        Conditional = withCondition(consumer,modLoaded("thermal"));
+        fuel("pyrotheum",FluidIngredient.of(TiAcFluids.PYROTHEUM.get(),50),100,3000,Conditional);
+        AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.PYROTHEUM.get(),500)),1320).addInput(FluidIngredient.of(TinkerFluids.blazingBlood.get(),1250)).addInput(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("thermal","refined_fuel")),1000).addInput(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("thermal","creosote")),750).save(Conditional,new ResourceLocation(folder+"_pyrotheum"));
 
         folder = namedFolder("bismuth");
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_BISMUTH,90,TiAcMaterialIds.BISMUTH,770,consumer,folder);
@@ -84,6 +89,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.BISMUTH,Ingredient.of(TiAcTagkeys.Items.BISMUTH_INGOT),1,1,consumer,folder);
         folder = namedFolder("bismuthinite");
         materialRecipe(TiAcMaterialIds.BISMUTHINITE,Ingredient.of(TiAcItems.BISMUTHINITE.get()),1,1,consumer,folder);
+        folder = namedFolder("blaze_netherite");
+        meltMaterial(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),90,TiAcMaterialIds.BLAZE_NETHERITE,1480,consumer,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),TiAcItems.BLAZE_NETHERITE.get(),1480,consumer,folder);
+        materialRecipe(TiAcMaterialIds.BLAZE_NETHERITE,Ingredient.of(TiAcItems.BLAZE_NETHERITE.get()),1,1,consumer,folder);
+        ItemCastingRecipeBuilder.tableRecipe(TiAcItems.BLAZE_NETHERITE.get()).setFluid(TinkerFluids.blazingBlood.get(), 200).setCast(Tags.Items.INGOTS_NETHERITE,true).setCoolingTime(1500,200).save(consumer,new ResourceLocation(folder+"_made"));
         //AE2
         Conditional = withCondition(consumer,tagFilled(ConventionTags.FLUIX_CRYSTAL));
         folder = namedFolder("fluix");
@@ -141,6 +151,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,Ingredient.of(TiAcItems.BLIZZ_ENDERIUM.get()),1,1, Conditional,folder);
         melt1Ingot(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),TiAcItems.BLIZZ_ENDERIUM.get(),1440,Conditional,folder);
         meltMaterial(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),90,TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,1440,Conditional,folder);
+        folder = namedFolder("activated_chromatic_steel");
+        materialRecipe(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,Ingredient.of(TiAcItems.ACTIVATED_CHROMATIC_STEEL.get()),1,1, Conditional,folder);
+        melt1Plate(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),TiAcItems.ACTIVATED_CHROMATIC_STEEL.get(),1920,Conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,1920,Conditional,folder);
+        AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90)),1920).addInput(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),360).addInput(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),360).addInput(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),360).addInput(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),360).save(Conditional,new ResourceLocation(folder+"_alloy"));
     }
 
     public void melt1B(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
@@ -189,6 +204,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
+    }
+    public void melt1Plate(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
+        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_plate"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(PLATE_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_plate_single"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(PLATE_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_plate_multi"));
     }
     public void melt1Ingot(Fluid fluid, TagKey<Item> ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));

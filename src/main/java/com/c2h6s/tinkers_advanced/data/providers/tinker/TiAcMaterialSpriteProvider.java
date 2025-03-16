@@ -1,8 +1,10 @@
 package com.c2h6s.tinkers_advanced.data.providers.tinker;
 
+import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
+import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToSpriteTransformer;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
@@ -117,5 +119,37 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(178,0xFF0A2F56)
                 .addARGB(216,0xFF1D7D8A)
                 .addARGB(255,0xFF2BA6AD).build());
+        this.buildMaterial(TiAcMaterialIds.BLAZE_NETHERITE).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFBA3B19)
+                .addARGB(102,0xFFE39527)
+                .addARGB(140,0xFF252226)
+                .addARGB(178,0xFF363331)
+                .addARGB(216,0xFF524B49)
+                .addARGB(255,0xFF7A6A65).build());
+        this.buildMaterial(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF362B34)
+                .addARGB(102,0xFF736066)
+                .addARGB(140,0xFF4F2F2F)
+                .addARGB(178,0xFF6E3D46)
+                .addARGB(216,0xFF9E7484)
+                .addARGB(255,0xFFFFC7E7).build());
+        this.buildMaterial(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFF00004)
+                .addARGB(102,0xFFFF2529)
+                .addARGB(140,0xFF4F2F2F)
+                .addARGB(178,0xFF6E3D46)
+                .addARGB(216,0xFF9E7484)
+                .addARGB(255,0xFFFFC7E7).build());
+        this.buildMaterial(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED).ranged().meleeHarvest().armor().fallbacks("metal").transformer(GreyToSpriteTransformer.builder()
+                .addARGB(0,0xFF000000)
+                .addTexture(63,TinkersAdvanced.getLocation("materials/activated_chromatic_steel/edge"))
+                .addTexture(102,TinkersAdvanced.getLocation("materials/activated_chromatic_steel/edge"))
+                .addARGB(140,0xFF4F2F2F)
+                .addARGB(178,0xFF6E3D46)
+                .addARGB(216,0xFF9E7484)
+                .addARGB(255,0xFFFFC7E7).build());
     }
 }

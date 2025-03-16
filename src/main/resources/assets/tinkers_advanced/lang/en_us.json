@@ -101,6 +101,30 @@
   "modifier.tinkers_advanced.over_hold.flavor": "This is not okay.",
   "modifier.tinkers_advanced.over_hold.description": "+900% Fluid capacity.",
 
+  "modifier.tinkers_advanced.flame_adaptive": "Flame Adaptive",
+  "modifier.tinkers_advanced.flame_adaptive.flavor": "It's thirsty to flames.",
+  "modifier.tinkers_advanced.flame_adaptive.description": "Gain fire resistance when equipped.Slowly recover durability when user is on fire.",
+
+  "modifier.tinkers_advanced.flux_infused": "Flux Infused",
+  "modifier.tinkers_advanced.flux_infused.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.flux_infused.description": "+2MFE energy storage each level.Cycles mode when pressing CoFH-Mode Switch key.",
+
+  "modifier.tinkers_advanced.thermal_enhance": "Thermal Enhance",
+  "modifier.tinkers_advanced.thermal_enhance.flavor": "Element enhanced tools!",
+  "modifier.tinkers_advanced.thermal_enhance.description": "All effects from Basalz Defense,Shattered,Blitz Defence,Shocked,Frost Plating,Blizz Defense and Flame Adaptive.",
+
+  "modifier.tinkers_advanced.flux_arrow": "Flux Arrow",
+  "modifier.tinkers_advanced.flux_arrow.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.flux_arrow.description": "In Activated Mode,consumes energy to create arrow.In Empowered Mode,arrows will explode on hit and shoots with a higher velocity.",
+
+  "modifier.tinkers_advanced.thermal_slash": "Flux Slash",
+  "modifier.tinkers_advanced.thermal_slash.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.thermal_slash.description": "+1 Fortune and Looting level.In Activated mode,consumes energy to boost mining speed and deal extra 2 damage on attack.In Empowered mode,fires Elemental Slash on swinging.",
+
+  "modifier.tinkers_advanced.flux_defense": "Flux Shield",
+  "modifier.tinkers_advanced.flux_defense.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,10% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 40% of damage.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -165,6 +189,16 @@
   "material.tinkers_advanced.blizz_enderium.armor": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
   "material.tinkers_advanced.blizz_enderium.ranged": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
 
+  "material.tinkers_advanced.blaze_netherite": "Blaze Netherite",
+  "material.tinkers_advanced.blaze_netherite.flavor": "Infernally hot metal that repairs itself when heated.",
+
+  "material.tinkers_advanced.activated_chromatic_steel": "Activated Chromatic Steel",
+  "material.tinkers_advanced.activated_chromatic_steel.activated": "Activated Chromatic Steel",
+  "material.tinkers_advanced.activated_chromatic_steel.empowered": "Activated Chromatic Steel",
+  "material.tinkers_advanced.activated_chromatic_steel.flavor": "Highly reactive alloy made of magical metals and elemental energy.",
+  "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "Each durability loss takes 500FE.When Activated:dig speed+100%(consumes 100FE),consumes 250FE on attack.When Empowered:consume 500FE to create slash.",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "Each durability loss takes 500FE.When Activated:Consume 500FE to create arrow,boost 1 arrow damage.When Empowered:Consume extra 500FE for arrow explosion.",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "Each durability loss takes 500FE.When Activated:Each blocking consumes 10kFE.When Empowered:Each damage takes 1kFE to cancel.",
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -181,6 +215,8 @@
   "item.tinkers_advanced.blitz_lumium": "Blitz Lumium",
   "item.tinkers_advanced.blizz_enderium": "Blizz Enderium",
   "item.tinkers_advanced.disintegrate_crystal": "Disassemble Crystal",
+  "item.tinkers_advanced.activated_chromatic_steel": "Activated Chromatic Steel Plate",
+  "item.tinkers_advanced.blaze_netherite": "Blaze Netherite",
 
 
 
@@ -212,6 +248,17 @@
   "item.tinkers_advanced.molten_blizz_enderium_bucket": "Molten Blizz Enderium Bucket",
   "fluid.tinkers_advanced.molten_blizz_enderium.fluid_effect": "Blizz Enderium is extremely cold ,capable of freezing targets.",
 
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel": "Molten Activated Chromatic Steel",
+  "item.tinkers_advanced.molten_activated_chromatic_steel_bucket": "Molten Activated Chromatic Steel Bucket",
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel.fluid_effect": "The very fluid of all elements.Highly reactive and aggressive.",
+
+  "fluid.tinkers_advanced.pyrotheum": "Pyrotheum",
+  "item.tinkers_advanced.pyrotheum_bucket": "Pyrotheum Bucket",
+  "fluid.tinkers_advanced.pyrotheum.fluid_effect": "The implemented form of pyrogen.One of the 'hottest' topic.",
+
+  "fluid.tinkers_advanced.molten_blaze_netherite": "Molten Blaze Netherite",
+  "item.tinkers_advanced.molten_blaze_netherite_bucket": "Molten Blaze Netherite Bucket",
+
 
 
   "effect.tinkers_advanced.tetanus": "Tetanus",
@@ -241,5 +288,10 @@
 
 
   "fluid_effect.tconstruct.damage.explosion": "%s Explosion Damage",
-  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s Radiation Damage"
+  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s Radiation Damage",
+
+
+  "msg.tinkers_advanced.flux_mode.thermal_slash.0": "Quelled",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.1": "Activated",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "Empowered"
 }

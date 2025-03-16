@@ -5,6 +5,7 @@ import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
+import com.c2h6s.tinkers_advanced.content.modifier.common.FlameAdaptive;
 import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadioactiveArmor;
@@ -32,6 +33,7 @@ public class TiAcModifiers {
     public static StaticModifier<SensorInterrupt> SENSOR_INTERRUPT = MODIFIERS.register("sensor_interrupt", SensorInterrupt::new);
     public static StaticModifier<Metamorphium> METAMORPHIUM = MODIFIERS.register("metamorphium", Metamorphium::new);
     public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
+    public static StaticModifier<FlameAdaptive> FLAME_ADAPTIVE = MODIFIERS.register("flame_adaptive", FlameAdaptive::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);
@@ -41,7 +43,7 @@ public class TiAcModifiers {
 
     //mek联动属性
     public static StaticModifier<RadioactiveArmor> RADIOACTIVE_ARMOR = MEK_MODIFIERS.register("radioactive_armor", RadioactiveArmor::new);
-    public static StaticModifier<AtomGrade> ATOM_GRADE = MODIFIERS.register("atom_grade", AtomGrade::new);
+    public static StaticModifier<AtomGrade> ATOM_GRADE = MEK_MODIFIERS.register("atom_grade", AtomGrade::new);
 
 
     //PnC联动属性
@@ -56,4 +58,9 @@ public class TiAcModifiers {
     public static StaticModifier<BlitzInflict> Blitz_INFLICT = THERMAL_MODIFIERS.register("blitz_inflict", BlitzInflict::new);
     public static StaticModifier<BlizzDefense> BLIZZ_DEFENSE = THERMAL_MODIFIERS.register("blizz_defense", BlizzDefense::new);
     public static StaticModifier<BlizzInflict> BLIZZ_INFLICT = THERMAL_MODIFIERS.register("blizz_inflict", BlizzInflict::new);
+    public static StaticModifier<FluxInfused> FLUX_INFUSED = THERMAL_MODIFIERS.register("flux_infused", FluxInfused::new);
+    public static StaticModifier<ThermalSlashModifier> THERMAL_SLASH = THERMAL_MODIFIERS.register("thermal_slash", ThermalSlashModifier::new);
+    public static StaticModifier<ThermalEnhance> THERMAL_ENHANCE = THERMAL_MODIFIERS.register("thermal_enhance", ThermalEnhance::new);
+    public static StaticModifier<FluxArrow> FLUX_ARROW = THERMAL_MODIFIERS.register("flux_arrow", FluxArrow::new);
+    public static StaticModifier<FluxDefense> FLUX_DEFENSE = THERMAL_MODIFIERS.register("flux_defense", FluxDefense::new);
 }

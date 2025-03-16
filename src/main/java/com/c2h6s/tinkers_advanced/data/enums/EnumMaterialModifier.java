@@ -49,6 +49,11 @@ public enum EnumMaterialModifier {
     BLIZZ_ENDERIUM_DEFAULT(null,entry(TiAcModifiers.METAMORPHIUM.getId()),entry(TiAcModifiers.BLIZZ_INFLICT.getId())),
     BLIZZ_ENDERIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.METAMORPHIUM.getId()),entry(TiAcModifiers.BLIZZ_DEFENSE.getId())),
 
+    ACTIVATED_CHROMA_STEEL_MELEE(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.FLUX_INFUSED.getId()),entry(TiAcModifiers.THERMAL_ENHANCE.getId()),entry(TiAcModifiers.THERMAL_SLASH.getId())),
+    ACTIVATED_CHROMA_STEEL_RANGED(MaterialRegistry.RANGED,entry(TiAcModifiers.FLUX_INFUSED.getId()),entry(TiAcModifiers.THERMAL_ENHANCE.getId()),entry(TiAcModifiers.FLUX_ARROW.getId())),
+    ACTIVATED_CHROMA_STEEL_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.FLUX_INFUSED.getId()),entry(TiAcModifiers.THERMAL_ENHANCE.getId()),entry(TiAcModifiers.FLUX_DEFENSE.getId())),
+
+    BLAZE_NETHERITE(null,entry(TiAcModifiers.FLAME_ADAPTIVE.getId()),entry(ModifierIds.netherite)),
     ;
 
     public final ModifierEntry[] modifiers;
