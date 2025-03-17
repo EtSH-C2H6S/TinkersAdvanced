@@ -69,7 +69,7 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
         if (living.invulnerableTime>0){
             return true;
         }
-        if (RANDOM.nextInt(10)==0&&getMode(tool)>=1&&extractEnergy(tool,20000,true)>=10000){
+        if (RANDOM.nextInt(20)==0&&getMode(tool)>=1&&extractEnergy(tool,20000,true)>=10000){
             extractEnergy(tool,20000,false);
             living.invulnerableTime+=10;
             living.level().playSound(null,living.blockPosition(), SoundEvents.FIREWORK_ROCKET_LAUNCH,living.getSoundSource(),1,2);

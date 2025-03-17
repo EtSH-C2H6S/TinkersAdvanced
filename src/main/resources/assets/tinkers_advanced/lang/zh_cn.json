@@ -124,7 +124,7 @@
 
   "modifier.tinkers_advanced.flux_defense": "通量赋能-装甲",
   "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有10%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
+  "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有5%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
 
 
 

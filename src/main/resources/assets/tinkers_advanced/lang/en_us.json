@@ -123,7 +123,7 @@
 
   "modifier.tinkers_advanced.flux_defense": "Flux Shield",
   "modifier.tinkers_advanced.flux_defense.flavor": "Powered by Team CoFH.",
-  "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,10% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 20% of damage.",
+  "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,5% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 20% of damage.",
 
 
 
