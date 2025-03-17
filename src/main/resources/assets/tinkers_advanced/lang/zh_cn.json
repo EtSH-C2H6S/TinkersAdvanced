@@ -108,7 +108,7 @@
 
   "modifier.tinkers_advanced.flux_infused": "通量注入",
   "modifier.tinkers_advanced.flux_infused.flavor": "来一次与红石通量的邂逅",
-  "modifier.tinkers_advanced.flux_infused.description": "每级获得2MFE的能量存储，工具使用时优先消耗能量存储而非耐久。按CoFH-循环模式键可以切换工具的模式。",
+  "modifier.tinkers_advanced.flux_infused.description": "每级获得1MFE的能量存储，工具使用时优先消耗能量存储而非耐久。按CoFH-循环模式键可以切换工具的模式。",
 
   "modifier.tinkers_advanced.thermal_enhance": "元素之力",
   "modifier.tinkers_advanced.thermal_enhance.flavor": "四元素的力量在你的工具中显现...",
@@ -124,7 +124,7 @@
 
   "modifier.tinkers_advanced.flux_defense": "通量赋能-装甲",
   "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有10%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多40%的伤害。",
+  "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有10%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
 
 
 
@@ -199,8 +199,8 @@
   "material.tinkers_advanced.activated_chromatic_steel.empowered": "注能的活化彩钢",
   "material.tinkers_advanced.activated_chromatic_steel.flavor": "高活性的金属与元素能量的混合物，看似分裂实则一体。",
   "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "每500FE抵消1耐久消耗。激活模式下：消耗100FE使挖掘速度+100%，消耗250FE施加4穿甲伤害；注能模式下：挥舞时消耗500FE释放剑气，造成5+锋利等级/2的伤害。",
-  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，能额外消耗250FE产生药水箭，额外消耗500FE使箭矢爆炸，爆炸不破坏地形。",
-  "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗10kFE；注能模式下，每1kFE格挡1伤害。",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，能额外消耗500FE产生药水箭，额外消耗1000FE使箭矢爆炸，爆炸不破坏地形。",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗20kFE；注能模式下，每2kFE格挡1伤害。",
 
 
 

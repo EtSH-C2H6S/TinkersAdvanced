@@ -69,8 +69,8 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
         if (living.invulnerableTime>0){
             return true;
         }
-        if (RANDOM.nextInt(10)==0&&getMode(tool)>=1&&extractEnergy(tool,10000,true)>=10000){
-            extractEnergy(tool,10000,false);
+        if (RANDOM.nextInt(10)==0&&getMode(tool)>=1&&extractEnergy(tool,20000,true)>=10000){
+            extractEnergy(tool,20000,false);
             living.invulnerableTime+=10;
             living.level().playSound(null,living.blockPosition(), SoundEvents.FIREWORK_ROCKET_LAUNCH,living.getSoundSource(),1,2);
             return true;
@@ -83,10 +83,10 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
     public float modifyDamageTaken(IToolStackView tool, ModifierEntry modifierEntry, EquipmentContext context, EquipmentSlot equipmentSlot, DamageSource damageSource, float amount, boolean direct) {
         if (damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return amount;
         if (getMode(tool)>=2&&amount>0){
-            int toReduce = (int) (amount*0.40);
-            toReduce = Math.min(toReduce,extractEnergy(tool,1000*toReduce,true));
+            int toReduce = (int) (amount*0.2);
+            toReduce = Math.min(toReduce,extractEnergy(tool,2000*toReduce,true));
             if (toReduce>0){
-                extractEnergy(tool,1000*toReduce,false);
+                extractEnergy(tool,2000*toReduce,false);
                 return amount-toReduce;
             }
         }

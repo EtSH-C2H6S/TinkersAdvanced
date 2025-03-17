@@ -27,6 +27,8 @@ import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.ranged.BowAmmoModifierHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.nbt.*;
+import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -38,6 +40,12 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.BOW_AMMO);
+    }
+
+    @Override
+    public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
+        super.addToolStats(iToolContext, modifierEntry, modifierStatsBuilder);
+        ToolStats.DRAW_SPEED.percent(modifierStatsBuilder,getMode(iToolContext.getPersistentData())>=2?0.5:0);
     }
 
     @Override
@@ -73,7 +81,7 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
 
     @Override
     public void shrinkAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, ItemStack ammo, int needed) {
-        if (!ammo.is(Items.ARROW)&&ToolEnergyUtil.extractEnergy(tool,750,true)>=750&&getMode(tool)>1){
+        if (!ammo.is(Items.ARROW)&&ToolEnergyUtil.extractEnergy(tool,1000,true)>=750&&getMode(tool)>1){
             ToolEnergyUtil.extractEnergy(tool,750,false);
             return;
         }
@@ -87,13 +95,15 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
                 default -> {
                 }
                 case 1 -> {
-                    arrow.setBaseDamage(arrow.getBaseDamage() + 1);
-                    arrow.getPersistentData().putInt(KEY_ARROW_CHARGE, getMode(tool));
-                }
-                case 2->{
                     if (ToolEnergyUtil.extractEnergy(tool,500,true)>=500) {
                         arrow.setBaseDamage(arrow.getBaseDamage() + 1);
-                        ToolEnergyUtil.extractEnergy(tool,500,false);
+                        arrow.getPersistentData().putInt(KEY_ARROW_CHARGE, getMode(tool));
+                    }
+                }
+                case 2->{
+                    if (ToolEnergyUtil.extractEnergy(tool,1000,true)>=1000) {
+                        arrow.setBaseDamage(arrow.getBaseDamage() + 1);
+                        ToolEnergyUtil.extractEnergy(tool,1000,false);
                         arrow.getPersistentData().putInt(KEY_ARROW_CHARGE, getMode(tool));
                     }
                 }

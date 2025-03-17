@@ -78,7 +78,7 @@ public class FluxInfused extends BasicFEModifier {
 
     @Override
     public int getCapacity(ModifierEntry modifier) {
-        return (int) (modifier.getLevel()*2E6);
+        return (int) (modifier.getLevel()*1E6);
     }
 
     public void onModeSwitch(IToolStackView tool, ServerPlayer player, ModifierEntry entry){

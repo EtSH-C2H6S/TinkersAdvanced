@@ -107,7 +107,7 @@
 
   "modifier.tinkers_advanced.flux_infused": "Flux Infused",
   "modifier.tinkers_advanced.flux_infused.flavor": "Powered by Team CoFH.",
-  "modifier.tinkers_advanced.flux_infused.description": "+2MFE energy storage each level.Cycles mode when pressing CoFH-Mode Switch key.",
+  "modifier.tinkers_advanced.flux_infused.description": "+1MFE energy storage each level.Cycles mode when pressing CoFH-Mode Switch key.",
 
   "modifier.tinkers_advanced.thermal_enhance": "Thermal Enhance",
   "modifier.tinkers_advanced.thermal_enhance.flavor": "Element enhanced tools!",
@@ -123,7 +123,7 @@
 
   "modifier.tinkers_advanced.flux_defense": "Flux Shield",
   "modifier.tinkers_advanced.flux_defense.flavor": "Powered by Team CoFH.",
-  "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,10% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 40% of damage.",
+  "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,10% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 20% of damage.",
 
 
 
@@ -197,8 +197,8 @@
   "material.tinkers_advanced.activated_chromatic_steel.empowered": "Activated Chromatic Steel",
   "material.tinkers_advanced.activated_chromatic_steel.flavor": "Highly reactive alloy made of magical metals and elemental energy.",
   "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "Each durability loss takes 500FE.When Activated:dig speed+100%(consumes 100FE),consumes 250FE on attack.When Empowered:consume 500FE to create slash.",
-  "material.tinkers_advanced.activated_chromatic_steel.armor": "Each durability loss takes 500FE.When Activated:Consume 500FE to create arrow,boost 1 arrow damage.When Empowered:Consume extra 500FE for arrow explosion.",
-  "material.tinkers_advanced.activated_chromatic_steel.ranged": "Each durability loss takes 500FE.When Activated:Each blocking consumes 10kFE.When Empowered:Each damage takes 1kFE to cancel.",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "Each durability loss takes 500FE.When Activated:Consume 500FE to create arrow,boost 1 arrow damage.When Empowered:Consume extra 1000FE for arrow explosion.",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "Each durability loss takes 500FE.When Activated:Each blocking consumes 20kFE.When Empowered:Each damage takes 2kFE to cancel.",
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
