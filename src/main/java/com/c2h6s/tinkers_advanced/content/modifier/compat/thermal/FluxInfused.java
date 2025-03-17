@@ -20,9 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
-import slimeknights.tconstruct.library.tools.nbt.IToolContext;
-import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.tools.nbt.*;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 
 import java.util.List;
@@ -72,6 +70,10 @@ public class FluxInfused extends BasicFEModifier {
 
     public static int getMode(IToolStackView tool){
         return tool.getPersistentData().getInt(MODE_LOCATION)%3;
+    }
+
+    public static int getMode(IModDataView toolData){
+        return toolData.getInt(MODE_LOCATION)%3;
     }
 
     @Override

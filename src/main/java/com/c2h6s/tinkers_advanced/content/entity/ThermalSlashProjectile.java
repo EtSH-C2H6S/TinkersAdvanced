@@ -54,7 +54,6 @@ public class ThermalSlashProjectile extends Projectile {
                         living.forceAddEffect(new MobEffectInstance(CoreMobEffects.SUNDERED.get(),100+50*modifierLevel,modifierLevel),this.getOwner());
                     }
                     set.add(entity.getId());
-                    this.baseDamage*=0.8f;
                 }
             }
         }

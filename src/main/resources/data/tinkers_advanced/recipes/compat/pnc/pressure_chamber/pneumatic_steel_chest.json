@@ -8,7 +8,7 @@
   "type": "pneumaticcraft:pressure_chamber",
   "inputs": [
     {
-      "item": "pneumaticcraft:compressed_iron_helmet"
+      "item": "pneumaticcraft:compressed_iron_chestplate"
     },
     {
       "type": "pneumaticcraft:stacked_item",

@@ -31,9 +31,12 @@ import slimeknights.tconstruct.library.modifiers.modules.build.EnchantmentModule
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
+import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.MaterialNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.List;
@@ -46,6 +49,12 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
         hookBuilder.addHook(this, ModifierHooks.BREAK_SPEED,ModifierHooks.BLOCK_BREAK);
         hookBuilder.addModule(new EnchantmentModule.Constant(Enchantments.BLOCK_FORTUNE,1));
         hookBuilder.addModule(new EnchantmentModule.Constant(Enchantments.MOB_LOOTING,1));
+    }
+
+    @Override
+    public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
+        super.addToolStats(iToolContext, modifierEntry, modifierStatsBuilder);
+        ToolStats.ATTACK_SPEED.percent(modifierStatsBuilder,getMode(iToolContext.getPersistentData())>=2?0.5:0);
     }
 
     @Override

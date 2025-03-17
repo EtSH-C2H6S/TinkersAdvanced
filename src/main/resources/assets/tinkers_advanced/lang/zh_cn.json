@@ -116,11 +116,11 @@
 
   "modifier.tinkers_advanced.flux_arrow": "通量赋能-箭矢",
   "modifier.tinkers_advanced.flux_arrow.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.flux_arrow.description": "激活模式下消耗能量存储凭空产生箭矢；注能模式下增加箭矢初速度并使其在击中时爆炸。",
+  "modifier.tinkers_advanced.flux_arrow.description": "激活模式下消耗能量存储凭空产生箭矢；注能模式下能产生药水箭并增加箭矢初速度且使其在击中时爆炸。",
 
   "modifier.tinkers_advanced.thermal_slash": "通量赋能-近战",
   "modifier.tinkers_advanced.thermal_slash.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.thermal_slash.description": "+1时运、抢夺等级。激活模式下消耗能量增加挖掘速度并在攻击时附加2点穿甲伤害；注能模式下挥舞时释放元素剑气。",
+  "modifier.tinkers_advanced.thermal_slash.description": "+1时运、抢夺等级。激活模式下消耗能量增加挖掘速度并在攻击时附加2点穿甲伤害；注能模式下攻速+50%，挥舞时释放元素剑气。",
 
   "modifier.tinkers_advanced.flux_defense": "通量赋能-装甲",
   "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
@@ -199,7 +199,7 @@
   "material.tinkers_advanced.activated_chromatic_steel.empowered": "注能的活化彩钢",
   "material.tinkers_advanced.activated_chromatic_steel.flavor": "高活性的金属与元素能量的混合物，看似分裂实则一体。",
   "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "每500FE抵消1耐久消耗。激活模式下：消耗100FE使挖掘速度+100%，消耗250FE施加4穿甲伤害；注能模式下：挥舞时消耗500FE释放剑气，造成5+锋利等级/2的伤害。",
-  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，额外消耗500FE使箭矢爆炸，爆炸不破坏地形。",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，能额外消耗250FE产生药水箭，额外消耗500FE使箭矢爆炸，爆炸不破坏地形。",
   "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗10kFE；注能模式下，每1kFE格挡1伤害。",
 
 

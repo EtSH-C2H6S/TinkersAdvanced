@@ -64,11 +64,20 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
 
     @Override
     public ItemStack findAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity livingEntity, ItemStack stack, Predicate<ItemStack> predicate) {
-        if (getMode(tool)>0&& ToolEnergyUtil.extractEnergy(tool,500,true)>=500){
+        if (getMode(tool)>0&& ToolEnergyUtil.extractEnergy(tool,500,true)>=500&&stack.isEmpty()){
             ToolEnergyUtil.extractEnergy(tool,500,false);
             return new ItemStack(Items.ARROW,64);
         }
         return stack;
+    }
+
+    @Override
+    public void shrinkAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, ItemStack ammo, int needed) {
+        if (!ammo.is(Items.ARROW)&&ToolEnergyUtil.extractEnergy(tool,750,true)>=750&&getMode(tool)>1){
+            ToolEnergyUtil.extractEnergy(tool,750,false);
+            return;
+        }
+        BowAmmoModifierHook.super.shrinkAmmo(tool,modifier,shooter,ammo,needed);
     }
 
     @Override
@@ -95,7 +104,7 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
 
     @Override
     public void onProjectileHitBlock(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, BlockHitResult hit, @Nullable LivingEntity attacker) {
-        if (attacker!=null&&projectile.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
+        if (attacker!=null&&projectile instanceof AbstractArrow arrow&&arrow.isCritArrow()&&arrow.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
             FakeExplosionUtil.fakeExplode(5,attacker,attacker.level(),hit.getLocation(),new IntOpenHashSet(attacker.getId()),false );
         }
         if (projectile.getPersistentData().getInt(KEY_ARROW_CHARGE)>0){
@@ -105,7 +114,7 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
 
     @Override
     public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
-        if (attacker!=null&&projectile.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
+        if (attacker!=null&&projectile instanceof AbstractArrow arrow&&arrow.isCritArrow()&&arrow.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
             FakeExplosionUtil.fakeExplode(5,attacker,attacker.level(),hit.getLocation(),new IntOpenHashSet(attacker.getId()),false );
             if (target!=null) target.invulnerableTime =0;
         }
