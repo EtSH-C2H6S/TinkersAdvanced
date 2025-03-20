@@ -1,6 +1,8 @@
 package com.c2h6s.tinkers_advanced.data.providers.tinker;
 
 import cofh.core.init.CoreMobEffects;
+import com.c2h6s.etstlib.tool.fluid.fluidEffect.ClearChunkRadiationFluidEffect;
+import com.c2h6s.etstlib.tool.fluid.fluidEffect.RadiateEntityFluidEffect;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.registery.TiAcEffects;
 import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
@@ -58,6 +60,8 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                 .addCondition(tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER));
         addFluid(TiAcFluids.MOLTEN_IRRADIUM.get(),10)
                 .addDamage(7,new DamageFluidEffect.DamageTypePair(MekanismDamageTypes.RADIATION.key(),MekanismDamageTypes.RADIATION.key()))
+                .addEntityEffect(new RadiateEntityFluidEffect(new LevelingValue(0.1f,0.1f)))
+                .addBlockEffect(new ClearChunkRadiationFluidEffect(2))
                 .addCondition(modLoaded("mekanism"));
         addFluid(TiAcFluids.FUSION_PLASMA.get(),100)
                 .fireDamage(4.5f)

@@ -55,7 +55,7 @@
 
   "modifier.tinkers_advanced.radioactive_armor": "Radioactive Armor",
   "modifier.tinkers_advanced.radioactive_armor.flavor": "Have you worn a lead pants?",
-  "modifier.tinkers_advanced.radioactive_armor.description": "Inflicts 100mSv radiation to attacker",
+  "modifier.tinkers_advanced.radioactive_armor.description": "Inflicts 100mSv radiation to attacker,gain 25% radiation resistance each level.",
 
   "modifier.tinkers_advanced.air_slash": "Air Slash",
   "modifier.tinkers_advanced.air_slash.flavor": "Pressurized air ejection.",

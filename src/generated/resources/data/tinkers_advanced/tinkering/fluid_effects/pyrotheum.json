@@ -1,19 +1,4 @@
 {
-  "conditions": [
-    {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "tconstruct:config",
-          "prop": "force_integration_materials"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "thermal"
-        }
-      ]
-    }
-  ],
   "block_effects": [
     {
       "type": "tconstruct:place_block",
@@ -32,6 +17,21 @@
         "each_level": 2.5,
         "flat": 5.0
       }
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ]
     }
   ],
   "entity_effects": [

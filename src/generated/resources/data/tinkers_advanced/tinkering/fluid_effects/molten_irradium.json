@@ -1,4 +1,10 @@
 {
+  "block_effects": [
+    {
+      "type": "etstlib:clear_radiation",
+      "size": 2
+    }
+  ],
   "conditions": [
     {
       "type": "forge:or",
@@ -21,6 +27,13 @@
       "damage_type": {
         "melee": "mekanism:radiation",
         "ranged": "mekanism:radiation"
+      }
+    },
+    {
+      "type": "etstlib:radiate_entity",
+      "radiation_amount": {
+        "each_level": 0.1,
+        "flat": 0.1
       }
     }
   ],

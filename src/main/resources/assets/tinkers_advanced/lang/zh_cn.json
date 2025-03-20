@@ -54,8 +54,8 @@
   "modifier.tinkers_advanced.resonance_amplifier.description": "每级增加10m射程。",
 
   "modifier.tinkers_advanced.radioactive_armor": "放射性护甲",
-  "modifier.tinkers_advanced.radioactive_armor.flavor": "有辐同享！",
-  "modifier.tinkers_advanced.radioactive_armor.description": "对攻击者施加100mSv辐射。",
+  "modifier.tinkers_advanced.radioactive_armor.flavor": "既产生辐射，也消除辐射",
+  "modifier.tinkers_advanced.radioactive_armor.description": "对攻击者施加100mSv辐射，每级获得25%辐射抗性。",
 
   "modifier.tinkers_advanced.air_slash": "空气斩",
   "modifier.tinkers_advanced.air_slash.flavor": "压缩空气抛射",
