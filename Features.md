@@ -14,7 +14,7 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
 * Tools
   * Ionized Cannon
     > A weapon that use fluids as ammo. Consumes fluids to shoot plasma beam that deals melee damage and inflict Fluid Effects to nearby mobs.
-    > Core part crafted by casting molten material on Echo Shard. Has special upgrades including Deep Catalysis
+    > Core part crafted by casting molten material on Echo Shard. Has special upgrades including Deep Catalysis, Focusing Array, Resonance Amplifier.
   * Matter Manipulator
     > A mining tool that resembles the Matter Manipulator in Starbound. It consumes fluids to shoot mining laser that conduct AOE mining in a range, and teleport the loots to user.
     > Core part requires first casting Ichor on echo shard to craft Disintegrate Crystal, than cast molten material on it.
@@ -29,10 +29,47 @@ These features are integrations between mods other than TConstruct. The correspo
     > Capable of inflicting Shocked debuff , hurting nearby targets and giving user night vision as weapon material, provide a chance of dodging damage as armor material.
   * Blizz Enderium
     > Currently Tier 4 material(Will be migrated to Tier 5 once Sublimery is added). Inflicts Chilled debuff and will gain stat boost after long time of using.
-  * Activated Chroma Steel
+  * Activated Chromatic Steel
     > Top rated Thermal compat material. Currently Tier 4. Includes a serie of powerful flux based modifiers. Crafted by alloying Basalz Signalum, Blitz Lumium, Blizz Enderium and Blaze Netherite.
 * Fuels
   * Pyrotheum
     > 3000℃ Fuel that resembles Pyrotheum in legacy Thermal Expansion mod. Crafted by alloying Blazing Blood, Refined Fuel and Creosote.
-
+### Mekanism Compat
+ * Integration Materials
+   * Refined Glowstone
+     > Tier 3 material that provides night vision effect.
+   * Refined Obsidian
+     > Tier 4 material that boosts attack speed on constantly attacking as melee harvest material.For armor, It comes with Ductile and Diamond trait.
+   * Alloy Atomic
+     > Tier 4 material that can only be used to craft bindings. It allows tool to ignore harvest tiers.
+   * Antimatter
+     > Currently Tier 4 material that has a high stat. Deals explosion damage to both target and attacker as melee harvest material. Reflect some of the damage taken in the form of explosion as armor material.
+ * Original Materials
+   * Irradium
+     > Tier 4 material that resembles Irradium from Frackin's Universe mod (Starbound). Crafted by combining Pellet Polonium and Manyullyn Ingot. Inflicts radiation to enemy and adds glowing effect.
+ * Fuels
+   * Fusion Plasma
+     > 3840℃ Fuel crafted by alloying Blazing Blood and Fusion Fuel. Blazing Blood serves as a catalyst.
+   * Molten Antimatter
+     > 9999℃ Fuel, but very expensive. Pellet antimatter counts as slimeball and each pellets melts into 250 mB Molten Antimatter.
+ * Modifiers
+   * Atom Grade
+     > Add 1 upgrade slot to tools or 1 defense slot to armors. Requires Alloy Atomic to craft.
+   * Edging Technology
+     > Adds 1 upgrade and ability slot. Requires Antimatter to craft.
+   * Quantum Technology (Also AE2 Compat)
+     > Adds 1 upgrade and ability slot. Requires a set of QIO to craft.
+### AE2 Compat
+ * Integration Materials
+   * Certus Quartz
+     > Tier 1 material. Deals higher full charge damage when durability is full.
+   * Fluix Quartz
+     > Multi functional Tier 2 material that has different traits in different parts.
+ * Modifiers
+   * Quantum Technology (Also Mekanism Compat)
+     > Adds 1 upgrade and ability slot. Requires singularity and 256k component to craft.
+### PneumaticCraft Compat
+ * Original Materials
+   * Pneumatic Steel
+     > Tier 4 material crafted by mixing Blazing Blood and Steel Ingot in a Thermo Plant and then cool it inside a heat frame. The armor plating are crafted by throwing Penumatic Reinforced Steel and Compressed Iron armors into a pressure chamber. Contains compressed air related traits.
 
