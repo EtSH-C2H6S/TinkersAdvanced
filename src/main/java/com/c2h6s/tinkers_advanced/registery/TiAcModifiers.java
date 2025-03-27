@@ -34,6 +34,7 @@ public class TiAcModifiers {
     public static StaticModifier<Metamorphium> METAMORPHIUM = MODIFIERS.register("metamorphium", Metamorphium::new);
     public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
     public static StaticModifier<FlameAdaptive> FLAME_ADAPTIVE = MODIFIERS.register("flame_adaptive", FlameAdaptive::new);
+    public static StaticModifier<HyperDensity> HYPER_DENSITY = MODIFIERS.register("hyper_density", HyperDensity::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

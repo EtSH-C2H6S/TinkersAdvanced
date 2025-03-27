@@ -37,7 +37,6 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,ModifierHooks.DAMAGE_BLOCK,ModifierHooks.MODIFY_HURT);
-        hookBuilder.addModule(new EnchantmentModule.Constant(Enchantments.ALL_DAMAGE_PROTECTION,1));
     }
 
     @Override
@@ -69,6 +68,7 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
         if (living.invulnerableTime>0){
             return true;
         }
+        if (living.isInvulnerableTo(damageSource)) return true;
         if (RANDOM.nextInt(20)==0&&getMode(tool)>=1&&extractEnergy(tool,20000,true)>=10000){
             extractEnergy(tool,20000,false);
             living.invulnerableTime+=10;

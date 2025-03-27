@@ -80,7 +80,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.FUSION_PLASMA.get(),500)),1440).addCatalyst(FluidIngredient.of(TinkerFluids.blazingBlood.get(),1000)).addInput(GeneratorsFluids.FUSION_FUEL.getFluidStack(1000)).save(Conditional,new ResourceLocation(folder+"_fusion_alloy"));
         fuel("antimatter",FluidIngredient.of(TiAcFluids.MOLTEN_ANTIMATTER.get(),10),1000,9999,Conditional);
         Conditional = withCondition(consumer,modLoaded("thermal"));
-        fuel("pyrotheum",FluidIngredient.of(TiAcFluids.PYROTHEUM.get(),50),100,3000,Conditional);
+        fuel("pyrotheum",FluidIngredient.of(TiAcFluids.PYROTHEUM.get(),10),200,3000,Conditional);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.PYROTHEUM.get(),500)),1320).addInput(FluidIngredient.of(TinkerFluids.blazingBlood.get(),1250)).addInput(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("thermal","refined_fuel")),1000).addInput(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("thermal","creosote")),750).save(Conditional,new ResourceLocation(folder+"_pyrotheum"));
 
         folder = namedFolder("bismuth");
@@ -155,7 +155,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,Ingredient.of(TiAcItems.ACTIVATED_CHROMATIC_STEEL.get()),1,1, Conditional,folder);
         melt1Plate(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),TiAcItems.ACTIVATED_CHROMATIC_STEEL.get(),1920,Conditional,folder);
         meltMaterial(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,1920,Conditional,folder);
-        AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90)),1920).addInput(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),360).addInput(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),360).addInput(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),360).addInput(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),360).save(Conditional,new ResourceLocation(folder+"_alloy"));
+        AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90)),1920).addInput(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),270).addInput(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),270).addInput(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),270).addInput(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),270).save(Conditional,new ResourceLocation(folder+"_alloy"));
     }
 
     public void melt1B(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
@@ -237,7 +237,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
     }
 
     public void fuel(String name,FluidIngredient ingredient,int duration,int temp,Consumer<FinishedRecipe> consumer){
-        MeltingFuelBuilder.fuel(ingredient,duration,temp).save(consumer,new ResourceLocation(namedFolder("fuel")+"-"+name));
+        MeltingFuelBuilder.fuel(ingredient,duration,temp).save(consumer,new ResourceLocation(namedFolder("fuel")+"_"+name+"fuel"));
     }
 
     public static ICondition modLoaded(String modId){
