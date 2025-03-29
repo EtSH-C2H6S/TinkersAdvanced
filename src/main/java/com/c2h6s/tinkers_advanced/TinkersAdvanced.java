@@ -58,6 +58,7 @@ public class TinkersAdvanced
 
         modEventBus.addListener(this::commonSetup);
 
+        TiAcConfig.init();
         TiAcItems.ITEMS.register(modEventBus);
         TiAcItems.TINKER_ITEMS.register(modEventBus);
         TiAcBlocks.BLOCKS.register(modEventBus);

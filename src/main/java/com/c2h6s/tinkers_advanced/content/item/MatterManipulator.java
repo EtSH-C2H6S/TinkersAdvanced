@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.item;
 
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.MiningBeamProjectile;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.TiAcToolDefinitions;
@@ -200,11 +201,11 @@ public class MatterManipulator extends ModifiableItem {
                     player.getPersistentData().putInt(KEY_BLOCK_POSX, result.getBlockPos().getX());
                     player.getPersistentData().putInt(KEY_BLOCK_POSY, result.getBlockPos().getY());
                     player.getPersistentData().putInt(KEY_BLOCK_POSZ, result.getBlockPos().getZ());
-                    float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level, blockPos);
+                    float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level, blockPos)*10;
                     float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
 
-                    float breakSpeed = (float) (tool.getStats().get(ToolStats.MINING_SPEED) * player.getAttributeValue(Attributes.ATTACK_SPEED) / 4);
-                    breakSpeed += fluidStack.getFluid().getFluidType().getTemperature() / 500f;
+                    float breakSpeed = (float) ((ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.MINING_SPEED) * player.getAttributeValue(Attributes.ATTACK_SPEED) / 2) * TiAcConfig.COMMON.MATTER_MANIPULATOR_BASE_BOOST.get());
+                    breakSpeed += (float) ((fluidStack.getFluid().getFluidType().getTemperature() / 100f)*TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_BOOST.get());
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     ItemStack stack1 = stack.copy();
                     Map<Enchantment, Integer> map = stack1.getAllEnchantments();
@@ -215,7 +216,7 @@ public class MatterManipulator extends ModifiableItem {
                             }
                             if (effect instanceof BreakBlockFluidEffect effect1) {
                                 if (!effect1.enchantments().isEmpty()) {
-                                    breakSpeed += effect1.hardness();
+                                    breakSpeed += (float) ((effect1.hardness()/10)*TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_BOOST.get());
                                     effect1.enchantments().forEach((enchantment, integer) -> map.merge(enchantment, integer, Integer::sum));
                                 }
                             }
@@ -228,9 +229,9 @@ public class MatterManipulator extends ModifiableItem {
                         ToolStack copy = ToolStack.from(stack1);
                         breakSpeed = ForgeEventFactory.getBreakSpeed(player, blockState, breakSpeed, blockPos);
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
-                            breakSpeed /= 4;
+                            breakSpeed *= TiAcConfig.COMMON.MATTER_MANIPULATOR_AOE_SPEED.get();
                         }
-                        destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 1, 10 - destroyProgress);
+                        destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 0, 10 - destroyProgress);
                         level.destroyBlockProgress(player.getId(), blockPos, (int) destroyProgress);
                         if (destroyProgress >= 10) {
                             HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)));

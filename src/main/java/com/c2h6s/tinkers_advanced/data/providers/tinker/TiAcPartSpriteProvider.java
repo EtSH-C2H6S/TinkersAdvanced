@@ -17,6 +17,8 @@ public class TiAcPartSpriteProvider extends AbstractPartSpriteProvider {
     @Override
     protected void addAllSpites() {
         addSprite("part/ionize_chamber/ionize_chamber", HandleMaterialStats.ID);
-        buildTool("ionized_cannon").addBreakableHead("broad_blade_1").addBreakablePart("broad_blade_2").addBreakablePart("ionize_chamber",HandleMaterialStats.ID).addBinding("tough_collar");
+        buildTool("ionized_cannon").addBreakableHead("broad_blade_1").addBreakableHead("broad_blade_2").addBreakablePart("ionize_chamber",HandleMaterialStats.ID).addBinding("tough_collar");
+        addSprite("part/particle_container/particle_container", HandleMaterialStats.ID);
+        buildTool("matter_manipulator").addHead("pick_head").addBinding("tough_collar").addHandle("tough_handle").addHandle("particle_container");
     }
 }
