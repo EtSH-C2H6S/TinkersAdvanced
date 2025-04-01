@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:casting_table",
+  "cooling_time": 10,
+  "fluid": {
+    "amount": 30,
+    "tag": "forge:molten_iridium"
+  },
+  "result": "tinkers_advanced:iridium_chunk"
+}

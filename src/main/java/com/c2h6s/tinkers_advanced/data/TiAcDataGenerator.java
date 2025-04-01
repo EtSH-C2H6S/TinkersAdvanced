@@ -37,11 +37,13 @@ public class TiAcDataGenerator {
         generator.addProvider(event.includeClient(),new TiAcMaterialStatProvider(output));
         generator.addProvider(event.includeClient(),new TiAcMaterialModifierProvider(output));
         generator.addProvider(event.includeClient(),new TiAcFluidEffectProvider(output));
+        generator.addProvider(event.includeClient(),new TiAcBlockTagProvider(output,lookupProvider,helper));
         generator.addProvider(event.includeClient(),new FluidBucketModelProvider(output,TinkersAdvanced.MODID));
         generator.addProvider(event.includeClient(),new TiAcMaterialRenderInfoProvider(output,new TiAcMaterialSpriteProvider(),helper));
-        //generator.addProvider(event.includeClient(),new GeneratorPartTextureJsonGenerator(output, TinkersAdvanced.MODID, new TiAcPartSpriteProvider()));
         generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output,helper,new TiAcPartSpriteProvider(),new TinkerMaterialSpriteProvider(),new TiAcMaterialSpriteProvider()));
         generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output,helper,new TinkerPartSpriteProvider(),new TiAcMaterialSpriteProvider()));
+
+        //generator.addProvider(event.includeServer(),new TiAcLootTableProvider(output));
     }
 }
 

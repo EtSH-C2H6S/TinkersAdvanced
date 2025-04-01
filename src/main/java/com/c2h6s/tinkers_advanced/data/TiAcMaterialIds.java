@@ -8,6 +8,7 @@ public class TiAcMaterialIds {
     public static final MaterialId BISMUTH =new MaterialId(TinkersAdvanced.getLocation("bismuth"));
     public static final MaterialId BISMUTHINITE =new MaterialId(TinkersAdvanced.getLocation("bismuthinite"));
     public static final MaterialId BLAZE_NETHERITE =new MaterialId(TinkersAdvanced.getLocation("blaze_netherite"));
+    public static final MaterialId IRIDIUM =new MaterialId(TinkersAdvanced.getLocation("iridium"));
 
     public static class Mekanism{
         public static final MaterialId ANTIMATTER =new MaterialId(TinkersAdvanced.getLocation("antimatter"));

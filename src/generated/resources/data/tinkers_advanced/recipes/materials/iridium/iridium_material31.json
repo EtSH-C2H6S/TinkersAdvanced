@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tinkers_advanced:iridium_chunk"
+  },
+  "material": "tinkers_advanced:iridium",
+  "needed": 3,
+  "value": 1
+}

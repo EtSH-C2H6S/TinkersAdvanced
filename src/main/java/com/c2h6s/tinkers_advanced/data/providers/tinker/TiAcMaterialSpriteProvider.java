@@ -151,5 +151,13 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(178,0xFF6E3D46)
                 .addARGB(216,0xFF9E7484)
                 .addARGB(255,0xFFFFC7E7).build());
+        this.buildMaterial(TiAcMaterialIds.IRIDIUM).ranged().meleeHarvest().armor().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFA5A7C2)
+                .addARGB(102,0xFFE6CCEB)
+                .addARGB(140,0xFFACA1C2)
+                .addARGB(178,0xFFBEB2D6)
+                .addARGB(216,0xFFDDCDEB)
+                .addARGB(255,0xFFF7E9FF).build());
     }
 }

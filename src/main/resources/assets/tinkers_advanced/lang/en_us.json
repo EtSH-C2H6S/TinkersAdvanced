@@ -95,7 +95,7 @@
 
   "modifier.tinkers_advanced.blizz_defense": "Blizz Defense",
   "modifier.tinkers_advanced.blizz_defense.flavor": "Nitro process.",
-  "modifier.tinkers_advanced.blizz_defense.description": "Gain frost resistance and fire resistance.Freeze attacker.",
+  "modifier.tinkers_advanced.blizz_defense.description": "Gain frost resistance.Freeze attacker.",
 
   "modifier.tinkers_advanced.over_hold": "Over Capacity",
   "modifier.tinkers_advanced.over_hold.flavor": "This is not okay.",
@@ -124,6 +124,19 @@
   "modifier.tinkers_advanced.flux_defense": "Flux Shield",
   "modifier.tinkers_advanced.flux_defense.flavor": "Powered by Team CoFH.",
   "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,5% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 20% of damage.",
+
+  "modifier.tinkers_advanced.hyper_density": "Hyper Density",
+  "modifier.tinkers_advanced.hyper_density.flavor": "Small size with great mass.",
+  "modifier.tinkers_advanced.hyper_density.description": "Increase damage reduction of your armor value.",
+
+  "modifier.tinkers_advanced.inert_metal": "Inert Metal",
+  "modifier.tinkers_advanced.inert_metal.flavor": "Resistive to chemical corrosion.",
+  "modifier.tinkers_advanced.inert_metal.description": "Randomly remove a harmful effect from user.",
+
+  "modifier.tinkers_advanced.secondary_armor": "Secondary Armor",
+  "modifier.tinkers_advanced.secondary_armor.flavor": "You can't pierce me twice !",
+  "modifier.tinkers_advanced.secondary_armor.description": "Allow armor to reduce armor-piercing damage.",
+
 
 
 
@@ -200,9 +213,13 @@
   "material.tinkers_advanced.activated_chromatic_steel.armor": "Each durability loss takes 500FE.When Activated:Consume 500FE to create arrow,boost 1 arrow damage.When Empowered:Consume extra 1000FE for arrow explosion.",
   "material.tinkers_advanced.activated_chromatic_steel.ranged": "Each durability loss takes 500FE.When Activated:Each blocking consumes 20kFE.When Empowered:Each damage takes 2kFE to cancel.",
 
+  "material.tinkers_advanced.iridium": "Iridium",
+  "material.tinkers_advanced.iridium.flavor": "Extremely rare metal with low chemical reactivity.",
+
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
   "item.tinkers_advanced.bismuthinite": "Bismuthinite",
+  "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
 
 
 
@@ -217,6 +234,7 @@
   "item.tinkers_advanced.disintegrate_crystal": "Disassemble Crystal",
   "item.tinkers_advanced.activated_chromatic_steel": "Activated Chromatic Steel Plate",
   "item.tinkers_advanced.blaze_netherite": "Blaze Netherite",
+  "item.tinkers_advanced.iridium_chunk": "Iridium Chunk",
 
 
 
@@ -259,6 +277,8 @@
   "fluid.tinkers_advanced.molten_blaze_netherite": "Molten Blaze Netherite",
   "item.tinkers_advanced.molten_blaze_netherite_bucket": "Molten Blaze Netherite Bucket",
 
+  "fluid.tinkers_advanced.molten_iridium": "Molten Iridium",
+  "item.tinkers_advanced.molten_iridium_bucket": "Molten Iridium Bucket",
 
 
   "effect.tinkers_advanced.tetanus": "Tetanus",

@@ -9,7 +9,7 @@
     "tconstruct:handle": {
       "durability": -0.1,
       "melee_damage": 0.1,
-      "melee_speed": -0.1,
+      "melee_speed": -0.15,
       "mining_speed": 0.2
     },
     "tconstruct:head": {
@@ -26,15 +26,15 @@
     },
     "tconstruct:maille": {},
     "tconstruct:plating_boots": {
-      "armor": 4.0,
+      "armor": 3.0,
       "durability": 780
     },
     "tconstruct:plating_chestplate": {
-      "armor": 9.0,
+      "armor": 8.0,
       "durability": 960
     },
     "tconstruct:plating_helmet": {
-      "armor": 4.5,
+      "armor": 3.0,
       "durability": 660
     },
     "tconstruct:plating_leggings": {

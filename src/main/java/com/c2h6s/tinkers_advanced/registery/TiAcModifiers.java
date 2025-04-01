@@ -35,6 +35,8 @@ public class TiAcModifiers {
     public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
     public static StaticModifier<FlameAdaptive> FLAME_ADAPTIVE = MODIFIERS.register("flame_adaptive", FlameAdaptive::new);
     public static StaticModifier<HyperDensity> HYPER_DENSITY = MODIFIERS.register("hyper_density", HyperDensity::new);
+    public static StaticModifier<InertMetal> INERT_METAL = MODIFIERS.register("inert_metal", InertMetal::new);
+    public static StaticModifier<SecondaryArmor> SECONDARY_ARMOR = MODIFIERS.register("secondary_armor", SecondaryArmor::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

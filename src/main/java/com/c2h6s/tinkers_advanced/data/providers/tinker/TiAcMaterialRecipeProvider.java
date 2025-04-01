@@ -94,6 +94,13 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         melt1Ingot(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),TiAcItems.BLAZE_NETHERITE.get(),1480,consumer,folder);
         materialRecipe(TiAcMaterialIds.BLAZE_NETHERITE,Ingredient.of(TiAcItems.BLAZE_NETHERITE.get()),1,1,consumer,folder);
         ItemCastingRecipeBuilder.tableRecipe(TiAcItems.BLAZE_NETHERITE.get()).setFluid(TinkerFluids.blazingBlood.get(), 200).setCast(Tags.Items.INGOTS_NETHERITE,true).setCoolingTime(1500,200).save(consumer,new ResourceLocation(folder+"_made"));
+        folder = namedFolder("iridium");
+        materialRecipe(TiAcMaterialIds.IRIDIUM,Ingredient.of(TiAcItems.IRIDIUM_CHUNK.get()),3,1,consumer,folder);
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.IRIDIUM_CHUNK.get()),FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,30),1375,30).save(consumer,new ResourceLocation(folder+"_melting_chunk"));
+        ItemCastingRecipeBuilder.tableRecipe(TiAcItems.IRIDIUM_CHUNK.get()).setCoolingTime(10).setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,30).save(consumer,new ResourceLocation(folder+"_casting_chunk"));
+        meltMaterial(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,90,TiAcMaterialIds.IRIDIUM,1375,consumer,folder);
+        Conditional = withCondition(consumer,tagFilled(TiAcTagkeys.Items.IRIDIUM_INGOT));
+        melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,TiAcTagkeys.Items.IRIDIUM_INGOT,1375,Conditional,folder);
         //AE2
         Conditional = withCondition(consumer,tagFilled(ConventionTags.FLUIX_CRYSTAL));
         folder = namedFolder("fluix");
@@ -214,6 +221,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
+    }
+    public void melt1Ingot(TagKey<Fluid> fluid, TagKey<Item> ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
+        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),FluidOutput.fromTag(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(fluid,90)).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(fluid,90)).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
     }
     public void cast1Ingot(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));

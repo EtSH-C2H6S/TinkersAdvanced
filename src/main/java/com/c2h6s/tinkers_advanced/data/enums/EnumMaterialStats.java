@@ -13,10 +13,10 @@ public enum EnumMaterialStats {
             StatlessMaterialStats.BINDING
     ),
     BISMUTH(
-            armor(60,4.5f,9,6,4).toughness(0),
+            armor(60,3f,8,6,3).toughness(0),
             true,
             StatlessMaterialStats.BINDING,
-            new HandleMaterialStats(-0.1f,0.2f,-0.1f,0.1f),
+            new HandleMaterialStats(-0.1f,0.2f,-0.15f,0.1f),
             new HeadMaterialStats(880,7f, Tiers.NETHERITE,2.45f),
             new GripMaterialStats(0.05f,-0.05f,2.45f),
             new LimbMaterialStats(880,-0.3f,0.25f,0.1f),
@@ -143,6 +143,16 @@ public enum EnumMaterialStats {
             new HeadMaterialStats(892,5.5f, Tiers.NETHERITE,3.5f),
             new GripMaterialStats(0.1f,0.01f,3.5f),
             new LimbMaterialStats(892,-0.2f,0.2f,0.01f)
+    ),
+    IRIDIUM(
+            armor(70,4.5f,9,6,4).toughness(3),
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(0.2f,0.2f,-0.4f,0.4f),
+            new HeadMaterialStats(1024,7f, Tiers.NETHERITE,4f),
+            new GripMaterialStats(0.2f,0.1f,4f),
+            new LimbMaterialStats(1024,-0.4f,0.3f,0.1f),
+            StatlessMaterialStats.MAILLE
     ),
 
 

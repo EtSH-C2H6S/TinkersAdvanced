@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tinkers_advanced:block/iridium_lean_ore"
+  }
+}

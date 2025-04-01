@@ -4,6 +4,7 @@ import com.c2h6s.tinkers_advanced.content.item.IonizedCannonItem;
 import com.c2h6s.tinkers_advanced.content.item.MatterManipulator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -73,11 +74,13 @@ public class TiAcItems {
 
     public static final RegistryObject<BlockItem> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
     public static final RegistryObject<BlockItem> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE_DEEPSLATE);
+    public static final RegistryObject<BlockItem> IRIDIUM_LEAN_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.IRIDIUM_LEAN_ORE);
 
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTHINITE = registerMaterial(ITEMS,"bismuthinite",()->new Item(new Item.Properties()),true);
-    public static final RegistryObject<Item> DISINTEGRATE_CRYSTAL = registerMaterial(ITEMS,"disintegrate_crystal",()->new Item(new Item.Properties()),true);
-    public static final RegistryObject<Item> BLAZE_NETHERITE = registerMaterial(ITEMS,"blaze_netherite",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> DISINTEGRATE_CRYSTAL = registerMaterial(ITEMS,"disintegrate_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> BLAZE_NETHERITE = registerMaterial(ITEMS,"blaze_netherite",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON).fireResistant()),true);
+    public static final RegistryObject<Item> IRIDIUM_CHUNK = registerMaterial(ITEMS,"iridium_chunk",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
     public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
@@ -87,7 +90,7 @@ public class TiAcItems {
 
 
 
-    public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
 
 
 
@@ -99,5 +102,5 @@ public class TiAcItems {
     public static final RegistryObject<Item> BASALZ_SIGNALUM = registerMaterial(THERMAL_ITEMS,"basalz_signalum",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BLITZ_LUMIUM = registerMaterial(THERMAL_ITEMS,"blitz_lumium",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BLIZZ_ENDERIUM = registerMaterial(THERMAL_ITEMS,"blizz_enderium",()->new Item(new Item.Properties()),true);
-    public static final RegistryObject<Item> ACTIVATED_CHROMATIC_STEEL = registerMaterial(THERMAL_ITEMS,"activated_chromatic_steel",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> ACTIVATED_CHROMATIC_STEEL = registerMaterial(THERMAL_ITEMS,"activated_chromatic_steel",()->new Item(new Item.Properties().rarity(Rarity.EPIC).fireResistant()),true);
 }

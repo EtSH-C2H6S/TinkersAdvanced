@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tinkers_advanced:iridium_chunk"
+  },
+  "result": {
+    "amount": 30,
+    "tag": "forge:molten_iridium"
+  },
+  "temperature": 1375,
+  "time": 30
+}

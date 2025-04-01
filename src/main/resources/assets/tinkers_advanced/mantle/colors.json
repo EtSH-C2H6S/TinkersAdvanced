@@ -29,7 +29,10 @@
     "thermal_slash": "#FF9C88",
     "thermal_enhance": "#CEA0FF",
     "flux_arrow": "#D0FF9C",
-    "flux_defense": "#9DFFF8"
+    "flux_defense": "#9DFFF8",
+    "inert_metal": "#A3CFD4",
+    "hyper_density": "#522375",
+    "secondary_armor": "#D9FFD8"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
@@ -42,11 +45,11 @@
     "refined_obsidian": "#391375",
     "irradium": "#82FFFF",
     "pneumatic_steel": "#9191B3",
-
     "blaze_netherite": "#873000",
     "basalz_signalum": "#B31D1D",
     "blitz_lumium": "#FFFD90",
     "blizz_enderium": "#B7FBFF",
-    "activated_chromatic_steel": "#E89FFF"
+    "activated_chromatic_steel": "#E89FFF",
+    "iridium": "#E0D6FF"
   }
 }

@@ -39,6 +39,7 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL).color(0xFFFFC7E7).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED).color(0xFFFFC7E7).fallbacks("metal").luminosity(6);
         buildRenderInfo(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED).color(0xFFFFC7E7).fallbacks("metal").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.IRIDIUM).color(0xFFE0D6FF).fallbacks("metal").luminosity(6);
     }
 
     public static final Set<MaterialStatsId> allStats = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,MaterialRegistry.ARMOR));

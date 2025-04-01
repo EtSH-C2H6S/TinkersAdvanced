@@ -15,6 +15,7 @@ public class TiAcTagkeys {
 
         public static final TagKey<Fluid> MOLTEN_ANTIMATTER = forgeTag("molten_antimatter");
         public static final TagKey<Fluid> MOLTEN_BISMUTH = forgeTag("molten_bismuth");
+        public static final TagKey<Fluid> MOLTEN_IRIDIUM = forgeTag("molten_iridium");
     }
 
     public static class Items{
@@ -24,5 +25,8 @@ public class TiAcTagkeys {
 
         public static final TagKey<Item> BISMUTH_INGOT = forgeTag("ingots/bismuth");
         public static final TagKey<Item> BISMUTH_ORE = forgeTag("ores/bismuthinite");
+        public static final TagKey<Item> IRIDIUM_INGOT = forgeTag("ingots/iridium");
+        public static final TagKey<Item> IRIDIUM_NUGGET = forgeTag("nuggets/iridium");
+        public static final TagKey<Item> IRIDIUM_BLOCK = forgeTag("storage_blocks/iridium");
     }
 }

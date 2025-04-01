@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tinkers_advanced:iridium",
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_iridium"
+  },
+  "temperature": 1375
+}

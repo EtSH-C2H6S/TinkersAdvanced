@@ -2,6 +2,7 @@
   "values": [
     "tinkers_advanced:molten_bismuth",
     "tinkers_advanced:molten_blaze_netherite",
+    "tinkers_advanced:molten_iridium",
     {
       "id": "tinkers_advanced:molten_irradium",
       "required": false

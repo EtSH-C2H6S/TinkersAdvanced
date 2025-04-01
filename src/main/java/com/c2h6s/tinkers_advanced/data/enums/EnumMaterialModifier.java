@@ -54,6 +54,9 @@ public enum EnumMaterialModifier {
     ACTIVATED_CHROMA_STEEL_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.FLUX_INFUSED.getId()),entry(TiAcModifiers.THERMAL_ENHANCE.getId()),entry(TiAcModifiers.FLUX_DEFENSE.getId())),
 
     BLAZE_NETHERITE(null,entry(TiAcModifiers.FLAME_ADAPTIVE.getId()),entry(ModifierIds.netherite)),
+
+    IRIDIUM_DEFAULT(null,entry(TiAcModifiers.INERT_METAL.getId()),entry(ModifierIds.dense)),
+    IRIDIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.INERT_METAL.getId()),entry(TiAcModifiers.SECONDARY_ARMOR.getId())),
     ;
 
     public final ModifierEntry[] modifiers;
