@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tinkers_advanced:block/fluid/molten_densium/flowing",
+  "still": "tinkers_advanced:block/fluid/molten_densium/still"
+}

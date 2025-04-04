@@ -91,11 +91,12 @@ public class TiAcItems {
 
 
     public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
+    public static final RegistryObject<Item> DENSIUM_INGOT = registerMaterial(MEK_ITEMS,"densium_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
 
 
 
     public static final RegistryObject<Item> PNEUMATIC_STEEL = registerMaterial(PNC_ITEMS,"penumatic_reinforced_steel",()->new Item(new Item.Properties()),true);
-    public static final RegistryObject<Item> PNEUMATIC_STEEL_HOT = registerMaterial(PNC_ITEMS,"hot_reinforced_steel",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> PNEUMATIC_STEEL_HOT = registerMixc(PNC_ITEMS,"hot_reinforced_steel",()->new Item(new Item.Properties()),true);
 
 
 

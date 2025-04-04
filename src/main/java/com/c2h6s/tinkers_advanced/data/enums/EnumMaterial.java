@@ -31,6 +31,7 @@ public enum EnumMaterial {
     ACTIVATED_CHROMATIC_STEEL(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,4,false,false,EnumMaterialStats.ACTIVATED_CHROMA_STEEL,modLoaded("thermal"),ACTIVATED_CHROMA_STEEL_MELEE,ACTIVATED_CHROMA_STEEL_ARMOR,ACTIVATED_CHROMA_STEEL_RANGED),
     BLAZE_NETHERITE(TiAcMaterialIds.BLAZE_NETHERITE,4,false,false,EnumMaterialStats.BLAZE_NETHERITE,null,EnumMaterialModifier.BLAZE_NETHERITE),
     IRIDIUM(TiAcMaterialIds.IRIDIUM,4,false,false,EnumMaterialStats.IRIDIUM,null, IRIDIUM_DEFAULT,IRIDIUM_ARMOR),
+    DENSIUM(TiAcMaterialIds.Mekanism.DENSIUM,4,false,false,EnumMaterialStats.DENSIUM,modLoaded("mekanism"), DENSIUM_ARMOR,DENSIUM_BINDING,DENSIUM_DEFAULT,DENSIUM_HANDLE,DENSIUM_HEAD),
     ;
     public final MaterialId id;
     public final int tier;

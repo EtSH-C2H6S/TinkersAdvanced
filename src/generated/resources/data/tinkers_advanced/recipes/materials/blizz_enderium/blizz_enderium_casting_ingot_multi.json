@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "cooling_time": 79,
+  "cooling_time": 84,
   "fluid": {
     "amount": 90,
     "fluid": "tinkers_advanced:molten_blizz_enderium"

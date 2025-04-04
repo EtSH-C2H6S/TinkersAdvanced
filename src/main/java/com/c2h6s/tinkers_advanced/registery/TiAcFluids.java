@@ -54,8 +54,30 @@ public class TiAcFluids {
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRIDIUM = registerHotBurning(FLUIDS,"molten_iridium",1375,10,20,3f,false);
 
 
+    public static final FluidObject<ForgeFlowingFluid> OVER_HEATED_LAVA = registerHotBurning(FLUIDS,"over_heated_lava",2300,15,200,6.5f,false);
+    public static final FluidObject<ForgeFlowingFluid> GASEOUS_LAVA = registerFluid(FLUIDS,"gaseous_lava",3300, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            if (entity instanceof LivingEntity living) {
+                living.hurt(LegacyDamageSource.any(living.damageSources().lava()).setBypassInvulnerableTime().setBypassArmor().setBypassShield(),0.5f);
+                living.setSecondsOnFire(1000);
+            }
+        }
+    },true);
+    public static final FluidObject<ForgeFlowingFluid> PLASMATIC_LAVA = registerFluid(FLUIDS,"plasmatic_lava",4300, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            if (entity instanceof LivingEntity living) {
+                living.hurt(LegacyDamageSource.any(living.damageSources().generic()).setBypassInvulnerableTime().setBypassArmor().setBypassEnchantment().setBypassMagic().setBypassShield().setMsgId("plasma"),2);
+                living.setSecondsOnFire(100000);
+            }
+        }
+    },true);
+
+
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMATTER = registerHotBurning(MEK_FLUIDS,"molten_antimatter",2980,15,16384,17.5f,true);
     public static final FluidObject<ForgeFlowingFluid> PYROTHEUM = registerHotBurning(THERMAL_FLUIDS,"pyrotheum",3273,15,2560,15f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_DENSIUM = registerHotBurning(MEK_FLUIDS,"molten_densium",2250,7,256,8f,false);
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRRADIUM = registerFluid(MEK_FLUIDS,"molten_irradium",2250, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
@@ -65,16 +87,6 @@ public class TiAcFluids {
             }
         }
     },false);
-    public static final FluidObject<ForgeFlowingFluid> FUSION_PLASMA = registerFluid(MEK_FLUIDS,"fusion_plasma",3840, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
-        @Override
-        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-            if (entity instanceof LivingEntity living) {
-                RadiationManager.get().radiate(living,0.0005);
-                living.hurt(LegacyDamageSource.any(living.damageSources().generic()).setBypassInvulnerableTime().setBypassArmor().setBypassEnchantment().setBypassMagic().setBypassShield().setMsgId("plasma"),2);
-                living.setSecondsOnFire(100000);
-            }
-        }
-    },true);
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_BASALZ_SIGNALUM = registerFluid(THERMAL_FLUIDS,"molten_basalz_signalum",950, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 7), 200, 5){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

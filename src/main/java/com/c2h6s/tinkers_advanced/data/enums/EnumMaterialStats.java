@@ -13,13 +13,13 @@ public enum EnumMaterialStats {
             StatlessMaterialStats.BINDING
     ),
     BISMUTH(
-            armor(60,3f,8,6,3).toughness(0),
+            armor(30,2.25f,7.25f,5.5f,2f).toughness(0).knockbackResistance(0.15f),
             true,
             StatlessMaterialStats.BINDING,
             new HandleMaterialStats(-0.1f,0.2f,-0.15f,0.1f),
             new HeadMaterialStats(880,7f, Tiers.NETHERITE,2.45f),
             new GripMaterialStats(0.05f,-0.05f,2.45f),
-            new LimbMaterialStats(880,-0.3f,0.25f,0.1f),
+            new LimbMaterialStats(760,-0.3f,0.25f,0.1f),
             StatlessMaterialStats.MAILLE
     ),
     BISMUTHINITE(
@@ -52,7 +52,7 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(396,0.15f,-0.05f,0.1f)
     ),
     ANTIMATTER(
-            armor(37,5f,9,8,4).toughness(1),
+            armor(24,5f,9,8,4).toughness(1).knockbackResistance(1),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
@@ -60,7 +60,7 @@ public enum EnumMaterialStats {
             new HeadMaterialStats(590,8.0f, Tiers.NETHERITE,10f)
     ),
     REFINED_GLOWSTONE(
-            armor(37,2f,7,5,2),
+            armor(30,2f,7,5,2),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
@@ -70,7 +70,7 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(790,0.05f,-0.05f,0.1f)
     ),
     IRRADIUM(
-            armor(59,4f,8.5f,7,3.5f).toughness(3.5f),
+            armor(54,4f,8.5f,7,3.5f).toughness(3f),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
@@ -80,7 +80,7 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(1020,0.25f,0.075f,0.1f)
     ),
     REFINED_OBSIDIAN(
-            armor(55,2,7,5,2).toughness(2),
+            armor(36,2,7,5,2).toughness(1).knockbackResistance(0.025f),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
@@ -88,21 +88,21 @@ public enum EnumMaterialStats {
             new HeadMaterialStats(990,6.5f, Tiers.NETHERITE,2.05f)
     ),
     PNEUMATIC_STEEL(
-            armor(60,3,8,6,3).toughness(3),
+            armor(40,2.25f,7.25f,5.25f,2.25f).toughness(3).knockbackResistance(0.1F),
             true,
             StatlessMaterialStats.BINDING,
             new HandleMaterialStats(0.2f,-0.1f,-0.25f,0.05f),
             new HeadMaterialStats(1105,5.5f, Tiers.NETHERITE,2.55f)
     ),
     BASALZ_SIGNALUM(
-            armor(32,1.5f,6f,4.5f,1.5f).toughness(1),
+            armor(30,1.5f,6f,4.5f,1.5f).toughness(1),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
             new HandleMaterialStats(0.15f,0.15f,-0.2f,0.1f),
-            new HeadMaterialStats(540,7.5f, Tiers.DIAMOND,3.0f),
+            new HeadMaterialStats(755,7.5f, Tiers.DIAMOND,3.0f),
             new GripMaterialStats(0.15f,0.1f,3.0f),
-            new LimbMaterialStats(540,-0.2f,0.1f,0.1f)
+            new LimbMaterialStats(755,-0.2f,0.1f,0.1f)
     ),
     BLITZ_LUMIUM(
             armor(23,1.25f,5.75f,4.25f,1.25f).toughness(3),
@@ -110,48 +110,58 @@ public enum EnumMaterialStats {
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
             new HandleMaterialStats(-0.15f,0.0f,0.25f,-0.1f),
-            new HeadMaterialStats(370,4.5f, Tiers.DIAMOND,2.5f),
+            new HeadMaterialStats(470,4.5f, Tiers.DIAMOND,2.5f),
             new GripMaterialStats(-0.15f,-0.02f,3.0f),
-            new LimbMaterialStats(370,0.25f,-0.1f,-0.01f)
+            new LimbMaterialStats(470,0.25f,-0.1f,-0.01f)
     ),
     BLIZZ_ENDERIUM(
-            armor(45,2,7,5,2).toughness(7),
+            armor(45,2,7,5,2).toughness(7).knockbackResistance(0.05f),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
             new HandleMaterialStats(0.15f,0.1f,0.1f,0.15f),
-            new HeadMaterialStats(710,6.5f, Tiers.NETHERITE,3.5f),
+            new HeadMaterialStats(1210,6.5f, Tiers.NETHERITE,3.5f),
             new GripMaterialStats(0.1f,0.05f,3.5f),
-            new LimbMaterialStats(710,0.1f,0.1f,0.05f)
+            new LimbMaterialStats(1210,0.1f,0.1f,0.05f)
     ),
     ACTIVATED_CHROMA_STEEL(
-            armor(40,4,9,6,3).toughness(5),
+            armor(40,3,8,6,3).toughness(5).knockbackResistance(0.15f),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
             new HandleMaterialStats(0.1f,0.1f,0.2f,0.1f),
-            new HeadMaterialStats(794,7.5f, Tiers.NETHERITE,3.75f),
+            new HeadMaterialStats(994,7.5f, Tiers.NETHERITE,3.75f),
             new GripMaterialStats(0.1f,0.1f,3.75f),
-            new LimbMaterialStats(794,0.2f,-0.1f,0.1f)
+            new LimbMaterialStats(994,0.2f,-0.1f,0.1f)
     ),
     BLAZE_NETHERITE(
-            armor(65,2.5f,7.5f,6,2).toughness(4),
+            armor(55,2.5f,7.5f,6,2).toughness(4).knockbackResistance(0.15f),
             true,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
             new HandleMaterialStats(0.1f,0.1f,-0.2f,0.15f),
-            new HeadMaterialStats(892,5.5f, Tiers.NETHERITE,3.5f),
+            new HeadMaterialStats(1492,5.5f, Tiers.NETHERITE,3.5f),
             new GripMaterialStats(0.1f,0.01f,3.5f),
-            new LimbMaterialStats(892,-0.2f,0.2f,0.01f)
+            new LimbMaterialStats(1492,-0.2f,0.2f,0.01f)
     ),
     IRIDIUM(
-            armor(70,4.5f,9,6,4).toughness(3),
+            armor(55,2.5f,7.5f,5.5f,2.5f).toughness(3).knockbackResistance(0.2F),
             true,
             StatlessMaterialStats.BINDING,
             new HandleMaterialStats(0.2f,0.2f,-0.4f,0.4f),
-            new HeadMaterialStats(1024,7f, Tiers.NETHERITE,4f),
+            new HeadMaterialStats(1256,7f, Tiers.NETHERITE,4f),
             new GripMaterialStats(0.2f,0.1f,4f),
-            new LimbMaterialStats(1024,-0.4f,0.3f,0.1f),
+            new LimbMaterialStats(1256,-0.4f,0.3f,0.1f),
+            StatlessMaterialStats.MAILLE
+    ),
+    DENSIUM(
+            armor(128,3.5f,8.25f,6.25f,3.5f).toughness(3.5f).knockbackResistance(10),
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(1.2f,0.2f,-0.6f,0.75f),
+            new HeadMaterialStats(2048,10f, Tiers.NETHERITE,4.5f),
+            new GripMaterialStats(1.2f,0.2f,4.5f),
+            new LimbMaterialStats(2048,-0.6f,0.6f,0.2f),
             StatlessMaterialStats.MAILLE
     ),
 

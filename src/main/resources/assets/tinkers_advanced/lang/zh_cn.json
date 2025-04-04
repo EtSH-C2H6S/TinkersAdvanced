@@ -1,5 +1,6 @@
 {
   "itemGroup.tinkers_advanced.tiac_material": "前沿匠艺 | 材料",
+  "itemGroup.tinkers_advanced.tiac_mixc": "前沿匠艺 | 杂项",
   "itemGroup.tinkers_advanced.tiac_block": "前沿匠艺 | 方块",
   "itemGroup.tinkers_advanced.tiac_tool": "前沿匠艺 | 工具&部件",
 
@@ -65,8 +66,8 @@
   "modifier.tinkers_advanced.aerial_protection.flavor": "氮气护盾！",
   "modifier.tinkers_advanced.aerial_protection.description": "消耗压缩空气格挡5点伤害，对于大于5的伤害提供10%减免。",
 
-  "modifier.tinkers_advanced.sensor_interrupt": "信息素扰乱",
-  "modifier.tinkers_advanced.sensor_interrupt.flavor": "检测到可疑电磁波干扰...",
+  "modifier.tinkers_advanced.sensor_interrupt": "视错觉",
+  "modifier.tinkers_advanced.sensor_interrupt.flavor": "扰乱了电磁波的传递...",
   "modifier.tinkers_advanced.sensor_interrupt.description": "极大降低怪物能感知到你的最大距离。",
 
   "modifier.tinkers_advanced.metamorphium": "形变体",
@@ -125,17 +126,21 @@
   "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
   "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有5%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
 
-  "modifier.tinkers_advanced.hyper_density": "极端致密",
-  "modifier.tinkers_advanced.hyper_density.flavor": "质量高，“质量”也高",
+  "modifier.tinkers_advanced.hyper_density": "严丝合缝",
+  "modifier.tinkers_advanced.hyper_density.flavor": "我们真的实现了零公差！",
   "modifier.tinkers_advanced.hyper_density.description": "你受到的伤害会额外被护甲值减免1次。",
 
   "modifier.tinkers_advanced.inert_metal": "惰性金属",
   "modifier.tinkers_advanced.inert_metal.flavor": "耐腐蚀，抗氧化",
   "modifier.tinkers_advanced.inert_metal.description": "每隔一段时间清除持有者身上的一个随机负面效果。",
 
-  "modifier.tinkers_advanced.secondary_armor": "第二护甲",
+  "modifier.tinkers_advanced.secondary_armor": "慎重的勇士",
   "modifier.tinkers_advanced.secondary_armor.flavor": "没想到吧，我还有隐藏护甲！",
   "modifier.tinkers_advanced.secondary_armor.description": "允许你的护甲格挡穿甲伤害。",
+
+  "modifier.tinkers_advanced.extra_dense": "超级致密",
+  "modifier.tinkers_advanced.extra_dense.flavor": "质量高，“质量”更高！",
+  "modifier.tinkers_advanced.extra_dense.description": "工具具有更高的属性，但是变得更难修复。",
 
 
 
@@ -209,18 +214,22 @@
   "material.tinkers_advanced.activated_chromatic_steel.empowered": "注能的活化彩钢",
   "material.tinkers_advanced.activated_chromatic_steel.flavor": "高活性的金属与元素能量的混合物，看似分裂实则一体。",
   "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "每500FE抵消1耐久消耗。激活模式下：消耗100FE使挖掘速度+100%，消耗250FE施加4穿甲伤害；注能模式下：挥舞时消耗500FE释放剑气，造成5+锋利等级/2的伤害。",
-  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，能额外消耗500FE产生药水箭，额外消耗1000FE使箭矢爆炸，爆炸不破坏地形。",
-  "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗20kFE；注能模式下，每2kFE格挡1伤害。",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，能额外消耗500FE产生药水箭，额外消耗1000FE使箭矢爆炸，爆炸不破坏地形。",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗20kFE；注能模式下，每2kFE格挡1伤害。",
 
   "material.tinkers_advanced.iridium": "铱",
   "material.tinkers_advanced.iridium.flavor": "非常稀有的铂族元素，有很强的耐腐蚀性。",
+
+  "material.tinkers_advanced.densium": "超致密",
+  "material.tinkers_advanced.densium.flavor": "正如其名，超致密的特点是超级致密。",
+  "material.tinkers_advanced.densium.encyclopedia": "每级超级致密增加10%近战伤害、挖掘速度、箭矢速度、耐久度和护甲值，并减少10%修复耐久量。",
 
 
 
 
   "item.tinkers_advanced.bismuth_ingot": "铋锭",
   "item.tinkers_advanced.bismuthinite": "辉铋矿晶体",
-  "item.tinkers_advanced.irradium_ingot": "镭光合金锭",
+  "item.tinkers_advanced.irradium_ingot": "镭光合金靶丸",
   "item.tinkers_advanced.hot_reinforced_steel": "过热的复合钢",
   "item.tinkers_advanced.penumatic_reinforced_steel": "气锻复合钢",
   "item.tinkers_advanced.basalz_signalum": "地岩信素锭",
@@ -230,6 +239,7 @@
   "item.tinkers_advanced.activated_chromatic_steel": "活化彩钢板",
   "item.tinkers_advanced.blaze_netherite": "狱烬下界合金锭",
   "item.tinkers_advanced.iridium_chunk": "小块铱",
+  "item.tinkers_advanced.densium_ingot": "超致密锭",
 
 
 
@@ -250,10 +260,6 @@
   "fluid.tinkers_advanced.molten_irradium": "熔融镭光合金",
   "item.tinkers_advanced.molten_irradium_bucket": "熔融镭光合金桶",
   "fluid.tinkers_advanced.molten_irradium.fluid_effect": "放射性金属的熔融态当然也是放射性的。",
-
-  "fluid.tinkers_advanced.fusion_plasma": "聚变等离子体",
-  "item.tinkers_advanced.fusion_plasma_bucket": "聚变等离子体桶",
-  "fluid.tinkers_advanced.fusion_plasma.fluid_effect": "这种炽热的流体会对目标造成大量的火焰伤害。",
 
   "fluid.tinkers_advanced.molten_basalz_signalum": "熔融地岩信素",
   "item.tinkers_advanced.molten_basalz_signalum_bucket": "熔融地岩信素桶",
@@ -281,6 +287,20 @@
   "fluid.tinkers_advanced.molten_iridium": "熔融铱",
   "item.tinkers_advanced.molten_iridium_bucket": "熔融铱桶",
 
+  "fluid.tinkers_advanced.over_heated_lava": "过热熔岩",
+  "item.tinkers_advanced.over_heated_lava_bucket": "过热熔岩桶",
+  "fluid.tinkers_advanced.over_heated_lava.fluid_effect": "这种炽热的流体会对目标造成大量的火焰伤害。",
+
+  "fluid.tinkers_advanced.gaseous_lava": "气态熔岩",
+  "item.tinkers_advanced.gaseous_lava_bucket": "气态熔岩桶",
+  "fluid.tinkers_advanced.gaseous_lava.fluid_effect": "更高的温度，更高的伤害——这很合理！",
+
+  "fluid.tinkers_advanced.plasmatic_lava": "等离子态熔岩",
+  "item.tinkers_advanced.plasmatic_lava_bucket": "等离子态熔岩桶",
+  "fluid.tinkers_advanced.plasmatic_lava.fluid_effect": "等等，你合成出了个什么玩意？",
+
+  "fluid.tinkers_advanced.molten_densium": "熔融超致密",
+  "item.tinkers_advanced.molten_densium_bucket": "熔融超致密桶",
 
 
 
@@ -315,5 +335,6 @@
 
   "msg.tinkers_advanced.flux_mode.thermal_slash.0": "休眠",
   "msg.tinkers_advanced.flux_mode.thermal_slash.1": "激活",
-  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "注能"
+  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "注能",
+  "msg.tinkers_advanced.global_traveler.container_bind": "绑定容器至"
 }

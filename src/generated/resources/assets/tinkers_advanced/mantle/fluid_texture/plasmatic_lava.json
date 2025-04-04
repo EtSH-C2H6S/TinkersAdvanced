@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tinkers_advanced:block/fluid/plasmatic_lava/flowing",
+  "still": "tinkers_advanced:block/fluid/plasmatic_lava/still"
+}

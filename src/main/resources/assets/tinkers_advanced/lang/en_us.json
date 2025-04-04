@@ -1,5 +1,6 @@
 {
   "itemGroup.tinkers_advanced.tiac_material": "Tinkers' Advanced Materials",
+  "itemGroup.tinkers_advanced.tiac_mixc": "Tinkers' Advanced Misc",
   "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced Blocks",
   "itemGroup.tinkers_advanced.tiac_tool": "Tinkers' Advanced Tools&Parts",
 
@@ -65,8 +66,8 @@
   "modifier.tinkers_advanced.aerial_protection.flavor": "Gaseous shield.",
   "modifier.tinkers_advanced.aerial_protection.description": "Blocks 5 damage,reduces damage above 5 by 10%.Consumes air.",
 
-  "modifier.tinkers_advanced.sensor_interrupt": "Sensor Interrupt",
-  "modifier.tinkers_advanced.sensor_interrupt.flavor": "EMP detected.",
+  "modifier.tinkers_advanced.sensor_interrupt": "Visual Interrupt",
+  "modifier.tinkers_advanced.sensor_interrupt.flavor": "Distorting ray trace.",
   "modifier.tinkers_advanced.sensor_interrupt.description": "Make you less visible to hostile enemies.",
 
   "modifier.tinkers_advanced.metamorphium": "Metamorphium",
@@ -136,6 +137,10 @@
   "modifier.tinkers_advanced.secondary_armor": "Secondary Armor",
   "modifier.tinkers_advanced.secondary_armor.flavor": "You can't pierce me twice !",
   "modifier.tinkers_advanced.secondary_armor.description": "Allow armor to reduce armor-piercing damage.",
+
+  "modifier.tinkers_advanced.extra_dense": "Extra Dense",
+  "modifier.tinkers_advanced.extra_dense.flavor": "Can't be reshaped.",
+  "modifier.tinkers_advanced.extra_dense.description": "Tools will obtain higher stat but harder to repair.",
 
 
 
@@ -210,11 +215,14 @@
   "material.tinkers_advanced.activated_chromatic_steel.empowered": "Activated Chromatic Steel",
   "material.tinkers_advanced.activated_chromatic_steel.flavor": "Highly reactive alloy made of magical metals and elemental energy.",
   "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "Each durability loss takes 500FE.When Activated:dig speed+100%(consumes 100FE),consumes 250FE on attack.When Empowered:consume 500FE to create slash.",
-  "material.tinkers_advanced.activated_chromatic_steel.armor": "Each durability loss takes 500FE.When Activated:Consume 500FE to create arrow,boost 1 arrow damage.When Empowered:Consume extra 1000FE for arrow explosion.",
-  "material.tinkers_advanced.activated_chromatic_steel.ranged": "Each durability loss takes 500FE.When Activated:Each blocking consumes 20kFE.When Empowered:Each damage takes 2kFE to cancel.",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "Each durability loss takes 500FE.When Activated:Consume 500FE to create arrow,boost 1 arrow damage.When Empowered:Consume extra 1000FE for arrow explosion.",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "Each durability loss takes 500FE.When Activated:Each blocking consumes 20kFE.When Empowered:Each damage takes 2kFE to cancel.",
 
   "material.tinkers_advanced.iridium": "Iridium",
   "material.tinkers_advanced.iridium.flavor": "Extremely rare metal with low chemical reactivity.",
+
+  "material.tinkers_advanced.densium": "Densium",
+  "material.tinkers_advanced.densium.flavor": "Densium is very dense.",
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -225,7 +233,7 @@
 
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
   "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
-  "item.tinkers_advanced.irradium_ingot": "Irradium Ingot",
+  "item.tinkers_advanced.irradium_ingot": "Irradium Pellet",
   "item.tinkers_advanced.hot_reinforced_steel": "Over Heated Reinforced Steel",
   "item.tinkers_advanced.penumatic_reinforced_steel": "Pneumatic Reinforced Steel",
   "item.tinkers_advanced.basalz_signalum": "Basalz Signalum",
@@ -235,6 +243,7 @@
   "item.tinkers_advanced.activated_chromatic_steel": "Activated Chromatic Steel Plate",
   "item.tinkers_advanced.blaze_netherite": "Blaze Netherite",
   "item.tinkers_advanced.iridium_chunk": "Iridium Chunk",
+  "item.tinkers_advanced.densium_ingot": "Densium Ingot",
 
 
 
@@ -249,10 +258,6 @@
   "fluid.tinkers_advanced.molten_irradium": "Molten Irradium",
   "item.tinkers_advanced.molten_irradium_bucket": "Molten Irradium Bucket",
   "fluid.tinkers_advanced.molten_irradium.fluid_effect": "Radioactive fluid.",
-
-  "fluid.tinkers_advanced.fusion_plasma": "Fusion Plasma",
-  "item.tinkers_advanced.fusion_plasma_bucket": "Fusion Plasma Bucket",
-  "fluid.tinkers_advanced.fusion_plasma.fluid_effect": "Fusion Plasma deals massive fire damage.",
 
   "fluid.tinkers_advanced.molten_basalz_signalum": "Molten Basalz Signalum",
   "item.tinkers_advanced.molten_basalz_signalum_bucket": "Molten Basalz Signalum Bucket",
@@ -279,6 +284,21 @@
 
   "fluid.tinkers_advanced.molten_iridium": "Molten Iridium",
   "item.tinkers_advanced.molten_iridium_bucket": "Molten Iridium Bucket",
+
+  "fluid.tinkers_advanced.over_heated_lava": "Over Heated Lava",
+  "item.tinkers_advanced.over_heated_lava_bucket": "Over Heated Lava Bucket",
+  "fluid.tinkers_advanced.over_heated_lava.fluid_effect": "This super-hot fluid can deal fire damage to entities.",
+
+  "fluid.tinkers_advanced.gaseous_lava": "Gaseous Lava",
+  "item.tinkers_advanced.gaseous_lava_bucket": "Gaseous Lava Bucket",
+  "fluid.tinkers_advanced.gaseous_lava.fluid_effect": "Higher temperature, higher damage, very reasonable!",
+
+  "fluid.tinkers_advanced.plasmatic_lava": "Ionized Lava",
+  "item.tinkers_advanced.plasmatic_lava_bucket": "Ionized Lava Bucket",
+  "fluid.tinkers_advanced.plasmatic_lava.fluid_effect": "How did you craft this?",
+
+  "fluid.tinkers_advanced.molten_densium": "Molten Densium",
+  "item.tinkers_advanced.molten_densium_bucket": "Molten Densium Bucket",
 
 
   "effect.tinkers_advanced.tetanus": "Tetanus",
@@ -313,5 +333,6 @@
 
   "msg.tinkers_advanced.flux_mode.thermal_slash.0": "Quelled",
   "msg.tinkers_advanced.flux_mode.thermal_slash.1": "Activated",
-  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "Empowered"
+  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "Empowered",
+  "msg.tinkers_advanced.global_traveler.container_bind": "Container bound"
 }

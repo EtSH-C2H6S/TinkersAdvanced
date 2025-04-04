@@ -32,7 +32,8 @@
     "flux_defense": "#9DFFF8",
     "inert_metal": "#A3CFD4",
     "hyper_density": "#522375",
-    "secondary_armor": "#D9FFD8"
+    "secondary_armor": "#D9FFD8",
+    "extra_dense" : "#AFC3FF"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
@@ -50,6 +51,7 @@
     "blitz_lumium": "#FFFD90",
     "blizz_enderium": "#B7FBFF",
     "activated_chromatic_steel": "#E89FFF",
-    "iridium": "#E0D6FF"
+    "iridium": "#E0D6FF",
+    "densium": "#8E76FF"
   }
 }

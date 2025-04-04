@@ -16,6 +16,7 @@ public class TiAcMaterialIds {
         public static final MaterialId REFINED_GLOWSTONE =new MaterialId(TinkersAdvanced.getLocation("refined_glowstone"));
         public static final MaterialId REFINED_OBSIDIAN =new MaterialId(TinkersAdvanced.getLocation("refined_obsidian"));
         public static final MaterialId IRRADIUM =new MaterialId(TinkersAdvanced.getLocation("irradium"));
+        public static final MaterialId DENSIUM =new MaterialId(TinkersAdvanced.getLocation("densium"));
     }
 
     public static class AE2{

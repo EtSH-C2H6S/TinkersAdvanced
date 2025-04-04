@@ -11,6 +11,11 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
     > Tier 4 material made by smelting bismuthinite inside a foundry. Work as a functional material that inflicts a debuff that make targets take more damage on hurt.
   * Blaze Netherite
     > Tier 4 material made by casting blazing blood on Netherite Ingot. Provides fire resistant and self-repairs when holder is on fire.
+  * Iridium
+    > Currently Tier 4 material found in The End dimension in small quantities. Has a high stat and capable of clearing harmful effects.
+* Fuels
+  * Lavas
+    > Over Heated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 3000℃, and 4000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
 * Tools
   * Ionized Cannon
     > A weapon that use fluids as ammo. Consumes fluids to shoot plasma beam that deals melee damage and inflict Fluid Effects to nearby mobs.
@@ -30,7 +35,7 @@ These features are integrations between mods other than TConstruct. The correspo
   * Blizz Enderium
     > Currently Tier 4 material(Will be migrated to Tier 5 once Sublimery is added). Inflicts Chilled debuff and will gain stat boost after long time of using.
   * Activated Chromatic Steel
-    > Top rated Thermal compat material. Currently Tier 4. Includes a serie of powerful flux based modifiers. Crafted by alloying Basalz Signalum, Blitz Lumium, Blizz Enderium and Blaze Netherite.
+    > Top-rated Thermal compat material. Currently Tier 4. Includes a serie of powerful flux based modifiers. Crafted by alloying Basalz Signalum, Blitz Lumium, Blizz Enderium and Blaze Netherite.
 * Fuels
   * Pyrotheum
     > 3000℃ Fuel that resembles Pyrotheum in legacy Thermal Expansion mod. Crafted by alloying Blazing Blood, Refined Fuel and Creosote.
@@ -47,9 +52,9 @@ These features are integrations between mods other than TConstruct. The correspo
  * Original Materials
    * Irradium
      > Tier 4 material that resembles Irradium from Frackin's Universe mod (Starbound). Crafted by combining Pellet Polonium and Manyullyn Ingot. Inflicts radiation to enemy and adds glowing effect.
+   * Densium
+     > Tier 4 material that resembles Densium from Frackin's Universe mod (Starbound). Crafted by alloying Molten Iridium, Molten Osmium and Molten Refined Obsidian. Slightly increase stats and contains some functional traits.
  * Fuels
-   * Fusion Plasma
-     > 3840℃ Fuel crafted by alloying Blazing Blood and Fusion Fuel. Blazing Blood serves as a catalyst.
    * Molten Antimatter
      > 9999℃ Fuel, but very expensive. Pellet antimatter counts as slimeball and each pellets melts into 250 mB Molten Antimatter.
  * Modifiers

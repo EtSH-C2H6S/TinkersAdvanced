@@ -1,0 +1,42 @@
+{
+  "type": "tconstruct:alloy",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "amount": 90,
+      "catalyst": true,
+      "fluid": "tconstruct:molten_refined_glowstone"
+    },
+    {
+      "amount": 250,
+      "fluid": "mekanism:ethene"
+    },
+    {
+      "amount": 750,
+      "fluid": "mekanism:oxygen"
+    },
+    {
+      "amount": 1000,
+      "fluid": "minecraft:lava"
+    }
+  ],
+  "result": {
+    "amount": 500,
+    "fluid": "tinkers_advanced:over_heated_lava"
+  },
+  "temperature": 1500
+}

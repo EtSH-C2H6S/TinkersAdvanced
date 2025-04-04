@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "amount": 450,
+      "catalyst": true,
+      "fluid": "tinkers_advanced:molten_iridium"
+    },
+    {
+      "amount": 250,
+      "fluid": "tconstruct:ender_slime"
+    },
+    {
+      "amount": 750,
+      "fluid": "tconstruct:molten_ender"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tinkers_advanced:gaseous_lava"
+    }
+  ],
+  "result": {
+    "amount": 500,
+    "fluid": "tinkers_advanced:plasmatic_lava"
+  },
+  "temperature": 3000
+}

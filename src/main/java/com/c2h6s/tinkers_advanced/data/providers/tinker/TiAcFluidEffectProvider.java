@@ -30,7 +30,6 @@ import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffe
 import slimeknights.tconstruct.library.modifiers.fluid.block.MobEffectCloudFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.block.PlaceBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect;
-import slimeknights.tconstruct.library.modifiers.fluid.entity.FireFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ExplosionFluidEffect;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
@@ -50,6 +49,12 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                         .effect(TiAcEffects.TETANUS.get(), 200,3)
                         .buildCloud()
                         .effects()));
+        addFluid(TiAcFluids.OVER_HEATED_LAVA.get(),100)
+                .fireDamage(3.5f);
+        addFluid(TiAcFluids.GASEOUS_LAVA.get(),100)
+                .fireDamage(4.75f);
+        addFluid(TiAcFluids.PLASMATIC_LAVA.get(),100)
+                .fireDamage(6f);
         addFluid(TiAcFluids.MOLTEN_ANTIMATTER.get(),50)
                 .addDamage(10,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
                 .addBlockEffect(ExplosionFluidEffect
@@ -62,9 +67,6 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                 .addDamage(7,new DamageFluidEffect.DamageTypePair(MekanismDamageTypes.RADIATION.key(),MekanismDamageTypes.RADIATION.key()))
                 .addEntityEffect(new RadiateEntityFluidEffect(new LevelingValue(0.1f,0.1f)))
                 .addBlockEffect(new ClearChunkRadiationFluidEffect(2))
-                .addCondition(modLoaded("mekanism"));
-        addFluid(TiAcFluids.FUSION_PLASMA.get(),100)
-                .fireDamage(4.5f)
                 .addCondition(modLoaded("mekanism"));
         addFluid(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),10)
                 .fireDamage(2.5f)

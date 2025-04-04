@@ -48,6 +48,7 @@ import slimeknights.tconstruct.library.modifiers.fluid.*;
 import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ConditionalFluidEffect;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
 import slimeknights.tconstruct.library.tools.definition.module.aoe.AreaOfEffectIterator;
@@ -124,9 +125,6 @@ public class MatterManipulator extends ModifiableItem {
         boolean creative = player.getAbilities().instabuild;
         ItemStack stack = player.getItemInHand(hand);
         ToolStack tool = ToolStack.from(stack);
-        if (tool.isBroken()) {
-            return InteractionResultHolder.fail(stack);
-        }
         FluidStack fluidStack = TANK_HELPER.getFluid(tool);
         if (fluidStack.isEmpty()){
             return InteractionResultHolder.fail(stack);
@@ -151,12 +149,10 @@ public class MatterManipulator extends ModifiableItem {
     public void onUseTick(Level level, LivingEntity living, ItemStack stack, int timeLeft) {
         if (living instanceof Player player) {
             ToolStack tool = ToolStack.from(stack);
-            if (tool.isBroken()) {
-                living.stopUsingItem();
-            }
             FluidStack fluidStack = TANK_HELPER.getFluid(tool);
             if (fluidStack.isEmpty()) {
                 living.stopUsingItem();
+                return;
             }
             float baseRange;
             baseRange = ConditionalStatModifierHook.getModifiedStat(tool,player, TiAcToolStats.RANGE);

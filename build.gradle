@@ -155,7 +155,7 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:1.20.1-47.3.0"
 
-    implementation fg.deobf("curse.maven:etst-lib-1206379:6321272")
+    implementation fg.deobf("curse.maven:etst-lib-1206379:6377848")
 
     implementation fg.deobf("curse.maven:tinkers-construct-74072:6258596")
     implementation fg.deobf("curse.maven:mantle-74924:6258424")

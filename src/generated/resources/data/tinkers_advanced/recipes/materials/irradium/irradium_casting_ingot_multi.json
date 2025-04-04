@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "cooling_time": 98,
+  "cooling_time": 109,
   "fluid": {
     "amount": 90,
     "fluid": "tinkers_advanced:molten_irradium"

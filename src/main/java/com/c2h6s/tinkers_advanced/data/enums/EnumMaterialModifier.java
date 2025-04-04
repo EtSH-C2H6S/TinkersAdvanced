@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.data.enums;
 
+import com.c2h6s.etstlib.data.EtSTLibModifierIds;
 import com.c2h6s.etstlib.register.EtSTLibModifier;
 import com.c2h6s.tinkers_advanced.registery.TiAcModifiers;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
@@ -11,7 +12,7 @@ import slimeknights.tconstruct.tools.data.ModifierIds;
 import slimeknights.tconstruct.tools.stats.*;
 
 public enum EnumMaterialModifier {
-    ALLOY_ATOMIC(StatlessMaterialStats.BINDING.getIdentifier(),entry(EtSTLibModifier.atomic_decompose.getId())),
+    ALLOY_ATOMIC(StatlessMaterialStats.BINDING.getIdentifier(),entry(EtSTLibModifierIds.ATOMIC_DECOMPOSE)),
     BISMUTH(null,entry(TiAcModifiers.TETANUS.getId()),entry(ModifierIds.heavy)),
     BISMUTHINITE(null,entry(TiAcModifiers.FRAGILE.getId()),entry(EtSTLibModifier.ANISOTROPY.getId())),
 
@@ -25,7 +26,7 @@ public enum EnumMaterialModifier {
     FLUIX_HANDLE(HandleMaterialStats.ID,entry(ModifierIds.looting),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
     FLUIX_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(ModifierIds.fortune),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
 
-    ANTIMATTER_MELEE(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.ANNIHILATE.getId()),entry(EtSTLibModifier.atomic_decompose.getId())),
+    ANTIMATTER_MELEE(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.ANNIHILATE.getId()),entry(EtSTLibModifierIds.ATOMIC_DECOMPOSE)),
     ANTIMATTER_ARMOR(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.REACTIVE_EXPLOSIVE_ARMOR.getId())),
 
     REFINED_GLOWSTONE_DEFAULT(null,entry(EtSTLibModifier.glowing.getId())),
@@ -57,6 +58,12 @@ public enum EnumMaterialModifier {
 
     IRIDIUM_DEFAULT(null,entry(TiAcModifiers.INERT_METAL.getId()),entry(ModifierIds.dense)),
     IRIDIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.INERT_METAL.getId()),entry(TiAcModifiers.SECONDARY_ARMOR.getId())),
+
+    DENSIUM_DEFAULT(null,entry(TiAcModifiers.EXTRA_DENSE.getId())),
+    DENSIUM_HEAD(HeadMaterialStats.ID,entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(EtSTLibModifierIds.RUDE)),
+    DENSIUM_HANDLE(HandleMaterialStats.ID,entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
+    DENSIUM_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
+    DENSIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(TiAcModifiers.HYPER_DENSITY.getId())),
     ;
 
     public final ModifierEntry[] modifiers;

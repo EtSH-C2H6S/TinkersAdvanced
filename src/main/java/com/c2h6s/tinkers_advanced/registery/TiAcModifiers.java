@@ -5,6 +5,7 @@ import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
+import com.c2h6s.tinkers_advanced.content.modifier.common.ExtraDense;
 import com.c2h6s.tinkers_advanced.content.modifier.common.FlameAdaptive;
 import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
@@ -37,6 +38,7 @@ public class TiAcModifiers {
     public static StaticModifier<HyperDensity> HYPER_DENSITY = MODIFIERS.register("hyper_density", HyperDensity::new);
     public static StaticModifier<InertMetal> INERT_METAL = MODIFIERS.register("inert_metal", InertMetal::new);
     public static StaticModifier<SecondaryArmor> SECONDARY_ARMOR = MODIFIERS.register("secondary_armor", SecondaryArmor::new);
+    public static StaticModifier<ExtraDense> EXTRA_DENSE = MODIFIERS.register("extra_dense", ExtraDense::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

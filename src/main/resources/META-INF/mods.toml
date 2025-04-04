@@ -22,7 +22,7 @@ description='''${mod_description}'''
 [[dependencies.tinkers_advanced]]
 modId="etstlib"
 mandatory=true
-versionRange="[3.0.0-beta.2,)"
+versionRange="[3.0.0-beta.3,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.tinkers_advanced]]

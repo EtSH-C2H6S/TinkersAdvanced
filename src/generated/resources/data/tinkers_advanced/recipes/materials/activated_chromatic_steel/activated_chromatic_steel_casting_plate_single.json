@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "cooling_time": 91,
+  "cooling_time": 109,
   "fluid": {
     "amount": 90,
     "fluid": "tinkers_advanced:molten_activated_chromatic_steel"

@@ -37,9 +37,9 @@ public class TiAcConfig {
             this.MATTER_MANIPULATOR_BASE_BOOST = builder.comment("Base mining speed multiplier of Matter Manipulator, 1.0 by default.")
                     .worldRestart()
                     .defineInRange("matter_manipulator_base_multiplier",1.0,0.0,100);
-            this.MATTER_MANIPULATOR_AOE_SPEED = builder.comment("Base mining speed multiplier of Matter Manipulator when is conducting AOE mining, 0.25 by default.")
+            this.MATTER_MANIPULATOR_AOE_SPEED = builder.comment("Base mining speed multiplier of Matter Manipulator when is conducting AOE mining, 0.5 by default.")
                     .worldRestart()
-                    .defineInRange("matter_manipulator_aoe_base_multiplier",0.25,0.0,100);
+                    .defineInRange("matter_manipulator_aoe_base_multiplier",0.5,0.0,100);
             this.MATTER_MANIPULATOR_FLUID_BOOST = builder.comment("Mining fluid bonus multiplier of Matter Manipulator , 0.5 by default , meaning that each 200 °C adds 1 mining speed.")
                     .worldRestart()
                     .defineInRange("matter_manipulator_fluid_bonus_multiplier",0.5,0.0,100);
