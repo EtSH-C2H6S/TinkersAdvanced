@@ -5,7 +5,8 @@
   "minVersion": "0.8",
   "refmap": "tinkers_advanced.refmap.json",
   "mixins": [
-    "LivingEntityAccessor"
+    "LivingEntityAccessor",
+    "mekanismMixin.FusionReactorMultiblockDataMixin"
   ],
   "client": [
   ],

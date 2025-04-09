@@ -32,6 +32,7 @@ public class TiAcConfig {
         public final ForgeConfigSpec.DoubleValue MATTER_MANIPULATOR_BASE_BOOST;
         public final ForgeConfigSpec.DoubleValue MATTER_MANIPULATOR_FLUID_BOOST;
         public final ForgeConfigSpec.DoubleValue MATTER_MANIPULATOR_AOE_SPEED;
+        public final ForgeConfigSpec.BooleanValue EXPLODING_FUSION_REACTOR;
         public Common(ForgeConfigSpec.Builder builder){
             builder.comment("Matter Manipulator behaviour").push("matter_manipulator");
             this.MATTER_MANIPULATOR_BASE_BOOST = builder.comment("Base mining speed multiplier of Matter Manipulator, 1.0 by default.")
@@ -43,6 +44,12 @@ public class TiAcConfig {
             this.MATTER_MANIPULATOR_FLUID_BOOST = builder.comment("Mining fluid bonus multiplier of Matter Manipulator , 0.5 by default , meaning that each 200 °C adds 1 mining speed.")
                     .worldRestart()
                     .defineInRange("matter_manipulator_fluid_bonus_multiplier",0.5,0.0,100);
+            builder.pop();
+
+            builder.comment("Mekanism Interaction").push("mekanism_interaction");
+            this.EXPLODING_FUSION_REACTOR = builder.comment("Enables fusion reactor exploding when throwing iron ingots into it. True by default.")
+                    .worldRestart()
+                    .define("allow_neutronite_crafting",true);
             builder.pop();
         }
     }

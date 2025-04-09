@@ -244,6 +244,7 @@
   "item.tinkers_advanced.blaze_netherite": "Blaze Netherite",
   "item.tinkers_advanced.iridium_chunk": "Iridium Chunk",
   "item.tinkers_advanced.densium_ingot": "Densium Ingot",
+  "item.tinkers_advanced.neutronite_ingot": "Neutronite Ingot",
 
 
 
@@ -334,5 +335,13 @@
   "msg.tinkers_advanced.flux_mode.thermal_slash.0": "Quelled",
   "msg.tinkers_advanced.flux_mode.thermal_slash.1": "Activated",
   "msg.tinkers_advanced.flux_mode.thermal_slash.2": "Empowered",
-  "msg.tinkers_advanced.global_traveler.container_bind": "Container bound"
+  "msg.tinkers_advanced.global_traveler.container_bind": "Container bound",
+
+
+  "tooltip.tinkers_advanced.material_story": "Press Shift to reveal more...",
+
+  "tooltip.tinkers_advanced.hidden_material_mek": "% Hidden Material-Mekanism %",
+  "tooltip.tinkers_advanced.neutronite_1": "中子星是一种恒星遗骸，它诞生于猛烈的超新星爆炸。",
+  "tooltip.tinkers_advanced.neutronite_2": "§b聚变反应§f是恒星的生命，§c铁元素§f则标志着恒星的死去。",
+  "tooltip.tinkers_advanced.neutronite_3": "尽管我们不能登陆中子星，但是制造一颗恒星不是什么难事..."
 }

@@ -1,7 +1,10 @@
 package com.c2h6s.tinkers_advanced.registery;
 
+import com.c2h6s.tinkers_advanced.content.item.HiddenMaterial;
 import com.c2h6s.tinkers_advanced.content.item.IonizedCannonItem;
 import com.c2h6s.tinkers_advanced.content.item.MatterManipulator;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -92,6 +95,12 @@ public class TiAcItems {
 
     public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
     public static final RegistryObject<Item> DENSIUM_INGOT = registerMaterial(MEK_ITEMS,"densium_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> NEUTRONITE_INGOT = registerMaterial(MEK_ITEMS,"neutronite_ingot",()->new HiddenMaterial(new Item.Properties().rarity(Rarity.EPIC).fireResistant(),List.of(
+            Component.translatable("tooltip.tinkers_advanced.hidden_material_mek").withStyle(ChatFormatting.LIGHT_PURPLE),
+            Component.translatable("tooltip.tinkers_advanced.neutronite_1").withStyle(ChatFormatting.GRAY),
+            Component.translatable("tooltip.tinkers_advanced.neutronite_2"),
+            Component.translatable("tooltip.tinkers_advanced.neutronite_3").withStyle(ChatFormatting.DARK_AQUA)
+    )),true);
 
 
 
