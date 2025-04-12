@@ -13,6 +13,8 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
     > Tier 4 material made by casting blazing blood on Netherite Ingot. Provides fire resistant and self-repairs when holder is on fire.
   * Iridium
     > Currently Tier 4 material found in The End dimension in small quantities. Has a high stat and capable of clearing harmful effects.
+  * Disintegrate Crystal
+    > Tier 4 material made by casting Ichor on Echo Shard. Boosts mining speed significantly.
 * Fuels
   * Lavas
     > Over Heated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 3000℃, and 4000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
@@ -54,6 +56,13 @@ These features are integrations between mods other than TConstruct. The correspo
      > Tier 4 material that resembles Irradium from Frackin's Universe mod (Starbound). Crafted by combining Pellet Polonium and Manyullyn Ingot. Inflicts radiation to enemy and adds glowing effect.
    * Densium
      > Tier 4 material that resembles Densium from Frackin's Universe mod (Starbound). Crafted by alloying Molten Iridium, Molten Osmium and Molten Refined Obsidian. Slightly increase stats and contains some functional traits.
+ * Transplanted Materials
+   > These materials are unofficially transplanted from some tcon addons of earlier Tcon verson.
+   * Osgloglas
+     > Tier 4 material from PlusTic in TiC2. With trait Global Traveller transplanted.
+ * Hidden Material
+   > These materials are over-powered materials that are "hidden", meaning that they aren't crafted via recipe but have special obtain method. Can be disabled by config.
+   * Neutronite
  * Fuels
    * Molten Antimatter
      > 9999℃ Fuel, but very expensive. Pellet antimatter counts as slimeball and each pellets melts into 250 mB Molten Antimatter.
