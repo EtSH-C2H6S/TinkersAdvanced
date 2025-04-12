@@ -2,24 +2,24 @@
   "default": [
     {
       "level": 1,
-      "name": "tinkers_advanced:extra_dense"
+      "name": "etstlib:extra_dense"
     }
   ],
   "perStat": {
     "tconstruct:armor": [
       {
         "level": 1,
-        "name": "tinkers_advanced:extra_dense"
+        "name": "etstlib:extra_dense"
       },
       {
         "level": 1,
-        "name": "tinkers_advanced:hyper_density"
+        "name": "etstlib:hyper_density"
       }
     ],
     "tconstruct:binding": [
       {
         "level": 1,
-        "name": "tinkers_advanced:extra_dense"
+        "name": "etstlib:extra_dense"
       },
       {
         "level": 1,
@@ -29,7 +29,7 @@
     "tconstruct:handle": [
       {
         "level": 1,
-        "name": "tinkers_advanced:extra_dense"
+        "name": "etstlib:extra_dense"
       },
       {
         "level": 1,
@@ -39,7 +39,7 @@
     "tconstruct:head": [
       {
         "level": 1,
-        "name": "tinkers_advanced:extra_dense"
+        "name": "etstlib:extra_dense"
       },
       {
         "level": 1,

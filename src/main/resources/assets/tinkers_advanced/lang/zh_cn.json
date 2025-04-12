@@ -126,21 +126,21 @@
   "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
   "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有5%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
 
-  "modifier.tinkers_advanced.hyper_density": "严丝合缝",
-  "modifier.tinkers_advanced.hyper_density.flavor": "我们真的实现了零公差！",
-  "modifier.tinkers_advanced.hyper_density.description": "你受到的伤害会额外被护甲值减免1次。",
+  "modifier.tinkers_advanced.supreme_density": "极限密度",
+  "modifier.tinkers_advanced.supreme_density.flavor": "差一点就坍缩成黑洞...",
+  "modifier.tinkers_advanced.supreme_density.description": "令工具的部分攻击性属性额外生效多次。",
 
-  "modifier.tinkers_advanced.inert_metal": "惰性金属",
-  "modifier.tinkers_advanced.inert_metal.flavor": "耐腐蚀，抗氧化",
-  "modifier.tinkers_advanced.inert_metal.description": "每隔一段时间清除持有者身上的一个随机负面效果。",
+  "modifier.tinkers_advanced.supreme_density_armor": "极限密度",
+  "modifier.tinkers_advanced.supreme_density_armor.flavor": "差一点就坍缩成黑洞...",
+  "modifier.tinkers_advanced.supreme_density_armor.description": "受击时80%的伤害会额外经历一次减伤计算。",
 
-  "modifier.tinkers_advanced.secondary_armor": "慎重的勇士",
-  "modifier.tinkers_advanced.secondary_armor.flavor": "没想到吧，我还有隐藏护甲！",
-  "modifier.tinkers_advanced.secondary_armor.description": "允许你的护甲格挡穿甲伤害。",
+  "modifier.tinkers_advanced.ionized": "电离",
+  "modifier.tinkers_advanced.ionized.flavor": "万物归于电荷",
+  "modifier.tinkers_advanced.ionized.description": "施加电离效果，持续造成伤害的同时降低敌人部分属性。",
 
-  "modifier.tinkers_advanced.extra_dense": "超级致密",
-  "modifier.tinkers_advanced.extra_dense.flavor": "质量高，“质量”更高！",
-  "modifier.tinkers_advanced.extra_dense.description": "工具具有更高的属性，但是变得更难修复。",
+  "modifier.tinkers_advanced.disintegrate": "解离",
+  "modifier.tinkers_advanced.disintegrate.flavor": "解析一切",
+  "modifier.tinkers_advanced.disintegrate.description": "随着挖掘的进行而无止尽地增加挖掘速度，但是耐久消耗也成倍增加。",
 
 
 
@@ -222,7 +222,18 @@
 
   "material.tinkers_advanced.densium": "超致密",
   "material.tinkers_advanced.densium.flavor": "正如其名，超致密的特点是超级致密。",
-  "material.tinkers_advanced.densium.encyclopedia": "每级超级致密增加10%近战伤害、挖掘速度、箭矢速度、耐久度和护甲值，并减少10%修复耐久量。",
+  "material.tinkers_advanced.densium.encyclopedia": "每级超级致密增加20%近战伤害、挖掘速度、箭矢速度、耐久度和护甲值，并减少20%修复耐久量（最大减少98%）。",
+
+  "material.tinkers_advanced.neutronite": "中子星物质",
+  "material.tinkers_advanced.neutronite.flavor": "大质量恒星的最终归宿之一，包含了脉冲星、磁星等变体。",
+  "material.tinkers_advanced.neutronite.encyclopedia": "让某些效果（比如箭矢击中时施加的效果、近战攻击后施加的效果、近战增伤等）重复生效。每级额外生效一次。",
+
+  "material.tinkers_advanced.osgloglas": "锇荧黑曜合金",
+  "material.tinkers_advanced.osgloglas.flavor": "对过往的一瞥。",
+
+  "material.tinkers_advanced.disintegrate_crystal": "解离水晶",
+  "material.tinkers_advanced.disintegrate_crystal.flavor": "高能量，不稳定，极致的破坏性。",
+  "material.tinkers_advanced.disintegrate_crystal.encyclopedia": "每次挖掘增加20%*属性等级挖掘速度和10%*属性等级耐久消耗，无上限。",
 
 
 
@@ -241,6 +252,7 @@
   "item.tinkers_advanced.iridium_chunk": "小块铱",
   "item.tinkers_advanced.densium_ingot": "超致密锭",
   "item.tinkers_advanced.neutronite_ingot": "中子星物质锭",
+  "item.tinkers_advanced.osgloglas_ingot": "锇荧黑曜合金锭",
 
 
 
@@ -303,10 +315,17 @@
   "fluid.tinkers_advanced.molten_densium": "熔融超致密",
   "item.tinkers_advanced.molten_densium_bucket": "熔融超致密桶",
 
+  "fluid.tinkers_advanced.molten_neutronite": "流态中子星物质",
+  "item.tinkers_advanced.molten_neutronite_bucket": "流态中子星物质桶",
+
+  "fluid.tinkers_advanced.molten_osgloglas": "熔融锇荧黑曜合金",
+  "item.tinkers_advanced.molten_osgloglas_bucket": "熔融锇荧黑曜合金桶",
 
 
 
   "effect.tinkers_advanced.tetanus": "破伤风",
+  "effect.tinkers_advanced.ionized": "电离",
+
 
 
   "item.tinkers_advanced.ionize_chamber": "离子化腔",
@@ -341,6 +360,9 @@
 
 
   "tooltip.tinkers_advanced.material_story": "按下Shift键，聆听材料故事",
+  "info.tinkers_advanced.hidden_material": "找不到这个材料的合成方式？没错，这是个隐藏材料。隐藏材料或其原料通常不以常规手段合成，这也是为什么你看不到它的配方。你需要对隐藏材料按shift来查看合成方法的提示，然后猜测合成方式。尽管隐藏材料部件配方被隐藏了，但是它们确实是可合成的，请尝试浇筑或放在部件制作台上。如果查看不了合成提示，则这个隐藏材料可能被禁用了，你永远也获得不了它 :(",
+
+  "tooltip.tinkers_advanced.material_banned": "此材料已被禁用！",
 
   "tooltip.tinkers_advanced.hidden_material_mek": "-通用机械 隐藏材料-",
   "tooltip.tinkers_advanced.neutronite_1": "中子星是一种恒星遗骸，它诞生于猛烈的超新星爆炸。",

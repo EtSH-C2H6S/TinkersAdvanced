@@ -33,7 +33,11 @@
     "inert_metal": "#A3CFD4",
     "hyper_density": "#522375",
     "secondary_armor": "#D9FFD8",
-    "extra_dense" : "#AFC3FF"
+    "extra_dense" : "#AFC3FF",
+    "supreme_density": "#6F00FF",
+    "supreme_density_armor" : "#6F00FF",
+    "ionized" : "#6F00FF",
+    "disintegrate" : "#FFB873"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
@@ -52,6 +56,8 @@
     "blizz_enderium": "#B7FBFF",
     "activated_chromatic_steel": "#E89FFF",
     "iridium": "#E0D6FF",
-    "densium": "#8E76FF"
+    "densium": "#8E76FF",
+    "neutronite": "#6F00FF",
+    "disintegrate_crystal" : "#FFB873"
   }
 }

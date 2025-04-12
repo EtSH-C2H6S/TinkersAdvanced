@@ -32,6 +32,9 @@ public enum EnumMaterial {
     BLAZE_NETHERITE(TiAcMaterialIds.BLAZE_NETHERITE,4,false,false,EnumMaterialStats.BLAZE_NETHERITE,null,EnumMaterialModifier.BLAZE_NETHERITE),
     IRIDIUM(TiAcMaterialIds.IRIDIUM,4,false,false,EnumMaterialStats.IRIDIUM,null, IRIDIUM_DEFAULT,IRIDIUM_ARMOR),
     DENSIUM(TiAcMaterialIds.Mekanism.DENSIUM,4,false,false,EnumMaterialStats.DENSIUM,modLoaded("mekanism"), DENSIUM_ARMOR,DENSIUM_BINDING,DENSIUM_DEFAULT,DENSIUM_HANDLE,DENSIUM_HEAD),
+    NEUTRONITE(TiAcMaterialIds.Mekanism.NEUTRONITE,128,false,true,EnumMaterialStats.NEUTRONITE,modLoaded("mekanism"), NEUTRONITE_DEFAULT,NEUTRONITE_ARMOR),
+    OSGLOGLAS(TiAcMaterialIds.Mekanism.OSGLOGLAS,4,false,false,EnumMaterialStats.OSGLOGLAS,modLoaded("mekanism"), OSGLOGLAS_DEFAULT),
+    DISINTEGRATE_CRYSTAL(TiAcMaterialIds.DISINTEGRATE_CRYSTAL,4,true,false,EnumMaterialStats.DISINTEGRATE_CRYSTAL,null,DISINTEGRATE_CRYSTAL_DEFAULT),
     ;
     public final MaterialId id;
     public final int tier;

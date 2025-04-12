@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "cooling_time": 1,
+  "fluid": {
+    "amount": 1,
+    "fluid": "tinkers_advanced:molten_neutronite"
+  },
+  "result": "tinkers_advanced:neutronite_ingot"
+}

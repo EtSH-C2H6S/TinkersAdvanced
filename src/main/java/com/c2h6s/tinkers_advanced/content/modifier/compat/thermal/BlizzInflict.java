@@ -31,7 +31,7 @@ public class BlizzInflict extends EtSTBaseModifier {
     }
 
     @Override
-    public float onGetArrowDamage(ModDataNBT persistentData, ModifierEntry entry, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull Entity target, float baseDamage, float damage) {
+    public float onGetArrowDamage(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull Entity target, float baseDamage, float damage) {
         if (target.isOnFire()){
             target.setSecondsOnFire(0);
             return damage+baseDamage;

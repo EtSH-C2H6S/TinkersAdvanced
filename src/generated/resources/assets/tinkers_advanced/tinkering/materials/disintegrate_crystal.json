@@ -1,0 +1,49 @@
+{
+  "color": "FFFFB968",
+  "fallbacks": [
+    "crystal",
+    "rock"
+  ],
+  "generator": {
+    "supported_stats": [
+      "tconstruct:binding"
+    ],
+    "transformer": {
+      "type": "tconstruct:recolor_sprite",
+      "color_mapping": {
+        "type": "tconstruct:grey_to_color",
+        "palette": [
+          {
+            "color": "FF000000",
+            "grey": 0
+          },
+          {
+            "color": "FFFFA891",
+            "grey": 63
+          },
+          {
+            "color": "FFFFE191",
+            "grey": 102
+          },
+          {
+            "color": "FF8A381C",
+            "grey": 140
+          },
+          {
+            "color": "FFBD7443",
+            "grey": 178
+          },
+          {
+            "color": "FFFFD4A1",
+            "grey": 216
+          },
+          {
+            "color": "FFFFFCCD",
+            "grey": 255
+          }
+        ]
+      }
+    }
+  },
+  "luminosity": 10
+}

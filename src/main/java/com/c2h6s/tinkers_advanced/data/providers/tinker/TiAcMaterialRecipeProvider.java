@@ -134,6 +134,8 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.BISMUTH,Ingredient.of(TiAcTagkeys.Items.BISMUTH_INGOT),1,1,consumer,folder);
         folder = namedFolder("bismuthinite");
         materialRecipe(TiAcMaterialIds.BISMUTHINITE,Ingredient.of(TiAcItems.BISMUTHINITE.get()),1,1,consumer,folder);
+        folder = namedFolder("disintegrate_crystal");
+        materialRecipe(TiAcMaterialIds.DISINTEGRATE_CRYSTAL,Ingredient.of(TiAcItems.DISINTEGRATE_CRYSTAL.get()),1,1,consumer,folder);
         folder = namedFolder("blaze_netherite");
         meltMaterial(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),90,TiAcMaterialIds.BLAZE_NETHERITE,1480,consumer,folder);
         melt1Ingot(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),TiAcItems.BLAZE_NETHERITE.get(),1480,consumer,folder);
@@ -193,6 +195,20 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
                 .addInput(TinkerFluids.moltenOsmium.get(),180)
                 .addInput(TinkerFluids.moltenRefinedObsidian.get(),450)
                 .save(Conditional,new ResourceLocation(folder+"_alloy"));
+        folder = namedFolder("osgloglas");
+        melt1Ingot(TiAcFluids.MOLTEN_OSGLOGLAS.get(),TiAcItems.OSGLOGLAS_INGOT.get(),1755,Conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_OSGLOGLAS.get(),90,TiAcMaterialIds.Mekanism.OSGLOGLAS,1755,Conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.OSGLOGLAS,Ingredient.of(TiAcItems.OSGLOGLAS_INGOT.get()),1,1, Conditional,folder);
+        AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_OSGLOGLAS.get(),90)),1755)
+                .addInput(TinkerFluids.moltenOsmium.get(),90)
+                .addInput(TinkerFluids.moltenRefinedObsidian.get(),180)
+                .addInput(TinkerFluids.moltenRefinedGlowstone.get(),360)
+                .save(Conditional,new ResourceLocation(folder+"_alloy"));
+        folder = namedFolder("neutronite");
+        meltMaterial(TiAcFluids.MOLTEN_NEUTRONITE.get(),90,TiAcMaterialIds.Mekanism.NEUTRONITE,9273,Conditional,folder);
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),FluidOutput.fromFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1),9273,1).save(Conditional,new ResourceLocation(folder+"_melting_1mb"));
+        ItemCastingRecipeBuilder.tableRecipe(TiAcItems.NEUTRONITE_INGOT.get()).setCoolingTime(1).setFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1).save(Conditional,new ResourceLocation(folder+"_casting_1mb"));
+        materialRecipe(TiAcMaterialIds.Mekanism.NEUTRONITE,Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),90,1,Conditional,folder);
         //PnC
         Conditional = withCondition(consumer,modLoaded("pneumaticcraft"));
         folder = namedFolder("pneumatic_steel");

@@ -20,6 +20,7 @@ import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 
 public class Annihilate extends EtSTBaseModifier {
+    public float cachedDamage;
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
@@ -40,14 +41,18 @@ public class Annihilate extends EtSTBaseModifier {
 
     @Override
     public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
-        if (context.getTarget() instanceof LivingEntity living&&!living.level().isClientSide){
-            LivingEntity attacker = context.getAttacker();
-            LegacyDamageSource source = LegacyDamageSource.any(living.damageSources().explosion(null)).setBypassInvulnerableTime();
-            attacker.hurt(source,damage);
-            IntOpenHashSet set = new IntOpenHashSet(attacker.getId());
-            FakeExplosionUtil.fakeExplode(damage,attacker,living.level(),living.position().add(new Vec3(0,living.getBbHeight()/2,0)),set,false);
-        }
+        this.cachedDamage = damage;
         return knockback;
     }
 
+    @Override
+    public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+        if (context.getTarget() instanceof LivingEntity living&&!living.level().isClientSide&&cachedDamage>0){
+            LivingEntity attacker = context.getAttacker();
+            LegacyDamageSource source = LegacyDamageSource.any(living.damageSources().explosion(null)).setBypassInvulnerableTime();
+            attacker.hurt(source,cachedDamage);
+            IntOpenHashSet set = new IntOpenHashSet(attacker.getId());
+            FakeExplosionUtil.fakeExplode(cachedDamage,attacker,living.level(),living.position().add(new Vec3(0,living.getBbHeight()/2,0)),set,false);
+        }
+    }
 }

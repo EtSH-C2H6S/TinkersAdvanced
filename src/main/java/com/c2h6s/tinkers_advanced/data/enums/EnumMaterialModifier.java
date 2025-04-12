@@ -56,14 +56,21 @@ public enum EnumMaterialModifier {
 
     BLAZE_NETHERITE(null,entry(TiAcModifiers.FLAME_ADAPTIVE.getId()),entry(ModifierIds.netherite)),
 
-    IRIDIUM_DEFAULT(null,entry(TiAcModifiers.INERT_METAL.getId()),entry(ModifierIds.dense)),
-    IRIDIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.INERT_METAL.getId()),entry(TiAcModifiers.SECONDARY_ARMOR.getId())),
+    IRIDIUM_DEFAULT(null,entry(EtSTLibModifier.INERT_METAL.getId()),entry(ModifierIds.dense)),
+    IRIDIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.INERT_METAL.getId()),entry(EtSTLibModifier.SECONDARY_ARMOR.getId())),
 
-    DENSIUM_DEFAULT(null,entry(TiAcModifiers.EXTRA_DENSE.getId())),
-    DENSIUM_HEAD(HeadMaterialStats.ID,entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(EtSTLibModifierIds.RUDE)),
-    DENSIUM_HANDLE(HandleMaterialStats.ID,entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
-    DENSIUM_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
-    DENSIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.EXTRA_DENSE.getId()),entry(TiAcModifiers.HYPER_DENSITY.getId())),
+    DENSIUM_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId())),
+    DENSIUM_HEAD(HeadMaterialStats.ID,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifierIds.RUDE)),
+    DENSIUM_HANDLE(HandleMaterialStats.ID,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
+    DENSIUM_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
+    DENSIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.HYPER_DENSITY.getId())),
+
+    NEUTRONITE_DEFAULT(null,entry(TiAcModifiers.SUPREME_DENSITY.getId()),entry(TiAcModifiers.IONIZED.getId())),
+    NEUTRONITE_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.SUPREME_DENSITY.getId()),entry(TiAcModifiers.IONIZED.getId())),
+
+    OSGLOGLAS_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.GLOBAL_TRAVELER.getId())),
+
+    DISINTEGRATE_CRYSTAL_DEFAULT(null,entry(TiAcModifiers.DIS_INTEGRATE.getId()))
     ;
 
     public final ModifierEntry[] modifiers;

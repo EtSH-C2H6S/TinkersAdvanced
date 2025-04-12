@@ -7,6 +7,7 @@ import mekanism.common.lib.radiation.RadiationManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -75,18 +76,7 @@ public class TiAcFluids {
     },true);
 
 
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMATTER = registerHotBurning(MEK_FLUIDS,"molten_antimatter",2980,15,16384,17.5f,true);
     public static final FluidObject<ForgeFlowingFluid> PYROTHEUM = registerHotBurning(THERMAL_FLUIDS,"pyrotheum",3273,15,2560,15f,false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_DENSIUM = registerHotBurning(MEK_FLUIDS,"molten_densium",2250,7,256,8f,false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRRADIUM = registerFluid(MEK_FLUIDS,"molten_irradium",2250, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
-        @Override
-        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-            super.entityInside(state, level, pos, entity);
-            if (entity instanceof LivingEntity living) {
-                RadiationManager.get().radiate(living,0.01);
-            }
-        }
-    },false);
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_BASALZ_SIGNALUM = registerFluid(THERMAL_FLUIDS,"molten_basalz_signalum",950, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 7), 200, 5){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
@@ -122,6 +112,40 @@ public class TiAcFluids {
                 living.addEffect(new MobEffectInstance(CoreMobEffects.SUNDERED.get(),100));
                 living.invulnerableTime=0;
                 living.hurt(level.damageSources().lava(),0.5f);
+            }
+        }
+    },false);
+
+
+
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_DENSIUM = registerHotBurning(MEK_FLUIDS,"molten_densium",2250,7,256,8f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRRADIUM = registerFluid(MEK_FLUIDS,"molten_irradium",2250, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            super.entityInside(state, level, pos, entity);
+            if (entity instanceof LivingEntity living) {
+                RadiationManager.get().radiate(living,0.01);
+            }
+        }
+    },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_OSGLOGLAS = registerFluid(MEK_FLUIDS,"molten_osgloglas",1750, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            super.entityInside(state, level, pos, entity);
+            if (entity instanceof LivingEntity living) {
+                living.addEffect(new MobEffectInstance(MobEffects.GLOWING,20000,0,false,false));
+            }
+        }
+    },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMATTER = registerHotBurning(MEK_FLUIDS,"molten_antimatter",2980,15,16384,17.5f,true);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_NEUTRONITE = registerFluid(MEK_FLUIDS,"molten_neutronite",9973, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 262144, 15){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            super.entityInside(state, level, pos, entity);
+            if (entity instanceof LivingEntity living) {
+                living.hurt(LegacyDamageSource.any(living.damageSources().generic()).setBypassInvulnerableTime().setBypassArmor().setBypassEnchantment().setBypassMagic().setBypassShield().setMsgId("plasma"),25);
+                living.invulnerableTime=0;
+                RadiationManager.get().radiate(living,1000);
             }
         }
     },false);

@@ -4,4 +4,6 @@ import net.minecraft.world.item.ArmorItem;
 
 public class CommonUtil {
     public static ArmorItem.Type[] ALL_ARMOR = new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS};
+
+    public static String KEY_ATTACKER = "tinkers_advanced_attacker";
 }

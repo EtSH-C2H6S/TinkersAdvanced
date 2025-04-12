@@ -9,6 +9,7 @@ public class TiAcMaterialIds {
     public static final MaterialId BISMUTHINITE =new MaterialId(TinkersAdvanced.getLocation("bismuthinite"));
     public static final MaterialId BLAZE_NETHERITE =new MaterialId(TinkersAdvanced.getLocation("blaze_netherite"));
     public static final MaterialId IRIDIUM =new MaterialId(TinkersAdvanced.getLocation("iridium"));
+    public static final MaterialId DISINTEGRATE_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("disintegrate_crystal"));
 
     public static class Mekanism{
         public static final MaterialId ANTIMATTER =new MaterialId(TinkersAdvanced.getLocation("antimatter"));
@@ -17,6 +18,8 @@ public class TiAcMaterialIds {
         public static final MaterialId REFINED_OBSIDIAN =new MaterialId(TinkersAdvanced.getLocation("refined_obsidian"));
         public static final MaterialId IRRADIUM =new MaterialId(TinkersAdvanced.getLocation("irradium"));
         public static final MaterialId DENSIUM =new MaterialId(TinkersAdvanced.getLocation("densium"));
+        public static final MaterialId NEUTRONITE =new MaterialId(TinkersAdvanced.getLocation("neutronite"));
+        public static final MaterialId OSGLOGLAS =new MaterialId(TinkersAdvanced.getLocation("osgloglas"));
     }
 
     public static class AE2{

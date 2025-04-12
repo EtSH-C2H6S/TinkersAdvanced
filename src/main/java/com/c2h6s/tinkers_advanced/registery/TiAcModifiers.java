@@ -5,7 +5,6 @@ import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
-import com.c2h6s.tinkers_advanced.content.modifier.common.ExtraDense;
 import com.c2h6s.tinkers_advanced.content.modifier.common.FlameAdaptive;
 import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
@@ -15,6 +14,7 @@ import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AerialProtection;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.thermal.*;
 import com.c2h6s.tinkers_advanced.content.modifier.defense.*;
 import com.c2h6s.tinkers_advanced.content.modifier.durability.*;
+import com.c2h6s.tinkers_advanced.content.modifier.harvest.DisIntegrate;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -35,10 +35,10 @@ public class TiAcModifiers {
     public static StaticModifier<Metamorphium> METAMORPHIUM = MODIFIERS.register("metamorphium", Metamorphium::new);
     public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
     public static StaticModifier<FlameAdaptive> FLAME_ADAPTIVE = MODIFIERS.register("flame_adaptive", FlameAdaptive::new);
-    public static StaticModifier<HyperDensity> HYPER_DENSITY = MODIFIERS.register("hyper_density", HyperDensity::new);
-    public static StaticModifier<InertMetal> INERT_METAL = MODIFIERS.register("inert_metal", InertMetal::new);
-    public static StaticModifier<SecondaryArmor> SECONDARY_ARMOR = MODIFIERS.register("secondary_armor", SecondaryArmor::new);
-    public static StaticModifier<ExtraDense> EXTRA_DENSE = MODIFIERS.register("extra_dense", ExtraDense::new);
+    public static StaticModifier<SupremeDensity> SUPREME_DENSITY = MODIFIERS.register("supreme_density", SupremeDensity::new);
+    public static StaticModifier<SupremeDensityArmor> SUPREME_DENSITY_ARMOR = MODIFIERS.register("supreme_density_armor", SupremeDensityArmor::new);
+    public static StaticModifier<IonizedModifier> IONIZED = MODIFIERS.register("ionized", IonizedModifier::new);
+    public static StaticModifier<DisIntegrate> DIS_INTEGRATE = MODIFIERS.register("disintegrate", DisIntegrate::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

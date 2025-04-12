@@ -126,22 +126,21 @@
   "modifier.tinkers_advanced.flux_defense.flavor": "Powered by Team CoFH.",
   "modifier.tinkers_advanced.flux_defense.description": "+1 Protection level.In Activated mode,5% chance for blocking the damage.In Empowered Mode,consumes energy to cancel up to 20% of damage.",
 
-  "modifier.tinkers_advanced.hyper_density": "Hyper Density",
-  "modifier.tinkers_advanced.hyper_density.flavor": "Small size with great mass.",
-  "modifier.tinkers_advanced.hyper_density.description": "Increase damage reduction of your armor value.",
+  "modifier.tinkers_advanced.supreme_density": "Supreme Density",
+  "modifier.tinkers_advanced.supreme_density.flavor": "Almost collapsed into black hole.",
+  "modifier.tinkers_advanced.supreme_density.description": "Enhance the effect of most melee and ranged modifiers.",
 
-  "modifier.tinkers_advanced.inert_metal": "Inert Metal",
-  "modifier.tinkers_advanced.inert_metal.flavor": "Resistive to chemical corrosion.",
-  "modifier.tinkers_advanced.inert_metal.description": "Randomly remove a harmful effect from user.",
+  "modifier.tinkers_advanced.supreme_density_armor": "Supreme Density",
+  "modifier.tinkers_advanced.supreme_density_armor.flavor": "Almost collapsed into black hole.",
+  "modifier.tinkers_advanced.supreme_density_armor.description": "Enhance the effect of most armor modifiers.",
 
-  "modifier.tinkers_advanced.secondary_armor": "Secondary Armor",
-  "modifier.tinkers_advanced.secondary_armor.flavor": "You can't pierce me twice !",
-  "modifier.tinkers_advanced.secondary_armor.description": "Allow armor to reduce armor-piercing damage.",
+  "modifier.tinkers_advanced.ionized": "Ionizing",
+  "modifier.tinkers_advanced.ionized.flavor": "Split everything into ions.",
+  "modifier.tinkers_advanced.ionized.description": "Inflict Ionized effect,causing damage and status decrease.",
 
-  "modifier.tinkers_advanced.extra_dense": "Extra Dense",
-  "modifier.tinkers_advanced.extra_dense.flavor": "Can't be reshaped.",
-  "modifier.tinkers_advanced.extra_dense.description": "Tools will obtain higher stat but harder to repair.",
-
+  "modifier.tinkers_advanced.disintegrate": "Disintegrate",
+  "modifier.tinkers_advanced.disintegrate.flavor": "Breaking everything.",
+  "modifier.tinkers_advanced.disintegrate.description": "Increase mining speed and durability cost on constant mining.",
 
 
 
@@ -224,15 +223,16 @@
   "material.tinkers_advanced.densium": "Densium",
   "material.tinkers_advanced.densium.flavor": "Densium is very dense.",
 
+  "material.tinkers_advanced.neutronite": "Neutronite",
+  "material.tinkers_advanced.neutronite.flavor": "Matter clusters from neutron stars.",
+
+  "material.tinkers_advanced.osgloglas": "Osgloglas",
+  "material.tinkers_advanced.osgloglas.flavor": "A glance into the past.",
+
+
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
   "item.tinkers_advanced.bismuthinite": "Bismuthinite",
-  "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
-
-
-
-  "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
-  "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
   "item.tinkers_advanced.irradium_ingot": "Irradium Pellet",
   "item.tinkers_advanced.hot_reinforced_steel": "Over Heated Reinforced Steel",
   "item.tinkers_advanced.penumatic_reinforced_steel": "Pneumatic Reinforced Steel",
@@ -245,6 +245,11 @@
   "item.tinkers_advanced.iridium_chunk": "Iridium Chunk",
   "item.tinkers_advanced.densium_ingot": "Densium Ingot",
   "item.tinkers_advanced.neutronite_ingot": "Neutronite Ingot",
+  "item.tinkers_advanced.osgloglas_ingot": "Osgloglas Ingot",
+
+  "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
+  "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
+  "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
 
 
 
@@ -301,8 +306,19 @@
   "fluid.tinkers_advanced.molten_densium": "Molten Densium",
   "item.tinkers_advanced.molten_densium_bucket": "Molten Densium Bucket",
 
+  "fluid.tinkers_advanced.molten_neutronite": "Fluid_Neutronite",
+  "item.tinkers_advanced.molten_neutronite_bucket": "Fluid_Neutronite Bucket",
+
+  "fluid.tinkers_advanced.molten_osgloglas": "Molten Osgloglas",
+  "item.tinkers_advanced.molten_osgloglas_bucket": "Molten Osgloglas Bucket",
+
+  "material.tinkers_advanced.disintegrate_crystal": "Disintegrate Crystal",
+  "material.tinkers_advanced.disintegrate_crystal.flavor": "Energetic material radiating destructive energy.",
+
+
 
   "effect.tinkers_advanced.tetanus": "Tetanus",
+  "effect.tinkers_advanced.ionized": "Ionized",
 
 
 
@@ -340,8 +356,12 @@
 
   "tooltip.tinkers_advanced.material_story": "Press Shift to reveal more...",
 
+  "tooltip.tinkers_advanced.material_banned": "This material is not obtainable!",
+
+  "info.tinkers_advanced.hidden_material": "Hidden materials can't be crafted normally, That's why you can't find it's recipe.You need to hold shift and solve the puzzle given. If shift is not working, The material might be banned and you can never obtain it, sad :(",
+
   "tooltip.tinkers_advanced.hidden_material_mek": "% Hidden Material-Mekanism %",
-  "tooltip.tinkers_advanced.neutronite_1": "中子星是一种恒星遗骸，它诞生于猛烈的超新星爆炸。",
-  "tooltip.tinkers_advanced.neutronite_2": "§b聚变反应§f是恒星的生命，§c铁元素§f则标志着恒星的死去。",
-  "tooltip.tinkers_advanced.neutronite_3": "尽管我们不能登陆中子星，但是制造一颗恒星不是什么难事..."
+  "tooltip.tinkers_advanced.neutronite_1": "Neutron stars are dead star cores left over by supernova.",
+  "tooltip.tinkers_advanced.neutronite_2": "§bFusion§f is the life of star. The formation of§c iron§f marks a dead end for a star.",
+  "tooltip.tinkers_advanced.neutronite_3": "Although it's impossible to land on a neutron star, creating a star is quite possible."
 }

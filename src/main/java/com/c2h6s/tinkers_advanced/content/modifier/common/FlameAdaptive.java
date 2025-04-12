@@ -18,7 +18,7 @@ import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 
 public class FlameAdaptive extends EtSTBaseModifier {
     @Override
-    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+    public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         if (context.isFullyCharged()&&context.getTarget() instanceof LivingEntity living){
             living.hurt(LegacyDamageSource.any(living.damageSources().lava().typeHolder(),context.getAttacker()).setBypassInvulnerableTime(),modifier.getLevel());
         }

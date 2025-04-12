@@ -2,7 +2,7 @@
   "default": [
     {
       "level": 1,
-      "name": "tinkers_advanced:inert_metal"
+      "name": "etstlib:inert_metal"
     },
     {
       "level": 1,
@@ -13,11 +13,11 @@
     "tconstruct:armor": [
       {
         "level": 1,
-        "name": "tinkers_advanced:inert_metal"
+        "name": "etstlib:inert_metal"
       },
       {
         "level": 1,
-        "name": "tinkers_advanced:secondary_armor"
+        "name": "etstlib:secondary_armor"
       }
     ]
   }

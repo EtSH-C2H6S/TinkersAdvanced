@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tinkers_advanced:disintegrate_crystal"
+  },
+  "material": "tinkers_advanced:disintegrate_crystal",
+  "needed": 1,
+  "value": 1
+}

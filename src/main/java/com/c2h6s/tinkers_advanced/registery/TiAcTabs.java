@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.registery;
 
+import com.c2h6s.tinkers_advanced.content.item.HiddenMaterial;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -41,7 +42,7 @@ public class TiAcTabs {
             .icon(() -> TiAcItems.BISMUTH_INGOT.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 for (RegistryObject<Item> object:TiAcItems.LIST_MATERIAL){
-                    if (object.isPresent()) {
+                    if (object.isPresent()&&!(object.get() instanceof HiddenMaterial hiddenMaterial&&hiddenMaterial.config!=null&&!hiddenMaterial.config.get())) {
                         output.accept(object.get());
                     }
                 }

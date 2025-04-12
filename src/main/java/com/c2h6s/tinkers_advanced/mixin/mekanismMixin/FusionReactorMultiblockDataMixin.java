@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced.mixin.mekanismMixin;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
+import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import com.c2h6s.tinkers_advanced.util.BlockUtil;
 import mekanism.api.Coord4D;
@@ -8,6 +9,7 @@ import mekanism.common.lib.radiation.RadiationManager;
 import mekanism.common.registries.MekanismDamageTypes;
 import mekanism.generators.common.content.fusion.FusionReactorMultiblockData;
 import mekanism.generators.common.registries.GeneratorsBlocks;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -22,9 +24,16 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import slimeknights.tconstruct.library.materials.definition.MaterialVariant;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.tools.data.material.MaterialIds;
+
 
 @Mixin(value = FusionReactorMultiblockData.class,remap = false)
 public class FusionReactorMultiblockDataMixin {
+
     @Shadow
     private AABB deathZone;
     @Shadow
@@ -40,8 +49,20 @@ public class FusionReactorMultiblockDataMixin {
                 if (itemEntity.getItem().is(Tags.Items.STORAGE_BLOCKS_IRON)) countStack = 9;
                 if (itemEntity.getItem().is(Tags.Items.NUGGETS_IRON)) countStack = 0.1f;
                 if (itemEntity.getItem().is(Items.ANVIL)) countStack = 31;
-                countStack *= itemEntity.getItem().getCount();
+                if (itemEntity.getItem().getItem() instanceof ToolPartItem partItem &&partItem.getMaterial(itemEntity.getItem()).getId().getPath().equals(MaterialIds.iron.getPath())) countStack = TinkersAdvanced.RANDOM.nextInt(4);
+
                 if (countStack>0) itemEntity.discard();
+                if (itemEntity.getItem().getItem() instanceof IModifiable){
+                    ToolStack tool = ToolStack.from(itemEntity.getItem());
+                    tool.setDamage(Integer.MAX_VALUE);
+                    for (MaterialVariant variant: tool.getMaterials()){
+                        if (variant.getId().getPath().equals(MaterialIds.iron.getPath())){
+                            countStack = 16;
+                            break;
+                        }
+                    }
+                }
+                countStack *= itemEntity.getItem().getCount();
                 craftCount+= (int) countStack;
             }
             if (craftCount > 0) {
@@ -75,3 +96,5 @@ public class FusionReactorMultiblockDataMixin {
         }
     }
 }
+
+

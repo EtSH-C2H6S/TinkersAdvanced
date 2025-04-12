@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:extra_dense"
+    },
+    {
+      "level": 1,
+      "name": "etstlib:global_traveler"
+    }
+  ]
+}

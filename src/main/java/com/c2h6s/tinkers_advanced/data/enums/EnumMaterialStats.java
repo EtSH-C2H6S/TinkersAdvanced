@@ -164,6 +164,30 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(2048,-0.6f,0.6f,0.2f),
             StatlessMaterialStats.MAILLE
     ),
+    NEUTRONITE(
+            armor(256,5f,9f,7f,5f).toughness(10f).knockbackResistance(10),
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(2.4f,0.5f,-0.8f,10.24f),
+            new HeadMaterialStats(4096,16f, Tiers.NETHERITE,12.5f),
+            new GripMaterialStats(2.4f,10.24f,12.5f),
+            new LimbMaterialStats(4096,-0.75f,10.5f,10.24f),
+            StatlessMaterialStats.MAILLE
+    ),
+    OSGLOGLAS(
+            null,
+            false,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(0.45f,0.45f,-0.1f,0.25f),
+            new HeadMaterialStats(1920,12f, Tiers.NETHERITE,4.25f),
+            new GripMaterialStats(0.75f,0.1f,4.25f),
+            new LimbMaterialStats(1920,-0.1f,0.2f,0.05f)
+    ),
+    DISINTEGRATE_CRYSTAL(
+            null,
+            false,
+            StatlessMaterialStats.BINDING
+    ),
 
 
 

@@ -167,5 +167,30 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(178,0xFF10002B)
                 .addARGB(216,0xFF210047)
                 .addARGB(255,0xFF390063).build());
+        this.buildMaterial(TiAcMaterialIds.Mekanism.NEUTRONITE).ranged().meleeHarvest().armor().fallbacks("metal").transformer(GreyToSpriteTransformer.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFD4B8FF)
+                .addARGB(102,0xFFFFC3F4)
+                .addTexture(140,TinkersAdvanced.getLocation("materials/neutronite/neutronite_extra_dark"))
+                .addTexture(178,TinkersAdvanced.getLocation("materials/neutronite/neutronite_dark"))
+                .addTexture(216,TinkersAdvanced.getLocation("materials/neutronite/neutronite_medium"))
+                .addTexture(255,TinkersAdvanced.getLocation("materials/neutronite/neutronite_light"))
+                .build());
+        this.buildMaterial(TiAcMaterialIds.Mekanism.OSGLOGLAS).ranged().meleeHarvest().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF007330)
+                .addARGB(102,0xFF009128)
+                .addARGB(140,0xFF31CF5D)
+                .addARGB(178,0xFF54E661)
+                .addARGB(216,0xFF88FF90)
+                .addARGB(255,0xFFB4FFA5).build());
+        this.buildMaterial(TiAcMaterialIds.DISINTEGRATE_CRYSTAL).statType(StatlessMaterialStats.BINDING.getIdentifier()).fallbacks("crystal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFFFA891)
+                .addARGB(102,0xFFFFE191)
+                .addARGB(140,0xFF8A381C)
+                .addARGB(178,0xFFBD7443)
+                .addARGB(216,0xFFFFD4A1)
+                .addARGB(255,0xFFFFFCCD).build());
     }
 }
