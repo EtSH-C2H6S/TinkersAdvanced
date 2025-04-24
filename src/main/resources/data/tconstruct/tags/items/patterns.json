@@ -1,0 +1,11 @@
+{
+  "values": [
+    "tinkers_advanced:voltaic_crystal",
+    "tinkers_advanced:resonance_crystal",
+    "tinkers_advanced:disintegrate_crystal",
+    {
+      "id": "#ae2:inscriber_presses",
+      "required": false
+    }
+  ]
+}

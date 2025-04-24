@@ -2,7 +2,7 @@
   "type": "tconstruct:melting",
   "byproducts": [
     {
-      "amount": 30,
+      "amount": 60,
       "fluid": "tinkers_advanced:molten_biltz_lumium"
     }
   ],
@@ -25,7 +25,7 @@
     "item": "tinkers_advanced:blitz_lumium"
   },
   "result": {
-    "amount": 60,
+    "amount": 30,
     "fluid": "tconstruct:molten_lumium"
   },
   "temperature": 1000,

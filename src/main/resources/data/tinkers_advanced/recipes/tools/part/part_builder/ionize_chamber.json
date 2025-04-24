@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 12,
+  "pattern": "tinkers_advanced:ionize_chamber",
+  "pattern_item": [
+    {
+      "item": "tinkers_advanced:resonance_crystal"
+    }
+  ],
+  "result": {
+    "item": "tinkers_advanced:ionize_chamber"
+  }
+}

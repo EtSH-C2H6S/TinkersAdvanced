@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gems/diamond"
+  },
+  "material": "tinkers_advanced:diamond",
+  "needed": 1,
+  "value": 1
+}
