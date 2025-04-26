@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.content.item;
+package com.c2h6s.tinkers_advanced.content.item.toolItem;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
@@ -38,14 +38,12 @@ import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifie
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.DurabilityDisplayModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.interaction.EntityInteractionModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.tools.IndestructibleItemEntity;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
-import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -252,7 +250,7 @@ public class IonizedCannonItem extends ModifiableItem {
         if (hand==InteractionHand.MAIN_HAND){
             drawTime = Math.round(player.getCurrentItemAttackStrengthDelay()*4);
         }
-        else drawTime = (int) (80/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
+        else drawTime = (int) (40/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
         if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())<=0) {
             tool.getPersistentData().putBoolean(TAG_SOUND, true);

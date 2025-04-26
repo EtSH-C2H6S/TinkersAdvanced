@@ -17,6 +17,7 @@ public class TiAcPacketHandler {
     public static void init() {
         INSTANCE = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(TinkersAdvanced.MODID,"tiac_message")).networkProtocolVersion(()->"1").clientAcceptedVersions(s -> true).serverAcceptedVersions(s -> true).simpleChannel();
         INSTANCE.messageBuilder(PCofhModSwitchC2S.class,id++, NetworkDirection.PLAY_TO_SERVER).decoder(PCofhModSwitchC2S::new).encoder(PCofhModSwitchC2S::toByte).consumerMainThread(PCofhModSwitchC2S::handle).add();
+        INSTANCE.messageBuilder(PParticleChainS2C.class,id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PParticleChainS2C::new).encoder(PParticleChainS2C::toByte).consumerMainThread(PParticleChainS2C::handle).add();
     }
 
     public static <MSG> void sendToServer(MSG msg){

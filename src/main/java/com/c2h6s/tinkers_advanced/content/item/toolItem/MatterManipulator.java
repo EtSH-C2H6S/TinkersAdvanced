@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.content.item;
+package com.c2h6s.tinkers_advanced.content.item.toolItem;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
@@ -198,7 +198,7 @@ public class MatterManipulator extends ModifiableItem {
                     float destroySpeed = level.getBlockState(blockPos).getDestroySpeed(level, blockPos)*10;
                     float destroyProgress = player.getPersistentData().getFloat(KEY_DESTORY);
 
-                    float breakSpeed = (float) ((ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.MINING_SPEED) * player.getAttributeValue(Attributes.ATTACK_SPEED) / 2) * TiAcConfig.COMMON.MATTER_MANIPULATOR_BASE_BOOST.get());
+                    float breakSpeed = (float) ((ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.MINING_SPEED) * player.getAttributeValue(Attributes.ATTACK_SPEED)) * TiAcConfig.COMMON.MATTER_MANIPULATOR_BASE_BOOST.get());
                     breakSpeed += (float) ((fluidStack.getFluid().getFluidType().getTemperature() / 100f)*TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_BOOST.get());
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     ItemStack stack1 = stack.copy();

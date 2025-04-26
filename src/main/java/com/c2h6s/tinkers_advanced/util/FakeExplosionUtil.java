@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Level;
@@ -29,7 +30,7 @@ public class FakeExplosionUtil {
             serverLevel.sendParticles(maxRadius>3 ? ParticleTypes.EXPLOSION_EMITTER:ParticleTypes.EXPLOSION, position.x ,position.y ,position.z,1,0,0,0,0);
         }
         for (Entity entity:list){
-            if (entity!=null&&!entity.isInvulnerableTo(damageSource)&&!entity.isInvulnerable()&&!blackListEntityIds.contains(entity.getId())&&!(entity instanceof ItemEntity)){
+            if (entity!=null&&!entity.isInvulnerableTo(damageSource)&&!entity.isInvulnerable()&&!blackListEntityIds.contains(entity.getId())&&!(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)){
                 float radius = (float) entity.position().subtract(position).length();
                 float actualDamage = (float) (damage*Math.pow(0.625,radius-1));
                 entity.hurt(damageSource,actualDamage);

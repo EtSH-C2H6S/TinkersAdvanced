@@ -80,7 +80,7 @@
 
   "modifier.tinkers_advanced.basalz_inflict": "碎裂",
   "modifier.tinkers_advanced.basalz_inflict.flavor": "震碎护甲！",
-  "modifier.tinkers_advanced.basalz_inflict.description": "全力打击时对目标施加碎裂效果，减少目标护甲。",
+  "modifier.tinkers_advanced.basalz_inflict.description": "全力打击时对目标施加割裂效果，减少目标护甲。",
 
   "modifier.tinkers_advanced.blitz_defense": "涌流",
   "modifier.tinkers_advanced.blitz_defense.flavor": "如闪电般灵活",
@@ -88,7 +88,7 @@
 
   "modifier.tinkers_advanced.blitz_inflict": "震荡",
   "modifier.tinkers_advanced.blitz_inflict.flavor": "你知道吗：击穿1mm空气需要1000~2000V的高压",
-  "modifier.tinkers_advanced.blitz_inflict.description": "全力打击时释放弧向附近生物的脉冲，造成施加震荡效果。",
+  "modifier.tinkers_advanced.blitz_inflict.description": "全力打击时释放弧向附近生物的脉冲，造成震荡效果。",
 
   "modifier.tinkers_advanced.blizz_inflict": "霜附",
   "modifier.tinkers_advanced.blizz_inflict.flavor": "拿在手里自动就会降温，热力学不存在了！",
@@ -96,7 +96,7 @@
 
   "modifier.tinkers_advanced.blizz_defense": "坚冰",
   "modifier.tinkers_advanced.blizz_defense.flavor": "冰冷的外表，坚硬的芯",
-  "modifier.tinkers_advanced.blizz_defense.description": "获得霜冻抗性，冻结攻击者。",
+  "modifier.tinkers_advanced.blizz_defense.description": "获得冰霜抗性，冻结攻击者。",
 
   "modifier.tinkers_advanced.over_hold": "超容",
   "modifier.tinkers_advanced.over_hold.flavor": "这是非法改装！",
@@ -116,15 +116,15 @@
 
   "modifier.tinkers_advanced.flux_arrow": "通量赋能-箭矢",
   "modifier.tinkers_advanced.flux_arrow.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.flux_arrow.description": "激活模式下消耗能量存储凭空产生箭矢；注能模式下能产生药水箭并增加箭矢初速度且使其在击中时爆炸。",
+  "modifier.tinkers_advanced.flux_arrow.description": "激活模式下消耗能量存储凭空产生箭矢，箭矢基础伤害+1；注能模式下拉弓速度+50%，能产生药水箭，箭矢在击中时发生爆炸。",
 
   "modifier.tinkers_advanced.thermal_slash": "通量赋能-近战",
   "modifier.tinkers_advanced.thermal_slash.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.thermal_slash.description": "+1时运、抢夺等级。激活模式下消耗能量增加挖掘速度并在攻击时附加2点穿甲伤害；注能模式下攻速+50%，挥舞时释放元素剑气。",
+  "modifier.tinkers_advanced.thermal_slash.description": "+1时运、抢夺等级。激活模式下消耗能量增加挖掘速度并在攻击时附加4点穿甲伤害；注能模式下攻速+50%，挥舞时释放元素剑气。",
 
   "modifier.tinkers_advanced.flux_defense": "通量赋能-装甲",
   "modifier.tinkers_advanced.flux_defense.flavor": "把通量附加在工具上，红石能转化为机械能！",
-  "modifier.tinkers_advanced.flux_defense.description": "+1保护等级。激活模式下有5%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
+  "modifier.tinkers_advanced.flux_defense.description": "激活模式下有5%的概率消耗能量闪避伤害；注能模式下消耗能量抵消至多20%的伤害。",
 
   "modifier.tinkers_advanced.supreme_density": "极限密度",
   "modifier.tinkers_advanced.supreme_density.flavor": "差一点就坍缩成黑洞...",
@@ -132,7 +132,7 @@
 
   "modifier.tinkers_advanced.supreme_density_armor": "极限密度",
   "modifier.tinkers_advanced.supreme_density_armor.flavor": "差一点就坍缩成黑洞...",
-  "modifier.tinkers_advanced.supreme_density_armor.description": "受击时80%的伤害会额外经历一次减伤计算。",
+  "modifier.tinkers_advanced.supreme_density_armor.description": "护甲和护甲韧性翻倍，受击时80%的伤害会额外经历一次减伤计算。",
 
   "modifier.tinkers_advanced.ionized": "电离",
   "modifier.tinkers_advanced.ionized.flavor": "万物归于电荷",
@@ -141,6 +141,10 @@
   "modifier.tinkers_advanced.disintegrate": "解离",
   "modifier.tinkers_advanced.disintegrate.flavor": "解析一切",
   "modifier.tinkers_advanced.disintegrate.description": "随着挖掘的进行而无止尽地增加挖掘速度，但是耐久消耗也成倍增加。",
+
+  "modifier.tinkers_advanced.electric": "带电",
+  "modifier.tinkers_advanced.electric.flavor": "尖端放电",
+  "modifier.tinkers_advanced.electric.description": "攻击时释放一道弧向敌人的脉冲",
 
 
 
@@ -213,7 +217,7 @@
   "material.tinkers_advanced.activated_chromatic_steel.activated": "激活的活化彩钢",
   "material.tinkers_advanced.activated_chromatic_steel.empowered": "注能的活化彩钢",
   "material.tinkers_advanced.activated_chromatic_steel.flavor": "高活性的金属与元素能量的混合物，看似分裂实则一体。",
-  "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "每500FE抵消1耐久消耗。激活模式下：消耗100FE使挖掘速度+100%，消耗250FE施加4穿甲伤害；注能模式下：挥舞时消耗500FE释放剑气，造成5+锋利等级/2的伤害。",
+  "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "每500FE抵消1耐久消耗。激活模式下：消耗100FE使挖掘速度+100%，消耗250FE施加4穿甲伤害；注能模式下：挥舞时消耗500FE释放剑气，造成4+锋利等级/2的伤害。",
   "material.tinkers_advanced.activated_chromatic_steel.ranged": "每500FE抵消1耐久消耗。激活模式下：消耗500FE产生箭矢，箭矢伤害+1；注能模式下，能额外消耗500FE产生药水箭，额外消耗1000FE使箭矢爆炸，爆炸不破坏地形。",
   "material.tinkers_advanced.activated_chromatic_steel.armor": "每500FE抵消1耐久消耗。激活模式下：每次闪避消耗20kFE；注能模式下，每2kFE格挡1伤害。",
 
@@ -236,6 +240,9 @@
   "material.tinkers_advanced.disintegrate_crystal.encyclopedia": "每次挖掘增加20%*属性等级挖掘速度和10%*属性等级耐久消耗，无上限。",
 
 
+  "material.tinkers_advanced.silicon": "硅",
+  "material.tinkers_advanced.diamond": "钻石",
+
 
 
   "item.tinkers_advanced.bismuth_ingot": "铋锭",
@@ -253,7 +260,8 @@
   "item.tinkers_advanced.densium_ingot": "超致密锭",
   "item.tinkers_advanced.neutronite_ingot": "中子星物质锭",
   "item.tinkers_advanced.osgloglas_ingot": "锇荧黑曜合金锭",
-
+  "item.tinkers_advanced.resonance_crystal": "谐振水晶",
+  "item.tinkers_advanced.voltaic_crystal": "伏打水晶",
 
 
   "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
@@ -334,6 +342,7 @@
   "tooltip.tinkers_advanced.fluid_consumption": "流体消耗",
   "tooltip.tinkers_advanced.range": "有效射程",
   "tooltip.tinkers_advanced.scale": "范围倍率",
+  "pattern.tinkers_advanced.ionize_chamber": "离子化腔",
 
   "item.tinkers_advanced.particle_container": "粒子容器",
   "item.tinkers_advanced.matter_manipulator": "物质操纵器",
@@ -345,6 +354,11 @@
   "tooltip.tinkers_advanced.splashing_mode": "作用模式-喷溅",
   "tooltip.tinkers_advanced.primary_mode_info": "用工具手柄右键以切换作用模式",
   "tooltip.tinkers_advanced.secondary_mode_info": "右键以切换范围模式",
+  "pattern.tinkers_advanced.particle_container": "粒子容器",
+
+
+
+  "pattern.tinkers_advanced.ae2_circuit": "电路板",
 
 
   "death.attack.plasma": "%1$s被灼热的正负离子解离了。",

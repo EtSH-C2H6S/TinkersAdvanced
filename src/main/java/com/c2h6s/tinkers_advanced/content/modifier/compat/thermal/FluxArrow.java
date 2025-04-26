@@ -18,6 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
@@ -123,11 +124,10 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
     }
 
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
-        if (attacker!=null&&projectile instanceof AbstractArrow arrow&&arrow.isCritArrow()&&arrow.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
-            FakeExplosionUtil.fakeExplode(5,attacker,attacker.level(),hit.getLocation(),new IntOpenHashSet(attacker.getId()),false );
-            if (target!=null) target.invulnerableTime =0;
+    public void afterArrowHit(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull LivingEntity target, float damageDealt) {
+        if (attacker!=null&&arrow.isCritArrow()&&arrow.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
+            FakeExplosionUtil.fakeExplode(5,attacker,attacker.level(),target.position().add(0,target.getBbHeight()/2,0),new IntOpenHashSet(attacker.getId()),false );
+            target.invulnerableTime =0;
         }
-        return false;
     }
 }

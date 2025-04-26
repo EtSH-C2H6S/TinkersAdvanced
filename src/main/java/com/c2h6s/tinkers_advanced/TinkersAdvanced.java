@@ -30,7 +30,7 @@ import java.util.Random;
 public class TinkersAdvanced
 {
     public static final String MODID = "tinkers_advanced";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static Random RANDOM = new Random();
     public static ResourceLocation getLocation(String name){return new ResourceLocation(MODID,name);}
 
@@ -82,6 +82,7 @@ public class TinkersAdvanced
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         EntityModifierCapability.registerEntityPredicate(entity -> entity instanceof VisualScaledProjectile);
+
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)

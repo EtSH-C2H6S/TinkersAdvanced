@@ -66,11 +66,11 @@ public enum EnumMaterialModifier {
     DENSIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.HYPER_DENSITY.getId())),
 
     NEUTRONITE_DEFAULT(null,entry(TiAcModifiers.SUPREME_DENSITY.getId()),entry(TiAcModifiers.IONIZED.getId())),
-    NEUTRONITE_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.SUPREME_DENSITY.getId()),entry(TiAcModifiers.IONIZED.getId())),
+    NEUTRONITE_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.SUPREME_DENSITY_ARMOR.getId()),entry(TiAcModifiers.IONIZED.getId())),
 
     OSGLOGLAS_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.GLOBAL_TRAVELER.getId())),
 
-    DISINTEGRATE_CRYSTAL_DEFAULT(null,entry(TiAcModifiers.DIS_INTEGRATE.getId()))
+    DISINTEGRATE_CRYSTAL_DEFAULT(null,entry(TiAcModifiers.DIS_INTEGRATE.getId()),entry(ModifierIds.fortune,3))
     ;
 
     public final ModifierEntry[] modifiers;

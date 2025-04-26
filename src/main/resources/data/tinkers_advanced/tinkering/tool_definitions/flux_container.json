@@ -1,0 +1,52 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:part_stats",
+      "parts": [
+        "tinkers_advanced:flux_core",
+        {
+          "item": "tinkers_advanced:flux_casing",
+          "scale": 0.5
+        },
+        {
+          "item": "tinkers_advanced:flux_casing",
+          "scale": 0.5
+        }
+      ],
+      "primary_part": 0
+    },
+    {
+      "type": "tconstruct:default_materials",
+      "materials": [
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:modifier_slots",
+      "slots": {
+        "abilities": 3,
+        "upgrades": 3
+      }
+    },
+    {
+      "type": "tconstruct:traits",
+      "traits": [
+        {
+          "level": 1,
+          "name": "tconstruct:tank"
+        }
+      ]
+    }
+  ]
+}

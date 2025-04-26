@@ -1,0 +1,15 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "flux_core": "tinkers_advanced:item/tool/flux_container/flux_core",
+    "flux_casing_1": "tinkers_advanced:item/tool/flux_container/flux_casing_1",
+    "flux_casing_2":  "tinkers_advanced:item/tool/flux_container/flux_casing_2"
+  },
+  "modifier_roots": [ "tinkers_advanced:item/tool/flux_container/modifiers/" ],
+  "parts": [
+    { "name": "flux_core",  "index": 0 },
+    { "name": "flux_casing_1", "index": 1 },
+    { "name": "flux_casing_2",   "index": 2 }
+  ]
+}

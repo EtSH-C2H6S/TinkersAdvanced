@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced.content.entity;
 
 import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
-import com.c2h6s.tinkers_advanced.content.item.MatterManipulator;
+import com.c2h6s.tinkers_advanced.content.item.toolItem.MatterManipulator;
 import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

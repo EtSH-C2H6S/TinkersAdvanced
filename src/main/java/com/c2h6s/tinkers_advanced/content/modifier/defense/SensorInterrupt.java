@@ -23,7 +23,10 @@ public class SensorInterrupt extends EtSTBaseModifier {
                 if (tool != null) {
                     int i = tool.getModifierLevel(this);
                     Vec3 vec3 = event.getEntity().position().subtract(event.getNewTarget().position());
-                    if (i > 0 && vec3.length() > 5f / i && event.getEntity().getLastHurtByMob() != event.getNewTarget()) event.setCanceled(true);
+                    if (i > 0 && vec3.length() > 5f / i && event.getEntity().getLastHurtByMob() != event.getNewTarget()){
+                        event.setCanceled(true);
+                        return;
+                    }
                 }
             }
         }

@@ -17,10 +17,12 @@ public class TiAcToolStats {
     public static final FloatToolStat FLUID_EFFICIENCY;
     public static final FloatToolStat SCALE;
     public static final FloatToolStat RANGE;
+    public static final FloatToolStat POWER_MULTIPLIER;
 
     static {
         FLUID_EFFICIENCY = register(new FloatToolStat(name("fluid_efficiency"), -3135232, 0.0F, Integer.MIN_VALUE, 1.0F));
         RANGE = register(new FloatToolStat(name("range"), -3135232, 12.0F, 0.0F, 64.0F));
         SCALE = register(new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 8.0F));
+        POWER_MULTIPLIER = register(new FloatToolStat(name("power_multiplier"), -3135232, 1.0F, 0.0F, Integer.MAX_VALUE));
     }
 }

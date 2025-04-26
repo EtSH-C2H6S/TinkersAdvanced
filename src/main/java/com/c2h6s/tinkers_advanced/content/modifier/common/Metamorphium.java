@@ -72,7 +72,6 @@ public class Metamorphium extends EtSTBaseModifier implements ToolDamageModifier
             ToolStats.ATTACK_SPEED.percent(modifierStatsBuilder,bonus);
             ToolStats.MINING_SPEED.percent(modifierStatsBuilder,bonus);
             ToolStats.DURABILITY.percent(modifierStatsBuilder,bonus);
-            ToolStats.ARMOR_TOUGHNESS.percent(modifierStatsBuilder,bonus);
             ToolStats.DRAW_SPEED.percent(modifierStatsBuilder,bonus);
             ToolStats.PROJECTILE_DAMAGE.percent(modifierStatsBuilder,bonus);
         }

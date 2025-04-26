@@ -2,8 +2,11 @@ package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.content.item.HiddenMaterial;
-import com.c2h6s.tinkers_advanced.content.item.IonizedCannonItem;
-import com.c2h6s.tinkers_advanced.content.item.MatterManipulator;
+import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCasingMaterialStat;
+import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
+import com.c2h6s.tinkers_advanced.content.item.toolItem.FluxContainerItem;
+import com.c2h6s.tinkers_advanced.content.item.toolItem.IonizedCannonItem;
+import com.c2h6s.tinkers_advanced.content.item.toolItem.MatterManipulator;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -85,12 +88,18 @@ public class TiAcItems {
     public static final RegistryObject<Item> DISINTEGRATE_CRYSTAL = registerMaterial(ITEMS,"disintegrate_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> BLAZE_NETHERITE = registerMaterial(ITEMS,"blaze_netherite",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON).fireResistant()),true);
     public static final RegistryObject<Item> IRIDIUM_CHUNK = registerMaterial(ITEMS,"iridium_chunk",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> RESONANCE_CRYSTAL = registerMaterial(ITEMS,"resonance_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> VOLTAIC_CRYSTAL = registerMaterial(ITEMS,"voltaic_crystal",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
     public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
+//    public static final ItemObject<ToolPartItem> FLUX_CORE = TINKER_ITEMS.register("flux_core",()->new ToolPartItem(new Item.Properties(), FluxCoreMaterialStat.ID));
+//    public static final ItemObject<ToolPartItem> FLUX_CASING = TINKER_ITEMS.register("flux_casing",()->new ToolPartItem(new Item.Properties(), FluxCasingMaterialStat.ID));
+
 
     public static final ItemObject<ModifiableItem> IONIZED_CANNON = TINKER_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
     public static final ItemObject<ModifiableItem> MATTER_MANIPULATOR = TINKER_ITEMS.register("matter_manipulator",()->new MatterManipulator(new Item.Properties().stacksTo(1)));
+    public static final ItemObject<ModifiableItem> FLUX_CONTAINER = TINKER_ITEMS.register("flux_container",()->new FluxContainerItem(new Item.Properties().stacksTo(1)));
 
 
 

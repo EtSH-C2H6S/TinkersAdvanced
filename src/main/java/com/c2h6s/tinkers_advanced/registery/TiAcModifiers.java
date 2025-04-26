@@ -39,6 +39,7 @@ public class TiAcModifiers {
     public static StaticModifier<SupremeDensityArmor> SUPREME_DENSITY_ARMOR = MODIFIERS.register("supreme_density_armor", SupremeDensityArmor::new);
     public static StaticModifier<IonizedModifier> IONIZED = MODIFIERS.register("ionized", IonizedModifier::new);
     public static StaticModifier<DisIntegrate> DIS_INTEGRATE = MODIFIERS.register("disintegrate", DisIntegrate::new);
+    public static StaticModifier<Electric> ELECTRIC = MODIFIERS.register("electric", Electric::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

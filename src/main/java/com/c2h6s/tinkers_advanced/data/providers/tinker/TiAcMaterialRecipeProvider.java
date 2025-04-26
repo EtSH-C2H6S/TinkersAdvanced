@@ -73,7 +73,6 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         ResourceLocation folder;
         Consumer<FinishedRecipe> Conditional;
         folder = namedFolder("mixc");
-        ItemCastingRecipeBuilder.tableRecipe(ItemOutput.fromItem(TiAcItems.DISINTEGRATE_CRYSTAL.get())).setCast(Items.ECHO_SHARD.asItem(),true).setFluid(TinkerFluids.ichor.get(), 1000).setCoolingTime(100).save(consumer,new ResourceLocation(folder+"/disintegrate_crystal_create"));
         ToolBuildingRecipeBuilder.toolBuildingRecipe(TiAcItems.MATTER_MANIPULATOR.get()).save(consumer,new ResourceLocation(folder+"/matter_manipulator"));
 
         folder = namedFolder("fuel");
@@ -145,6 +144,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.IRIDIUM,Ingredient.of(TiAcItems.IRIDIUM_CHUNK.get()),3,1,consumer,folder);
         MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.IRIDIUM_CHUNK.get()),FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,30),1375,30).save(consumer,new ResourceLocation(folder+"_melting_chunk"));
         ItemCastingRecipeBuilder.tableRecipe(TiAcItems.IRIDIUM_CHUNK.get()).setCoolingTime(10).setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,30).save(consumer,new ResourceLocation(folder+"_casting_chunk"));
+        MeltingRecipeBuilder.melting(Ingredient.of( TiAcItems.IRIDIUM_LEAN_ORE.get()),FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,90),1575,30).save(consumer,new ResourceLocation(folder+"_melting_ore"));
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,90,TiAcMaterialIds.IRIDIUM,1375,consumer,folder);
         Conditional = withCondition(consumer,tagFilled(TiAcTagkeys.Items.IRIDIUM_INGOT));
         melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,TiAcTagkeys.Items.IRIDIUM_INGOT,1375,Conditional,folder);
@@ -223,7 +223,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),1,1, Conditional,folder);
         cast1Ingot(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),TiAcItems.BLITZ_LUMIUM.get(),995,Conditional,folder);
         meltMaterial(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),90,TiAcMaterialIds.Thermal.BLITZ_LUMIUM,995,Conditional,folder);
-        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),FluidOutput.fromFluid(TinkerFluids.moltenLumium.get(), 60),1000,30).addByproduct(new FluidStack(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),30)).save(Conditional,new ResourceLocation(folder+"_melting_foundry"));
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),FluidOutput.fromFluid(TinkerFluids.moltenLumium.get(), 30),1000,30).addByproduct(new FluidStack(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),60)).save(Conditional,new ResourceLocation(folder+"_melting_foundry"));
         folder = namedFolder("blizz_enderium");
         materialRecipe(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,Ingredient.of(TiAcItems.BLIZZ_ENDERIUM.get()),1,1, Conditional,folder);
         melt1Ingot(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),TiAcItems.BLIZZ_ENDERIUM.get(),1640,Conditional,folder);
