@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#pneumaticcraft:plastic_sheets",
+      "required": false
+    },
+    {
+      "id": "#forge:plastic",
+      "required": false
+    },
+    {
+      "id": "mekanism:hdpe_sheet",
+      "required": false
+    }
+  ]
+}

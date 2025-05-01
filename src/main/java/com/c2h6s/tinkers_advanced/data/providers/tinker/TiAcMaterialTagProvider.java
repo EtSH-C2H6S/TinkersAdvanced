@@ -8,7 +8,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.tconstruct.library.data.tinkering.AbstractMaterialTagProvider;
 
 public class TiAcMaterialTagProvider extends AbstractMaterialTagProvider {
-    protected TiAcMaterialTagProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+    public TiAcMaterialTagProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
         super(packOutput, TinkersAdvanced.MODID, existingFileHelper);
     }
 

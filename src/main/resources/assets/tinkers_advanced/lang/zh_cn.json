@@ -146,6 +146,18 @@
   "modifier.tinkers_advanced.electric.flavor": "尖端放电",
   "modifier.tinkers_advanced.electric.description": "攻击时释放一道弧向敌人的脉冲",
 
+  "modifier.tinkers_advanced.echo_locating": "回声定位",
+  "modifier.tinkers_advanced.echo_locating.flavor": "别出声...",
+  "modifier.tinkers_advanced.echo_locating.description": "工具会接收振动并标记产生振动的生物。攻击被标记的生物会施加额外的音爆伤害。",
+
+  "modifier.tinkers_advanced.elastic": "弹性",
+  "modifier.tinkers_advanced.elastic.flavor": "以柔克刚",
+  "modifier.tinkers_advanced.elastic.description": "工具损伤时，有概率不但不消耗耐久反而恢复耐久。",
+
+  "modifier.tinkers_advanced.shaping": "塑性",
+  "modifier.tinkers_advanced.shaping.flavor": "用你的辛勤劳作与它磨合吧！",
+  "modifier.tinkers_advanced.shaping.description": "随工具磨损而增加升级槽（于护甲则增加防御槽）。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -238,6 +250,16 @@
   "material.tinkers_advanced.disintegrate_crystal": "解离水晶",
   "material.tinkers_advanced.disintegrate_crystal.flavor": "高能量，不稳定，极致的破坏性。",
   "material.tinkers_advanced.disintegrate_crystal.encyclopedia": "每次挖掘增加20%*属性等级挖掘速度和10%*属性等级耐久消耗，无上限。",
+
+  "material.tinkers_advanced.plastic": "塑料",
+  "material.tinkers_advanced.plastic.flavor": "现代工业的瑰宝",
+
+  "material.tinkers_advanced.resonance_crystal": "谐振水晶",
+  "material.tinkers_advanced.resonance_crystal.flavor": "声波能量在其中震荡。",
+  "material.tinkers_advanced.resonance_crystal.encyclopedia": "攻击被标记生物时造成额外50%音爆伤害",
+
+  "material.tinkers_advanced.voltaic_crystal": "伏打水晶",
+  "material.tinkers_advanced.voltaic_crystal.flavor": "自内而外迸发着闪电",
 
 
   "material.tinkers_advanced.silicon": "硅",
@@ -381,5 +403,8 @@
   "tooltip.tinkers_advanced.hidden_material_mek": "-通用机械 隐藏材料-",
   "tooltip.tinkers_advanced.neutronite_1": "中子星是一种恒星遗骸，它诞生于猛烈的超新星爆炸。",
   "tooltip.tinkers_advanced.neutronite_2": "§b聚变反应§f是恒星的生命，§c铁元素§f则标志着恒星的死去。",
-  "tooltip.tinkers_advanced.neutronite_3": "尽管我们不能登陆中子星，但是制造一颗恒星不是什么难事..."
+  "tooltip.tinkers_advanced.neutronite_3": "尽管我们不能登陆中子星，但是制造一颗恒星不是什么难事...",
+
+
+  "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量："
 }

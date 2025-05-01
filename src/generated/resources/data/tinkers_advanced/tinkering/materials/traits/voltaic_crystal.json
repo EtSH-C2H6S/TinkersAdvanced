@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:energy_loaded"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:electric"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -25,6 +26,7 @@ import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariant;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.modules.build.EnchantmentModule;
@@ -55,6 +57,10 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
         super.addToolStats(iToolContext, modifierEntry, modifierStatsBuilder);
         ToolStats.ATTACK_SPEED.percent(modifierStatsBuilder,getMode(iToolContext.getPersistentData())>=2?0.5:0);
+    }
+
+    public static void onOffHandSwing(IToolStackView tool, ModifierEntry modifier, Player player, InteractionHand hand, InteractionSource source){
+
     }
 
     @Override

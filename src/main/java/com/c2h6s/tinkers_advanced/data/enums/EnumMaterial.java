@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.data.enums;
 
 import appeng.datagen.providers.tags.ConventionTags;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
 import mekanism.common.tags.MekanismTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -35,6 +36,9 @@ public enum EnumMaterial {
     NEUTRONITE(TiAcMaterialIds.Mekanism.NEUTRONITE,128,false,true,EnumMaterialStats.NEUTRONITE,modLoaded("mekanism"), NEUTRONITE_DEFAULT,NEUTRONITE_ARMOR),
     OSGLOGLAS(TiAcMaterialIds.Mekanism.OSGLOGLAS,4,false,false,EnumMaterialStats.OSGLOGLAS,modLoaded("mekanism"), OSGLOGLAS_DEFAULT),
     DISINTEGRATE_CRYSTAL(TiAcMaterialIds.DISINTEGRATE_CRYSTAL,4,true,false,EnumMaterialStats.DISINTEGRATE_CRYSTAL,null,DISINTEGRATE_CRYSTAL_DEFAULT),
+    RESONANCE_CRYSTAL(TiAcMaterialIds.RESONANCE_CRYSTAL,4,true,false,EnumMaterialStats.RESONANCE_CRYSTAL,null,RESONATE_CRYSTAL_ARMOR,RESONATE_CRYSTAL_DEFAULT),
+    VOLTAIC_CRYSTAL(TiAcMaterialIds.VOLTAIC_CRYSTAL,4,true,false,EnumMaterialStats.VOLTAIC_CRYSTAL,null,VOLTAIC_CRYSTAL_DEFAULT),
+    PLASTIC(TiAcMaterialIds.CommonIntegration.PLASTIC,2,true,false,EnumMaterialStats.PLASTIC,tagFilled(TiAcTagkeys.Items.PLASTIC),PLASTIC_DEFAULT),
     ;
     public final MaterialId id;
     public final int tier;

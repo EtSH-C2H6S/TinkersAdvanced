@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:anisotropy"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:echo_locating"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "etstlib:crystal_armor"
+      },
+      {
+        "level": 1,
+        "name": "etstlib:resonating"
+      }
+    ]
+  }
+}

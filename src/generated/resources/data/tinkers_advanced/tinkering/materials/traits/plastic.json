@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tinkers_advanced:elastic"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:shaping"
+    }
+  ]
+}

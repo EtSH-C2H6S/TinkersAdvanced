@@ -5,8 +5,10 @@ import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
+import com.c2h6s.tinkers_advanced.content.modifier.common.Elastic;
 import com.c2h6s.tinkers_advanced.content.modifier.common.FlameAdaptive;
 import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
+import com.c2h6s.tinkers_advanced.content.modifier.common.Shaping;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadioactiveArmor;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AirSlash;
@@ -40,6 +42,9 @@ public class TiAcModifiers {
     public static StaticModifier<IonizedModifier> IONIZED = MODIFIERS.register("ionized", IonizedModifier::new);
     public static StaticModifier<DisIntegrate> DIS_INTEGRATE = MODIFIERS.register("disintegrate", DisIntegrate::new);
     public static StaticModifier<Electric> ELECTRIC = MODIFIERS.register("electric", Electric::new);
+    public static StaticModifier<EchoLocating> ECHO_LOCATING = MODIFIERS.register("echo_locating", EchoLocating::new);
+    public static StaticModifier<Elastic> ELASTIC = MODIFIERS.register("elastic", Elastic::new);
+    public static StaticModifier<Shaping> SHAPING = MODIFIERS.register("shaping", Shaping::new);
 
 
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);

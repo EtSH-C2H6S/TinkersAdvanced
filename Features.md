@@ -14,7 +14,11 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
   * Iridium
     > Currently Tier 4 material found in The End dimension in small quantities. Has a high stat and capable of clearing harmful effects.
   * Disintegrate Crystal
-    > Tier 4 material made by casting Ichor on Echo Shard. Boosts mining speed significantly.
+    > Tier 4 material. Boosts mining speed significantly and has high fortune level.
+  * Resonate Crystal
+    > Tier 4 material. Comes with modifiers relating to vibration.
+  * Voltaic Crystal
+    > Tier 4 material. Comes with Energy Loaded modifier and capable of dealing AOE damage.
 * Fuels
   * Lavas
     > Over Heated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 3000℃, and 4000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
@@ -27,7 +31,11 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
     > Core part requires first casting Ichor on echo shard to craft Disintegrate Crystal, than cast molten material on it.
 ## With Compat
 These features are integrations between mods other than TConstruct. The corresponding mod is required for these contents.
-### Thermal Series Compat
+### Common Integration
+* Basic Materials
+  * Plastic
+    > Tier 2 material with durability-saving and slot-boosting modifiers. Can be crafted using HDPE from Mekanism, Plastic Sheets from PnC:R and Industrial Forgoing.
+### Thermal Series Compact
 * Original Materials
   * Basalz Signalum
     > Tier 3 material that requires Signalum Ingot and Basalz powder to aquire. Capable of inflicting Sundering debuff and removing hurt cooldown as weapon material, explosion-proof and prevent from being detected by mobs as armor material.

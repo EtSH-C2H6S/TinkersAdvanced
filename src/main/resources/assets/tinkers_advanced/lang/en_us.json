@@ -60,7 +60,7 @@
 
   "modifier.tinkers_advanced.air_slash": "Air Slash",
   "modifier.tinkers_advanced.air_slash.flavor": "Pressurized air ejection.",
-  "modifier.tinkers_advanced.air_slash.description": "Shoots powerful slash when swinging.Consumes air.",
+  "modifier.tinkers_advanced.air_slash.description": "Shoots powerful slash when swinging using main hand. Consumes air.",
 
   "modifier.tinkers_advanced.aerial_protection": "Aerial Protection",
   "modifier.tinkers_advanced.aerial_protection.flavor": "Gaseous shield.",
@@ -146,9 +146,17 @@
   "modifier.tinkers_advanced.electric.flavor": "Static discharge!",
   "modifier.tinkers_advanced.electric.description": "Summon arcs on attack.",
 
-  "modifier.tinkers_advanced.resonating": "Resonating",
-  "modifier.tinkers_advanced.resonating.flavor": "Do you know how to measure distance using sound ?",
-  "modifier.tinkers_advanced.resonating.description": "Apply effects to you when listening sound.",
+  "modifier.tinkers_advanced.echo_locating": "Echo Locating",
+  "modifier.tinkers_advanced.echo_locating.flavor": "Don't interrupt...",
+  "modifier.tinkers_advanced.echo_locating.description": "Your tool will accept vibration and mark the causing mob.Attacking marked mob will deal extra sonic damage.",
+
+  "modifier.tinkers_advanced.elastic": "Elastic",
+  "modifier.tinkers_advanced.elastic.flavor": "Softness is not always bad.",
+  "modifier.tinkers_advanced.elastic.description": "When tool takes damage, have a chance to recover durability instead of being damaged.",
+
+  "modifier.tinkers_advanced.shaping": "Shaping",
+  "modifier.tinkers_advanced.shaping.flavor": "Carving for changes.",
+  "modifier.tinkers_advanced.shaping.description": "Add upgrade slots (Or defense slots on armor) to your tool after tool being damaged many times.",
 
 
 
@@ -239,6 +247,15 @@
 
   "material.tinkers_advanced.silicon": "Silicon",
   "material.tinkers_advanced.diamond": "Diamond",
+
+  "material.tinkers_advanced.plastic": "Plastic",
+  "material.tinkers_advanced.plastic.flavor": "A gift from modern tech.",
+
+  "material.tinkers_advanced.resonance_crystal": "Resonance Crystal",
+  "material.tinkers_advanced.resonance_crystal.flavor": "Warden™ Inside",
+
+  "material.tinkers_advanced.voltaic_crystal": "Voltaic Crystal",
+  "material.tinkers_advanced.voltaic_crystal.flavor": "An electric material that shocks you.",
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -381,5 +398,8 @@
   "tooltip.tinkers_advanced.hidden_material_mek": "% Hidden Material-Mekanism %",
   "tooltip.tinkers_advanced.neutronite_1": "Neutron stars are dead star cores left over by supernova.",
   "tooltip.tinkers_advanced.neutronite_2": "§bFusion§f is the life of star. The formation of§c iron§f marks a dead end for a star.",
-  "tooltip.tinkers_advanced.neutronite_3": "Although it's impossible to land on a neutron star, creating a star is quite possible."
+  "tooltip.tinkers_advanced.neutronite_3": "Although it's impossible to land on a neutron star, creating a star is quite possible.",
+
+
+  "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :"
 }

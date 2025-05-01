@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tinkers_advanced:iridium_lean_ore"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_iridium"
+  },
+  "temperature": 1575,
+  "time": 30
+}

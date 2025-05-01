@@ -70,7 +70,14 @@ public enum EnumMaterialModifier {
 
     OSGLOGLAS_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.GLOBAL_TRAVELER.getId())),
 
-    DISINTEGRATE_CRYSTAL_DEFAULT(null,entry(TiAcModifiers.DIS_INTEGRATE.getId()),entry(ModifierIds.fortune,3))
+    DISINTEGRATE_CRYSTAL_DEFAULT(null,entry(TiAcModifiers.DIS_INTEGRATE.getId()),entry(ModifierIds.fortune,3)),
+
+    RESONATE_CRYSTAL_DEFAULT(null,entry(EtSTLibModifier.ANISOTROPY.getId()),entry(TiAcModifiers.ECHO_LOCATING.getId())),
+    RESONATE_CRYSTAL_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.CRYSTAL_ARMOR.getId()),entry(EtSTLibModifier.RESONATING.getId())),
+
+    VOLTAIC_CRYSTAL_DEFAULT(null,entry(EtSTLibModifier.energy_loaded.getId()),entry(TiAcModifiers.ELECTRIC.getId())),
+
+    PLASTIC_DEFAULT(null,entry(TiAcModifiers.ELASTIC.getId()),entry(TiAcModifiers.SHAPING.getId()))
     ;
 
     public final ModifierEntry[] modifiers;

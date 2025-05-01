@@ -19,7 +19,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
@@ -71,7 +70,7 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         ResourceLocation folder;
-        Consumer<FinishedRecipe> Conditional;
+        Consumer<FinishedRecipe> conditional;
         folder = namedFolder("mixc");
         ToolBuildingRecipeBuilder.toolBuildingRecipe(TiAcItems.MATTER_MANIPULATOR.get()).save(consumer,new ResourceLocation(folder+"/matter_manipulator"));
 
@@ -96,35 +95,35 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
                 .addInput(FluidIngredient.of(TinkerFluids.moltenEnder.get(), 750))
                 .addInput(TiAcFluids.GASEOUS_LAVA.get(),1000)
                 .save(consumer,new ResourceLocation(folder+"_plasmatic_lava"));
-        Conditional = withCondition(consumer,modLoaded("mekanism"));
-        fuel("antimatter",FluidIngredient.of(TiAcFluids.MOLTEN_ANTIMATTER.get(),10),1000,9999,Conditional);
+        conditional = withCondition(consumer,modLoaded("mekanism"));
+        fuel("antimatter",FluidIngredient.of(TiAcFluids.MOLTEN_ANTIMATTER.get(),10),1000,9999, conditional);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.OVER_HEATED_LAVA.get(),500)),1500)
                 .addCatalyst(FluidIngredient.of(TinkerFluids.moltenRefinedGlowstone.get(), 90))
                 .addInput(MekanismFluids.ETHENE.getFluid(), 250)
                 .addInput(MekanismFluids.OXYGEN.getFluid(), 750)
                 .addInput(Fluids.LAVA,1000)
-                .save(Conditional,new ResourceLocation(folder+"_over_heated_lava_mek"));
+                .save(conditional,new ResourceLocation(folder+"_over_heated_lava_mek"));
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.GASEOUS_LAVA.get(),500)),2000)
                 .addCatalyst(FluidIngredient.of(TinkerFluids.moltenRefinedObsidian.get(), 270))
                 .addInput(MekanismFluids.URANIUM_HEXAFLUORIDE.getFluid(), 250)
                 .addInput(MekanismFluids.HEAVY_WATER.getFluid(), 500)
                 .addInput(TiAcFluids.OVER_HEATED_LAVA.get(),1000)
-                .save(Conditional,new ResourceLocation(folder+"_gaseous_lava_mek"));
-        Conditional = withCondition(consumer,modLoaded("mekanismgenerators"));
+                .save(conditional,new ResourceLocation(folder+"_gaseous_lava_mek"));
+        conditional = withCondition(consumer,modLoaded("mekanismgenerators"));
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.PLASMATIC_LAVA.get(),500)),3000)
                 .addCatalyst(FluidIngredient.of(TiAcFluids.MOLTEN_DENSIUM.get(), 360))
                 .addCatalyst(FluidIngredient.of(TiAcFluids.MOLTEN_IRRADIUM.get(), 270))
                 .addInput(GeneratorsFluids.DEUTERIUM.getFluid(), 500)
                 .addInput(GeneratorsFluids.TRITIUM.getFluid(), 500)
                 .addInput(TiAcFluids.GASEOUS_LAVA.get(),1000)
-                .save(Conditional,new ResourceLocation(folder+"_plasmatic_lava_mek"));
-        Conditional = withCondition(consumer,modLoaded("thermal"));
-        fuel("pyrotheum",FluidIngredient.of(TiAcFluids.PYROTHEUM.get(),10),200,3000,Conditional);
+                .save(conditional,new ResourceLocation(folder+"_plasmatic_lava_mek"));
+        conditional = withCondition(consumer,modLoaded("thermal"));
+        fuel("pyrotheum",FluidIngredient.of(TiAcFluids.PYROTHEUM.get(),10),200,3000, conditional);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack( new FluidStack(TiAcFluids.PYROTHEUM.get(),500)),1320)
                 .addInput(FluidIngredient.of(TinkerFluids.blazingBlood.get(),1250))
                 .addInput(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("thermal","refined_fuel")),1000)
                 .addInput(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("thermal","creosote")),750)
-                .save(Conditional,new ResourceLocation(folder+"_pyrotheum"));
+                .save(conditional,new ResourceLocation(folder+"_pyrotheum"));
 
 
         folder = namedFolder("bismuth");
@@ -135,6 +134,10 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         materialRecipe(TiAcMaterialIds.BISMUTHINITE,Ingredient.of(TiAcItems.BISMUTHINITE.get()),1,1,consumer,folder);
         folder = namedFolder("disintegrate_crystal");
         materialRecipe(TiAcMaterialIds.DISINTEGRATE_CRYSTAL,Ingredient.of(TiAcItems.DISINTEGRATE_CRYSTAL.get()),1,1,consumer,folder);
+        folder = namedFolder("resonance_crystal");
+        materialRecipe(TiAcMaterialIds.RESONANCE_CRYSTAL,Ingredient.of(TiAcItems.RESONANCE_CRYSTAL.get()),1,1,consumer,folder);
+        folder = namedFolder("voltaic_crystal");
+        materialRecipe(TiAcMaterialIds.VOLTAIC_CRYSTAL,Ingredient.of(TiAcItems.VOLTAIC_CRYSTAL.get()),1,1,consumer,folder);
         folder = namedFolder("blaze_netherite");
         meltMaterial(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),90,TiAcMaterialIds.BLAZE_NETHERITE,1480,consumer,folder);
         melt1Ingot(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),TiAcItems.BLAZE_NETHERITE.get(),1480,consumer,folder);
@@ -146,98 +149,102 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         ItemCastingRecipeBuilder.tableRecipe(TiAcItems.IRIDIUM_CHUNK.get()).setCoolingTime(10).setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,30).save(consumer,new ResourceLocation(folder+"_casting_chunk"));
         MeltingRecipeBuilder.melting(Ingredient.of( TiAcItems.IRIDIUM_LEAN_ORE.get()),FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,90),1575,30).save(consumer,new ResourceLocation(folder+"_melting_ore"));
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,90,TiAcMaterialIds.IRIDIUM,1375,consumer,folder);
-        Conditional = withCondition(consumer,tagFilled(TiAcTagkeys.Items.IRIDIUM_INGOT));
-        melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,TiAcTagkeys.Items.IRIDIUM_INGOT,1375,Conditional,folder);
+        conditional = withCondition(consumer,tagFilled(TiAcTagkeys.Items.IRIDIUM_INGOT));
+        melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM,TiAcTagkeys.Items.IRIDIUM_INGOT,1375, conditional,folder);
         //AE2
-        Conditional = withCondition(consumer,tagFilled(ConventionTags.FLUIX_CRYSTAL));
+        conditional = withCondition(consumer,tagFilled(ConventionTags.FLUIX_CRYSTAL));
         folder = namedFolder("fluix");
-        materialRecipe(TiAcMaterialIds.AE2.FLUIX,Ingredient.of(ConventionTags.FLUIX_CRYSTAL),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(ConventionTags.CERTUS_QUARTZ));
+        materialRecipe(TiAcMaterialIds.AE2.FLUIX,Ingredient.of(ConventionTags.FLUIX_CRYSTAL),1,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(ConventionTags.CERTUS_QUARTZ));
         folder = namedFolder("certus_quartz");
-        materialRecipe(TiAcMaterialIds.AE2.CERTUS,Ingredient.of(ConventionTags.CERTUS_QUARTZ),1,1, Conditional,folder);
+        materialRecipe(TiAcMaterialIds.AE2.CERTUS,Ingredient.of(ConventionTags.CERTUS_QUARTZ),1,1, conditional,folder);
         //Mekanism
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.ALLOYS_ATOMIC));
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.ALLOYS_ATOMIC));
         folder = namedFolder("alloy_atomic");
-        materialRecipe(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC,Ingredient.of(MekanismTags.Items.ALLOYS_ATOMIC),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE));
+        materialRecipe(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC,Ingredient.of(MekanismTags.Items.ALLOYS_ATOMIC),1,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE));
         folder = namedFolder("refined_glowstone");
-        meltMaterial(TinkerFluids.moltenRefinedGlowstone.get(), 90,TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,825,Conditional,folder);
-        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE));
-        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE),9,1, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE),tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN));
-        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE),MekanismTags.Items.INGOTS_REFINED_GLOWSTONE,1,9, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE));
+        meltMaterial(TinkerFluids.moltenRefinedGlowstone.get(), 90,TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,825, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE),1,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE));
+        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.NUGGETS_REFINED_GLOWSTONE),9,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE),tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN));
+        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_GLOWSTONE,Ingredient.of(MekanismTags.Items.STORAGE_BLOCKS_REFINED_GLOWSTONE),MekanismTags.Items.INGOTS_REFINED_GLOWSTONE,1,9, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.INGOTS_REFINED_GLOWSTONE));
         folder = namedFolder("refined_obsidian");
-        meltMaterial(TinkerFluids.moltenRefinedObsidian.get(), 90,TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,1475,Conditional,folder);
-        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),1,1, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN));
-        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN),9,1, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN),tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN));
-        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN),MekanismTags.Items.INGOTS_REFINED_OBSIDIAN,1,9, Conditional,folder);
-        Conditional = withCondition(consumer,tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER));
+        meltMaterial(TinkerFluids.moltenRefinedObsidian.get(), 90,TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,1475, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN),1,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN));
+        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.NUGGETS_REFINED_OBSIDIAN),9,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN),tagFilled(MekanismTags.Items.INGOTS_REFINED_OBSIDIAN));
+        materialRecipe(TiAcMaterialIds.Mekanism.REFINED_OBSIDIAN,Ingredient.of(MekanismTags.Items.STORAGE_BLOCKS_REFINED_OBSIDIAN),MekanismTags.Items.INGOTS_REFINED_OBSIDIAN,1,9, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER));
         folder = namedFolder("antimatter");
-        meltMaterial(TiAcTagkeys.Fluids.MOLTEN_ANTIMATTER,250,TiAcMaterialIds.Mekanism.ANTIMATTER,3996,Conditional,folder);
-        melt1Slimeball(TiAcFluids.MOLTEN_ANTIMATTER.get(),MekanismTags.Items.PELLETS_ANTIMATTER,3996,Conditional,folder);
-        materialRecipe(TiAcMaterialIds.Mekanism.ANTIMATTER,Ingredient.of(MekanismTags.Items.PELLETS_ANTIMATTER),1,1,Conditional,folder);
+        meltMaterial(TiAcTagkeys.Fluids.MOLTEN_ANTIMATTER,250,TiAcMaterialIds.Mekanism.ANTIMATTER,3996, conditional,folder);
+        melt1Slimeball(TiAcFluids.MOLTEN_ANTIMATTER.get(),MekanismTags.Items.PELLETS_ANTIMATTER,3996, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.ANTIMATTER,Ingredient.of(MekanismTags.Items.PELLETS_ANTIMATTER),1,1, conditional,folder);
         folder = namedFolder("irradium");
-        Conditional = withCondition(consumer,modLoaded("mekanism"));
-        melt1Ingot(TiAcFluids.MOLTEN_IRRADIUM.get(),TiAcItems.IRRADIUM_INGOT.get(),2750,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_IRRADIUM.get(),90,TiAcMaterialIds.Mekanism.IRRADIUM,2750,Conditional,folder);
-        materialRecipe(TiAcMaterialIds.Mekanism.IRRADIUM,Ingredient.of(TiAcItems.IRRADIUM_INGOT.get()),1,1, Conditional,folder);
+        conditional = withCondition(consumer,modLoaded("mekanism"));
+        melt1Ingot(TiAcFluids.MOLTEN_IRRADIUM.get(),TiAcItems.IRRADIUM_INGOT.get(),2750, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_IRRADIUM.get(),90,TiAcMaterialIds.Mekanism.IRRADIUM,2750, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.IRRADIUM,Ingredient.of(TiAcItems.IRRADIUM_INGOT.get()),1,1, conditional,folder);
         CombinerRecipeBuilder.combining(ItemStackIngredientCreator.INSTANCE.from(TinkerMaterials.manyullyn.getIngot()), ItemStackIngredientCreator.INSTANCE.from(MekanismItems.POLONIUM_PELLET),new ItemStack(TiAcItems.IRRADIUM_INGOT.get())).build(consumer,new ResourceLocation(folder+"_ingot_create"));
         folder = namedFolder("densium");
-        melt1Ingot(TiAcFluids.MOLTEN_DENSIUM.get(),TiAcItems.DENSIUM_INGOT.get(),1755,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_DENSIUM.get(),90,TiAcMaterialIds.Mekanism.DENSIUM,1755,Conditional,folder);
-        materialRecipe(TiAcMaterialIds.Mekanism.DENSIUM,Ingredient.of(TiAcItems.DENSIUM_INGOT.get()),1,1, Conditional,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_DENSIUM.get(),TiAcItems.DENSIUM_INGOT.get(),1755, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_DENSIUM.get(),90,TiAcMaterialIds.Mekanism.DENSIUM,1755, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.DENSIUM,Ingredient.of(TiAcItems.DENSIUM_INGOT.get()),1,1, conditional,folder);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_DENSIUM.get(),90)),1755)
                 .addInput(TiAcFluids.MOLTEN_IRIDIUM.get(),90)
                 .addInput(TinkerFluids.moltenOsmium.get(),180)
                 .addInput(TinkerFluids.moltenRefinedObsidian.get(),450)
-                .save(Conditional,new ResourceLocation(folder+"_alloy"));
+                .save(conditional,new ResourceLocation(folder+"_alloy"));
         folder = namedFolder("osgloglas");
-        melt1Ingot(TiAcFluids.MOLTEN_OSGLOGLAS.get(),TiAcItems.OSGLOGLAS_INGOT.get(),1755,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_OSGLOGLAS.get(),90,TiAcMaterialIds.Mekanism.OSGLOGLAS,1755,Conditional,folder);
-        materialRecipe(TiAcMaterialIds.Mekanism.OSGLOGLAS,Ingredient.of(TiAcItems.OSGLOGLAS_INGOT.get()),1,1, Conditional,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_OSGLOGLAS.get(),TiAcItems.OSGLOGLAS_INGOT.get(),1755, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_OSGLOGLAS.get(),90,TiAcMaterialIds.Mekanism.OSGLOGLAS,1755, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.OSGLOGLAS,Ingredient.of(TiAcItems.OSGLOGLAS_INGOT.get()),1,1, conditional,folder);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_OSGLOGLAS.get(),90)),1755)
                 .addInput(TinkerFluids.moltenOsmium.get(),90)
                 .addInput(TinkerFluids.moltenRefinedObsidian.get(),180)
                 .addInput(TinkerFluids.moltenRefinedGlowstone.get(),360)
-                .save(Conditional,new ResourceLocation(folder+"_alloy"));
+                .save(conditional,new ResourceLocation(folder+"_alloy"));
         folder = namedFolder("neutronite");
-        meltMaterial(TiAcFluids.MOLTEN_NEUTRONITE.get(),90,TiAcMaterialIds.Mekanism.NEUTRONITE,9273,Conditional,folder);
-        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),FluidOutput.fromFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1),9273,1).save(Conditional,new ResourceLocation(folder+"_melting_1mb"));
-        ItemCastingRecipeBuilder.tableRecipe(TiAcItems.NEUTRONITE_INGOT.get()).setCoolingTime(1).setFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1).save(Conditional,new ResourceLocation(folder+"_casting_1mb"));
-        materialRecipe(TiAcMaterialIds.Mekanism.NEUTRONITE,Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),90,1,Conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_NEUTRONITE.get(),90,TiAcMaterialIds.Mekanism.NEUTRONITE,9273, conditional,folder);
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),FluidOutput.fromFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1),9273,1).save(conditional,new ResourceLocation(folder+"_melting_1mb"));
+        ItemCastingRecipeBuilder.tableRecipe(TiAcItems.NEUTRONITE_INGOT.get()).setCoolingTime(1).setFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1).save(conditional,new ResourceLocation(folder+"_casting_1mb"));
+        materialRecipe(TiAcMaterialIds.Mekanism.NEUTRONITE,Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),90,1, conditional,folder);
         //PnC
-        Conditional = withCondition(consumer,modLoaded("pneumaticcraft"));
+        conditional = withCondition(consumer,modLoaded("pneumaticcraft"));
         folder = namedFolder("pneumatic_steel");
-        materialRecipe(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,Ingredient.of(TiAcItems.PNEUMATIC_STEEL.get()),1,1, Conditional,folder);
+        materialRecipe(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,Ingredient.of(TiAcItems.PNEUMATIC_STEEL.get()),1,1, conditional,folder);
         //Thermal
-        Conditional = withCondition(consumer,modLoaded("thermal"));
+        conditional = withCondition(consumer,modLoaded("thermal"));
         folder = namedFolder("basalz_signalum");
-        materialRecipe(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,Ingredient.of(TiAcItems.BASALZ_SIGNALUM.get()),1,1, Conditional,folder);
-        melt1Ingot(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),TiAcItems.BASALZ_SIGNALUM.get(),995,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),90,TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,995,Conditional,folder);
+        materialRecipe(TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,Ingredient.of(TiAcItems.BASALZ_SIGNALUM.get()),1,1, conditional,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),TiAcItems.BASALZ_SIGNALUM.get(),995, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),90,TiAcMaterialIds.Thermal.BASALZ_SIGNALUM,995, conditional,folder);
         folder = namedFolder("blitz_lumium");
-        materialRecipe(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),1,1, Conditional,folder);
-        cast1Ingot(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),TiAcItems.BLITZ_LUMIUM.get(),995,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),90,TiAcMaterialIds.Thermal.BLITZ_LUMIUM,995,Conditional,folder);
-        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),FluidOutput.fromFluid(TinkerFluids.moltenLumium.get(), 30),1000,30).addByproduct(new FluidStack(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),60)).save(Conditional,new ResourceLocation(folder+"_melting_foundry"));
+        materialRecipe(TiAcMaterialIds.Thermal.BLITZ_LUMIUM,Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),1,1, conditional,folder);
+        cast1Ingot(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),TiAcItems.BLITZ_LUMIUM.get(),995, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),90,TiAcMaterialIds.Thermal.BLITZ_LUMIUM,995, conditional,folder);
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.BLITZ_LUMIUM.get()),FluidOutput.fromFluid(TinkerFluids.moltenLumium.get(), 30),1000,30).addByproduct(new FluidStack(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),60)).save(conditional,new ResourceLocation(folder+"_melting_foundry"));
         folder = namedFolder("blizz_enderium");
-        materialRecipe(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,Ingredient.of(TiAcItems.BLIZZ_ENDERIUM.get()),1,1, Conditional,folder);
-        melt1Ingot(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),TiAcItems.BLIZZ_ENDERIUM.get(),1640,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),90,TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,1640,Conditional,folder);
+        materialRecipe(TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,Ingredient.of(TiAcItems.BLIZZ_ENDERIUM.get()),1,1, conditional,folder);
+        melt1Ingot(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),TiAcItems.BLIZZ_ENDERIUM.get(),1640, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),90,TiAcMaterialIds.Thermal.BLIZZ_ENDERIUM,1640, conditional,folder);
         folder = namedFolder("activated_chromatic_steel");
-        materialRecipe(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,Ingredient.of(TiAcItems.ACTIVATED_CHROMATIC_STEEL.get()),1,1, Conditional,folder);
-        melt1Plate(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),TiAcItems.ACTIVATED_CHROMATIC_STEEL.get(),2720,Conditional,folder);
-        meltMaterial(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,2720,Conditional,folder);
+        materialRecipe(TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,Ingredient.of(TiAcItems.ACTIVATED_CHROMATIC_STEEL.get()),1,1, conditional,folder);
+        melt1Plate(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),TiAcItems.ACTIVATED_CHROMATIC_STEEL.get(),2720, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,2720, conditional,folder);
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.MOLTEN_ACTIVATED_CHROMATIC_STEEL.get(),90)),2720)
                 .addInput(TiAcFluids.MOLTEN_BASALZ_SIGNALUM.get(),270)
                 .addInput(TiAcFluids.MOLTEN_BILTZ_LUMIUM.get(),270)
                 .addInput(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),270)
                 .addInput(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),270)
-                .save(Conditional,new ResourceLocation(folder+"_alloy"));
+                .save(conditional,new ResourceLocation(folder+"_alloy"));
+        //Common Integration
+        folder = namedFolder("plastic");
+        conditional =withCondition(consumer, tagFilled(TiAcTagkeys.Items.PLASTIC));
+        materialRecipe(TiAcMaterialIds.CommonIntegration.PLASTIC,Ingredient.of(TiAcTagkeys.Items.PLASTIC),1,1,conditional,folder);
     }
 
     public void melt1B(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){

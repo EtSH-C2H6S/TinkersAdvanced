@@ -2,7 +2,6 @@ package com.c2h6s.tinkers_advanced.content.modifier.combat;
 
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
-import com.c2h6s.etstlib.util.EntityInRangeUtil;
 import com.c2h6s.tinkers_advanced.registery.TiAcParticleTypes;
 import com.c2h6s.tinkers_advanced.util.CommonUtil;
 import com.c2h6s.tinkers_advanced.util.ParticleChainUtil;
@@ -13,7 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -40,11 +39,11 @@ public class Electric extends EtSTBaseModifier {
             while (i<=modifier.getLevel()*2+6&&j<16){
                 entityStart = entityEnd;
                 if (entityStart != null) {
-                    entityEnd = CommonUtil.getNearestEntity(entityStart,modifier.getLevel()*2+2,blacklist,(entity -> !(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)&&!(entity instanceof Player)&&!entity.isInvulnerableTo(source)));
+                    entityEnd = CommonUtil.getNearestEntity(entityStart,modifier.getLevel()*2+2,blacklist,(entity -> !(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)&&!(entity instanceof Player)&&!(entity instanceof ThrowableItemProjectile)&&!entity.isInvulnerableTo(source)));
                     if (entityEnd!=null){
                         blacklist.add(entityEnd.getId());
                         if (entityEnd.hurt(source,4+2*modifier.getLevel())){
-                            ParticleChainUtil.drawLine(TiAcParticleTypes.ELECTRIC.get(), entityStart.position().add(0,entityStart.getBbHeight()/2,0),entityEnd.position().add(0,entityEnd.getBbHeight()/2,0) ,0.1,ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.005, ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.2,32,320);
+                            ParticleChainUtil.drawLine(TiAcParticleTypes.ELECTRIC.get(), entityStart.position().add(0,entityStart.getBbHeight()/2,0),entityEnd.position().add(0,entityEnd.getBbHeight()/2,0) ,0.2,ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.005, ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.2,32,320);
                         }
                     }
                 }
@@ -70,10 +69,11 @@ public class Electric extends EtSTBaseModifier {
             while (i<=entry.getLevel()*2+6&&j<16){
                 entityStart = entityEnd;
                 if (entityStart != null) {
-                    entityEnd = CommonUtil.getNearestEntity(entityStart,entry.getLevel()*2+2,blacklist,(entity -> !(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)&&!(entity instanceof Player)&&!entity.isInvulnerableTo(source)));
+                    entityEnd = CommonUtil.getNearestEntity(entityStart,entry.getLevel()*2+2,blacklist,(entity -> !(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)&&!(entity instanceof Player)&&!(entity instanceof ThrowableItemProjectile)&&!entity.isInvulnerableTo(source)));
                     if (entityEnd!=null){
+                        blacklist.add(entityEnd.getId());
                         if (entityEnd.hurt(source,4+2*entry.getLevel())){
-                            ParticleChainUtil.drawLine(TiAcParticleTypes.ELECTRIC.get(), entityStart.position().add(0,entityStart.getBbHeight()/2,0),entityEnd.position().add(0,entityEnd.getBbHeight()/2,0) ,0.1,ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.005, ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.2,32,320);
+                            ParticleChainUtil.drawLine(TiAcParticleTypes.ELECTRIC.get(), entityStart.position().add(0,entityStart.getBbHeight()/2,0),entityEnd.position().add(0,entityEnd.getBbHeight()/2,0) ,0.2,ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.005, ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.2,32,320);
                         }
                     }
                 }

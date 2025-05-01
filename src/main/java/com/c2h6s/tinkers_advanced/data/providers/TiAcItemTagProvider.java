@@ -1,10 +1,12 @@
 package com.c2h6s.tinkers_advanced.data.providers;
 
-import appeng.api.ids.AETags;
-import appeng.core.definitions.AEItems;
 import appeng.datagen.providers.tags.ConventionTags;
+import com.buuz135.industrial.utils.IndustrialTags;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
+import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
+import me.desht.pneumaticcraft.api.data.PneumaticCraftTags;
+import mekanism.common.registries.MekanismItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -24,5 +26,6 @@ public class TiAcItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(TinkerTags.Items.PATTERNS).add(TiAcItems.DISINTEGRATE_CRYSTAL.get(),TiAcItems.RESONANCE_CRYSTAL.get(),TiAcItems.VOLTAIC_CRYSTAL.get());
         this.tag(TinkerTags.Items.REUSABLE_PATTERNS).addOptionalTag(ConventionTags.INSCRIBER_PRESSES);
+        this.tag(TiAcTagkeys.Items.PLASTIC).addOptionalTag(PneumaticCraftTags.Items.PLASTIC_SHEETS.location()).addOptionalTag(IndustrialTags.Items.PLASTIC.location()).addOptional(MekanismItems.HDPE_SHEET.getRegistryName());
     }
 }

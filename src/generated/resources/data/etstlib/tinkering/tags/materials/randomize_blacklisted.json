@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "tinkers_advanced:irradium",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:antimatter",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:neutronite",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:activated_chromatic_steel",
+      "required": false
+    }
+  ]
+}

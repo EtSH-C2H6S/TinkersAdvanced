@@ -192,5 +192,29 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(178,0xFFBD7443)
                 .addARGB(216,0xFFFFD4A1)
                 .addARGB(255,0xFFFFFCCD).build());
+        this.buildMaterial(TiAcMaterialIds.VOLTAIC_CRYSTAL).ranged().meleeHarvest().fallbacks("crystal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF615299)
+                .addARGB(102,0xFF717fdc)
+                .addARGB(140,0xFF52428f)
+                .addARGB(178,0xFF7a67be)
+                .addARGB(216,0xFF8494ff)
+                .addARGB(255,0xFFb0c5ff).build());
+        this.buildMaterial(TiAcMaterialIds.RESONANCE_CRYSTAL).meleeHarvest().maille().fallbacks("crystal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF49f0c3)
+                .addARGB(102,0xFF65fff6)
+                .addARGB(140,0xFF43645a)
+                .addARGB(178,0xFF5d8b7e)
+                .addARGB(216,0xFF80bfad)
+                .addARGB(255,0xFF93d7c1).build());
+        this.buildMaterial(TiAcMaterialIds.CommonIntegration.PLASTIC).maille().meleeHarvest().ranged().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF828282)
+                .addARGB(102,0xFF9b9b9b)
+                .addARGB(140,0xFFb6b6b6)
+                .addARGB(178,0xFFc6c6c6)
+                .addARGB(216,0xFFd6d6d6)
+                .addARGB(255,0xFFe6e6e6).build());
     }
 }

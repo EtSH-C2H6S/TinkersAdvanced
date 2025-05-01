@@ -10,6 +10,13 @@ public class TiAcMaterialIds {
     public static final MaterialId BLAZE_NETHERITE =new MaterialId(TinkersAdvanced.getLocation("blaze_netherite"));
     public static final MaterialId IRIDIUM =new MaterialId(TinkersAdvanced.getLocation("iridium"));
     public static final MaterialId DISINTEGRATE_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("disintegrate_crystal"));
+    public static final MaterialId VOLTAIC_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("voltaic_crystal"));
+    public static final MaterialId RESONANCE_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("resonance_crystal"));
+
+    public static class CommonIntegration{
+        public static final MaterialId PLASTIC =new MaterialId(TinkersAdvanced.getLocation("plastic"));
+
+    }
 
     public static class Mekanism{
         public static final MaterialId ANTIMATTER =new MaterialId(TinkersAdvanced.getLocation("antimatter"));

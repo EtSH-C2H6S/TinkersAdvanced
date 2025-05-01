@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.item.toolItem;
 
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.PlasmaBeamProjectile;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.TiAcToolDefinitions;
@@ -242,7 +243,7 @@ public class IonizedCannonItem extends ModifiableItem {
         fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
         float fluidFactor =Math.max(0,1-fluidEfficiency) ;
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
+        int consume = (int) Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F * TiAcConfig.COMMON.IONIZED_CANNON_FLUID_FACTOR.get() : 10 * TiAcConfig.COMMON.IONIZED_CANNON_FLUID_FACTOR.get()) * fluidFactor), 1));
         if (fluidStack.getAmount()<consume&&!creative){
             return InteractionResultHolder.fail(stack);
         }
@@ -250,7 +251,7 @@ public class IonizedCannonItem extends ModifiableItem {
         if (hand==InteractionHand.MAIN_HAND){
             drawTime = Math.round(player.getCurrentItemAttackStrengthDelay()*4);
         }
-        else drawTime = (int) (40/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
+        else drawTime = (int) (TiAcConfig.COMMON.IONIZED_CANNON_BASE_CHARGE_TIME.get()/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
         if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())<=0) {
             tool.getPersistentData().putBoolean(TAG_SOUND, true);

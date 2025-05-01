@@ -40,10 +40,13 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED).color(0xFFFFC7E7).fallbacks("metal").luminosity(6);
         buildRenderInfo(TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED).color(0xFFFFC7E7).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.IRIDIUM).color(0xFFE0D6FF).fallbacks("metal").luminosity(6);
-        buildRenderInfo(TiAcMaterialIds.Mekanism.DENSIUM).color(0xFF13002E).fallbacks("metal").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.Mekanism.DENSIUM).color(0xFF270053).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.Mekanism.NEUTRONITE).color(0xFF30003E).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.Mekanism.OSGLOGLAS).color(0xFF72FF7B).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.DISINTEGRATE_CRYSTAL).color(0xFFFFB968).fallbacks("crystal", "rock").luminosity(10);
+        buildRenderInfo(TiAcMaterialIds.CommonIntegration.PLASTIC).color(0xFFbebebe).fallbacks("metal").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.RESONANCE_CRYSTAL).color(0xFF93d7c1).fallbacks("crystal", "rock").luminosity(7);
+        buildRenderInfo(TiAcMaterialIds.VOLTAIC_CRYSTAL).color(0xFFa19aff).fallbacks("crystal", "rock").luminosity(15);
     }
 
     public static final Set<MaterialStatsId> allStats = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,MaterialRegistry.ARMOR));

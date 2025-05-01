@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase;
 
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -25,9 +26,8 @@ public class OverHold extends FluidDisplayBaseModifier implements ToolStatsModif
 
     @Override
     public void addToolStats(IToolContext context, ModifierEntry modifier, ModifierStatsBuilder builder) {
-        ToolTankHelper.CAPACITY_STAT.percent(builder,9);
-        TiAcToolStats.RANGE.update(builder,16f);
-        TiAcToolStats.SCALE.update(builder,1f);
-        TiAcToolStats.FLUID_EFFICIENCY.update(builder,0f);
+        ToolTankHelper.CAPACITY_STAT.percent(builder, TiAcConfig.COMMON.MATTER_MANIPULATOR_CAPACITY_FACTOR.get()-1);
+        TiAcToolStats.RANGE.update(builder,(float)(double)TiAcConfig.COMMON.MATTER_MANIPULATOR_BASE_RANGE.get());
+        TiAcToolStats.FLUID_EFFICIENCY.update(builder,(float)(double)TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_EFFICIENCY.get());
     }
 }

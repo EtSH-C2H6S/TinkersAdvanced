@@ -37,7 +37,11 @@
     "supreme_density": "#6F00FF",
     "supreme_density_armor" : "#6F00FF",
     "ionized" : "#6F00FF",
-    "disintegrate" : "#FFB873"
+    "disintegrate" : "#FFB873",
+    "electric" : "#7463D4",
+    "echo_locating" : "#22E8A3",
+    "shaping" : "#DBDBDB",
+    "elastic" : "#DBDBDB"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",
@@ -58,6 +62,8 @@
     "iridium": "#E0D6FF",
     "densium": "#8E76FF",
     "neutronite": "#6F00FF",
-    "disintegrate_crystal" : "#FFB873"
+    "disintegrate_crystal" : "#FFB873",
+    "resonance_crystal" : "#22E8A3",
+    "voltaic_crystal" : "#7463D4"
   }
 }

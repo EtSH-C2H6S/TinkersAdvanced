@@ -188,6 +188,33 @@ public enum EnumMaterialStats {
             false,
             StatlessMaterialStats.BINDING
     ),
+    RESONANCE_CRYSTAL(
+            null,
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(0.05f,-0.25f,0.25f,-0.1f),
+            new HeadMaterialStats(890,5f, Tiers.NETHERITE,3f),
+            StatlessMaterialStats.MAILLE
+    ),
+    VOLTAIC_CRYSTAL(
+            null,
+            false,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(-0.25f,1f,1f,-0.25f),
+            new HeadMaterialStats(925,10f, Tiers.NETHERITE,4f),
+            new GripMaterialStats(-0.25f,-0.05f,4f),
+            new LimbMaterialStats(925,1f,-0.1f,-0.1f)
+    ),
+    PLASTIC(
+            null,
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(0.1f,-0.1f,0.1f,-0.1f),
+            new HeadMaterialStats(255,1f, Tiers.WOOD,0.5f),
+            new GripMaterialStats(0.1f,-0.05f,0.5f),
+            new LimbMaterialStats(255,0.2f,-0.1f,-0.05f)
+    ),
+
 
 
 

@@ -209,9 +209,10 @@ public class MatterManipulator extends ModifiableItem {
                                 effect = effect1.effect();
                             }
                             if (effect instanceof BreakBlockFluidEffect effect1) {
-                                if (!effect1.enchantments().isEmpty()) {
-                                    breakSpeed += (float) ((effect1.hardness()/10)*TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_BOOST.get());
+                                breakSpeed += (float) ((effect1.hardness()/10)*TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_BOOST.get());
+                                if (TiAcConfig.COMMON.MATTER_MANIPULATOR_FLUID_ENCHANTING.get()&&!effect1.enchantments().isEmpty()) {
                                     effect1.enchantments().forEach((enchantment, integer) -> map.merge(enchantment, integer, Integer::sum));
+                                    EnchantmentHelper.setEnchantments(map, stack1);
                                 }
                             }
                         }
@@ -219,7 +220,6 @@ public class MatterManipulator extends ModifiableItem {
 
                     if (TierSortingRegistry.isCorrectTierForDrops(tier, blockState)) {
 
-                        EnchantmentHelper.setEnchantments(map, stack1);
                         ToolStack copy = ToolStack.from(stack1);
                         breakSpeed = ForgeEventFactory.getBreakSpeed(player, blockState, breakSpeed, blockPos);
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {

@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase;
 
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -39,8 +40,8 @@ public class SculkResonance extends FluidDisplayBaseModifier implements ToolStat
 
     @Override
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder builder) {
-        TiAcToolStats.RANGE.update(builder,12f);
-        TiAcToolStats.SCALE.update(builder,1f);
-        TiAcToolStats.FLUID_EFFICIENCY.update(builder,0f);
+        TiAcToolStats.RANGE.update(builder,(float)(double)TiAcConfig.COMMON.IONIZED_CANNON_BASE_RANGE.get());
+        TiAcToolStats.SCALE.update(builder,(float)(double)TiAcConfig.COMMON.IONIZED_CANNON_BASE_SCALE.get());
+        TiAcToolStats.FLUID_EFFICIENCY.update(builder,(float)(double)TiAcConfig.COMMON.IONIZED_CANNON_BASE_FLUID_EFFICIENCY.get());
     }
 }
