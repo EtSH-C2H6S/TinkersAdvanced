@@ -24,6 +24,7 @@
       "durability": 396,
       "velocity": -0.05
     },
-    "tconstruct:maille": {}
+    "tconstruct:maille": {},
+    "tconstruct:shield_core": {}
   }
 }

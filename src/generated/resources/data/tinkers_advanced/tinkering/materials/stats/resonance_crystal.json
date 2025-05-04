@@ -13,6 +13,7 @@
       "mining_speed": 5.0,
       "mining_tier": "minecraft:netherite"
     },
-    "tconstruct:maille": {}
+    "tconstruct:maille": {},
+    "tconstruct:shield_core": {}
   }
 }
