@@ -149,6 +149,15 @@ public class TiAcFluids {
             }
         }
     },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_PROTOCITE = registerFluid(MEK_FLUIDS,"molten_protocite",2250, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+        @Override
+        public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+            super.entityInside(state, level, pos, entity);
+            if (entity instanceof LivingEntity living) {
+                living.addEffect(new MobEffectInstance(TiAcEffects.PROTO_POISON.get(),200,0));
+            }
+        }
+    },false);
 
 
     private static FluidType.Properties hot(String name,int Temp,boolean gas) {

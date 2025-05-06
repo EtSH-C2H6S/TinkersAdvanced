@@ -35,7 +35,7 @@ public enum EnumMaterialModifier {
     REFINED_OBSIDIAN_DEFAULT(null,entry(EtSTLibModifier.momentum_accelerate.getId()),entry(ModifierIds.dense)),
     REFINED_OBSIDIAN_ARMOR(MaterialRegistry.ARMOR,entry(ModifierIds.ductile,2),entry(ModifierIds.dense)),
 
-    IRRADIUM_DEFAULT(null,entry(EtSTLibModifier.EtSTLibModifierMek.radiation_inflict.getId()),entry(EtSTLibModifier.glowing.getId())),
+    IRRADIUM_DEFAULT(null,entry(TiAcModifiers.RADIATION_BURNING.getId()),entry(EtSTLibModifier.glowing.getId())),
     IRRADIUM_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.RADIOACTIVE_ARMOR.getId()),entry(EtSTLibModifier.glowing.getId())),
 
     PNEUMATIC_STEEL_DEFAULT(null,entry(EtSTLibModifier.EtSTLibModifierPnC.aerial_reinforced.getId()),entry(TiAcModifiers.AIR_SLASH.getId())),
@@ -61,9 +61,10 @@ public enum EnumMaterialModifier {
 
     DENSIUM_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId())),
     DENSIUM_HEAD(HeadMaterialStats.ID,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifierIds.RUDE)),
-    DENSIUM_HANDLE(HandleMaterialStats.ID,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
+    DENSIUM_HANDLE(HandleMaterialStats.ID,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId(),5),entry(ModifierIds.heavy)),
     DENSIUM_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.momentum_accelerate.getId())),
     DENSIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(EtSTLibModifier.HYPER_DENSITY.getId())),
+    DENSIUM_RANGED(MaterialRegistry.RANGED,entry(EtSTLibModifier.EXTRA_DENSE.getId()),entry(TinkerModifiers.momentum.getId(),5),entry(ModifierIds.heavy)),
 
     NEUTRONITE_DEFAULT(null,entry(TiAcModifiers.SUPREME_DENSITY.getId()),entry(TiAcModifiers.IONIZED.getId())),
     NEUTRONITE_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.SUPREME_DENSITY_ARMOR.getId()),entry(TiAcModifiers.IONIZED.getId())),
@@ -77,7 +78,10 @@ public enum EnumMaterialModifier {
 
     VOLTAIC_CRYSTAL_DEFAULT(null,entry(EtSTLibModifier.energy_loaded.getId()),entry(TiAcModifiers.ELECTRIC.getId())),
 
-    PLASTIC_DEFAULT(null,entry(TiAcModifiers.ELASTIC.getId()),entry(TiAcModifiers.SHAPING.getId()))
+    PLASTIC_DEFAULT(null,entry(TiAcModifiers.ELASTIC.getId()),entry(TiAcModifiers.SHAPING.getId())),
+
+    PROTOCITE_DEFAULT(null,entry(TiAcModifiers.PROTO_REFINING.getId()),entry(EtSTLibModifier.glowing.getId())),
+    PROTOCITE_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.PROTO_DEFENSE.getId()),entry(EtSTLibModifier.glowing.getId())),
     ;
 
     public final ModifierEntry[] modifiers;

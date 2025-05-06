@@ -13,7 +13,7 @@
       "place_fire": true,
       "radius": {
         "each_level": 2.0,
-        "flat": 10.0
+        "flat": 12.0
       }
     }
   ],
@@ -35,7 +35,7 @@
   "entity_effects": [
     {
       "type": "tconstruct:damage",
-      "damage": 10.0,
+      "damage": 12.0,
       "damage_type": {
         "melee": "minecraft:explosion",
         "ranged": "minecraft:explosion"

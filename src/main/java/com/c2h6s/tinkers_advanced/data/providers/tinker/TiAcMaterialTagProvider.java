@@ -14,7 +14,7 @@ public class TiAcMaterialTagProvider extends AbstractMaterialTagProvider {
 
     @Override
     protected void addTags() {
-        this.tag(EtSTLibTags.BLACKLISTED_RANDOM_MATERIAL).addOptional(TiAcMaterialIds.Mekanism.IRRADIUM,TiAcMaterialIds.Mekanism.ANTIMATTER,TiAcMaterialIds.Mekanism.NEUTRONITE,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
+        this.tag(EtSTLibTags.BLACKLISTED_RANDOM_MATERIAL).addOptional(TiAcMaterialIds.Mekanism.IRRADIUM,TiAcMaterialIds.Mekanism.ANTIMATTER,TiAcMaterialIds.Mekanism.NEUTRONITE,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL,TiAcMaterialIds.Mekanism.PROTOCITE);
     }
 
     @Override

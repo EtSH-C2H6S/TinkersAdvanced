@@ -20,7 +20,7 @@
 
   "modifier.tinkers_advanced.auto_shot": "Auto Shot",
   "modifier.tinkers_advanced.auto_shot.flavor": "Auto Shot",
-  "modifier.tinkers_advanced.auto_shot.description": "Enable auto-shot when full charge on ionized cannon.",
+  "modifier.tinkers_advanced.auto_shot.description": "Enable auto-firing when full charge.",
 
   "modifier.tinkers_advanced.annihilate": "Annihilate",
   "modifier.tinkers_advanced.annihilate.flavor": "Not event a dust.",
@@ -28,7 +28,7 @@
 
   "modifier.tinkers_advanced.reactive_explosive_armor": "Reactive Explosive Armor",
   "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "Reactive Explosive Armor",
-  "modifier.tinkers_advanced.reactive_explosive_armor.description": "Blocks 25% damage taken and release them in the form of explosion.",
+  "modifier.tinkers_advanced.reactive_explosive_armor.description": "Blocks 25% damage taken and release them in the form of explosion. Grant immunity to explosion and fire",
 
   "modifier.tinkers_advanced.atom_grade": "Atom-grade Techs",
   "modifier.tinkers_advanced.atom_grade.flavor": "Though It's still less complex than a human brain.",
@@ -56,7 +56,7 @@
 
   "modifier.tinkers_advanced.radioactive_armor": "Radioactive Armor",
   "modifier.tinkers_advanced.radioactive_armor.flavor": "Have you worn a lead pants?",
-  "modifier.tinkers_advanced.radioactive_armor.description": "Inflicts 100mSv radiation to attacker,gain 25% radiation resistance each level.",
+  "modifier.tinkers_advanced.radioactive_armor.description": "Inflicts radiation to attacker, take less damage from radiated attackers. \nGain 25% radiation resistance each level.",
 
   "modifier.tinkers_advanced.air_slash": "Air Slash",
   "modifier.tinkers_advanced.air_slash.flavor": "Pressurized air ejection.",
@@ -158,6 +158,18 @@
   "modifier.tinkers_advanced.shaping.flavor": "Carving for changes.",
   "modifier.tinkers_advanced.shaping.description": "Add upgrade slots (Or defense slots on armor) to your tool after tool being damaged many times.",
 
+  "modifier.tinkers_advanced.radiation_burning": "Radiation Burning",
+  "modifier.tinkers_advanced.radiation_burning.flavor": "Dangerous amount of ionizing radiation.",
+  "modifier.tinkers_advanced.radiation_burning.description": "Inflicts radiation to target. Increase damage when attacking radiated targets.",
+
+  "modifier.tinkers_advanced.proto_refining": "Proto Refining",
+  "modifier.tinkers_advanced.proto_refining.flavor": "Refining using proto poison.",
+  "modifier.tinkers_advanced.proto_refining.description": "Grant higher Fortune and Looting level after constantly mining or attacking.",
+
+  "modifier.tinkers_advanced.proto_defense": "Proto Energy Pack",
+  "modifier.tinkers_advanced.proto_defense.flavor": "Energy pack that don't need energy.",
+  "modifier.tinkers_advanced.proto_defense.description": "Grant immunity to debuffs. When worn in chest slot, gain Haste,Jump Boost and Speed effect.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -199,6 +211,9 @@
 
   "material.tinkers_advanced.irradium": "Irradium",
   "material.tinkers_advanced.irradium.flavor": "Hard and radioactive.Best material to play a trick on your enemy!",
+  "material.tinkers_advanced.irradium.encyclopedia": "Each Sv of radiation boost 5% damage. At a maximum of 75%",
+  "material.tinkers_advanced.irradium.ranged": "Each Sv of radiation boost 5% damage. At a maximum of 75%",
+  "material.tinkers_advanced.irradium.armor": "Each Sv of radiation reduce 5% damage. At a maximum of 75%",
 
   "material.tinkers_advanced.pneumatic_steel": "Pneumatic Steel",
   "material.tinkers_advanced.pneumatic_steel.flavor": "Composed-phase material.Strengthened by rapid cooling.",
@@ -257,6 +272,10 @@
   "material.tinkers_advanced.voltaic_crystal": "Voltaic Crystal",
   "material.tinkers_advanced.voltaic_crystal.flavor": "An electric material that shocks you.",
 
+  "material.tinkers_advanced.protocite": "Protocite",
+  "material.tinkers_advanced.protocite.flavor": "Contains poison from another world.",
+  "material.tinkers_advanced.protocite.encyclopedia": "Grant (traitLevel * 2) Fortune and Looting level after 10 times of mining or attacking.",
+
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
   "item.tinkers_advanced.bismuthinite": "Bismuthinite",
@@ -275,6 +294,7 @@
   "item.tinkers_advanced.osgloglas_ingot": "Osgloglas Ingot",
   "item.tinkers_advanced.resonance_crystal": "Resonance Crystal",
   "item.tinkers_advanced.voltaic_crystal": "Voltaic Crystal",
+  "item.tinkers_advanced.protocite_pellet": "Protocite Pellet",
 
   "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
@@ -344,10 +364,15 @@
   "material.tinkers_advanced.disintegrate_crystal": "Disintegrate Crystal",
   "material.tinkers_advanced.disintegrate_crystal.flavor": "Energetic material radiating destructive energy.",
 
+  "fluid.tinkers_advanced.molten_protocite": "Molten Protocite",
+  "item.tinkers_advanced.molten_protocite_bucket": "Molten Protocite Bucket",
+  "fluid.tinkers_advanced.molten_protocite.fluid_effect": "Proto Poison can permanently reduce 25% target's health, and -20% life regeneration per level during effect duration.",
+
 
 
   "effect.tinkers_advanced.tetanus": "Tetanus",
   "effect.tinkers_advanced.ionized": "Ionized",
+  "effect.tinkers_advanced.proto_poison": "Proto Poison",
 
 
 

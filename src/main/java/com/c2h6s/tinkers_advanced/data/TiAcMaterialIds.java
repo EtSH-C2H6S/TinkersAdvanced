@@ -27,6 +27,7 @@ public class TiAcMaterialIds {
         public static final MaterialId DENSIUM =new MaterialId(TinkersAdvanced.getLocation("densium"));
         public static final MaterialId NEUTRONITE =new MaterialId(TinkersAdvanced.getLocation("neutronite"));
         public static final MaterialId OSGLOGLAS =new MaterialId(TinkersAdvanced.getLocation("osgloglas"));
+        public static final MaterialId PROTOCITE =new MaterialId(TinkersAdvanced.getLocation("protocite"));
     }
 
     public static class AE2{

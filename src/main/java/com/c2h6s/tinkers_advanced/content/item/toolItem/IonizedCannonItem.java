@@ -269,9 +269,6 @@ public class IonizedCannonItem extends ModifiableItem {
             pLevel.playSound(null,pLivingEntity.getX(),pLivingEntity.getY(),pLivingEntity.getZ(), SoundEvents.WARDEN_SONIC_CHARGE,pLivingEntity.getSoundSource(),1,1);
             toolStack.getPersistentData().remove(TAG_SOUND);
         }
-        if (charge==1.0f&&toolStack.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())>0){
-            pLivingEntity.releaseUsingItem();
-        }
     }
 
     @Override

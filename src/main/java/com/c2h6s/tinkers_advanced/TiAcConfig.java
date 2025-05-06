@@ -45,13 +45,51 @@ public class TiAcConfig {
         public final ForgeConfigSpec.IntValue IONIZED_CANNON_BASE_CHARGE_TIME;
         public final ForgeConfigSpec.IntValue SHAPING_MAX_SLOT;
         public final ForgeConfigSpec.IntValue SHAPING_DAMAGES_EACH_SLOT;
+        public final ForgeConfigSpec.IntValue PROTO_REFINING_BONUS_LEVEL;
+        public final ForgeConfigSpec.IntValue PROTO_REFINING_TIMES_REQUIRED;
+        public final ForgeConfigSpec.DoubleValue IRRADIUM_RADIATION_INFLICT;
+        public final ForgeConfigSpec.DoubleValue IRRADIUM_MAX_BONUS;
+        public final ForgeConfigSpec.DoubleValue IRRADIUM_BONUS_PER_Sv;
+        public final ForgeConfigSpec.DoubleValue FRAGILE_CHANCE;
+        public final ForgeConfigSpec.IntValue FRAGILE_EXTRA_COST;
+        public final ForgeConfigSpec.DoubleValue REACTIVE_EXPLOSIVE_ARMOR_REDUCTION;
+        public final ForgeConfigSpec.BooleanValue REACTIVE_EXPLOSIVE_ARMOR_IMMUNITY;
 
         public Common(ForgeConfigSpec.Builder builder){
             builder.comment("Modifiers behaviour").push("modifier_behaviour");
+
+            builder.comment("Shaping");
             this.SHAPING_MAX_SLOT = builder.comment("Max upgrade slot bonus for Shaping modifier, 3 by default.")
                     .defineInRange("shaping_max_slot",3,1,1000);
             this.SHAPING_DAMAGES_EACH_SLOT = builder.comment("How many durability loss is needed for Shaping modifier to gain 1 slot, 500 by default.")
                     .defineInRange("shaping_damages_each_slot",500,1,1000000);
+
+            builder.comment("Proto Refining");
+            this.PROTO_REFINING_BONUS_LEVEL = builder.comment("Bonus enchantment level each trait level for Proto Refining, 2 by default.")
+                    .defineInRange("proto_refining_bonus",2,0,1000);
+            this.PROTO_REFINING_TIMES_REQUIRED = builder.comment("How many times needed for Proto Refining to gain bonus, 10 by default.")
+                    .defineInRange("proto_refining_requirement",10,1,100000);
+
+            builder.comment("Radiation Burning and Radioactive Armor");
+            this.IRRADIUM_MAX_BONUS = builder.comment("Max bonus for Radiation Burning and Radioactive Armor, 0.75 by default.")
+                    .defineInRange("irradium_max_bonus",0.75,0,1);
+            this.IRRADIUM_RADIATION_INFLICT = builder.comment("Radiation amount for Radiation Burning and Radioactive Armor each trait level, 1.0 Sv by default.")
+                    .defineInRange("irradium_radiation_inflict",1d,0,Double.MAX_VALUE);
+            this.IRRADIUM_BONUS_PER_Sv = builder.comment("Bonus for Radiation Burning and Radioactive Armor each Sv, 0.05 by default.")
+                    .defineInRange("irradium_bonus_per_sv",0.05d,0,1);
+
+            builder.comment("Fragile");
+            this.FRAGILE_CHANCE = builder.comment("Chance for extra durability draw for Fragile Modifier, 0.1 by default.")
+                    .defineInRange("fragile_chance",0.1d,0,1);
+            this.FRAGILE_EXTRA_COST = builder.comment("Extra durability cost for Fragile, 1 by default.")
+                    .defineInRange("fragile_cost",1,0,Integer.MAX_VALUE);
+
+            builder.comment("Reactive Explosive Armor");
+            this.REACTIVE_EXPLOSIVE_ARMOR_IMMUNITY = builder.comment("Allows Reactive Explosive Armor Modifier to block explosion and fire damage, true by default.")
+                    .define("reactive_explosive_armor_immunity",true);
+            this.REACTIVE_EXPLOSIVE_ARMOR_REDUCTION = builder.comment("Damage Reduction for Reactive Explosive Armor, 0.25 by default.")
+                    .defineInRange("reactive_explosive_armor_reduction",0.25d,0,1);
+
             builder.pop();
             builder.comment("Matter Manipulator behaviour").push("matter_manipulator");
             this.MATTER_MANIPULATOR_BASE_BOOST = builder.comment("Base mining speed multiplier of Matter Manipulator, 1.0 by default.")

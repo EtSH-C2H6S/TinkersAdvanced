@@ -39,6 +39,7 @@ public enum EnumMaterial {
     RESONANCE_CRYSTAL(TiAcMaterialIds.RESONANCE_CRYSTAL,4,true,false,EnumMaterialStats.RESONANCE_CRYSTAL,null,RESONATE_CRYSTAL_ARMOR,RESONATE_CRYSTAL_DEFAULT),
     VOLTAIC_CRYSTAL(TiAcMaterialIds.VOLTAIC_CRYSTAL,4,true,false,EnumMaterialStats.VOLTAIC_CRYSTAL,null,VOLTAIC_CRYSTAL_DEFAULT),
     PLASTIC(TiAcMaterialIds.CommonIntegration.PLASTIC,2,true,false,EnumMaterialStats.PLASTIC,tagFilled(TiAcTagkeys.Items.PLASTIC),PLASTIC_DEFAULT),
+    PROTOCITE(TiAcMaterialIds.Mekanism.PROTOCITE,4,false,false,EnumMaterialStats.PROTOCITE,modLoaded("mekanism"),PROTOCITE_ARMOR,PROTOCITE_DEFAULT),
     ;
     public final MaterialId id;
     public final int tier;

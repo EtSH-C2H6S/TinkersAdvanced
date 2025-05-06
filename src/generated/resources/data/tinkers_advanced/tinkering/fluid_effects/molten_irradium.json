@@ -23,7 +23,7 @@
   "entity_effects": [
     {
       "type": "tconstruct:damage",
-      "damage": 7.0,
+      "damage": 9.0,
       "damage_type": {
         "melee": "mekanism:radiation",
         "ranged": "mekanism:radiation"

@@ -104,6 +104,7 @@ public class TiAcItems {
 
 
     public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
+    public static final RegistryObject<Item> PROTOCITE_PELLET = registerMaterial(MEK_ITEMS,"protocite_pellet",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> DENSIUM_INGOT = registerMaterial(MEK_ITEMS,"densium_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> OSGLOGLAS_INGOT = registerMaterial(MEK_ITEMS,"osgloglas_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> NEUTRONITE_INGOT = registerMaterial(MEK_ITEMS,"neutronite_ingot",()->new HiddenMaterial(new Item.Properties().rarity(Rarity.EPIC).fireResistant(),List.of(

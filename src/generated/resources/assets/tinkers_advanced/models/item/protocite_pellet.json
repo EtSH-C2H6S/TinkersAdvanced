@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tinkers_advanced:item/material/protocite_pellet"
+  }
+}

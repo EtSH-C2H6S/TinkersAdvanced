@@ -8,6 +8,7 @@
     "LivingEntityAccessor",
     "ServerLevelMixin",
     "TickEventAccessor",
+    "AEMixin.AbstractPortableCellAccessor",
     "mekanismMixin.FusionReactorMultiblockDataMixin"
   ],
   "client": [

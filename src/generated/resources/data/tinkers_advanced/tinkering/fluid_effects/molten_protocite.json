@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:damage",
+      "damage": 6.0,
+      "damage_type": {
+        "melee": "mekanism:radiation",
+        "ranged": "mekanism:radiation"
+      }
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "add",
+      "effect": "tinkers_advanced:proto_poison",
+      "level": 5,
+      "time": 1200
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "fluid": "tinkers_advanced:molten_protocite"
+  }
+}

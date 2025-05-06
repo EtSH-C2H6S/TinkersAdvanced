@@ -6,14 +6,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
-import slimeknights.tconstruct.library.materials.MaterialRegistry;
-import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
-import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
-import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
     public TiAcMaterialRenderInfoProvider(PackOutput packOutput, @Nullable AbstractMaterialSpriteProvider materialSprites, @Nullable ExistingFileHelper existingFileHelper) {
@@ -47,11 +39,8 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.CommonIntegration.PLASTIC).color(0xFFbebebe).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.RESONANCE_CRYSTAL).color(0xFF93d7c1).fallbacks("crystal", "rock").luminosity(7);
         buildRenderInfo(TiAcMaterialIds.VOLTAIC_CRYSTAL).color(0xFFa19aff).fallbacks("crystal", "rock").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.Mekanism.PROTOCITE).color(0xFFD7FF6B).fallbacks("metal").luminosity(15);
     }
-
-    public static final Set<MaterialStatsId> allStats = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,MaterialRegistry.ARMOR));
-    public static final Set<MaterialStatsId> attackAndMaile = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST, MaterialRegistry.RANGED,StatlessMaterialStats.MAILLE.getIdentifier()));
-    public static final Set<MaterialStatsId> noRange = new HashSet<>(List.of(MaterialRegistry.MELEE_HARVEST,MaterialRegistry.ARMOR));
 
     @Override
     public String getName() {

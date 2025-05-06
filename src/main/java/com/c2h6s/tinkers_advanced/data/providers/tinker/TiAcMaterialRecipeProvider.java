@@ -189,6 +189,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         meltMaterial(TiAcFluids.MOLTEN_IRRADIUM.get(),90,TiAcMaterialIds.Mekanism.IRRADIUM,2750, conditional,folder);
         materialRecipe(TiAcMaterialIds.Mekanism.IRRADIUM,Ingredient.of(TiAcItems.IRRADIUM_INGOT.get()),1,1, conditional,folder);
         CombinerRecipeBuilder.combining(ItemStackIngredientCreator.INSTANCE.from(TinkerMaterials.manyullyn.getIngot()), ItemStackIngredientCreator.INSTANCE.from(MekanismItems.POLONIUM_PELLET),new ItemStack(TiAcItems.IRRADIUM_INGOT.get())).build(consumer,new ResourceLocation(folder+"_ingot_create"));
+        folder = namedFolder("protocite");
+        melt1Ingot(TiAcFluids.MOLTEN_PROTOCITE.get(),TiAcItems.PROTOCITE_PELLET.get(),2750, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_PROTOCITE.get(),90,TiAcMaterialIds.Mekanism.PROTOCITE,2750, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.PROTOCITE,Ingredient.of(TiAcItems.PROTOCITE_PELLET.get()),1,1, conditional,folder);
+        CombinerRecipeBuilder.combining(ItemStackIngredientCreator.INSTANCE.from(TinkerMaterials.hepatizon.getIngot()), ItemStackIngredientCreator.INSTANCE.from(MekanismItems.PLUTONIUM_PELLET),new ItemStack(TiAcItems.PROTOCITE_PELLET.get())).build(consumer,new ResourceLocation(folder+"_ingot_create"));
         folder = namedFolder("densium");
         melt1Ingot(TiAcFluids.MOLTEN_DENSIUM.get(),TiAcItems.DENSIUM_INGOT.get(),1755, conditional,folder);
         meltMaterial(TiAcFluids.MOLTEN_DENSIUM.get(),90,TiAcMaterialIds.Mekanism.DENSIUM,1755, conditional,folder);

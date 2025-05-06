@@ -20,7 +20,7 @@
 
   "modifier.tinkers_advanced.auto_shot": "自动开火",
   "modifier.tinkers_advanced.auto_shot.flavor": "自动开火",
-  "modifier.tinkers_advanced.auto_shot.description": "让你的离子化射线炮在满蓄力时自动开火",
+  "modifier.tinkers_advanced.auto_shot.description": "让你的工具在满蓄力时自动开火",
 
   "modifier.tinkers_advanced.annihilate": "湮灭反应",
   "modifier.tinkers_advanced.annihilate.flavor": "灰都不剩！",
@@ -28,7 +28,7 @@
 
   "modifier.tinkers_advanced.reactive_explosive_armor": "爆炸反应装甲",
   "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "爆炸反应装甲",
-  "modifier.tinkers_advanced.reactive_explosive_armor.description": "减少25%所受伤害并将伤害以爆炸的形式释放。",
+  "modifier.tinkers_advanced.reactive_explosive_armor.description": "减少25%所受伤害并将伤害以爆炸的形式释放，免疫爆炸和火焰伤害。",
 
   "modifier.tinkers_advanced.atom_grade": "原子级工艺",
   "modifier.tinkers_advanced.atom_grade.flavor": "如此精密",
@@ -54,9 +54,9 @@
   "modifier.tinkers_advanced.resonance_amplifier.flavor": "你知道怎么利用驻波测定介质长度吗？",
   "modifier.tinkers_advanced.resonance_amplifier.description": "每级增加10m射程。",
 
-  "modifier.tinkers_advanced.radioactive_armor": "放射性护甲",
+  "modifier.tinkers_advanced.radioactive_armor": "镭光护甲",
   "modifier.tinkers_advanced.radioactive_armor.flavor": "既产生辐射，也消除辐射",
-  "modifier.tinkers_advanced.radioactive_armor.description": "对攻击者施加100mSv辐射，每级获得25%辐射抗性。",
+  "modifier.tinkers_advanced.radioactive_armor.description": "对攻击者施加辐射，受到带辐射生物的伤害减少，每级获得25%辐射抗性。",
 
   "modifier.tinkers_advanced.air_slash": "空气斩",
   "modifier.tinkers_advanced.air_slash.flavor": "压缩空气抛射",
@@ -158,6 +158,18 @@
   "modifier.tinkers_advanced.shaping.flavor": "用你的辛勤劳作与它磨合吧！",
   "modifier.tinkers_advanced.shaping.description": "随工具磨损而增加升级槽（于护甲则增加防御槽）。",
 
+  "modifier.tinkers_advanced.radiation_burning": "辐射灼伤",
+  "modifier.tinkers_advanced.radiation_burning.flavor": "危险计量的电离辐射",
+  "modifier.tinkers_advanced.radiation_burning.description": "对目标施加少量辐射，攻击带有辐射的实体时增加伤害。",
+
+  "modifier.tinkers_advanced.proto_refining": "原毒精炼",
+  "modifier.tinkers_advanced.proto_refining.flavor": "生化倍矿！",
+  "modifier.tinkers_advanced.proto_refining.description": "持续挖掘/攻击后，获得可叠加的时运和抢夺效果。",
+
+  "modifier.tinkers_advanced.proto_defense": "原体能量背包",
+  "modifier.tinkers_advanced.proto_defense.flavor": "不需要耗能的能量背包",
+  "modifier.tinkers_advanced.proto_defense.description": "免疫负面效果，当位于胸甲栏位时给予穿戴者急迫、迅捷和跳跃提升。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -199,6 +211,9 @@
 
   "material.tinkers_advanced.irradium": "镭光合金",
   "material.tinkers_advanced.irradium.flavor": "既坚固，又有强放射性，用来恶心你的敌人的最佳材料！",
+  "material.tinkers_advanced.irradium.encyclopedia": "敌人身上的每1Sv辐射都会增加5%伤害，最大75%。",
+  "material.tinkers_advanced.irradium.ranged": "敌人身上的每1Sv辐射都会增加5%伤害，最大75%。",
+  "material.tinkers_advanced.irradium.armor": "敌人身上的每1Sv辐射都会减少5%伤害，最大减少75%。",
 
   "material.tinkers_advanced.pneumatic_steel": "气锻钢",
   "material.tinkers_advanced.pneumatic_steel.flavor": "复合相材料，产自极端的高温高压与骤热骤冷。",
@@ -261,6 +276,10 @@
   "material.tinkers_advanced.voltaic_crystal": "伏打水晶",
   "material.tinkers_advanced.voltaic_crystal.flavor": "自内而外迸发着闪电",
 
+  "material.tinkers_advanced.protocite": "原体合金",
+  "material.tinkers_advanced.protocite.flavor": "它蕴含的毒素似乎来自另外一个世界？",
+  "material.tinkers_advanced.protocite.encyclopedia": "10次挖掘/攻击后，增加属性等级*2的时运和抢夺等级",
+
 
   "material.tinkers_advanced.silicon": "硅",
   "material.tinkers_advanced.diamond": "钻石",
@@ -284,6 +303,7 @@
   "item.tinkers_advanced.osgloglas_ingot": "锇荧黑曜合金锭",
   "item.tinkers_advanced.resonance_crystal": "谐振水晶",
   "item.tinkers_advanced.voltaic_crystal": "伏打水晶",
+  "item.tinkers_advanced.protocite_pellet": "原体合金靶丸",
 
 
   "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
@@ -351,10 +371,15 @@
   "fluid.tinkers_advanced.molten_osgloglas": "熔融锇荧黑曜合金",
   "item.tinkers_advanced.molten_osgloglas_bucket": "熔融锇荧黑曜合金桶",
 
+  "fluid.tinkers_advanced.molten_protocite": "熔融原体合金",
+  "item.tinkers_advanced.molten_protocite_bucket": "熔融原体合金合金桶",
+  "fluid.tinkers_advanced.molten_protocite.fluid_effect": "原毒毒素对目标的生命有很强遏制作用。它会永久减少25%目标生命值，并在持续时间内减少每级20%的受治疗量。",
+
 
 
   "effect.tinkers_advanced.tetanus": "破伤风",
   "effect.tinkers_advanced.ionized": "电离",
+  "effect.tinkers_advanced.proto_poison": "原毒",
 
 
 

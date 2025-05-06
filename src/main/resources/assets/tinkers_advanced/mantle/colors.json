@@ -41,7 +41,10 @@
     "electric" : "#7463D4",
     "echo_locating" : "#22E8A3",
     "shaping" : "#DBDBDB",
-    "elastic" : "#DBDBDB"
+    "elastic" : "#DBDBDB",
+    "radiation_burning": "#82FFFF",
+    "proto_refining" : "#D7FF82",
+    "proto_defense": "#D7FF82"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",

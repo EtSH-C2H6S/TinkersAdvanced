@@ -36,6 +36,7 @@ public enum EnumMaterialStats {
             false,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
+            StatlessMaterialStats.SHIELD_CORE,
             new HandleMaterialStats(-0.1f,-0.2f,0.0f,0.05f),
             new HeadMaterialStats(202,4.5f, Tiers.IRON,1.5f),
             new GripMaterialStats(-0.05f,0.1f,1.5f),
@@ -46,6 +47,7 @@ public enum EnumMaterialStats {
                     false,
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.MAILLE,
+            StatlessMaterialStats.SHIELD_CORE,
             new HandleMaterialStats(0.05f,0f,0.05f,-0.05f),
             new HeadMaterialStats(396,6.5f, Tiers.IRON,2.05f),
             new GripMaterialStats(0.05f,0.1f,2.05f),
@@ -158,10 +160,10 @@ public enum EnumMaterialStats {
             armor(128,3.5f,8.25f,6.25f,3.5f).toughness(3.5f).knockbackResistance(10),
             true,
             StatlessMaterialStats.BINDING,
-            new HandleMaterialStats(1.2f,0.2f,-0.6f,0.75f),
-            new HeadMaterialStats(2048,10f, Tiers.NETHERITE,4.5f),
-            new GripMaterialStats(1.2f,0.2f,4.5f),
-            new LimbMaterialStats(2048,-0.6f,0.6f,0.2f),
+            new HandleMaterialStats(1.2f,0.2f,-0.5f,0.8f),
+            new HeadMaterialStats(2048,10f, Tiers.NETHERITE,5.5f),
+            new GripMaterialStats(1.2f,0.2f,5.5f),
+            new LimbMaterialStats(2048,-0.5f,0.75f,0.2f),
             StatlessMaterialStats.MAILLE
     ),
     NEUTRONITE(
@@ -192,6 +194,7 @@ public enum EnumMaterialStats {
             null,
             true,
             StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.SHIELD_CORE,
             new HandleMaterialStats(0.05f,-0.25f,0.25f,-0.1f),
             new HeadMaterialStats(890,5f, Tiers.NETHERITE,3f),
             StatlessMaterialStats.MAILLE
@@ -209,10 +212,20 @@ public enum EnumMaterialStats {
             null,
             true,
             StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            StatlessMaterialStats.SHIELD_CORE,
             new HandleMaterialStats(0.1f,-0.1f,0.1f,-0.1f),
             new HeadMaterialStats(255,1f, Tiers.WOOD,0.5f),
             new GripMaterialStats(0.1f,-0.05f,0.5f),
             new LimbMaterialStats(255,0.2f,-0.1f,-0.05f)
+    ),
+    PROTOCITE(
+            armor(49,3.5f,8f,6.5f,3.5f).toughness(2f),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(0.8f,0.8f,-0.1f,-0.1f),
+            new HeadMaterialStats(990,10.0f, Tiers.NETHERITE,6f)
     ),
 
 

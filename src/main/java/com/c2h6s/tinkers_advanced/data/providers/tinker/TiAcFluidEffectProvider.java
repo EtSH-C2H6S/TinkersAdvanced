@@ -30,6 +30,7 @@ import slimeknights.tconstruct.library.modifiers.fluid.block.BreakBlockFluidEffe
 import slimeknights.tconstruct.library.modifiers.fluid.block.MobEffectCloudFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.block.PlaceBlockFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect;
+import slimeknights.tconstruct.library.modifiers.fluid.entity.MobEffectFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ExplosionFluidEffect;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
@@ -56,15 +57,15 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
         addFluid(TiAcFluids.PLASMATIC_LAVA.get(),100)
                 .fireDamage(6f);
         addFluid(TiAcFluids.MOLTEN_ANTIMATTER.get(),50)
-                .addDamage(10,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
+                .addDamage(12,new DamageFluidEffect.DamageTypePair(DamageTypes.EXPLOSION,DamageTypes.EXPLOSION))
                 .addBlockEffect(ExplosionFluidEffect
-                        .radius(10,2)
+                        .radius(12,2)
                         .blockInteraction(Explosion.BlockInteraction.DESTROY)
                         .placeFire()
                         .damage(new LevelingValue(10,2)).build())
                 .addCondition(tagFilled(MekanismTags.Items.PELLETS_ANTIMATTER));
         addFluid(TiAcFluids.MOLTEN_IRRADIUM.get(),10)
-                .addDamage(7,new DamageFluidEffect.DamageTypePair(MekanismDamageTypes.RADIATION.key(),MekanismDamageTypes.RADIATION.key()))
+                .addDamage(9,new DamageFluidEffect.DamageTypePair(MekanismDamageTypes.RADIATION.key(),MekanismDamageTypes.RADIATION.key()))
                 .addEntityEffect(new RadiateEntityFluidEffect(new LevelingValue(0.1f,0.1f)))
                 .addBlockEffect(new ClearChunkRadiationFluidEffect(2))
                 .addCondition(modLoaded("mekanism"));
@@ -139,6 +140,10 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
                 .addBlockEffect(new PlaceBlockFluidEffect(Blocks.FIRE, SoundEvents.FLINTANDSTEEL_USE))
                 .addBlockEffect(ExplosionFluidEffect.radius(5,2.5f).ignoreBlocks().placeFire().build())
                 .addCondition(modLoaded("thermal"));
+        addFluid(TiAcFluids.MOLTEN_PROTOCITE.get(),10)
+                .addDamage(6,new DamageFluidEffect.DamageTypePair(MekanismDamageTypes.RADIATION.key(),MekanismDamageTypes.RADIATION.key()))
+                .addEntityEffects(FluidMobEffect.builder().effect(TiAcEffects.PROTO_POISON.get(),1200,5).buildEntity(TimeAction.ADD))
+                .addCondition(modLoaded("mekanism"));
     }
     public static ICondition modLoaded(String modId){
         return new OrCondition(ConfigEnabledCondition.FORCE_INTEGRATION_MATERIALS,new ModLoadedCondition(modId));

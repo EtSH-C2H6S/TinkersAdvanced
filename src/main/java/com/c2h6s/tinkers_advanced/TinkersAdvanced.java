@@ -65,6 +65,9 @@ public class TinkersAdvanced
             TiAcModifiers.THERMAL_MODIFIERS.register(modEventBus);
             TiAcEntities.THERMAL_ENTITIES.register(modEventBus);
         }
+        if (ModListConstants.AE2Loaded){
+            TiAcModifiers.AE_MODIFIERS.register(modEventBus);
+        }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
 

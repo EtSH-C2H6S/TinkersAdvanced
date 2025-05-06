@@ -32,8 +32,12 @@
         "name": "etstlib:extra_dense"
       },
       {
-        "level": 1,
+        "level": 5,
         "name": "etstlib:momentum_accelerate"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:heavy"
       }
     ],
     "tconstruct:head": [
