@@ -1,11 +1,13 @@
 package com.c2h6s.tinkers_advanced.data.providers.tinker;
 
 import appeng.datagen.providers.tags.ConventionTags;
+import com.buuz135.industrial.module.ModuleCore;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
 import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
 import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
+import me.desht.pneumaticcraft.api.data.PneumaticCraftTags;
 import mekanism.api.datagen.recipe.builder.CombinerRecipeBuilder;
 import mekanism.common.recipe.ingredient.creator.ItemStackIngredientCreator;
 import mekanism.common.registries.MekanismFluids;
@@ -34,6 +36,7 @@ import slimeknights.mantle.recipe.helper.FluidOutput;
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.mantle.recipe.ingredient.FluidIngredient;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.json.ConfigEnabledCondition;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
@@ -212,6 +215,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
                 .addInput(TinkerFluids.moltenRefinedObsidian.get(),180)
                 .addInput(TinkerFluids.moltenRefinedGlowstone.get(),360)
                 .save(conditional,new ResourceLocation(folder+"_alloy"));
+        folder = namedFolder("nutritive_slime");
+        melt1Ingot(TiAcFluids.MOLTEN_NUTRITIVE_SLIMESTEEL.get(),TiAcItems.NUTRITION_SLIME_INGOT.get(),990, conditional,folder);
+        meltMaterial(TiAcFluids.MOLTEN_NUTRITIVE_SLIMESTEEL.get(),90,TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL,990, conditional,folder);
+        materialRecipe(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL,Ingredient.of(TiAcItems.NUTRITION_SLIME_INGOT.get()),1,1, conditional,folder);
+        ItemCastingRecipeBuilder.tableRecipe(TiAcItems.NUTRITION_SLIME_INGOT.get()).setCoolingTime(990,90).setFluid(MekanismFluids.NUTRITIONAL_PASTE.getFluid(), 250).setCast(TinkerMaterials.slimesteel.getIngot(),true).save(conditional,new ResourceLocation(folder+"ingot_create"));
         folder = namedFolder("neutronite");
         meltMaterial(TiAcFluids.MOLTEN_NEUTRONITE.get(),90,TiAcMaterialIds.Mekanism.NEUTRONITE,9273, conditional,folder);
         MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.NEUTRONITE_INGOT.get()),FluidOutput.fromFluid(TiAcFluids.MOLTEN_NEUTRONITE.get(),1),9273,1).save(conditional,new ResourceLocation(folder+"_melting_1mb"));
@@ -221,6 +229,11 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
         conditional = withCondition(consumer,modLoaded("pneumaticcraft"));
         folder = namedFolder("pneumatic_steel");
         materialRecipe(TiAcMaterialIds.PnC.PNEUMATIC_STEEL,Ingredient.of(TiAcItems.PNEUMATIC_STEEL.get()),1,1, conditional,folder);
+        folder = namedFolder("compressed_iron");
+        conditional = withCondition(consumer,tagFilled(PneumaticCraftTags.Items.INGOTS_COMPRESSED_IRON));
+        materialRecipe(TiAcMaterialIds.PnC.COMPRESSED_IRON,Ingredient.of(PneumaticCraftTags.Items.INGOTS_COMPRESSED_IRON),1,1, conditional,folder);
+        conditional = withCondition(consumer,tagFilled(PneumaticCraftTags.Items.STORAGE_BLOCKS_COMPRESSED_IRON));
+        materialRecipe(TiAcMaterialIds.PnC.COMPRESSED_IRON,Ingredient.of(PneumaticCraftTags.Items.STORAGE_BLOCKS_COMPRESSED_IRON),1,9, conditional,folder);
         //Thermal
         conditional = withCondition(consumer,modLoaded("thermal"));
         folder = namedFolder("basalz_signalum");
@@ -246,6 +259,12 @@ public class TiAcMaterialRecipeProvider extends RecipeProvider implements ISmelt
                 .addInput(TiAcFluids.MOLTEN_BLIZZ_ENDERIUM.get(),270)
                 .addInput(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get(),270)
                 .save(conditional,new ResourceLocation(folder+"_alloy"));
+        //IndustrialForgoing
+        conditional = withCondition(consumer,modLoaded("industrialforegoing"));
+        folder = namedFolder("pink_slime_metal");
+        meltMaterial(TiAcFluids.MOLTEN_PINK_SLIME.get(),90,TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL,980, conditional,folder);
+        melt1Slimeball(TiAcFluids.MOLTEN_PINK_SLIME.get(),ModuleCore.PINK_SLIME_INGOT.get(),980, conditional,folder);
+        materialRecipe(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL,Ingredient.of(ModuleCore.PINK_SLIME_INGOT.get()),1,1, conditional,folder);
         //Common Integration
         folder = namedFolder("plastic");
         conditional =withCondition(consumer, tagFilled(TiAcTagkeys.Items.PLASTIC));

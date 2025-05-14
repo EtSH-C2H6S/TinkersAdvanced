@@ -36,10 +36,13 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.Mekanism.NEUTRONITE).color(0xFF30003E).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.Mekanism.OSGLOGLAS).color(0xFF72FF7B).fallbacks("metal").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.DISINTEGRATE_CRYSTAL).color(0xFFFFB968).fallbacks("crystal", "rock").luminosity(10);
-        buildRenderInfo(TiAcMaterialIds.CommonIntegration.PLASTIC).color(0xFFbebebe).fallbacks("metal").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.CommonIntegration.PLASTIC).color(0xFFbebebe).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.RESONANCE_CRYSTAL).color(0xFF93d7c1).fallbacks("crystal", "rock").luminosity(7);
         buildRenderInfo(TiAcMaterialIds.VOLTAIC_CRYSTAL).color(0xFFa19aff).fallbacks("crystal", "rock").luminosity(15);
         buildRenderInfo(TiAcMaterialIds.Mekanism.PROTOCITE).color(0xFFD7FF6B).fallbacks("metal").luminosity(15);
+        buildRenderInfo(TiAcMaterialIds.PnC.COMPRESSED_IRON).color(0xFFa1a1a1).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL).color(0xFFf77dbf).fallbacks("slime_metal","metal");
+        buildRenderInfo(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL).color(0xFFd08cc5).fallbacks("slime_metal","metal");
     }
 
     @Override

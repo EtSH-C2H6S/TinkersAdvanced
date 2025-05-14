@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tconstruct:overslime"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:nutritive_slime"
+    }
+  ]
+}

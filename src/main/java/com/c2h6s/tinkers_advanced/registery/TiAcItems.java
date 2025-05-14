@@ -2,9 +2,8 @@ package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.content.item.HiddenMaterial;
-import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCasingMaterialStat;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
-import com.c2h6s.tinkers_advanced.content.item.toolItem.FluxContainerItem;
+import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
 import com.c2h6s.tinkers_advanced.content.item.toolItem.IonizedCannonItem;
 import com.c2h6s.tinkers_advanced.content.item.toolItem.MatterManipulator;
 import net.minecraft.ChatFormatting;
@@ -33,6 +32,7 @@ public class TiAcItems {
     public static final DeferredRegister<Item> MEK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> PNC_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> THERMAL_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> IF_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final ItemDeferredRegisterExtension TINKER_ITEMS = new ItemDeferredRegisterExtension(MODID);
 
@@ -85,26 +85,25 @@ public class TiAcItems {
 
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTHINITE = registerMaterial(ITEMS,"bismuthinite",()->new Item(new Item.Properties()),true);
-    public static final RegistryObject<Item> DISINTEGRATE_CRYSTAL = registerMaterial(ITEMS,"disintegrate_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> BLAZE_NETHERITE = registerMaterial(ITEMS,"blaze_netherite",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON).fireResistant()),true);
     public static final RegistryObject<Item> IRIDIUM_CHUNK = registerMaterial(ITEMS,"iridium_chunk",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> RESONANCE_CRYSTAL = registerMaterial(ITEMS,"resonance_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> DISINTEGRATE_CRYSTAL = registerMaterial(ITEMS,"disintegrate_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> VOLTAIC_CRYSTAL = registerMaterial(ITEMS,"voltaic_crystal",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
     public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
-//    public static final ItemObject<ToolPartItem> FLUX_CORE = TINKER_ITEMS.register("flux_core",()->new ToolPartItem(new Item.Properties(), FluxCoreMaterialStat.ID));
-//    public static final ItemObject<ToolPartItem> FLUX_CASING = TINKER_ITEMS.register("flux_casing",()->new ToolPartItem(new Item.Properties(), FluxCasingMaterialStat.ID));
+    public static final ItemObject<ToolPartItem> FLUX_CORE = TINKER_ITEMS.register("flux_core",()->new ToolPartItem(new Item.Properties(), FluxCoreMaterialStat.ID));
 
 
     public static final ItemObject<ModifiableItem> IONIZED_CANNON = TINKER_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
     public static final ItemObject<ModifiableItem> MATTER_MANIPULATOR = TINKER_ITEMS.register("matter_manipulator",()->new MatterManipulator(new Item.Properties().stacksTo(1)));
-    public static final ItemObject<ModifiableItem> FLUX_CONTAINER = TINKER_ITEMS.register("flux_container",()->new FluxContainerItem(new Item.Properties().stacksTo(1)));
+    public static final ItemObject<ModifiableItem> ELECTRON_TUNER = TINKER_ITEMS.register("electron_tuner",()->new ElectronTunerItem(new Item.Properties().stacksTo(1)));
 
 
 
     public static final RegistryObject<Item> IRRADIUM_INGOT = registerMaterial(MEK_ITEMS,"irradium_ingot",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
-    public static final RegistryObject<Item> PROTOCITE_PELLET = registerMaterial(MEK_ITEMS,"protocite_pellet",()->new Item(new Item.Properties()),true);
+    public static final RegistryObject<Item> PROTOCITE_PELLET = registerMaterial(MEK_ITEMS,"protocite_pellet",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
     public static final RegistryObject<Item> DENSIUM_INGOT = registerMaterial(MEK_ITEMS,"densium_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> OSGLOGLAS_INGOT = registerMaterial(MEK_ITEMS,"osgloglas_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> NEUTRONITE_INGOT = registerMaterial(MEK_ITEMS,"neutronite_ingot",()->new HiddenMaterial(new Item.Properties().rarity(Rarity.EPIC).fireResistant(),List.of(
@@ -113,6 +112,7 @@ public class TiAcItems {
             Component.translatable("tooltip.tinkers_advanced.neutronite_2"),
             Component.translatable("tooltip.tinkers_advanced.neutronite_3").withStyle(ChatFormatting.DARK_AQUA)
     ), TiAcConfig.COMMON.EXPLODING_FUSION_REACTOR),true);
+    public static final RegistryObject<Item> NUTRITION_SLIME_INGOT = registerMaterial(MEK_ITEMS,"nutrition_slime_ingot",()->new Item(new Item.Properties()),true);
 
 
 

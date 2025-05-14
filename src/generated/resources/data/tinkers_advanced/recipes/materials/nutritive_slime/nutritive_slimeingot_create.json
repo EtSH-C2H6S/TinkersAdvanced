@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "tconstruct:slimesteel_ingot"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "cooling_time": 66,
+  "fluid": {
+    "amount": 250,
+    "fluid": "mekanism:nutritional_paste"
+  },
+  "result": "tinkers_advanced:nutrition_slime_ingot"
+}

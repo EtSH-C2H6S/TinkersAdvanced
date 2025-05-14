@@ -32,6 +32,7 @@ public class TiAcFluids {
     public static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     public static final FluidDeferredRegister MEK_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     public static final FluidDeferredRegister THERMAL_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
+    public static final FluidDeferredRegister IF_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     protected static Map<FluidObject<ForgeFlowingFluid>,Boolean> FLUID_MAP = new HashMap<>();
     public static Set<FluidObject<ForgeFlowingFluid>> getFluids(){
         return FLUID_MAP.keySet();
@@ -158,6 +159,10 @@ public class TiAcFluids {
             }
         }
     },false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_NUTRITIVE_SLIMESTEEL = registerHotBurning(MEK_FLUIDS,"molten_nutritive_slime",980,7,19,3f,false);
+
+
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_PINK_SLIME = registerHotBurning(IF_FLUIDS,"molten_pink_slime",990,7,20,3f,false);
 
 
     private static FluidType.Properties hot(String name,int Temp,boolean gas) {

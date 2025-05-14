@@ -28,6 +28,7 @@ public class TiAcMaterialIds {
         public static final MaterialId NEUTRONITE =new MaterialId(TinkersAdvanced.getLocation("neutronite"));
         public static final MaterialId OSGLOGLAS =new MaterialId(TinkersAdvanced.getLocation("osgloglas"));
         public static final MaterialId PROTOCITE =new MaterialId(TinkersAdvanced.getLocation("protocite"));
+        public static final MaterialId NUTRITIVE_SLIMESTEEL =new MaterialId(TinkersAdvanced.getLocation("nutritive_slime"));
     }
 
     public static class AE2{
@@ -37,6 +38,7 @@ public class TiAcMaterialIds {
 
     public static class PnC{
         public static final MaterialId PNEUMATIC_STEEL =new MaterialId(TinkersAdvanced.getLocation("pneumatic_steel"));
+        public static final MaterialId COMPRESSED_IRON =new MaterialId(TinkersAdvanced.getLocation("compressed_iron"));
     }
 
     public static class Thermal{
@@ -48,6 +50,10 @@ public class TiAcMaterialIds {
             public static final MaterialVariantId ACTIVATED_CHROMATIC_STEEL_ACTIVATED =MaterialVariantId.create(Thermal.ACTIVATED_CHROMATIC_STEEL,"activated");
             public static final MaterialVariantId ACTIVATED_CHROMATIC_STEEL_EMPOWERED =MaterialVariantId.create(Thermal.ACTIVATED_CHROMATIC_STEEL,"empowered");
         }
+    }
+
+    public static class IndustrialForgoing{
+        public static final MaterialId PINK_SLIME_METAL =new MaterialId(TinkersAdvanced.getLocation("pink_slime_metal"));
     }
 
 }

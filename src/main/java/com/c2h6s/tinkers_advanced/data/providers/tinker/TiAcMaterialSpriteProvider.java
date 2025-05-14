@@ -224,5 +224,29 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(178,0xFFB6CD63)
                 .addARGB(216,0xFFCFE771)
                 .addARGB(255,0xFFEFFFB4).build());
+        this.buildMaterial(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL).armor().ranged().meleeHarvest().fallbacks("slime_metal","metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFFee6dc8)
+                .addARGB(102,0xFFfb9be1)
+                .addARGB(140,0xFFd42d97)
+                .addARGB(178,0xFFe051ac)
+                .addARGB(216,0xFFf77dbf)
+                .addARGB(255,0xFFfdbadf).build());
+        this.buildMaterial(TiAcMaterialIds.PnC.COMPRESSED_IRON).maille().meleeHarvest().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF1f1b1b)
+                .addARGB(102,0xFF2b2727)
+                .addARGB(140,0xFF544f4b)
+                .addARGB(178,0xFF66625e)
+                .addARGB(216,0xFFa1a1a1)
+                .addARGB(255,0xFFbdbdbd).build());
+        this.buildMaterial(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL).ranged().meleeHarvest().fallbacks("slime_metal","metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF602b57)
+                .addARGB(102,0xFF733469)
+                .addARGB(140,0xFFb65da7)
+                .addARGB(178,0xFFc279b6)
+                .addARGB(216,0xFFd08cc5)
+                .addARGB(255,0xFFe7cae2).build());
     }
 }
