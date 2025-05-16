@@ -31,6 +31,11 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
         this.setScale(scale);
     }
 
+    @Override
+    public boolean isAttackable() {
+        return false;
+    }
+
     public PlasmaExplosionProjectile(Level pLevel, float scale){
         this(TiAcEntities.PLASMA_EXPLOSION.get(), pLevel,scale);
     }

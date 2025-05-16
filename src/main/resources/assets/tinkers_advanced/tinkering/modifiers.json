@@ -1,3 +1,4 @@
 {
-  "tinkers_advanced:sculk_resonance": { "type": "tconstruct:normal", "luminosity": 15 }
+  "tinkers_advanced:sculk_resonance": { "type": "tconstruct:normal", "luminosity": 15 },
+  "tinkers_advanced:ender_tuner": { "type": "tconstruct:normal", "luminosity": 15 }
 }

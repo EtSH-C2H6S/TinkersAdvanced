@@ -23,6 +23,10 @@
       "draw_speed": -0.1,
       "durability": 376,
       "velocity": 0.15
+    },
+    "tinkers_advanced:flux_core": {
+      "capacity": 3.5,
+      "generate": 9.5
     }
   }
 }

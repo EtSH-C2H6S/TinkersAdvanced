@@ -33,6 +33,11 @@ public class AirSlashProjectile extends Projectile {
     }
 
     @Override
+    public boolean isAttackable() {
+        return false;
+    }
+
+    @Override
     public void tick() {
         super.tick();
         if (this.tickCount>9) this.discard();

@@ -1,6 +1,7 @@
 {
   "values": [
     "tinkers_advanced:ionize_chamber",
-    "tinkers_advanced:particle_container"
+    "tinkers_advanced:particle_container",
+    "tinkers_advanced:flux_core"
   ]
 }

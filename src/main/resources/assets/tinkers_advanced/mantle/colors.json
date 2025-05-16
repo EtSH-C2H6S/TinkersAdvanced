@@ -44,7 +44,9 @@
     "elastic" : "#DBDBDB",
     "radiation_burning": "#82FFFF",
     "proto_refining" : "#D7FF82",
-    "proto_defense": "#D7FF82"
+    "proto_defense": "#D7FF82",
+    "return_to_slime" : "#851172",
+    "nutritive_slime": "#E8B5ED"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",

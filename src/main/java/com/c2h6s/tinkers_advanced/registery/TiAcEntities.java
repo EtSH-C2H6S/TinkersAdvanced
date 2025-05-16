@@ -35,6 +35,12 @@ public class TiAcEntities {
             .setTrackingRange(8)
             .setShouldReceiveVelocityUpdates(false)
             .setUpdateInterval(1));
+    public static final RegistryObject<EntityType<PlasmaSlashEntity>> PLASMA_SLASH = ENTITIES.register("plasma_slash",()-> EntityType.Builder.<PlasmaSlashEntity>of(PlasmaSlashEntity::new, MobCategory.MISC)
+            .sized(2,2)
+            .setCustomClientFactory(((spawnEntity, level) -> new PlasmaSlashEntity(level)))
+            .setTrackingRange(8)
+            .setShouldReceiveVelocityUpdates(true)
+            .setUpdateInterval(4));
 
 
     public static final RegistryObject<EntityType<ThermalSlashProjectile>> THERMAL_SLASH = THERMAL_ENTITIES.register("thermal_slash",()->

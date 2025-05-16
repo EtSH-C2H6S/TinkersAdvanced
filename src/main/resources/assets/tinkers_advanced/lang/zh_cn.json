@@ -170,6 +170,18 @@
   "modifier.tinkers_advanced.proto_defense.flavor": "不需要耗能的能量背包",
   "modifier.tinkers_advanced.proto_defense.description": "免疫负面效果，当位于胸甲栏位时给予穿戴者急迫、迅捷和跳跃提升。",
 
+  "modifier.tinkers_advanced.return_to_slime": "万物归于粘液",
+  "modifier.tinkers_advanced.return_to_slime.flavor": "解析、吞噬、同化。",
+  "modifier.tinkers_advanced.return_to_slime.description": "挖掘/击杀生物后有概率根据获得的战利品的数量恢复黏液附层。",
+
+  "modifier.tinkers_advanced.nutritive_slime": "营养粘液",
+  "modifier.tinkers_advanced.nutritive_slime.flavor": "但是并不美味...",
+  "modifier.tinkers_advanced.nutritive_slime.description": "装备时消耗粘液附层恢复饱食度和饱和度。",
+
+  "modifier.tinkers_advanced.ender_tuner": "末影调谐",
+  "modifier.tinkers_advanced.ender_tuner.flavor": "真正的“可改进”",
+  "modifier.tinkers_advanced.ender_tuner.description": "攻击时造成抑影效果，获得50kFE能量存储，损伤时优先消耗能量而非耐久。Shift-右键以打开一个调整页面，可以调节工具的性质。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -211,9 +223,9 @@
 
   "material.tinkers_advanced.irradium": "镭光合金",
   "material.tinkers_advanced.irradium.flavor": "既坚固，又有强放射性，用来恶心你的敌人的最佳材料！",
-  "material.tinkers_advanced.irradium.encyclopedia": "敌人身上的每1Sv辐射都会增加5%伤害，最大75%。",
-  "material.tinkers_advanced.irradium.ranged": "敌人身上的每1Sv辐射都会增加5%伤害，最大75%。",
-  "material.tinkers_advanced.irradium.armor": "敌人身上的每1Sv辐射都会减少5%伤害，最大减少75%。",
+  "material.tinkers_advanced.irradium.encyclopedia": "敌人身上的每1Sv辐射都会增加每级5%伤害，最大75%。",
+  "material.tinkers_advanced.irradium.ranged": "敌人身上的每1Sv辐射都会增加每级5%伤害，最大75%。",
+  "material.tinkers_advanced.irradium.armor": "敌人身上的每1Sv辐射都会减少每级5%伤害，最大减少75%。",
 
   "material.tinkers_advanced.pneumatic_steel": "气锻钢",
   "material.tinkers_advanced.pneumatic_steel.flavor": "复合相材料，产自极端的高温高压与骤热骤冷。",
@@ -278,7 +290,19 @@
 
   "material.tinkers_advanced.protocite": "原体合金",
   "material.tinkers_advanced.protocite.flavor": "它蕴含的毒素似乎来自另外一个世界？",
-  "material.tinkers_advanced.protocite.encyclopedia": "10次挖掘/攻击后，增加属性等级*2的时运和抢夺等级",
+  "material.tinkers_advanced.protocite.encyclopedia": "5次挖掘/攻击后，增加3时运和抢夺等级，最大属性等级*3",
+
+  "material.tinkers_advanced.compressed_iron": "压缩铁",
+  "material.tinkers_advanced.compressed_iron.flavor": "被压缩了的铁，比铁更耐用！",
+
+  "material.tinkers_advanced.pink_slime_metal": "粉色史莱姆金属",
+  "material.tinkers_advanced.pink_slime_metal.flavor": "粉粉的，但是似乎并不能降低刷怪速度。",
+  "material.tinkers_advanced.pink_slime_metal.encyclopedia": "每个战利品提供属性等级点粘液附层，每级20%概率恢复粘液附层，不会吃掉你的战利品。",
+
+  "material.tinkers_advanced.nutritive_slime": "营养黏液浸钢",
+  "material.tinkers_advanced.nutritive_slime.flavor": "吃这玩意真的不会金属离子中毒吗？",
+  "material.tinkers_advanced.nutritive_slime.encyclopedia": "每秒消耗20点粘液附层恢复1饱食度，等级越高恢复速度越快。",
+
 
 
   "material.tinkers_advanced.silicon": "硅",
@@ -304,6 +328,7 @@
   "item.tinkers_advanced.resonance_crystal": "谐振水晶",
   "item.tinkers_advanced.voltaic_crystal": "伏打水晶",
   "item.tinkers_advanced.protocite_pellet": "原体合金靶丸",
+  "item.tinkers_advanced.nutrition_slime_ingot": "营养黏液浸钢锭",
 
 
   "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
@@ -375,6 +400,12 @@
   "item.tinkers_advanced.molten_protocite_bucket": "熔融原体合金合金桶",
   "fluid.tinkers_advanced.molten_protocite.fluid_effect": "原毒毒素对目标的生命有很强遏制作用。它会永久减少25%目标生命值，并在持续时间内减少每级20%的受治疗量。",
 
+  "fluid.tinkers_advanced.molten_nutritive_slime": "熔融营养粘液浸钢",
+  "item.tinkers_advanced.molten_nutritive_slime_bucket": "熔融营养粘液浸钢桶",
+
+  "fluid.tinkers_advanced.molten_pink_slime": "熔融粉色史莱姆金属",
+  "item.tinkers_advanced.molten_pink_slime_bucket": "熔融粉色史莱姆金属桶",
+
 
 
   "effect.tinkers_advanced.tetanus": "破伤风",
@@ -402,6 +433,17 @@
   "tooltip.tinkers_advanced.primary_mode_info": "用工具手柄右键以切换作用模式",
   "tooltip.tinkers_advanced.secondary_mode_info": "右键以切换范围模式",
   "pattern.tinkers_advanced.particle_container": "粒子容器",
+
+  "item.tinkers_advanced.flux_core": "通量核心",
+  "stat.tinkers_advanced.flux_core": "通量核心",
+  "item.tinkers_advanced.electron_tuner": "环流电子调谐剑",
+  "item.tinkers_advanced.electron_tuner.description": "环流电子调谐剑是一种可调的近战武器，在背包中打开后可以配置其攻速和伤害，但是造价十分不菲且进行攻击要消耗能量。自带9格物品存储和一个流体容器，在强化了能量模块类强化后可以产能或者耗能（WIP）。",
+  "tooltip.tinkers_advanced.energy": "最大能量",
+  "tooltip.tinkers_advanced.power_multiplier": "产出倍率",
+  "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "能量容量的倍率，会乘以工具的能量容量。",
+  "tool_stat.tinkers_advanced.flux_core.generate_factor.description": "能量模块类词条产能/耗能的倍率，消耗/产出的原料也会相应增加。",
+  "tool_stat.tinkers_advanced.capacity_factor": "最大能量",
+  "tool_stat.tinkers_advanced.generate_factor": "产出倍率",
 
 
 
@@ -431,5 +473,15 @@
   "tooltip.tinkers_advanced.neutronite_3": "尽管我们不能登陆中子星，但是制造一颗恒星不是什么难事...",
 
 
-  "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量："
+  "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量：",
+
+
+
+  "info.tinkers_advanced.electron_tuner.rapier": "西洋剑形态",
+  "info.tinkers_advanced.electron_tuner.sword": "阔剑形态",
+  "info.tinkers_advanced.electron_tuner.cleaver": "劈刀形态",
+
+  "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，无视50%护甲。",
+  "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时释放范围伤害性弧光。",
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后释放范围伤害性弧光，+3肢解。"
 }

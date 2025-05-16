@@ -170,6 +170,18 @@
   "modifier.tinkers_advanced.proto_defense.flavor": "Energy pack that don't need energy.",
   "modifier.tinkers_advanced.proto_defense.description": "Grant immunity to debuffs. When worn in chest slot, gain Haste,Jump Boost and Speed effect.",
 
+  "modifier.tinkers_advanced.return_to_slime": "Return to Slime",
+  "modifier.tinkers_advanced.return_to_slime.flavor": "Analysis and devour.",
+  "modifier.tinkers_advanced.return_to_slime.description": "Gain overslime after mining or killing, amount determined by the amount of loot.",
+
+  "modifier.tinkers_advanced.nutritive_slime": "Nutritive Slime",
+  "modifier.tinkers_advanced.nutritive_slime.flavor": "But it's not tasty...",
+  "modifier.tinkers_advanced.nutritive_slime.description": "Consumes overslime to recover food level when equipped.",
+
+  "modifier.tinkers_advanced.ender_tuner": "Ender Tuning",
+  "modifier.tinkers_advanced.ender_tuner.flavor": "An adjustable equipment.",
+  "modifier.tinkers_advanced.ender_tuner.description": "Inflicts Enderfierce, grant 50kFE energy storage. Shift - right click to open a menu to adjust your tool.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -274,7 +286,16 @@
 
   "material.tinkers_advanced.protocite": "Protocite",
   "material.tinkers_advanced.protocite.flavor": "Contains poison from another world.",
-  "material.tinkers_advanced.protocite.encyclopedia": "Grant (traitLevel * 2) Fortune and Looting level after 10 times of mining or attacking.",
+  "material.tinkers_advanced.protocite.encyclopedia": "Grant 3 Fortune and Looting level after 5 times of mining or attacking, at a maximum of 3 * trait level.",
+
+  "material.tinkers_advanced.compressed_iron": "Compressed Iron",
+  "material.tinkers_advanced.compressed_iron.flavor": "Compressed Iron is the iron compressed.",
+
+  "material.tinkers_advanced.pink_slime_metal": "Pink Slime Metal",
+  "material.tinkers_advanced.pink_slime_metal.flavor": "Reminds me of pinky.",
+
+  "material.tinkers_advanced.nutritive_slime": "Nutritive Slimesteel",
+  "material.tinkers_advanced.nutritive_slime.flavor": "Completely free of heavy metal, safe to eat.",
 
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
@@ -295,6 +316,7 @@
   "item.tinkers_advanced.resonance_crystal": "Resonance Crystal",
   "item.tinkers_advanced.voltaic_crystal": "Voltaic Crystal",
   "item.tinkers_advanced.protocite_pellet": "Protocite Pellet",
+  "item.tinkers_advanced.nutrition_slime_ingot": "Nutritive Slimesteel Ingot",
 
   "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
@@ -368,6 +390,12 @@
   "item.tinkers_advanced.molten_protocite_bucket": "Molten Protocite Bucket",
   "fluid.tinkers_advanced.molten_protocite.fluid_effect": "Proto Poison can permanently reduce 25% target's health, and -20% life regeneration per level during effect duration.",
 
+  "fluid.tinkers_advanced.molten_nutritive_slime": "Molten Nutritive Slimesteel",
+  "item.tinkers_advanced.molten_nutritive_slime_bucket": "Molten Nutritive Slimesteel Bucket",
+
+  "fluid.tinkers_advanced.molten_pink_slime": "Molten Pink Slime",
+  "item.tinkers_advanced.molten_pink_slime_bucket": "Molten Pink Slime Bucket",
+
 
 
   "effect.tinkers_advanced.tetanus": "Tetanus",
@@ -395,6 +423,17 @@
   "tooltip.tinkers_advanced.primary_mode_info": "Right click with a tool handle to switch mode.",
   "tooltip.tinkers_advanced.secondary_mode_info": "Right click to switch mode.",
   "pattern.tinkers_advanced.particle_container": "Particle Container",
+
+  "item.tinkers_advanced.flux_core": "Flux Core",
+  "stat.tinkers_advanced.flux_core": "Flux Core",
+  "item.tinkers_advanced.electron_tuner": "Electron Tuner",
+  "item.tinkers_advanced.electron_tuner.description": "Electron Tuner is an adjustable melee weapon that has adjustable attack speed. Right click it in the inventory to open it's interface.",
+  "tooltip.tinkers_advanced.energy": "Max Energy",
+  "tooltip.tinkers_advanced.power_multiplier": "Power Multiplier",
+  "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "Max Energy multiplier that will be multiplied to the base capacity.",
+  "tool_stat.tinkers_advanced.flux_core.generate_factor.description": "The generate/consumption rate for Energy Module traits.",
+  "tool_stat.tinkers_advanced.capacity_factor": "Max Energy",
+  "tool_stat.tinkers_advanced.generate_factor": "Power Multiplier",
 
 
 
@@ -426,5 +465,13 @@
   "tooltip.tinkers_advanced.neutronite_3": "Although it's impossible to land on a neutron star, creating a star is quite possible.",
 
 
-  "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :"
+  "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :",
+
+  "info.tinkers_advanced.electron_tuner.rapier": "Rapier Mode",
+  "info.tinkers_advanced.electron_tuner.sword": "Sword Mode",
+  "info.tinkers_advanced.electron_tuner.cleaver": "Cleaver Mode",
+
+  "info.tinkers_advanced.electron_tuner.rapier.bonus": "Attack range +3, ignores 50% armor.",
+  "info.tinkers_advanced.electron_tuner.sword.bonus": "Deal AOE damage on swinging.",
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "Deal AOE damage on hit, +3 Severing level."
 }

@@ -25,6 +25,10 @@
       "velocity": -0.05
     },
     "tconstruct:maille": {},
-    "tconstruct:shield_core": {}
+    "tconstruct:shield_core": {},
+    "tinkers_advanced:flux_core": {
+      "capacity": 3.2,
+      "generate": 15.0
+    }
   }
 }

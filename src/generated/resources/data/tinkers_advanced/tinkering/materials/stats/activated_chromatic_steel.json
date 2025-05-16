@@ -53,6 +53,10 @@
       "durability": 720,
       "knockback_resistance": 0.15,
       "toughness": 5.0
+    },
+    "tinkers_advanced:flux_core": {
+      "capacity": 64.0,
+      "generate": 64.0
     }
   }
 }

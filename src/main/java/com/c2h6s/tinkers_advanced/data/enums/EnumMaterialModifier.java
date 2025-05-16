@@ -82,6 +82,13 @@ public enum EnumMaterialModifier {
 
     PROTOCITE_DEFAULT(null,entry(TiAcModifiers.PROTO_REFINING.getId()),entry(EtSTLibModifier.glowing.getId())),
     PROTOCITE_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.PROTO_DEFENSE.getId()),entry(EtSTLibModifier.glowing.getId())),
+
+    COMPRESSED_IRON_DEFAULT(null,entry(ModifierIds.dense),entry(TinkerModifiers.magnetic.getId())),
+    COMPRESSED_IRON_ARMOR(MaterialRegistry.ARMOR,entry(ModifierIds.blastProtection),entry(ModifierIds.projectileProtection)),
+
+    PINK_SLIME_METAL(null,entry(TinkerModifiers.overslime.getId()),entry(TiAcModifiers.RETURN_TO_SLIME.getId())),
+
+    NUTRITIVE_SLIMESTEEL(null,entry(TinkerModifiers.overslime.getId()),entry(TiAcModifiers.NUTRITIVE_SLIME.getId()))
     ;
 
     public final ModifierEntry[] modifiers;

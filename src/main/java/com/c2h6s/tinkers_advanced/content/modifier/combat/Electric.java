@@ -35,7 +35,7 @@ public class Electric extends EtSTBaseModifier {
             blacklist.add(entityStart.getId());
             blacklist.add(entityEnd.getId());
             LegacyDamageSource source =LegacyDamageSource.mobAttack(context.getAttacker()).setBypassShield().setBypassEnchantment().setBypassMagic().setBypassArmor().setBypassInvulnerableTime().setMsgId("plasma");
-            entityEnd.hurt(source,4+2*modifier.getLevel());
+            entityEnd.hurt(source,2+modifier.getLevel());
             while (i<=modifier.getLevel()*2+6&&j<16){
                 entityStart = entityEnd;
                 if (entityStart != null) {
@@ -65,7 +65,7 @@ public class Electric extends EtSTBaseModifier {
             blacklist.add(entityStart.getId());
             blacklist.add(entityEnd.getId());
             LegacyDamageSource source =LegacyDamageSource.mobAttack(attacker).setBypassShield().setBypassEnchantment().setBypassMagic().setBypassArmor().setBypassInvulnerableTime().setMsgId("plasma");
-            entityEnd.hurt(source,4+2*entry.getLevel());
+            entityEnd.hurt(source,2+entry.getLevel());
             while (i<=entry.getLevel()*2+6&&j<16){
                 entityStart = entityEnd;
                 if (entityStart != null) {

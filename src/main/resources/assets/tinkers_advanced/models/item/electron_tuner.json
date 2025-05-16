@@ -1,0 +1,35 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "small_blade":   "tinkers_advanced:item/tool/electron_tuner/small_blade",
+    "flux_core": "tinkers_advanced:item/tool/electron_tuner/flux_core",
+    "tough_handle":  "tinkers_advanced:item/tool/electron_tuner/tough_handle",
+    "tool_handle": "tinkers_advanced:item/tool/electron_tuner/tool_handle"
+  },
+  "modifier_roots": [ "tinkers_advanced:item/tool/electron_tuner/modifiers/" ],
+  "parts": [
+    { "name": "small_blade",  "index": 0 },
+    { "name": "flux_core", "index": 1 },
+    { "name": "tough_handle",   "index": 2 },
+    { "name": "tool_handle",  "index": 3 }
+  ],
+  "overrides": [
+    {
+      "predicate": {"tinkers_advanced:attack_damage_factor": -0.5 },
+      "model": "tinkers_advanced:item/tool/electron_tuner/broken"
+    },
+    {
+      "predicate": {"tinkers_advanced:attack_damage_factor": 0.0 },
+      "model": "tinkers_advanced:item/tool/electron_tuner/mode_rapier"
+    },
+    {
+      "predicate": {"tinkers_advanced:attack_damage_factor": 0.25 },
+      "model": "tinkers_advanced:item/tool/electron_tuner/mode_sword"
+    },
+    {
+      "predicate": {"tinkers_advanced:attack_damage_factor": 0.75 },
+      "model": "tinkers_advanced:item/tool/electron_tuner/mode_cleaver"
+    }
+  ]
+}

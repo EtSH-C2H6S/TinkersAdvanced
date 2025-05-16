@@ -26,6 +26,12 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
         this(TiAcEntities.MINING_BEAM.get(), pLevel);
         this.setScale(Scale);
     }
+
+    @Override
+    public boolean isAttackable() {
+        return false;
+    }
+
     public MiningBeamProjectile(Level pLevel) {
         this(pLevel,1);
     }

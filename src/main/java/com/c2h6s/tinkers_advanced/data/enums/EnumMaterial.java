@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced.data.enums;
 import appeng.datagen.providers.tags.ConventionTags;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
 import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
+import me.desht.pneumaticcraft.api.data.PneumaticCraftTags;
 import mekanism.common.tags.MekanismTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -40,6 +41,9 @@ public enum EnumMaterial {
     VOLTAIC_CRYSTAL(TiAcMaterialIds.VOLTAIC_CRYSTAL,4,true,false,EnumMaterialStats.VOLTAIC_CRYSTAL,null,VOLTAIC_CRYSTAL_DEFAULT),
     PLASTIC(TiAcMaterialIds.CommonIntegration.PLASTIC,2,true,false,EnumMaterialStats.PLASTIC,tagFilled(TiAcTagkeys.Items.PLASTIC),PLASTIC_DEFAULT),
     PROTOCITE(TiAcMaterialIds.Mekanism.PROTOCITE,4,false,false,EnumMaterialStats.PROTOCITE,modLoaded("mekanism"),PROTOCITE_ARMOR,PROTOCITE_DEFAULT),
+    COMPRESSED_IRON(TiAcMaterialIds.PnC.COMPRESSED_IRON,2,true,false,EnumMaterialStats.COMPRESSED_IRON,tagFilled(PneumaticCraftTags.Items.INGOTS_COMPRESSED_IRON),COMPRESSED_IRON_ARMOR,COMPRESSED_IRON_DEFAULT),
+    PINK_SLIME_STEEL(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL,3,false,false,EnumMaterialStats.PINK_SLIME_METAL,modLoaded("industrialforegoing"),PINK_SLIME_METAL),
+    NUTRITIVE_SLIMESTEEL(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL,3,false,false,EnumMaterialStats.NUTRITIVE_SLIMESTEEL,modLoaded("mekanism"),EnumMaterialModifier.NUTRITIVE_SLIMESTEEL)
     ;
     public final MaterialId id;
     public final int tier;

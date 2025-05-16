@@ -30,6 +30,11 @@ public class ThermalSlashProjectile extends Projectile {
     }
 
     @Override
+    public boolean isAttackable() {
+        return false;
+    }
+
+    @Override
     protected void defineSynchedData() {
 
     }

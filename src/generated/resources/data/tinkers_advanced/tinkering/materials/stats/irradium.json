@@ -48,6 +48,10 @@
     "tconstruct:plating_shield": {
       "durability": 972,
       "toughness": 3.0
+    },
+    "tinkers_advanced:flux_core": {
+      "capacity": 66.0,
+      "generate": 8192.0
     }
   }
 }

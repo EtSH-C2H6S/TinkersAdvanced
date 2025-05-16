@@ -33,6 +33,11 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
         this.entityData.define(DATA_RENDER,false);
     }
 
+    @Override
+    public boolean isAttackable() {
+        return false;
+    }
+
     public boolean readyToRender(){
         return this.entityData.get(DATA_RENDER);
     }
