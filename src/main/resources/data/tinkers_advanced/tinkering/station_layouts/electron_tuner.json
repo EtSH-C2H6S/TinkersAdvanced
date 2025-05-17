@@ -1,0 +1,46 @@
+{
+  "icon": {
+    "item": "tinkers_advanced:electron_tuner",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "input_slots": [
+    {
+      "filter": {
+        "item": "tconstruct:small_blade"
+      },
+      "icon": "tconstruct:small_blade",
+      "translation_key": "item.tconstruct.small_blade",
+      "x": 45,
+      "y": 26
+    },
+    {
+      "filter": {
+        "item": "tinkers_advanced:flux_core"
+      },
+      "icon": "tinkers_advanced:flux_core",
+      "translation_key": "item.tinkers_advanced.flux_core",
+      "x": 35,
+      "y": 43
+    },
+    {
+      "filter": {
+        "item": "tconstruct:tough_handle"
+      },
+      "icon": "tconstruct:tough_handle",
+      "translation_key": "item.tconstruct.tough_handle",
+      "x": 17,
+      "y": 43
+    },
+    {
+      "filter": {
+        "item": "tconstruct:tool_handle"
+      },
+      "icon": "tconstruct:tool_handle",
+      "translation_key": "item.tconstruct.tool_handle",
+      "x": 7,
+      "y": 62
+    }
+  ],
+  "sortIndex": 9,
+  "translation_key": "item.tinkers_advanced.electron_tuner"
+}

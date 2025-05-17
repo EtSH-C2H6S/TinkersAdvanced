@@ -50,8 +50,8 @@
       "knockback_resistance": 0.15
     },
     "tinkers_advanced:flux_core": {
-      "capacity": 25.0,
-      "generate": 5.0
+      "capacity": 2.5,
+      "generate": 1.0
     }
   }
 }

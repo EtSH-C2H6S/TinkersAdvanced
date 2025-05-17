@@ -182,6 +182,9 @@
   "modifier.tinkers_advanced.ender_tuner.flavor": "真正的“可改进”",
   "modifier.tinkers_advanced.ender_tuner.description": "攻击时造成抑影效果，获得50kFE能量存储，损伤时优先消耗能量而非耐久。Shift-右键以打开一个调整页面，可以调节工具的性质。",
 
+  "modifier.tinkers_advanced.combustion_generator": "燃烧室能量模块",
+  "modifier.tinkers_advanced.combustion_generator.flavor": "这只是个开始。",
+  "modifier.tinkers_advanced.combustion_generator.description": "你的工具能通过燃烧熔炉燃料来产生能量。基础产出速率为200FE/t",
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -437,14 +440,15 @@
   "item.tinkers_advanced.flux_core": "通量核心",
   "stat.tinkers_advanced.flux_core": "通量核心",
   "item.tinkers_advanced.electron_tuner": "环流电子调谐剑",
-  "item.tinkers_advanced.electron_tuner.description": "环流电子调谐剑是一种可调的近战武器，在背包中打开后可以配置其攻速和伤害，但是造价十分不菲且进行攻击要消耗能量。自带9格物品存储和一个流体容器，在强化了能量模块类强化后可以产能或者耗能（WIP）。",
+  "item.tinkers_advanced.electron_tuner.description": "环流电子调谐剑是一种可调的近战武器，Shift-右键打开后可以配置其攻速和伤害，但是造价十分不菲且进行攻击要消耗能量。自带9格物品存储和一个流体容器，在强化了能量模块类强化后可以产能或者耗能。",
   "tooltip.tinkers_advanced.energy": "最大能量",
   "tooltip.tinkers_advanced.power_multiplier": "产出倍率",
   "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "能量容量的倍率，会乘以工具的能量容量。",
   "tool_stat.tinkers_advanced.flux_core.generate_factor.description": "能量模块类词条产能/耗能的倍率，消耗/产出的原料也会相应增加。",
-  "tool_stat.tinkers_advanced.capacity_factor": "最大能量",
-  "tool_stat.tinkers_advanced.generate_factor": "产出倍率",
-
+  "tool_stat.tinkers_advanced.capacity_factor": "最大能量：",
+  "tool_stat.tinkers_advanced.generate_factor": "产出倍率：",
+  "tooltip.tinkers_advanced.energy_gen_remain": "剩余产能：",
+  "tooltip.tinkers_advanced.energy_cost_remain": "剩余耗能：",
 
 
   "pattern.tinkers_advanced.ae2_circuit": "电路板",
@@ -481,7 +485,7 @@
   "info.tinkers_advanced.electron_tuner.sword": "阔剑形态",
   "info.tinkers_advanced.electron_tuner.cleaver": "劈刀形态",
 
-  "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，无视50%护甲。",
+  "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，伤害无视护甲和无敌帧。",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时释放范围伤害性弧光。",
   "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后释放范围伤害性弧光，+3肢解。"
 }

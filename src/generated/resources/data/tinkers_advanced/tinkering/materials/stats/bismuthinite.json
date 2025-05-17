@@ -25,8 +25,8 @@
       "velocity": 0.15
     },
     "tinkers_advanced:flux_core": {
-      "capacity": 3.5,
-      "generate": 9.5
+      "capacity": 0.35,
+      "generate": 1.25
     }
   }
 }

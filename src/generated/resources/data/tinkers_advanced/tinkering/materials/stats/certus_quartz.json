@@ -27,8 +27,8 @@
     "tconstruct:maille": {},
     "tconstruct:shield_core": {},
     "tinkers_advanced:flux_core": {
-      "capacity": 3.0,
-      "generate": 11.0
+      "capacity": 0.1,
+      "generate": 1.9
     }
   }
 }

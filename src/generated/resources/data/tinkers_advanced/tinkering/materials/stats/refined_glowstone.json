@@ -45,8 +45,8 @@
       "durability": 540
     },
     "tinkers_advanced:flux_core": {
-      "capacity": 30.0,
-      "generate": 10.0
+      "capacity": 5.0,
+      "generate": 1.0
     }
   }
 }

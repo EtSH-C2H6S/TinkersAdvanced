@@ -182,6 +182,10 @@
   "modifier.tinkers_advanced.ender_tuner.flavor": "An adjustable equipment.",
   "modifier.tinkers_advanced.ender_tuner.description": "Inflicts Enderfierce, grant 50kFE energy storage. Shift - right click to open a menu to adjust your tool.",
 
+  "modifier.tinkers_advanced.combustion_generator": "Combustion Generator Module",
+  "modifier.tinkers_advanced.combustion_generator.flavor": "Beginning of all.",
+  "modifier.tinkers_advanced.combustion_generator.description": "Your tool can produce energy by consuming Furnace Fuels. At a base speed of 200 FE/t.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -427,13 +431,15 @@
   "item.tinkers_advanced.flux_core": "Flux Core",
   "stat.tinkers_advanced.flux_core": "Flux Core",
   "item.tinkers_advanced.electron_tuner": "Electron Tuner",
-  "item.tinkers_advanced.electron_tuner.description": "Electron Tuner is an adjustable melee weapon that has adjustable attack speed. Right click it in the inventory to open it's interface.",
-  "tooltip.tinkers_advanced.energy": "Max Energy",
-  "tooltip.tinkers_advanced.power_multiplier": "Power Multiplier",
+  "item.tinkers_advanced.electron_tuner.description": "Electron Tuner is an adjustable melee weapon that has adjustable attack speed. Shift-Right click to open it's interface.",
+  "tooltip.tinkers_advanced.energy": "Max Energy: ",
+  "tooltip.tinkers_advanced.power_multiplier": "Power Multiplier: ",
   "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "Max Energy multiplier that will be multiplied to the base capacity.",
   "tool_stat.tinkers_advanced.flux_core.generate_factor.description": "The generate/consumption rate for Energy Module traits.",
   "tool_stat.tinkers_advanced.capacity_factor": "Max Energy",
   "tool_stat.tinkers_advanced.generate_factor": "Power Multiplier",
+  "tooltip.tinkers_advanced.energy_gen_remain": "Energy Generation Remain: ",
+  "tooltip.tinkers_advanced.energy_cost_remain": "Energy Consumption Remain: ",
 
 
 
@@ -471,7 +477,7 @@
   "info.tinkers_advanced.electron_tuner.sword": "Sword Mode",
   "info.tinkers_advanced.electron_tuner.cleaver": "Cleaver Mode",
 
-  "info.tinkers_advanced.electron_tuner.rapier.bonus": "Attack range +3, ignores 50% armor.",
+  "info.tinkers_advanced.electron_tuner.rapier.bonus": "Attack range +3, attack ignores armor.",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "Deal AOE damage on swinging.",
   "info.tinkers_advanced.electron_tuner.cleaver.bonus": "Deal AOE damage on hit, +3 Severing level."
 }

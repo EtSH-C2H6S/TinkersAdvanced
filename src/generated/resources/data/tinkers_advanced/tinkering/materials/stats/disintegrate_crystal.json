@@ -2,8 +2,8 @@
   "stats": {
     "tconstruct:binding": {},
     "tinkers_advanced:flux_core": {
-      "capacity": 1.0,
-      "generate": 36.0
+      "capacity": 0.1,
+      "generate": 4.9
     }
   }
 }

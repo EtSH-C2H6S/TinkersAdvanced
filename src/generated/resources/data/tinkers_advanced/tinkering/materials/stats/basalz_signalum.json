@@ -50,8 +50,8 @@
       "toughness": 1.0
     },
     "tinkers_advanced:flux_core": {
-      "capacity": 54.0,
-      "generate": 4.0
+      "capacity": 5.4,
+      "generate": 0.85
     }
   }
 }
