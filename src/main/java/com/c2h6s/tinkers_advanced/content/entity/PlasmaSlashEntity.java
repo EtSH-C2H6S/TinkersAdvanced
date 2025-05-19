@@ -5,10 +5,8 @@ import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -72,7 +70,8 @@ public class PlasmaSlashEntity extends VisualScaledProjectile {
             List<Entity> entities = this.level().getEntitiesOfClass(Entity.class, this.getBoundingBox().inflate(this.getScale()), entity -> !set.contains(entity) && entity != this.getOwner());
             for (int i = 0; i < 8 && i < entities.size(); i++) {
                 Entity entity = entities.get(i);
-                if (entity == null) continue;
+                set.add(entity);
+                if (entity == null||entity instanceof ItemEntity||entity instanceof ExperienceOrb) continue;
                 entity.invulnerableTime = 0;
                 AttackUtil.attackEntity(this.toolStack,
                         living,
@@ -85,7 +84,6 @@ public class PlasmaSlashEntity extends VisualScaledProjectile {
                         this.baseDamage,
                         true
                 );
-                set.add(entity);
             }
         }
 

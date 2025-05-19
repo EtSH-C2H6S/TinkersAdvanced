@@ -9,7 +9,8 @@
     "ServerLevelMixin",
     "TickEventAccessor",
     "AEMixin.AbstractPortableCellAccessor",
-    "mekanismMixin.FusionReactorMultiblockDataMixin"
+    "mekanismMixin.FusionReactorMultiblockDataMixin",
+    "TconMixin.ToolEnergyCapabilityMixin"
   ],
   "client": [
   ],

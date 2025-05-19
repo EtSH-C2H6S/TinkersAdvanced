@@ -35,6 +35,8 @@ public class TiAcTabs {
         acceptPart(output,TiAcItems.IONIZE_CHAMBER);
         acceptTool(output,TiAcItems.MATTER_MANIPULATOR);
         acceptPart(output,TiAcItems.PARTICLE_CONTAINER);
+        acceptPart(output,TiAcItems.FLUX_CORE);
+        acceptTool(output,TiAcItems.ELECTRON_TUNER);
     }
 
     public static final RegistryObject<CreativeModeTab> MATERIAL_TAB = CREATIVE_MODE_TABS.register("tiac_material", () -> CreativeModeTab.builder()

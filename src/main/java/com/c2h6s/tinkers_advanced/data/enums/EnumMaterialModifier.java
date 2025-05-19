@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.data.enums;
 
 import com.c2h6s.etstlib.data.EtSTLibModifierIds;
 import com.c2h6s.etstlib.register.EtSTLibModifier;
+import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
 import com.c2h6s.tinkers_advanced.registery.TiAcModifiers;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
@@ -15,6 +16,7 @@ public enum EnumMaterialModifier {
     ALLOY_ATOMIC(StatlessMaterialStats.BINDING.getIdentifier(),entry(EtSTLibModifierIds.ATOMIC_DECOMPOSE)),
     BISMUTH(null,entry(TiAcModifiers.TETANUS.getId()),entry(ModifierIds.heavy)),
     BISMUTHINITE(null,entry(TiAcModifiers.FRAGILE.getId()),entry(EtSTLibModifier.ANISOTROPY.getId())),
+    BISMUTHINITE_FLUX_CORE(FluxCoreMaterialStat.ID,entry(TiAcModifiers.PIEZOELECTRIC_EFFECT.getId(),3)),
 
     CERTUS_DEFAULT(null,entry(EtSTLibModifier.ANISOTROPY.getId())),
     CERTUS_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.CRYSTAL_ARMOR.getId())),
@@ -25,9 +27,10 @@ public enum EnumMaterialModifier {
     FLUIX_HEAD(HeadMaterialStats.ID,entry(EtSTLibModifier.ANISOTROPY.getId()),entry(EtSTLibModifier.EtSTLibModifierAE.energetic_attack.getId())),
     FLUIX_HANDLE(HandleMaterialStats.ID,entry(ModifierIds.looting),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
     FLUIX_BINDING(StatlessMaterialStats.BINDING.getIdentifier(),entry(ModifierIds.fortune),entry(EtSTLibModifier.EtSTLibModifierAE.applied_fixing.getId())),
+    FLUIX_FLUX_CORE(FluxCoreMaterialStat.ID,entry(ModifierIds.looting),entry(TiAcModifiers.PIEZOELECTRIC_EFFECT.getId())),
 
     ANTIMATTER_MELEE(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.ANNIHILATE.getId()),entry(EtSTLibModifierIds.ATOMIC_DECOMPOSE)),
-    ANTIMATTER_ARMOR(MaterialRegistry.MELEE_HARVEST,entry(TiAcModifiers.REACTIVE_EXPLOSIVE_ARMOR.getId())),
+    ANTIMATTER_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.REACTIVE_EXPLOSIVE_ARMOR.getId())),
 
     REFINED_GLOWSTONE_DEFAULT(null,entry(EtSTLibModifier.glowing.getId())),
     REFINED_GLOWSTONE_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.glowing.getId()),entry(TinkerModifiers.golden.getId())),
@@ -57,6 +60,7 @@ public enum EnumMaterialModifier {
     BLAZE_NETHERITE(null,entry(TiAcModifiers.FLAME_ADAPTIVE.getId()),entry(ModifierIds.netherite)),
 
     IRIDIUM_DEFAULT(null,entry(EtSTLibModifier.INERT_METAL.getId()),entry(ModifierIds.dense)),
+    IRIDIUM_FLUX_CORE(null,entry(EtSTLibModifier.INERT_METAL.getId()),entry(TiAcModifiers.PLATINOID_CATALYST.getId())),
     IRIDIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.INERT_METAL.getId()),entry(EtSTLibModifier.SECONDARY_ARMOR.getId())),
 
     DENSIUM_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId())),
@@ -88,7 +92,13 @@ public enum EnumMaterialModifier {
 
     PINK_SLIME_METAL(null,entry(TinkerModifiers.overslime.getId()),entry(TiAcModifiers.RETURN_TO_SLIME.getId())),
 
-    NUTRITIVE_SLIMESTEEL(null,entry(TinkerModifiers.overslime.getId()),entry(TiAcModifiers.NUTRITIVE_SLIME.getId()))
+    NUTRITIVE_SLIMESTEEL(null,entry(TinkerModifiers.overslime.getId()),entry(TiAcModifiers.NUTRITIVE_SLIME.getId())),
+
+    CINDER_SLIME_FLUX_CORE(FluxCoreMaterialStat.ID,entry(TinkerModifiers.overslime.getId()),entry(TiAcModifiers.OVERSLIME_GENERATOR.getId(),2)),
+
+    PIG_IRON_FLUX_CORE(FluxCoreMaterialStat.ID,entry(TiAcModifiers.ELECTRIC_FOOD.getId())),
+
+    COBALT_FLUX_CORE(FluxCoreMaterialStat.ID,entry(ModifierIds.lightweight),entry(TiAcModifiers.TRANSITION_CATALYST.getId())),
     ;
 
     public final ModifierEntry[] modifiers;

@@ -18,7 +18,7 @@ public record FluxCoreMaterialStat(float capacityFactor, float generateFactor) i
     private static final String CAPACITY_PREFIX = IMaterialStats.makeTooltipKey(TinkersAdvanced.getLocation("capacity_factor"));
     private static final String GENERATOR_PREFIX = IMaterialStats.makeTooltipKey(TinkersAdvanced.getLocation("generate_factor"));
     public static final MaterialStatsId ID = new MaterialStatsId(TinkersAdvanced.getLocation("flux_core"));
-    private static final MaterialStatType<FluxCoreMaterialStat> TYPE = new MaterialStatType<>(ID,new FluxCoreMaterialStat(0,0), RecordLoadable.create(
+    public static final MaterialStatType<FluxCoreMaterialStat> TYPE = new MaterialStatType<>(ID,new FluxCoreMaterialStat(0,0), RecordLoadable.create(
             FloatLoadable.ANY.defaultField("capacity",0f,true,FluxCoreMaterialStat::capacityFactor),
             FloatLoadable.ANY.defaultField("generate",0f,true,FluxCoreMaterialStat::generateFactor),
             FluxCoreMaterialStat::new
@@ -36,8 +36,8 @@ public record FluxCoreMaterialStat(float capacityFactor, float generateFactor) i
     @Override
     public List<Component> getLocalizedInfo() {
         return List.of(
-                IToolStat.formatColoredPercentBoost(CAPACITY_PREFIX, this.capacityFactor),
-                IToolStat.formatColoredPercentBoost(GENERATOR_PREFIX, this.generateFactor)
+                IToolStat.formatColoredMultiplier(CAPACITY_PREFIX, this.capacityFactor),
+                IToolStat.formatColoredMultiplier(GENERATOR_PREFIX, this.generateFactor)
         );
     }
 

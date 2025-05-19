@@ -27,4 +27,36 @@ public class CommonUtil {
         }
         return null;
     }
+
+    public static String getUnitLong(long amount){
+        int a = (int) Math.log10(amount);
+        int b =a/3;
+        switch (b){
+            case 1->{
+                return String.format("%.2f",(float)amount/1E+3)+" k";
+            }
+            case 2->{
+                return String.format("%.2f",(float)amount/1E+6)+" M";
+            }
+            case 3->{
+                return String.format("%.2f",(float)amount/1E+9)+" G";
+            }
+            case 4->{
+                return String.format("%.2f",(float)amount/1E+12)+" T";
+            }
+            case 5->{
+                return String.format("%.2f",(float)amount/1E+15)+" P";
+            }
+            case 6->{
+                return String.format("%.2f",(float)amount/1E+18)+" E";
+            }
+            default-> {
+                return amount + " ";
+            }
+        }
+    }
+
+    public static String getEnergyString(long amount){
+        return getUnitLong(amount)+"FE";
+    }
 }

@@ -15,10 +15,13 @@ public class TiAcPacketHandler {
     static int id = 0;
 
     public static void init() {
-        INSTANCE = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(TinkersAdvanced.MODID,"tiac_message")).networkProtocolVersion(()->"1").clientAcceptedVersions(s -> true).serverAcceptedVersions(s -> true).simpleChannel();
-        INSTANCE.messageBuilder(PCofhModSwitchC2S.class,id++, NetworkDirection.PLAY_TO_SERVER).decoder(PCofhModSwitchC2S::new).encoder(PCofhModSwitchC2S::toByte).consumerMainThread(PCofhModSwitchC2S::handle).add();
-        INSTANCE.messageBuilder(PParticleChainS2C.class,id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PParticleChainS2C::new).encoder(PParticleChainS2C::toByte).consumerMainThread(PParticleChainS2C::handle).add();
-        INSTANCE.messageBuilder(POpenLegCellC2S.class,id++, NetworkDirection.PLAY_TO_SERVER).decoder(POpenLegCellC2S::new).encoder(POpenLegCellC2S::toByte).consumerMainThread(POpenLegCellC2S::handle).add();
+        INSTANCE = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(TinkersAdvanced.MODID, "tiac_message")).networkProtocolVersion(() -> "1").clientAcceptedVersions(s -> true).serverAcceptedVersions(s -> true).simpleChannel();
+        INSTANCE.messageBuilder(PCofhModSwitchC2S.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PCofhModSwitchC2S::new).encoder(PCofhModSwitchC2S::toByte).consumerMainThread(PCofhModSwitchC2S::handle).add();
+        INSTANCE.messageBuilder(PParticleChainS2C.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PParticleChainS2C::new).encoder(PParticleChainS2C::toByte).consumerMainThread(PParticleChainS2C::handle).add();
+        INSTANCE.messageBuilder(PElectronTunerAdjustC2S.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PElectronTunerAdjustC2S::new).encoder(PElectronTunerAdjustC2S::toByte).consumerMainThread(PElectronTunerAdjustC2S::handle).add();
+        INSTANCE.messageBuilder(PElectronTunerOpenMenuC2S.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PElectronTunerOpenMenuC2S::new).encoder(PElectronTunerOpenMenuC2S::toByte).consumerMainThread(PElectronTunerOpenMenuC2S::handle).add();
+        INSTANCE.messageBuilder(PElectronTunerMenuSyncS2C.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PElectronTunerMenuSyncS2C::new).encoder(PElectronTunerMenuSyncS2C::toByte).consumerMainThread(PElectronTunerMenuSyncS2C::handle).add();
+        INSTANCE.messageBuilder(PToolEnergyProductionSyncS2C.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PToolEnergyProductionSyncS2C::new).encoder(PToolEnergyProductionSyncS2C::toByte).consumerMainThread(PToolEnergyProductionSyncS2C::handle).add();
     }
 
     public static <MSG> void sendToServer(MSG msg){

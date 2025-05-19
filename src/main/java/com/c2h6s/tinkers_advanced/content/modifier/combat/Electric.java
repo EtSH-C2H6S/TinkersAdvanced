@@ -35,14 +35,14 @@ public class Electric extends EtSTBaseModifier {
             blacklist.add(entityStart.getId());
             blacklist.add(entityEnd.getId());
             LegacyDamageSource source =LegacyDamageSource.mobAttack(context.getAttacker()).setBypassShield().setBypassEnchantment().setBypassMagic().setBypassArmor().setBypassInvulnerableTime().setMsgId("plasma");
-            entityEnd.hurt(source,2+modifier.getLevel());
+            entityEnd.hurt(source,damageDealt/2);
             while (i<=modifier.getLevel()*2+6&&j<16){
                 entityStart = entityEnd;
                 if (entityStart != null) {
                     entityEnd = CommonUtil.getNearestEntity(entityStart,modifier.getLevel()*2+2,blacklist,(entity -> !(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)&&!(entity instanceof Player)&&!(entity instanceof ThrowableItemProjectile)&&!entity.isInvulnerableTo(source)));
                     if (entityEnd!=null){
                         blacklist.add(entityEnd.getId());
-                        if (entityEnd.hurt(source,4+2*modifier.getLevel())){
+                        if (entityEnd.hurt(source,damageDealt/2)){
                             ParticleChainUtil.drawLine(TiAcParticleTypes.ELECTRIC.get(), entityStart.position().add(0,entityStart.getBbHeight()/2,0),entityEnd.position().add(0,entityEnd.getBbHeight()/2,0) ,0.2,ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.005, ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.2,32,320);
                         }
                     }
@@ -65,14 +65,14 @@ public class Electric extends EtSTBaseModifier {
             blacklist.add(entityStart.getId());
             blacklist.add(entityEnd.getId());
             LegacyDamageSource source =LegacyDamageSource.mobAttack(attacker).setBypassShield().setBypassEnchantment().setBypassMagic().setBypassArmor().setBypassInvulnerableTime().setMsgId("plasma");
-            entityEnd.hurt(source,2+entry.getLevel());
+            entityEnd.hurt(source,damageDealt/2);
             while (i<=entry.getLevel()*2+6&&j<16){
                 entityStart = entityEnd;
                 if (entityStart != null) {
                     entityEnd = CommonUtil.getNearestEntity(entityStart,entry.getLevel()*2+2,blacklist,(entity -> !(entity instanceof ItemEntity)&&!(entity instanceof ExperienceOrb)&&!(entity instanceof Player)&&!(entity instanceof ThrowableItemProjectile)&&!entity.isInvulnerableTo(source)));
                     if (entityEnd!=null){
                         blacklist.add(entityEnd.getId());
-                        if (entityEnd.hurt(source,4+2*entry.getLevel())){
+                        if (entityEnd.hurt(source,damageDealt/2)){
                             ParticleChainUtil.drawLine(TiAcParticleTypes.ELECTRIC.get(), entityStart.position().add(0,entityStart.getBbHeight()/2,0),entityEnd.position().add(0,entityEnd.getBbHeight()/2,0) ,0.2,ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.005, ParticleChainUtil.EnumParticleFunctions.RANDOM.name,0.2,32,320);
                         }
                     }

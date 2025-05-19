@@ -3,12 +3,10 @@ package com.c2h6s.tinkers_advanced.registery;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
+import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.EnderTuning;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
-import com.c2h6s.tinkers_advanced.content.modifier.common.Elastic;
-import com.c2h6s.tinkers_advanced.content.modifier.common.FlameAdaptive;
-import com.c2h6s.tinkers_advanced.content.modifier.common.Metamorphium;
-import com.c2h6s.tinkers_advanced.content.modifier.common.Shaping;
+import com.c2h6s.tinkers_advanced.content.modifier.common.*;
 //import com.c2h6s.tinkers_advanced.content.modifier.compat.ae2.PocketCell;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadiationBurning;
@@ -18,6 +16,12 @@ import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AerialProtection;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.thermal.*;
 import com.c2h6s.tinkers_advanced.content.modifier.defense.*;
 import com.c2h6s.tinkers_advanced.content.modifier.durability.*;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyConsumption.ElectricFood;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.CombustionGenerator;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.OverslimeGenerator;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.PiezoelectricEffect;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.PlatinoidCatalyst;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.TransitionCatalyst;
 import com.c2h6s.tinkers_advanced.content.modifier.harvest.DisIntegrate;
 import com.c2h6s.tinkers_advanced.content.modifier.harvest.ProtoRefining;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -31,7 +35,7 @@ public class TiAcModifiers {
     public static ModifierDeferredRegister AE_MODIFIERS = ModifierDeferredRegister.create(TinkersAdvanced.MODID);
 
     //无联动属性
-    //注：只要没有引用联动模组的方法或类就算无联动
+    //注：只要没有用联动模组的方法或类就算无联动
     public static StaticModifier<Fragile> FRAGILE = MODIFIERS.register("fragile", Fragile::new);
     public static StaticModifier<TetanusModifier> TETANUS = MODIFIERS.register("tetanus", TetanusModifier::new);
     public static StaticModifier<AutoShot> AUTO_SHOT = MODIFIERS.register("auto_shot", AutoShot::new);
@@ -50,14 +54,28 @@ public class TiAcModifiers {
     public static StaticModifier<Shaping> SHAPING = MODIFIERS.register("shaping", Shaping::new);
     public static StaticModifier<ProtoRefining> PROTO_REFINING = MODIFIERS.register("proto_refining", ProtoRefining::new);
     public static StaticModifier<ProtoDefense> PROTO_DEFENSE = MODIFIERS.register("proto_defense", ProtoDefense::new);
+    public static StaticModifier<ReturnToSlime> RETURN_TO_SLIME = MODIFIERS.register("return_to_slime", ReturnToSlime::new);
+    public static StaticModifier<NutritiveSlime> NUTRITIVE_SLIME = MODIFIERS.register("nutritive_slime", NutritiveSlime::new);
+
 
     //工具特有强化，需要工具采用特定工具属性才有效
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);
     public static StaticModifier<FocusArray> FOCUSING_ARRAY = MODIFIERS.register("focusing_array", FocusArray::new);
     public static StaticModifier<DeepCatalyst> DEEP_CATALYST = MODIFIERS.register("deep_catalysis", DeepCatalyst::new);
-
+    //工具自带强化，与工具强绑定
     public static StaticModifier<SculkResonance> SCULK_RESONANCE = MODIFIERS.register("sculk_resonance", SculkResonance::new);
     public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
+    public static StaticModifier<EnderTuning> ENDER_TUNING = MODIFIERS.register("ender_tuner", EnderTuning::new);
+
+    //能量模块类强化
+    public static StaticModifier<CombustionGenerator> COMBUSTION_GENERATOR = MODIFIERS.register("combustion_generator", CombustionGenerator::new);
+    public static StaticModifier<OverslimeGenerator> OVERSLIME_GENERATOR = MODIFIERS.register("overslime_generator", OverslimeGenerator::new);
+    public static StaticModifier<PiezoelectricEffect> PIEZOELECTRIC_EFFECT = MODIFIERS.register("piezoelectric_effect", PiezoelectricEffect::new);
+
+    public static StaticModifier<ElectricFood> ELECTRIC_FOOD = MODIFIERS.register("electric_food", ElectricFood::new);
+
+    public static StaticModifier<PlatinoidCatalyst> PLATINOID_CATALYST = MODIFIERS.register("platinoid_catalyst", PlatinoidCatalyst::new);
+    public static StaticModifier<TransitionCatalyst> TRANSITION_CATALYST = MODIFIERS.register("transition_catalyst", TransitionCatalyst::new);
 
 
     //mek联动属性
@@ -86,6 +104,5 @@ public class TiAcModifiers {
 
 
     //AE联动属性
-    //public static StaticModifier<PocketCell> POCKET_CELL = AE_MODIFIERS.register("pocket_cell", PocketCell::new);
 
 }

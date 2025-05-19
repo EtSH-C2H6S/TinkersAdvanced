@@ -67,8 +67,8 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         if (vibrationContext.directEntity instanceof LivingEntity entity) living = entity;
         if (living!=null) {
             Ticker ticker = new Ticker(ECHO_UUID, living);
-            ticker.start(20+20*modifierEntry.getLevel());
-            iToolStackView.getPersistentData().putInt(KEY_COOLDOWN,20);
+            ticker.start(4+4*modifierEntry.getLevel());
+            iToolStackView.getPersistentData().putInt(KEY_COOLDOWN,4);
         }
     }
 
@@ -94,7 +94,7 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
 
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (!world.isClientSide&&tool.getPersistentData().getInt(KEY_COOLDOWN)>0){
+        if (!world.isClientSide&&world.getGameTime()%5==0&&tool.getPersistentData().getInt(KEY_COOLDOWN)>0){
             tool.getPersistentData().putInt(KEY_COOLDOWN,tool.getPersistentData().getInt(KEY_COOLDOWN)-1);
         }
     }
@@ -123,7 +123,7 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         @Override
         public boolean tick() {
             CompoundTag nbt = this.entity.getPersistentData();
-            if (nbt.getInt(KEY)>0){
+            if (nbt.getInt(KEY)>0&&this.entity.level().getGameTime()%5==0){
                 nbt.putInt(KEY,nbt.getInt(KEY)-1);
             }
             if (nbt.getInt(KEY)<=0){

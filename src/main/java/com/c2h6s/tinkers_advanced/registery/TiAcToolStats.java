@@ -11,7 +11,7 @@ public class TiAcToolStats {
         return new ToolStatId(TinkersAdvanced.MODID, name);
     }
 
-    public TiAcToolStats(){
+    public static void init(){
     }
 
     public static final FloatToolStat FLUID_EFFICIENCY;

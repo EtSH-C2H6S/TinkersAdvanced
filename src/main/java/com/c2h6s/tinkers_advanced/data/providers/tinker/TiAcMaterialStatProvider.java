@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced.data.providers.tinker;
 
 import com.c2h6s.tinkers_advanced.data.enums.EnumMaterial;
+import com.c2h6s.tinkers_advanced.data.enums.EnumTconMaterial;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 
@@ -19,6 +20,9 @@ public class TiAcMaterialStatProvider extends AbstractMaterialStatsDataProvider 
                 }
             }
             else addMaterialStats(material.id, material.stats.getStats());
+        }
+        for (EnumTconMaterial material:EnumTconMaterial.values()){
+            addMaterialStats(material.id,material.stats.stats);
         }
     }
 

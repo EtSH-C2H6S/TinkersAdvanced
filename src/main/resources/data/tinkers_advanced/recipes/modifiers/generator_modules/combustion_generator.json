@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": false,
+  "inputs": [
+    {
+      "item": "tconstruct:seared_heater"
+    },
+    {
+      "item": "tinkers_advanced:disintegrate_crystal"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "result": "tinkers_advanced:combustion_generator",
+  "tools":[
+    {
+      "item": "tinkers_advanced:electron_tuner"
+    }
+  ]
+}

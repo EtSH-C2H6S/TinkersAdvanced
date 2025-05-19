@@ -47,7 +47,14 @@
     "proto_defense": "#D7FF82",
     "return_to_slime" : "#851172",
     "nutritive_slime": "#E8B5ED",
-    "ender_tuner": "#E8B5ED"
+    "ender_tuner": "#E8B5ED",
+
+    "combustion_generator": "#574B42",
+    "piezoelectric_effect": "#b8d8fc",
+    "overslime_generator": "#455739",
+    "electric_food": "#455739",
+    "platinoid_catalyst": "#B1CFD9",
+    "transition_catalyst": "#7D7277"
   },
   "material.tinkers_advanced": {
     "bismuth": "#83798A",

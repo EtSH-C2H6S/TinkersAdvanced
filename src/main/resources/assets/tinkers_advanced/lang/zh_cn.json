@@ -184,7 +184,28 @@
 
   "modifier.tinkers_advanced.combustion_generator": "燃烧室能量模块",
   "modifier.tinkers_advanced.combustion_generator.flavor": "这只是个开始。",
-  "modifier.tinkers_advanced.combustion_generator.description": "你的工具能通过燃烧熔炉燃料来产生能量。基础产出速率为200FE/t",
+  "modifier.tinkers_advanced.combustion_generator.description": "你的工具能通过燃烧熔炉燃料来产生能量。每级+200FE/t基础产出速率，燃料燃烧时间影响总产能。",
+
+  "modifier.tinkers_advanced.overslime_generator": "凝胶电化学能量模块",
+  "modifier.tinkers_advanced.overslime_generator.flavor": "黏液胶质形成的特殊空间网状结构是天然的离子交换介质。",
+  "modifier.tinkers_advanced.overslime_generator.description": "你的工具能通过消耗粘液附层来产生能量。每级+250FE/t基础产出速率，每点黏液附层能产生5kFE。",
+
+  "modifier.tinkers_advanced.piezoelectric_effect": "压电效应",
+  "modifier.tinkers_advanced.piezoelectric_effect.flavor": "晶格变形的兆示。",
+  "modifier.tinkers_advanced.piezoelectric_effect.description": "攻击敌人后根据伤害恢复少量能量。提供每级+100FE/t的基础产出速率，每点伤害产生10FE。",
+
+  "modifier.tinkers_advanced.electric_food": "充电饱",
+  "modifier.tinkers_advanced.electric_food.flavor": "你连合金都吃了，吃点能量怎么了？",
+  "modifier.tinkers_advanced.electric_food.description": "消耗能量恢复饱食度和饱和度。提供每级+100FE/t的能量消耗，恢复每点饱食度需要25kFE。",
+
+  "modifier.tinkers_advanced.platinoid_catalyst": "铂系催化剂",
+  "modifier.tinkers_advanced.platinoid_catalyst.flavor": "铂系催化剂很贵，所以不怎么常用。",
+  "modifier.tinkers_advanced.platinoid_catalyst.description": "增加能量产生/消耗的速率。但是减少最大能量产出，增加最大能量消耗。每级25%效果。",
+
+  "modifier.tinkers_advanced.transition_catalyst": "过渡金属催化剂",
+  "modifier.tinkers_advanced.transition_catalyst.flavor": "普普通通的过渡金属催化剂。",
+  "modifier.tinkers_advanced.transition_catalyst.description": "增加能量产生总量，减少能量消耗总量。每级25%效果。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -449,6 +470,8 @@
   "tool_stat.tinkers_advanced.generate_factor": "产出倍率：",
   "tooltip.tinkers_advanced.energy_gen_remain": "剩余产能：",
   "tooltip.tinkers_advanced.energy_cost_remain": "剩余耗能：",
+  "tooltip.tinkers_advanced.disallow_insert": "能量接收已禁用，在物品栏中右键以切换",
+  "tooltip.tinkers_advanced.allow_insert": "能量接收已启用，在物品栏中右键以切换",
 
 
   "pattern.tinkers_advanced.ae2_circuit": "电路板",
@@ -487,5 +510,5 @@
 
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，伤害无视护甲和无敌帧。",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时释放范围伤害性弧光。",
-  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后释放范围伤害性弧光，+3肢解。"
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后释放更大的范围伤害性弧光，+3肢解。"
 }

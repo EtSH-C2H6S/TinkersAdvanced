@@ -184,7 +184,27 @@
 
   "modifier.tinkers_advanced.combustion_generator": "Combustion Generator Module",
   "modifier.tinkers_advanced.combustion_generator.flavor": "Beginning of all.",
-  "modifier.tinkers_advanced.combustion_generator.description": "Your tool can produce energy by consuming Furnace Fuels. At a base speed of 200 FE/t.",
+  "modifier.tinkers_advanced.combustion_generator.description": "Your tool can produce energy by consuming Furnace Fuels. Base speed +200 FE/t.",
+
+  "modifier.tinkers_advanced.overslime_generator": "Overslime Generator",
+  "modifier.tinkers_advanced.overslime_generator.flavor": "Slime is a natural ion exchanging medium.",
+  "modifier.tinkers_advanced.overslime_generator.description": "Your tool can produce energy by consuming Overslime. Base speed +250 FE/t, each overslime produces 5kFE.",
+
+  "modifier.tinkers_advanced.piezoelectric_effect": "Piezoelectric Effect",
+  "modifier.tinkers_advanced.piezoelectric_effect.flavor": "A sign of crystal deformation.",
+  "modifier.tinkers_advanced.piezoelectric_effect.description": "Generate energy when hitting target. Base speed +100FE/t, each damage generates 10FE.",
+
+  "modifier.tinkers_advanced.electric_food": "Electric Food",
+  "modifier.tinkers_advanced.electric_food.flavor": "Make you directly powered by electricity.",
+  "modifier.tinkers_advanced.electric_food.description": "Consume energy to recover food level.Base speed +100FE/t, each food level requires 25kFE.",
+
+  "modifier.tinkers_advanced.platinoid_catalyst": "Platinoid Catalyst",
+  "modifier.tinkers_advanced.platinoid_catalyst.flavor": "Expensive catalyst.",
+  "modifier.tinkers_advanced.platinoid_catalyst.description": "Increase energy generate/consume speed, but reduce generate amount and increase consume amount. 25% each level.",
+
+  "modifier.tinkers_advanced.transition_catalyst": "Transition Catalyst",
+  "modifier.tinkers_advanced.transition_catalyst.flavor": "Common catalyst.",
+  "modifier.tinkers_advanced.transition_catalyst.description": "Increase energy generate amount or reduce energy consume amount. 25% each level.",
 
 
 
@@ -440,6 +460,8 @@
   "tool_stat.tinkers_advanced.generate_factor": "Power Multiplier",
   "tooltip.tinkers_advanced.energy_gen_remain": "Energy Generation Remain: ",
   "tooltip.tinkers_advanced.energy_cost_remain": "Energy Consumption Remain: ",
+  "tooltip.tinkers_advanced.disallow_insert": "Energy receive disabled. R-click to activate.",
+  "tooltip.tinkers_advanced.allow_insert": "Energy receive activated. R-click to disable.",
 
 
 
