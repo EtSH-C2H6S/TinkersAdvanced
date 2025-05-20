@@ -1,0 +1,14 @@
+{
+  "perStat": {
+    "tinkers_advanced:flux_core": [
+      {
+        "level": 1,
+        "name": "tconstruct:overslime"
+      },
+      {
+        "level": 2,
+        "name": "tinkers_advanced:overslime_generator"
+      }
+    ]
+  }
+}

@@ -39,12 +39,11 @@ public class PiezoelectricEffect extends EtSTBaseModifier implements GeneratorMo
     }
 
     @Override
-    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+    public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage) {
         if (context.isFullyCharged()){
             ToolEnergyProduction production = ToolEnergyProduction.getOrCreate((ToolStack) tool);
             production.energyToProduce+= (long) (damage* TiAcConfig.COMMON.PIEZOELECTRIC_EFFECT_GENERATION_EACH_DAMAGE.get());
             ToolEnergyProduction.updateProduction((ToolStack) tool,production);
         }
-        return knockback;
     }
 }

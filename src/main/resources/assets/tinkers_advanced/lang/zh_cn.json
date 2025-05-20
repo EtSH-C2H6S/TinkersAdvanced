@@ -509,6 +509,6 @@
   "info.tinkers_advanced.electron_tuner.cleaver": "劈刀形态",
 
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，伤害无视护甲和无敌帧。",
-  "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时释放范围伤害性弧光。",
-  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后释放更大的范围伤害性弧光，+3肢解。"
+  "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时造成范围伤害（仅主手）。",
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后造成范围伤害，+3肢解。"
 }

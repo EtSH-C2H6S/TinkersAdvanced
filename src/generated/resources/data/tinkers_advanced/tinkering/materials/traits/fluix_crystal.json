@@ -59,6 +59,16 @@
         "level": 1,
         "name": "etstlib:energetic_attack"
       }
+    ],
+    "tinkers_advanced:flux_core": [
+      {
+        "level": 1,
+        "name": "tconstruct:looting"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:piezoelectric_effect"
+      }
     ]
   }
 }

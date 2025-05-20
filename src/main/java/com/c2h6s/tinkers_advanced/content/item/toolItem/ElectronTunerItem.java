@@ -175,7 +175,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
 
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack slotStack, ItemStack held, Slot slot, ClickAction action, Player player, SlotAccess access) {
-        if (slot.allowModification(player)&&action==ClickAction.SECONDARY){
+        if (slot.allowModification(player)&&action==ClickAction.SECONDARY&&held.isEmpty()){
             ToolStack tool = ToolStack.from(slotStack);
             tool.getPersistentData().putBoolean(KEY_DISALLOW_INSERT,!tool.getPersistentData().getBoolean(KEY_DISALLOW_INSERT));
             return true;

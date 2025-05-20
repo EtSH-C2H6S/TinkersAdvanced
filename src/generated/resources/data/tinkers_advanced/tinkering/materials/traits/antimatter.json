@@ -1,5 +1,11 @@
 {
   "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:reactive_explosive_armor"
+      }
+    ],
     "tconstruct:melee_harvest": [
       {
         "level": 1,

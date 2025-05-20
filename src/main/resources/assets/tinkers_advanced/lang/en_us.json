@@ -500,6 +500,6 @@
   "info.tinkers_advanced.electron_tuner.cleaver": "Cleaver Mode",
 
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "Attack range +3, attack ignores armor.",
-  "info.tinkers_advanced.electron_tuner.sword.bonus": "Deal AOE damage on swinging.",
+  "info.tinkers_advanced.electron_tuner.sword.bonus": "Deal AOE damage on swinging (Main hand).",
   "info.tinkers_advanced.electron_tuner.cleaver.bonus": "Deal AOE damage on hit, +3 Severing level."
 }

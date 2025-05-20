@@ -1,0 +1,14 @@
+{
+  "perStat": {
+    "tinkers_advanced:flux_core": [
+      {
+        "level": 1,
+        "name": "tconstruct:lightweight"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:transition_catalyst"
+      }
+    ]
+  }
+}
