@@ -5,8 +5,6 @@
   "minVersion": "0.8",
   "refmap": "tinkers_advanced.refmap.json",
   "mixins": [
-    "LivingEntityAccessor",
-    "TickEventAccessor",
     "AEMixin.AbstractPortableCellAccessor",
     "mekanismMixin.FusionReactorMultiblockDataMixin",
     "TconMixin.ToolEnergyCapabilityMixin"
