@@ -20,6 +20,7 @@ import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyCons
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.CombustionGenerator;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.OverslimeGenerator;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.PiezoelectricEffect;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.SmelteryGenerator;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.PlatinoidCatalyst;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.TransitionCatalyst;
 import com.c2h6s.tinkers_advanced.content.modifier.harvest.DisIntegrate;
@@ -71,6 +72,7 @@ public class TiAcModifiers {
     public static StaticModifier<CombustionGenerator> COMBUSTION_GENERATOR = MODIFIERS.register("combustion_generator", CombustionGenerator::new);
     public static StaticModifier<OverslimeGenerator> OVERSLIME_GENERATOR = MODIFIERS.register("overslime_generator", OverslimeGenerator::new);
     public static StaticModifier<PiezoelectricEffect> PIEZOELECTRIC_EFFECT = MODIFIERS.register("piezoelectric_effect", PiezoelectricEffect::new);
+    public static StaticModifier<SmelteryGenerator> SMELTERY_GENERATOR = MODIFIERS.register("smeltery_generator", SmelteryGenerator::new);
 
     public static StaticModifier<ElectricFood> ELECTRIC_FOOD = MODIFIERS.register("electric_food", ElectricFood::new);
 

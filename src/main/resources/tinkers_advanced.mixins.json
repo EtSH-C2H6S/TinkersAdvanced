@@ -6,7 +6,6 @@
   "refmap": "tinkers_advanced.refmap.json",
   "mixins": [
     "LivingEntityAccessor",
-    "ServerLevelMixin",
     "TickEventAccessor",
     "AEMixin.AbstractPortableCellAccessor",
     "mekanismMixin.FusionReactorMultiblockDataMixin",

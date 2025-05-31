@@ -41,6 +41,7 @@ public class TiAcItems {
     protected static List<RegistryObject<Item>> LIST_TOOL=new ArrayList<>( List.of());
 
     protected static List<RegistryObject<BlockItem>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
+    protected static List<RegistryObject<BlockItem>> LIST_MIXC_BLOCK =new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_MATERIAL_ITEM_MODEL =new ArrayList<>( List.of());
 
     public static List<RegistryObject<Item>> getListSimpleModel(){
@@ -77,11 +78,15 @@ public class TiAcItems {
         LIST_SIMPLE_BLOCK.add(object);
         return object;
     }
-
+    public static RegistryObject<BlockItem> registerBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
+        RegistryObject<BlockItem> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
+        LIST_MIXC_BLOCK.add(object);
+        return object;
+    }
 
     public static final RegistryObject<BlockItem> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
-    public static final RegistryObject<BlockItem> BISMUTHINITE_ORE_DEEPSLATE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE_DEEPSLATE);
     public static final RegistryObject<BlockItem> IRIDIUM_LEAN_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.IRIDIUM_LEAN_ORE);
+    public static final RegistryObject<BlockItem> STIBNITE_ORE = registerBlockItem(ITEMS,TiAcBlocks.STIBNITE_ORE);
 
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTHINITE = registerMaterial(ITEMS,"bismuthinite",()->new Item(new Item.Properties()),true);
@@ -90,6 +95,8 @@ public class TiAcItems {
     public static final RegistryObject<Item> RESONANCE_CRYSTAL = registerMaterial(ITEMS,"resonance_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> DISINTEGRATE_CRYSTAL = registerMaterial(ITEMS,"disintegrate_crystal",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> VOLTAIC_CRYSTAL = registerMaterial(ITEMS,"voltaic_crystal",()->new Item(new Item.Properties().rarity(Rarity.RARE)),true);
+    public static final RegistryObject<Item> ANTIMONY_INGOT = registerMaterial(ITEMS,"antimony_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> STIBNITE = registerMaterial(ITEMS,"stibnite",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
     public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));

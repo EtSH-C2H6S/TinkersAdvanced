@@ -8,6 +8,7 @@ import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.content.event.eventHandler.LivingEventHandler;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
 import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
+import com.c2h6s.tinkers_advanced.content.worldgen.TiAcPlacementModifier;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.registery.*;
 import com.mojang.logging.LogUtils;
@@ -28,8 +29,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import slimeknights.tconstruct.library.client.model.TinkerItemProperties;
-import slimeknights.tconstruct.library.materials.IMaterialRegistry;
-import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
 
 import java.util.Random;
@@ -57,6 +56,8 @@ public class TinkersAdvanced
         TiAcEffects.EFFECTS.register(modEventBus);
         TiAcFluids.FLUIDS.register(modEventBus);
         TiAcParticleTypes.PARTICLES.register(modEventBus);
+        TiAcPlacementModifier.PLACEMENT_MODIFIER.register(modEventBus);
+        TiAcEntityTicker.TICKERS.register(modEventBus);
         if (ModListConstants.MekLoaded){
             TiAcItems.MEK_ITEMS.register(modEventBus);
             TiAcFluids.MEK_FLUIDS.register(modEventBus);

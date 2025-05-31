@@ -54,6 +54,7 @@ public class TiAcFluids {
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_BISMUTH = registerHotBurning(FLUIDS,"molten_bismuth",770,1,4,0.5f,false);
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLAZE_NETHERITE = registerHotBurning(FLUIDS,"molten_blaze_netherite",1920,15,1920,9f,false);
     public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRIDIUM = registerHotBurning(FLUIDS,"molten_iridium",1375,10,20,3f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMONY = registerHotBurning(FLUIDS,"molten_antimony",970,5,16,2f,false);
 
 
     public static final FluidObject<ForgeFlowingFluid> OVER_HEATED_LAVA = registerHotBurning(FLUIDS,"over_heated_lava",2300,15,200,6.5f,false);

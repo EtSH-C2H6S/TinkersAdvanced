@@ -32,10 +32,6 @@ public class CombustionGenerator extends EtSTBaseModifier implements GeneratorMo
         return TiAcConfig.COMMON.COMBUSTION_GENERATOR_BASIC_GENERATION.get() *entry.getLevel();
     }
 
-    @Override
-    public int getConditionalGeneration(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int baseAmount, int amplifiedAmount) {
-        return amplifiedAmount;
-    }
 
     @Override
     public long shrinkIngredientAndGetTotalEnergy(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int generateAmount, @NotNull IItemHandler handler) {

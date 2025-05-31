@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "tinkers_advanced:bismuthinite_ore_deepslate"
+              "name": "tinkers_advanced:stibnite_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "tinkers_advanced:bismuthinite"
+              "name": "tinkers_advanced:stibnite"
             }
           ]
         }

@@ -58,6 +58,11 @@ public class TiAcTabs {
                         output.accept(object.get());
                     }
                 }
+                for (RegistryObject<BlockItem> object:TiAcItems.LIST_MIXC_BLOCK){
+                    if (object.isPresent()) {
+                        output.accept(object.get());
+                    }
+                }
             })
             .build());
     public static final RegistryObject<CreativeModeTab> TOOL_TAB = CREATIVE_MODE_TABS.register("tiac_tool", () -> CreativeModeTab.builder()

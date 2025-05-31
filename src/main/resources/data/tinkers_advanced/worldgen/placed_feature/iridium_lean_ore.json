@@ -2,8 +2,11 @@
   "feature": "tinkers_advanced:iridium_lean_ore",
   "placement": [
     {
+      "type": "tinkers_advanced:config_iridium"
+    },
+    {
       "type": "minecraft:count",
-      "count": 3
+      "count": 4
     },
     {
       "type": "minecraft:in_square"

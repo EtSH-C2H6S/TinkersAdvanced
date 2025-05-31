@@ -68,8 +68,8 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
     @Override
     public void onLeftClickEmpty(IToolStackView tool, ModifierEntry entry, Player player, Level level, EquipmentSlot equipmentSlot) {
         if (!level.isClientSide&&TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& getMode(tool)==1&&player.getAttackStrengthScale(0)>0.8){
-            if (ToolEnergyUtil.extractEnergy(tool,250,true)>=250) {
-                ToolEnergyUtil.extractEnergy(tool,250,false);
+            if (ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true)>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()) {
+                ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),false);
                 PlasmaSlashEntity entity = PlasmaSlashEntity.create(player, ElectronTunerItem.getSlashScale(tool), player.getLookAngle(), (ToolStack) tool);
                 entity.baseDamage = tool.getStats().get(ToolStats.ATTACK_DAMAGE) * (0.25f + Math.min(0.75f, 0.25F * tool.getModifierLevel(TinkerModifiers.sweeping.get())));
                 level.addFreshEntity(entity);
@@ -80,11 +80,11 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
 
     @Override
     public int onDamageTool(IToolStackView tool, ModifierEntry modifier, int amount, @Nullable LivingEntity holder) {
-        int energyCost = ToolEnergyUtil.extractEnergy(tool,amount*250,true);
-        if (energyCost>=250){
-            int cancel = energyCost/250;
+        int energyCost = ToolEnergyUtil.extractEnergy(tool,amount*TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true);
+        if (energyCost>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()){
+            int cancel = energyCost/TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get();
             amount-= cancel;
-            ToolEnergyUtil.extractEnergy(tool,cancel*250,false);
+            ToolEnergyUtil.extractEnergy(tool,cancel*TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),false);
         }
         return amount;
     }

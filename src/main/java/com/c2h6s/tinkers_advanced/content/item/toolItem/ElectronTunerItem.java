@@ -106,12 +106,16 @@ public class ElectronTunerItem extends ModifiableSwordItem {
                     int amplifiedAmount = (int) (baseAmount * tool.getStats().get(TiAcToolStats.POWER_MULTIPLIER));
                     amplifiedAmount = hook.getConditionalGeneration(tool, modifier, holder, null, baseAmount, amplifiedAmount);
                     if (amplifiedAmount > 0&&production.requireGeneration()) {
-                        energyToGenerateThisTick += amplifiedAmount;
-                        energyToGenTotal += modifier.getHook(TiAcModifierHooks.GENERATOR_MODULE).shrinkIngredientAndGetTotalEnergy(tool, modifier, holder, null, amplifiedAmount, handler);
+                        energyToGenTotal += hook.shrinkIngredientAndGetTotalEnergy(tool, modifier, holder, null, amplifiedAmount, handler);
+                        if (energyToGenTotal>0){
+                            energyToGenerateThisTick += amplifiedAmount;
+                        }
                     }
                     if (amplifiedAmount < 0&&production.requireConsumption()) {
-                        energyToConsumeThisTick -= amplifiedAmount;
-                        energyToCostTotal -= modifier.getHook(TiAcModifierHooks.GENERATOR_MODULE).shrinkIngredientAndGetTotalEnergy(tool, modifier, holder, null, amplifiedAmount, handler);
+                        energyToCostTotal -= hook.shrinkIngredientAndGetTotalEnergy(tool, modifier, holder, null, amplifiedAmount, handler);
+                        if (energyToGenTotal>0){
+                            energyToConsumeThisTick -= amplifiedAmount;
+                        }
                     }
                 }
 
@@ -194,7 +198,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
 
     public static float getSlashDamageBonus(IToolStackView tool){
         float bonus = Math.min(0.6f,0.2F*tool.getModifierLevel(TinkerModifiers.sweeping.get()));
-        bonus = Math.min(bonus,ToolEnergyUtil.extractEnergy(tool,(int) (1000*bonus),true)/1000f);
+        bonus = Math.min(bonus,ToolEnergyUtil.extractEnergy(tool,(int) (TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()*4*bonus),true)/(TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()*4f));
         return bonus;
     }
 
@@ -203,9 +207,9 @@ public class ElectronTunerItem extends ModifiableSwordItem {
         if (TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& player.getAttackStrengthScale(0)>0.8 && player.level() instanceof ServerLevel level){
             ToolStack tool = ToolStack.from(stack);
             if (getMode(tool)>=1){
-                if (ToolEnergyUtil.extractEnergy(tool,250,true)>=250) {
+                if (ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true)>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()) {
                     float bonus = getSlashDamageBonus(tool);
-                    ToolEnergyUtil.extractEnergy(tool, (int) (1000*bonus), false);
+                    ToolEnergyUtil.extractEnergy(tool, (int) (TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()*4*bonus), false);
                     PlasmaSlashEntity entity = PlasmaSlashEntity.create(player, getSlashScale(tool), player.getLookAngle(), tool);
                     entity.baseDamage = getSlashDamage(tool);
                     level.addFreshEntity(entity);
@@ -222,9 +226,9 @@ public class ElectronTunerItem extends ModifiableSwordItem {
         if (TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& player.getAttackStrengthScale(0)>0.8 && player.level() instanceof ServerLevel level){
             ToolStack tool = ToolStack.from(stack);
             if (getMode(tool)==1){
-                if (ToolEnergyUtil.extractEnergy(tool,250,true)>=250) {
+                if (ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true)>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()) {
                     float bonus = getSlashDamageBonus(tool);
-                    ToolEnergyUtil.extractEnergy(tool, (int) (1000*bonus), false);
+                    ToolEnergyUtil.extractEnergy(tool, (int) (TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()*4*bonus), false);
                     PlasmaSlashEntity entity = PlasmaSlashEntity.create(player, getSlashScale(tool), player.getLookAngle(), tool);
                     entity.baseDamage = getSlashDamage(tool);
                     level.addFreshEntity(entity);

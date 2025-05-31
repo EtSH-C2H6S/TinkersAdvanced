@@ -26,8 +26,6 @@ public class ElectronTunerItemCapabilityProvider extends ToolInventoryCapability
     }
     public static final ResourceLocation LOCATION = TinkersAdvanced.getLocation("electron_tuner_inventory");
 
-//    public final InventoryModule inventoryModule =new InventoryModule(TinkersAdvanced.getLocation("electron_tuner_inventory"), LevelingInt.flat(16),LevelingInt.flat(64), ItemPredicate.ANY,null, ModifierCondition.ANY_CONTEXT,new IntRange(1,Integer.MAX_VALUE));
-
     public final InventoryModifierHook inventory = new InventoryModifierHook() {
         @Override
         public int getSlots(IToolStackView iToolStackView, ModifierEntry modifierEntry) {

@@ -24,7 +24,7 @@
 
   "modifier.tinkers_advanced.annihilate": "湮灭反应",
   "modifier.tinkers_advanced.annihilate.flavor": "灰都不剩！",
-  "modifier.tinkers_advanced.annihilate.description": "对你和目标同时造成等额爆炸伤害，随后造成不破坏地形的爆炸。\n你的攻击无视大部分原版防御手段。",
+  "modifier.tinkers_advanced.annihilate.description": "对目标造成5倍的爆炸伤害，对自己造成2.5倍的爆炸伤害，随后造成不破坏地形的爆炸。\n你的攻击无视大部分原版防御手段。",
 
   "modifier.tinkers_advanced.reactive_explosive_armor": "爆炸反应装甲",
   "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "爆炸反应装甲",
@@ -206,6 +206,10 @@
   "modifier.tinkers_advanced.transition_catalyst.flavor": "普普通通的过渡金属催化剂。",
   "modifier.tinkers_advanced.transition_catalyst.description": "增加能量产生总量，减少能量消耗总量。每级25%效果。",
 
+  "modifier.tinkers_advanced.smeltery_generator": "冶炼炉能量模块",
+  "modifier.tinkers_advanced.smeltery_generator.flavor": "热能发电？",
+  "modifier.tinkers_advanced.smeltery_generator.description": "你的工具能通过消耗冶炼炉燃料产生能量。每级+250FE/t的基础产出速率，受燃料温度成比例加成（熔岩为1x）。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -352,11 +356,12 @@
   "item.tinkers_advanced.resonance_crystal": "谐振水晶",
   "item.tinkers_advanced.voltaic_crystal": "伏打水晶",
   "item.tinkers_advanced.protocite_pellet": "原体合金靶丸",
-  "item.tinkers_advanced.nutrition_slime_ingot": "营养黏液浸钢锭",
+  "item.tinkers_advanced.antimony_ingot": "锑锭",
+  "item.tinkers_advanced.stibnite": "辉锑矿晶体",
 
 
   "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
-  "block.tinkers_advanced.bismuthinite_ore_deepslate": "深层辉铋矿",
+  "block.tinkers_advanced.stibnite_ore": "辉锑矿",
   "block.tinkers_advanced.iridium_lean_ore": "贫铱矿",
 
 
@@ -435,6 +440,7 @@
   "effect.tinkers_advanced.tetanus": "破伤风",
   "effect.tinkers_advanced.ionized": "电离",
   "effect.tinkers_advanced.proto_poison": "原毒",
+  "effect.tinkers_advanced.plague": "疫毒",
 
 
 
@@ -499,9 +505,13 @@
   "tooltip.tinkers_advanced.neutronite_2": "§b聚变反应§f是恒星的生命，§c铁元素§f则标志着恒星的死去。",
   "tooltip.tinkers_advanced.neutronite_3": "尽管我们不能登陆中子星，但是制造一颗恒星不是什么难事...",
 
+  "tooltip.tinkers_advanced.stibnite_ore": "挖掘这种矿物必须万分小心...",
+  "tooltip.tinkers_advanced.found_in_nether": "发现于下界",
+  "tooltip.tinkers_advanced.found_in_overworld": "发现于末地",
+  "tooltip.tinkers_advanced.found_in_end": "发现于主世界",
+
 
   "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量：",
-
 
 
   "info.tinkers_advanced.electron_tuner.rapier": "西洋剑形态",
@@ -510,5 +520,6 @@
 
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，伤害无视护甲和无敌帧。",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时造成范围伤害（仅主手）。",
-  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后造成范围伤害，+3肢解。"
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后造成范围伤害，+3肢解。",
+  "item.tinkers_advanced.nutrition_slime_ingot": "Nutritive Slimesteel Ingot"
 }

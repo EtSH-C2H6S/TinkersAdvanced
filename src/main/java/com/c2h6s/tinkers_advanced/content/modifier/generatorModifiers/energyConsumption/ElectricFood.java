@@ -31,11 +31,6 @@ public class ElectricFood extends EtSTBaseModifier implements GeneratorModuleMod
     }
 
     @Override
-    public int getConditionalGeneration(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int baseAmount, int amplifiedAmount) {
-        return amplifiedAmount;
-    }
-
-    @Override
     public long shrinkIngredientAndGetTotalEnergy(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int generateAmount, @NotNull IItemHandler handler) {
         generateAmount*=20;
         if (holderEntity instanceof Player player){

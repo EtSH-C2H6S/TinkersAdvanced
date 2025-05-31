@@ -2,6 +2,9 @@
   "feature": "tinkers_advanced:bismuthinite_ore",
   "placement": [
     {
+      "type": "tinkers_advanced:config_bismuthinite"
+    },
+    {
       "type": "minecraft:count",
       "count": 6
     },
@@ -13,7 +16,7 @@
       "height": {
         "type": "minecraft:biased_to_bottom",
         "max_inclusive": {
-          "absolute": 16
+          "absolute": -8
         },
         "min_inclusive": {
           "absolute": -58

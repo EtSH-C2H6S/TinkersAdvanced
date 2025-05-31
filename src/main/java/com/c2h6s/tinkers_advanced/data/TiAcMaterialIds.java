@@ -12,6 +12,8 @@ public class TiAcMaterialIds {
     public static final MaterialId DISINTEGRATE_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("disintegrate_crystal"));
     public static final MaterialId VOLTAIC_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("voltaic_crystal"));
     public static final MaterialId RESONANCE_CRYSTAL =new MaterialId(TinkersAdvanced.getLocation("resonance_crystal"));
+    public static final MaterialId ANTIMONY =new MaterialId(TinkersAdvanced.getLocation("antimony"));
+    public static final MaterialId STIBNITE =new MaterialId(TinkersAdvanced.getLocation("stibnite"));
 
     public static class CommonIntegration{
         public static final MaterialId PLASTIC =new MaterialId(TinkersAdvanced.getLocation("plastic"));

@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced.content.modifier.combat;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.etstlib.tool.modifiers.Combat.RealityBreaker;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.util.FakeExplosionUtil;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.world.InteractionHand;
@@ -50,9 +51,9 @@ public class Annihilate extends EtSTBaseModifier {
         if (context.getTarget() instanceof LivingEntity living&&!living.level().isClientSide&&cachedDamage>0){
             LivingEntity attacker = context.getAttacker();
             LegacyDamageSource source = LegacyDamageSource.any(living.damageSources().explosion(null)).setBypassInvulnerableTime();
-            attacker.hurt(source,cachedDamage);
+            attacker.hurt(source,(float) (cachedDamage * TiAcConfig.COMMON.ANNIHILATE_EXPLOSION_SELF_MULTIPLIER.get()));
             IntOpenHashSet set = new IntOpenHashSet(attacker.getId());
-            FakeExplosionUtil.fakeExplode(cachedDamage,attacker,living.level(),living.position().add(new Vec3(0,living.getBbHeight()/2,0)),set,false);
+            FakeExplosionUtil.fakeExplode((float) (cachedDamage * TiAcConfig.COMMON.ANNIHILATE_EXPLOSION_ATTACK_MULTIPLIER.get()),attacker,living.level(),living.position().add(new Vec3(0,living.getBbHeight()/2,0)),set,false);
         }
     }
 }

@@ -50,7 +50,7 @@ public class LivingEventHandler {
                     living.invulnerableTime = 0;
                     if (living.getEffect(TiAcEffects.IONIZED.get())!=null) living.removeEffect(TiAcEffects.IONIZED.get());
                     living.addEffect(new MobEffectInstance(TiAcEffects.IONIZED.get(),ionizeStrength/20,ionizeStrength/200,false,false));
-                    serverLevel.sendParticles((SimpleParticleType)TiAcParticleTypes.ELECTRIC.get(),living.getX(),living.getY()+0.5*living.getBbHeight(),living.getZ(),10,0,0,0,(living.getBbHeight()+living.getBbWidth())/4);
+                    serverLevel.sendParticles((SimpleParticleType)TiAcParticleTypes.ELECTRIC.get(),living.getX(),living.getY()+0.5*living.getBbHeight(),living.getZ(),5,0,0,0,(living.getBbHeight()+living.getBbWidth())/6);
                     AttributeInstance attributeInstance;
                     double i =0;
                     attributeInstance = living.getAttribute(Attributes.ARMOR);
@@ -110,8 +110,6 @@ public class LivingEventHandler {
                         }
                     }
                 }
-
-
             }
         }
     }

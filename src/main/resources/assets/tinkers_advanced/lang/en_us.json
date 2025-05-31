@@ -206,6 +206,10 @@
   "modifier.tinkers_advanced.transition_catalyst.flavor": "Common catalyst.",
   "modifier.tinkers_advanced.transition_catalyst.description": "Increase energy generate amount or reduce energy consume amount. 25% each level.",
 
+  "modifier.tinkers_advanced.smeltery_generator": "Smeltery Generator",
+  "modifier.tinkers_advanced.smeltery_generator.flavor": "Heat it up!",
+  "modifier.tinkers_advanced.smeltery_generator.description": "Your tool can produce energy by consuming Smeltery Fuels. Base speed +250 FE/t , affected by temperature (Lava = 1x).",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -341,10 +345,12 @@
   "item.tinkers_advanced.voltaic_crystal": "Voltaic Crystal",
   "item.tinkers_advanced.protocite_pellet": "Protocite Pellet",
   "item.tinkers_advanced.nutrition_slime_ingot": "Nutritive Slimesteel Ingot",
+  "item.tinkers_advanced.antimony_ingot": "Antimony Ingot",
+  "item.tinkers_advanced.stibnite": "Stibnite",
 
   "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
-  "block.tinkers_advanced.bismuthinite_ore_deepslate": "Bismuthinite Ore Deepslate",
+  "block.tinkers_advanced.stibnite_ore": "Stibnite Ore",
 
 
 
@@ -425,6 +431,7 @@
   "effect.tinkers_advanced.tetanus": "Tetanus",
   "effect.tinkers_advanced.ionized": "Ionized",
   "effect.tinkers_advanced.proto_poison": "Proto Poison",
+  "effect.tinkers_advanced.plague": "Plague",
 
 
 
@@ -491,6 +498,11 @@
   "tooltip.tinkers_advanced.neutronite_1": "Neutron stars are dead star cores left over by supernova.",
   "tooltip.tinkers_advanced.neutronite_2": "§bFusion§f is the life of star. The formation of§c iron§f marks a dead end for a star.",
   "tooltip.tinkers_advanced.neutronite_3": "Although it's impossible to land on a neutron star, creating a star is quite possible.",
+
+  "tooltip.tinkers_advanced.stibnite_ore": "It's important to be careful when mining this ore...",
+  "tooltip.tinkers_advanced.found_in_nether": "Found in the nether.",
+  "tooltip.tinkers_advanced.found_in_overworld": "Found in the end.",
+  "tooltip.tinkers_advanced.found_in_end": "Found in the overworld.",
 
 
   "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :",

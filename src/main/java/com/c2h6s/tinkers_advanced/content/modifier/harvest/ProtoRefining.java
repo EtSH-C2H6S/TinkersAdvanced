@@ -46,7 +46,7 @@ public class ProtoRefining extends EtSTBaseModifier implements EnchantmentModifi
 
     public static int getBonus(IToolStackView tool,ModifierEntry entry){
         ModDataNBT nbt = tool.getPersistentData();
-        return Mth.clamp(nbt.getInt(KEY_REFINE) / TiAcConfig.COMMON.PROTO_REFINING_TIMES_REQUIRED.get(),0,entry.getLevel()*2);
+        return Mth.clamp(nbt.getInt(KEY_REFINE) / TiAcConfig.COMMON.PROTO_REFINING_TIMES_REQUIRED.get(),0,entry.getLevel()*TiAcConfig.COMMON.PROTO_REFINING_BONUS_LEVEL.get());
     }
     public static void addBonus(IToolStackView tool,ModifierEntry entry){
         ModDataNBT nbt = tool.getPersistentData();

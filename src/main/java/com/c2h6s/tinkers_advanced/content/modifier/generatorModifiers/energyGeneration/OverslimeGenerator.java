@@ -30,11 +30,6 @@ public class OverslimeGenerator extends EtSTBaseModifier implements GeneratorMod
     }
 
     @Override
-    public int getConditionalGeneration(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int baseAmount, int amplifiedAmount) {
-        return amplifiedAmount;
-    }
-
-    @Override
     public long shrinkIngredientAndGetTotalEnergy(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int generateAmount, @NotNull IItemHandler handler) {
         int perSlime = TiAcConfig.COMMON.OVERSLIME_GENERATOR_GENERATION_EACH_OVERSLIME.get();
         long amount =generateAmount * 20L;

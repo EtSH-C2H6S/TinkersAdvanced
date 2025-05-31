@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "unstable=false": {
+      "model": "tinkers_advanced:block/stibnite_ore"
+    },
+    "unstable=true": {
+      "model": "tinkers_advanced:block/stibnite_ore_unstable"
+    }
+  }
+}

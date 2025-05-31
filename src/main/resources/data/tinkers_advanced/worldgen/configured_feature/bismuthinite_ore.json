@@ -10,15 +10,6 @@
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:stone_ore_replaceables"
-        }
-      },
-      {
-        "state": {
-          "Name": "tinkers_advanced:bismuthinite_ore_deepslate"
-        },
-        "target": {
-          "predicate_type": "minecraft:tag_match",
           "tag": "minecraft:deepslate_ore_replaceables"
         }
       }

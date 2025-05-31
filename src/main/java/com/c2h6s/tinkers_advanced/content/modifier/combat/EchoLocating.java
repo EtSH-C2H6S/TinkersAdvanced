@@ -1,14 +1,15 @@
 package com.c2h6s.tinkers_advanced.content.modifier.combat;
 
+import com.c2h6s.etstlib.content.misc.entityTicker.EntityTickerInstance;
+import com.c2h6s.etstlib.content.misc.entityTicker.EntityTickerManager;
 import com.c2h6s.etstlib.content.misc.vibration.VibrationContext;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.etstlib.register.EtSTLibHooks;
 import com.c2h6s.etstlib.tool.hooks.VibrationListeningModifierHook;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.content.objects.EntityTicker;
+import com.c2h6s.tinkers_advanced.registery.TiAcEntityTicker;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -52,10 +53,12 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
     public boolean canReceiveVibration(IToolStackView iToolStackView, ModifierEntry modifierEntry, Player player, ServerLevel serverLevel, EquipmentSlot equipmentSlot, VibrationContext vibrationContext) {
         if (iToolStackView.getPersistentData().getInt(KEY_COOLDOWN)>0) return false;
         if (vibrationContext.directEntity instanceof LivingEntity living){
-            return living.getPersistentData().getInt(Ticker.KEY)<=0&&living!=player;
+            EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(living);
+            return !instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())&&living!=player;
         }
         if (vibrationContext.projectileOwner instanceof LivingEntity living){
-            return living.getPersistentData().getInt(Ticker.KEY)<=0&&living!=player;
+            EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(living);
+            return !instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())&&living!=player;
         }
         return false;
     }
@@ -66,8 +69,8 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         if (vibrationContext.projectileOwner instanceof LivingEntity entity) living = entity;
         if (vibrationContext.directEntity instanceof LivingEntity entity) living = entity;
         if (living!=null) {
-            Ticker ticker = new Ticker(ECHO_UUID, living);
-            ticker.start(4+4*modifierEntry.getLevel());
+            EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
+            managerInstance.addTicker(new EntityTickerInstance(TiAcEntityTicker.SCULK_MARKED.get(), 1,4+4*modifierEntry.getLevel()),Integer::max,Integer::sum);
             iToolStackView.getPersistentData().putInt(KEY_COOLDOWN,4);
         }
     }
@@ -75,7 +78,8 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
     @Override
     public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         if (context.getTarget() instanceof LivingEntity living&&context.getLevel() instanceof ServerLevel serverLevel){
-            if (living.getPersistentData().getInt(Ticker.KEY)>0){
+            EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(living);
+            if (instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())){
                 living.hurt(LegacyDamageSource.any(living.damageSources().sonicBoom(context.getAttacker())).setBypassInvulnerableTime(),damageDealt*0.5f);
                 serverLevel.sendParticles(ParticleTypes.SONIC_BOOM,living.getX(),living.getY()+0.5*living.getBbHeight(),living.getZ(),1,0,0,0,0);
             }
@@ -85,7 +89,8 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
     @Override
     public void afterArrowHit(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull LivingEntity target, float damageDealt) {
         if (attacker!=null&&attacker.level() instanceof ServerLevel serverLevel){
-            if (target.getPersistentData().getInt(Ticker.KEY)>0){
+            EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(target);
+            if (instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())){
                 target.hurt(LegacyDamageSource.any(attacker.damageSources().sonicBoom(attacker)).setBypassInvulnerableTime(),damageDealt*0.5f);
                 serverLevel.sendParticles(ParticleTypes.SONIC_BOOM,target.getX(),target.getY()+0.5*target.getBbHeight(),target.getZ(),1,0,0,0,0);
             }
@@ -99,39 +104,4 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         }
     }
 
-    private static class Ticker extends EntityTicker<LivingEntity> {
-        public static String KEY = "echo_locating_ticker";
-
-        public Ticker(UUID tickerUuid, LivingEntity entity) {
-            super(tickerUuid, entity);
-        }
-
-        public void start(int ticks){
-            CompoundTag nbt = this.entity.getPersistentData();
-            nbt.putInt(KEY,ticks);
-            this.entity.setGlowingTag(true);
-            this.start();
-        }
-
-        @Override
-        public void end() {
-            this.entity.getPersistentData().remove(KEY);
-            this.entity.setGlowingTag(false);
-            super.end();
-        }
-
-        @Override
-        public boolean tick() {
-            CompoundTag nbt = this.entity.getPersistentData();
-            if (nbt.getInt(KEY)>0&&this.entity.level().getGameTime()%5==0){
-                nbt.putInt(KEY,nbt.getInt(KEY)-1);
-            }
-            if (nbt.getInt(KEY)<=0){
-                nbt.remove(KEY);
-                this.end();
-            }
-
-            return true;
-        }
-    }
 }
