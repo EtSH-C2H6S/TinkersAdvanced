@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tinkers_advanced:stibnite"
+  },
+  "material": "tinkers_advanced:stibnite",
+  "needed": 1,
+  "value": 1
+}

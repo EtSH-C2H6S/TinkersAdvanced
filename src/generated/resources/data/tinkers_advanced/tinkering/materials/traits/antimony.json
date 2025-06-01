@@ -1,0 +1,20 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tinkers_advanced:plague"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:heavy"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:poison_defense"
+      }
+    ]
+  }
+}

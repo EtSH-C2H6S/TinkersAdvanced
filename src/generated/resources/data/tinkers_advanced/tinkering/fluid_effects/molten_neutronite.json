@@ -1,0 +1,41 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:damage",
+      "damage": 16.0,
+      "damage_type": {
+        "melee": "mekanism:radiation",
+        "ranged": "mekanism:radiation"
+      }
+    },
+    {
+      "type": "etstlib:add_entity_ticker",
+      "duration": {
+        "each_level": 400
+      },
+      "level": {
+        "each_level": 1
+      },
+      "ticker": "tinkers_advanced:ionized"
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "fluid": "tinkers_advanced:molten_neutronite"
+  }
+}

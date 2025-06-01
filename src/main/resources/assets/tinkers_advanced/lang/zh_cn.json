@@ -210,6 +210,18 @@
   "modifier.tinkers_advanced.smeltery_generator.flavor": "热能发电？",
   "modifier.tinkers_advanced.smeltery_generator.description": "你的工具能通过消耗冶炼炉燃料产生能量。每级+250FE/t的基础产出速率，受燃料温度成比例加成（熔岩为1x）。",
 
+  "modifier.tinkers_advanced.unstable": "不稳定",
+  "modifier.tinkers_advanced.unstable.flavor": "轻拿轻放！",
+  "modifier.tinkers_advanced.unstable.description": "使挖掘速度、攻击伤害和耐久消耗随机变化。",
+
+  "modifier.tinkers_advanced.plague": "疫毒",
+  "modifier.tinkers_advanced.plague.flavor": "死亡之素。",
+  "modifier.tinkers_advanced.plague.description": "攻击造成疫毒效果，持续造成伤害并减少目标生命再生。",
+
+  "modifier.tinkers_advanced.poison_defense": "百毒不侵",
+  "modifier.tinkers_advanced.poison_defense.flavor": "我已炼成毒体...",
+  "modifier.tinkers_advanced.poison_defense.description": "免疫中毒和凋零效果。",
+
 
 
   "material.tinkers_advanced.bismuth": "铋",
@@ -331,6 +343,12 @@
   "material.tinkers_advanced.nutritive_slime.flavor": "吃这玩意真的不会金属离子中毒吗？",
   "material.tinkers_advanced.nutritive_slime.encyclopedia": "每秒消耗20点粘液附层恢复1饱食度，等级越高恢复速度越快。",
 
+  "material.tinkers_advanced.antimony": "锑",
+  "material.tinkers_advanced.antimony.flavor": "你这元素怎么骂人啊？",
+
+  "material.tinkers_advanced.stibnite": "辉锑矿",
+  "material.tinkers_advanced.stibnite.flavor": "这种易爆的下界矿物勾起了我的痛苦回忆...",
+
 
 
   "material.tinkers_advanced.silicon": "硅",
@@ -358,6 +376,10 @@
   "item.tinkers_advanced.protocite_pellet": "原体合金靶丸",
   "item.tinkers_advanced.antimony_ingot": "锑锭",
   "item.tinkers_advanced.stibnite": "辉锑矿晶体",
+  "item.tinkers_advanced.blitz_lumium_nugget": "震荡流明粒",
+  "item.tinkers_advanced.antimony_nugget": "锑粒",
+  "item.tinkers_advanced.bismuth_nugget": "铋粒",
+  "item.tinkers_advanced.nutrition_slime_ingot": "营养黏液浸钢",
 
 
   "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
@@ -369,6 +391,10 @@
   "fluid.tinkers_advanced.molten_bismuth": "熔融铋",
   "item.tinkers_advanced.molten_bismuth_bucket": "熔融铋桶",
   "fluid.tinkers_advanced.molten_bismuth.fluid_effect": "冷却凝固的铋碎渣会刺入被它溅到的生物。",
+
+  "fluid.tinkers_advanced.molten_antimony": "熔融锑",
+  "item.tinkers_advanced.molten_antimony_bucket": "熔融锑桶",
+  "fluid.tinkers_advanced.molten_antimony.fluid_effect": "锑与瘟疫神奇般地关联起来了，没人知道为什么。",
 
   "fluid.tinkers_advanced.molten_antimatter": "熔融反物质",
   "item.tinkers_advanced.molten_antimatter_bucket": "熔融反物质桶",
@@ -421,6 +447,7 @@
 
   "fluid.tinkers_advanced.molten_neutronite": "流态中子星物质",
   "item.tinkers_advanced.molten_neutronite_bucket": "流态中子星物质桶",
+  "fluid.tinkers_advanced.molten_neutronite.fluid_effect": "这种极端的物质会缓慢将你的目标拆成粒子，让它们体验慢性死亡。",
 
   "fluid.tinkers_advanced.molten_osgloglas": "熔融锇荧黑曜合金",
   "item.tinkers_advanced.molten_osgloglas_bucket": "熔融锇荧黑曜合金桶",
@@ -434,6 +461,7 @@
 
   "fluid.tinkers_advanced.molten_pink_slime": "熔融粉色史莱姆金属",
   "item.tinkers_advanced.molten_pink_slime_bucket": "熔融粉色史莱姆金属桶",
+
 
 
 
@@ -521,5 +549,7 @@
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，伤害无视护甲和无敌帧。",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时造成范围伤害（仅主手）。",
   "info.tinkers_advanced.electron_tuner.cleaver.bonus": "击中后造成范围伤害，+3肢解。",
-  "item.tinkers_advanced.nutrition_slime_ingot": "Nutritive Slimesteel Ingot"
+
+  "entity_ticker.tinkers_advanced.ionized": "电离",
+  "entity_ticker.tinkers_advanced.sculk_marked": "幽匿标记"
 }

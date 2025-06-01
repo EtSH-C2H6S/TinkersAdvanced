@@ -1,6 +1,6 @@
 {
   "type": "tconstruct:melting_fuel",
-  "duration": 200,
+  "duration": 1000,
   "fluid": {
     "amount": 100,
     "fluid": "tinkers_advanced:over_heated_lava"

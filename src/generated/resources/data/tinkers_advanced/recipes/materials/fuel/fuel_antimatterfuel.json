@@ -15,11 +15,11 @@
       ]
     }
   ],
-  "duration": 1000,
+  "duration": 50000,
   "fluid": {
     "amount": 10,
     "fluid": "tinkers_advanced:molten_antimatter"
   },
-  "rate": 99,
-  "temperature": 9999
+  "rate": 327,
+  "temperature": 32768
 }

@@ -1,6 +1,10 @@
 package com.c2h6s.tinkers_advanced.content.modifier.combat;
 
+import com.c2h6s.etstlib.content.misc.entityTicker.EntityTickerInstance;
+import com.c2h6s.etstlib.content.misc.entityTicker.EntityTickerManager;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
+import com.c2h6s.etstlib.util.CommonConstants;
+import com.c2h6s.tinkers_advanced.registery.TiAcEntityTicker;
 import com.c2h6s.tinkers_advanced.util.CommonUtil;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -18,11 +22,8 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 
-import java.util.UUID;
 
 public class IonizedModifier extends EtSTBaseModifier implements OnAttackedModifierHook {
-    public static final String KEY_IONIZED = "tinkers_advanced_ionized";
-    public static final UUID IONIZED_UUID = UUID.fromString("f839d735-470b-5120-7257-68aa4bdde97c");
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
@@ -32,24 +33,32 @@ public class IonizedModifier extends EtSTBaseModifier implements OnAttackedModif
 
     @Override
     public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage) {
-        if (context.getTarget() instanceof LivingEntity living){
+        if (context.getTarget() instanceof LivingEntity living&&context.isFullyCharged()){
             living.getPersistentData().putInt(CommonUtil.KEY_ATTACKER,context.getAttacker().getId());
-            living.getPersistentData().putInt(KEY_IONIZED,living.getPersistentData().getInt(KEY_IONIZED)+200*modifier.getLevel());
+            EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
+            EntityTickerInstance instance = new EntityTickerInstance(TiAcEntityTicker.IONIZED.get(), modifier.getLevel(),200);
+            managerInstance.addTicker(instance,(a,b)->Math.min(a+b,10),Integer::sum);
         }
     }
     @Override
     public void afterArrowHit(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull LivingEntity target, float damageDealt) {
-        if (attacker!=null){
-            target.getPersistentData().putInt(CommonUtil.KEY_ATTACKER,attacker.getId());
+        if (arrow.getTags().contains(CommonConstants.KEY_CRITARROW)) {
+            if (attacker != null) {
+                target.getPersistentData().putInt(CommonUtil.KEY_ATTACKER, attacker.getId());
+            }
+            EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(target);
+            EntityTickerInstance instance = new EntityTickerInstance(TiAcEntityTicker.IONIZED.get(), entry.getLevel(), 200);
+            managerInstance.addTicker(instance, (a, b) -> Math.min(a + b, 10), Integer::sum);
         }
-        target.getPersistentData().putInt(KEY_IONIZED,target.getPersistentData().getInt(KEY_IONIZED)+200*entry.getLevel());
     }
 
     @Override
     public void onAttacked(IToolStackView iToolStackView, ModifierEntry modifier, EquipmentContext context, EquipmentSlot equipmentSlot, DamageSource damageSource, float v, boolean b) {
         if (damageSource.getEntity() instanceof LivingEntity living){
             living.getPersistentData().putInt(CommonUtil.KEY_ATTACKER,context.getEntity().getId());
-            living.getPersistentData().putInt(KEY_IONIZED,living.getPersistentData().getInt(KEY_IONIZED)+200*modifier.getLevel());
+            EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
+            EntityTickerInstance instance = new EntityTickerInstance(TiAcEntityTicker.IONIZED.get(), modifier.getLevel(), 200);
+            managerInstance.addTicker(instance, (a, c) -> Math.min(a + c, 10), Integer::sum);
         }
     }
 }

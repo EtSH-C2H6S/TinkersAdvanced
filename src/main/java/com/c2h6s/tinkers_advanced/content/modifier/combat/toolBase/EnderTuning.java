@@ -1,7 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase;
 
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
-import com.c2h6s.etstlib.entity.specialDamageSources.PercentageBypassArmorSource;
 import com.c2h6s.etstlib.tool.modifiers.base.BasicFEModifier;
 import com.c2h6s.etstlib.util.IToolUuidGetter;
 import com.c2h6s.etstlib.util.MathUtil;
@@ -12,9 +11,7 @@ import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
 import com.c2h6s.tinkers_advanced.content.objects.ToolEnergyProduction;
 import com.c2h6s.tinkers_advanced.util.CommonUtil;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -41,6 +38,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.shared.TinkerEffects;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
 import java.util.List;
@@ -115,7 +113,7 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         if (context.getTarget() instanceof LivingEntity living&&TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()){
-            living.forceAddEffect(new MobEffectInstance(TinkerModifiers.enderferenceEffect.get(),600,0), context.getAttacker());
+            living.forceAddEffect(new MobEffectInstance(TinkerEffects.enderference.get(),600,0), context.getAttacker());
         }
     }
 

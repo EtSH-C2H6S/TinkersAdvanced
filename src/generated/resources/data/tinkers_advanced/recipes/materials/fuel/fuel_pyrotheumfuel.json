@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "duration": 200,
+  "duration": 500,
   "fluid": {
     "amount": 10,
     "fluid": "tinkers_advanced:pyrotheum"

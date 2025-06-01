@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tinkers_advanced:antimony",
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_antimony"
+  },
+  "temperature": 970
+}

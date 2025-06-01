@@ -53,7 +53,6 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerToolActions;
 import slimeknights.tconstruct.tools.modifiers.ability.interaction.BlockingModifier;
-import slimeknights.tconstruct.tools.modifiers.upgrades.ranged.ScopeModifier;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -116,11 +115,6 @@ public class IonizedCannonItem extends ModifiableItem {
         return ModifierUtil.checkVolatileFlag(stack, SHINY);
     }
 
-    @Override
-    public Rarity getRarity(ItemStack stack) {
-        int rarity = ModifierUtil.getVolatileInt(stack, RARITY);
-        return Rarity.values()[Mth.clamp(rarity, 0, 3)];
-    }
 
     @Override
     public boolean hasCustomEntity(ItemStack stack) {
@@ -273,7 +267,6 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity living, int timeLeft) {
-        ScopeModifier.stopScoping(living);
         if (!(living instanceof Player player)) {
             return;
         }

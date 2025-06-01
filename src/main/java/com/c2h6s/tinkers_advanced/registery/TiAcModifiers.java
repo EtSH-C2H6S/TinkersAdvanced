@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.registery;
 
+import com.c2h6s.etstlib.tool.modifiers.Combat.Defense.Clearing;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
@@ -57,6 +58,9 @@ public class TiAcModifiers {
     public static StaticModifier<ProtoDefense> PROTO_DEFENSE = MODIFIERS.register("proto_defense", ProtoDefense::new);
     public static StaticModifier<ReturnToSlime> RETURN_TO_SLIME = MODIFIERS.register("return_to_slime", ReturnToSlime::new);
     public static StaticModifier<NutritiveSlime> NUTRITIVE_SLIME = MODIFIERS.register("nutritive_slime", NutritiveSlime::new);
+    public static StaticModifier<Unstable> UNSTABLE = MODIFIERS.register("unstable", Unstable::new);
+    public static StaticModifier<PlagueModifier> PLAGUE = MODIFIERS.register("plague", PlagueModifier::new);
+    public static StaticModifier<Clearing> POISON_DEFENSE = MODIFIERS.register("poison_defense", Clearing::new);
 
 
     //工具特有强化，需要工具采用特定工具属性才有效

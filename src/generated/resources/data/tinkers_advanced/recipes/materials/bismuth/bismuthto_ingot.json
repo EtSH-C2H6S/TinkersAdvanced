@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    },
+    {
+      "tag": "forge:nuggets/bismuth"
+    }
+  ],
+  "result": {
+    "item": "tinkers_advanced:bismuth_ingot"
+  }
+}

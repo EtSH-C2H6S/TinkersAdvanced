@@ -16,6 +16,8 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
     protected void addMaterialRenderInfo() {
         buildRenderInfo(TiAcMaterialIds.BISMUTH).color(0xFFCFBFD1).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.BISMUTHINITE).color(0xFF424242).fallbacks("crystal", "rock", "stick");
+        buildRenderInfo(TiAcMaterialIds.ANTIMONY).color(0xFFC7D6CC).fallbacks("metal");
+        buildRenderInfo(TiAcMaterialIds.STIBNITE).color(0xFF728c39).fallbacks("crystal", "rock", "stick");
         buildRenderInfo(TiAcMaterialIds.AE2.CERTUS).color(0xFFB8D8FC).fallbacks("crystal", "rock", "stick");
         buildRenderInfo(TiAcMaterialIds.AE2.FLUIX).color(0xFFB8D8FC).fallbacks("crystal", "rock", "stick").luminosity(5);
         buildRenderInfo(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC).color(0xFFD896FF).fallbacks("crystal", "metal").luminosity(6);

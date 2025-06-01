@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.effect;
 
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.effect.base.EtSTBaseEffect;
 import com.c2h6s.tinkers_advanced.registery.TiAcEffects;
@@ -28,21 +29,13 @@ public class ProtoPoison extends EtSTBaseEffect {
     public static void onEffectApply(MobEffectEvent.Applicable event){
         if (event.getEffectInstance().getEffect()== TiAcEffects.PROTO_POISON.get()) event.setResult(Event.Result.ALLOW);
     }
-    @SubscribeEvent
-    public static void onHeal(LivingHealEvent event){
-        LivingEntity living = event.getEntity();
-        MobEffectInstance instance = living.getEffect(TiAcEffects.PROTO_POISON.get());
-        if (instance!=null){
-            event.setAmount(event.getAmount()*(1-(0.2f+instance.getAmplifier()*0.2f)));
-        }
-    }
 
     @Override
     public void applyEffectTick(LivingEntity living, int amplifier) {
         AttributeInstance instance = living.getAttribute(Attributes.MAX_HEALTH);
         if (instance!=null&&!(living instanceof Player)){
             if (instance.getModifier(CommonConstants.PROTO_POISON_UUID)==null){
-                instance.addPermanentModifier(new AttributeModifier(CommonConstants.PROTO_POISON_UUID,Attributes.MAX_HEALTH.getDescriptionId(),-0.25, AttributeModifier.Operation.MULTIPLY_TOTAL));
+                instance.addPermanentModifier(new AttributeModifier(CommonConstants.PROTO_POISON_UUID,Attributes.MAX_HEALTH.getDescriptionId(),-TiAcConfig.COMMON.EFFECT_PROTO_POISON_HEALTH_DECREASE.get(), AttributeModifier.Operation.MULTIPLY_TOTAL));
             }
         }
     }

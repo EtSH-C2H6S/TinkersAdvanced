@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    },
+    {
+      "item": "tinkers_advanced:blitz_lumium_nugget"
+    }
+  ],
+  "result": {
+    "item": "tinkers_advanced:blitz_lumium"
+  }
+}

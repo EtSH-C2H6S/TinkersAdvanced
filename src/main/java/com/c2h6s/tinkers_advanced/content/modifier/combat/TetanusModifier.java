@@ -31,14 +31,14 @@ public class TetanusModifier extends EtSTBaseModifier implements OnAttackedModif
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         if (context.getTarget() instanceof LivingEntity entity){
-            entity.addEffect(new MobEffectInstance(TiAcEffects.TETANUS.get(),80+20*modifier.getLevel(),modifier.getLevel()-1));
+            entity.addEffect(new MobEffectInstance(TiAcEffects.TETANUS.get(),200+40*modifier.getLevel(),modifier.getLevel()-1));
         }
     }
 
     @Override
     public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
         if (target!=null){
-            target.addEffect(new MobEffectInstance(TiAcEffects.TETANUS.get(),80+20*modifier.getLevel(),modifier.getLevel()-1));
+            target.addEffect(new MobEffectInstance(TiAcEffects.TETANUS.get(),200+40*modifier.getLevel(),modifier.getLevel()-1));
         }
         return false;
     }
@@ -50,7 +50,7 @@ public class TetanusModifier extends EtSTBaseModifier implements OnAttackedModif
         }
         damageSource.getEntity().hurt(damageSource.getEntity().damageSources().thorns(equipmentContext.getEntity()),amount*0.2f);
         if (damageSource.getEntity() instanceof LivingEntity living){
-            living.addEffect(new MobEffectInstance(TiAcEffects.TETANUS.get(),80+20*modifier.getLevel(),modifier.getLevel()-1));
+            living.addEffect(new MobEffectInstance(TiAcEffects.TETANUS.get(),200+40*modifier.getLevel(),modifier.getLevel()-1));
         }
     }
 }

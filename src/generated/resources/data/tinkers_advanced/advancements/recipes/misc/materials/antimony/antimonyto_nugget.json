@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_antimony_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tinkers_advanced:antimony_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tinkers_advanced:materials/antimony/antimonyto_nugget"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_antimony_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tinkers_advanced:materials/antimony/antimonyto_nugget"
+    ]
+  },
+  "sends_telemetry_event": false
+}

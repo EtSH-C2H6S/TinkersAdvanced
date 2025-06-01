@@ -1,10 +1,10 @@
 {
   "type": "tconstruct:melting_fuel",
-  "duration": 200,
+  "duration": 10000,
   "fluid": {
-    "amount": 100,
+    "amount": 10,
     "fluid": "tinkers_advanced:plasmatic_lava"
   },
-  "rate": 40,
-  "temperature": 4000
+  "rate": 80,
+  "temperature": 8000
 }

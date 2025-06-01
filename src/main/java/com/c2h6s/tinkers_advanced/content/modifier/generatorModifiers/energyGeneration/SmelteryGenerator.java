@@ -13,28 +13,41 @@ import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.build.ToolStatsModifierHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.recipe.fuel.MeltingFuel;
 import slimeknights.tconstruct.library.recipe.fuel.MeltingFuelLookup;
+import slimeknights.tconstruct.library.tools.capability.fluid.TankModule;
+import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
+import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.TANK_HELPER;
 
-public class SmelteryGenerator extends EtSTBaseModifier implements GeneratorModuleModifierHook {
+public class SmelteryGenerator extends EtSTBaseModifier implements GeneratorModuleModifierHook, ToolStatsModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TiAcModifierHooks.GENERATOR_MODULE);
+        hookBuilder.addHook(this, TiAcModifierHooks.GENERATOR_MODULE,ModifierHooks.TOOL_STATS);
+        hookBuilder.addModule(new TankModule(TANK_HELPER));
     }
 
     @Override
     public int getBasicGeneration(IToolStackView tool, ModifierEntry entry) {
+        return TiAcConfig.COMMON.SMELTERY_GENERATOR_BASIC_GENERATION.get()*entry.getLevel();
+    }
+
+    @Override
+    public int getConditionalGeneration(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, int baseAmount, int amplifiedAmount) {
         FluidStack stack = TANK_HELPER.getFluid(tool);
-        if (stack.isEmpty()) return TiAcConfig.COMMON.SMELTERY_GENERATOR_BASIC_GENERATION.get();
+        if (stack.isEmpty()) return amplifiedAmount;
         Fluid fluid = stack.getFluid();
         MeltingFuel fuel = MeltingFuelLookup.findFuel(fluid);
-        if (fuel==null) return TiAcConfig.COMMON.SMELTERY_GENERATOR_BASIC_GENERATION.get();
-        return (int) (fuel.getTemperature()*TiAcConfig.COMMON.SMELTERY_GENERATOR_TEMPERATURE_MULTIPLIER.get()*TiAcConfig.COMMON.SMELTERY_GENERATOR_BASIC_GENERATION.get());
+        if (fuel==null) return amplifiedAmount;
+        return (int) (fuel.getTemperature()*TiAcConfig.COMMON.SMELTERY_GENERATOR_TEMPERATURE_MULTIPLIER.get()*amplifiedAmount);
     }
 
     @Override
@@ -52,5 +65,10 @@ public class SmelteryGenerator extends EtSTBaseModifier implements GeneratorModu
         stack.shrink(consumption);
         TANK_HELPER.setFluid(tool,stack);
         return consumption*baseToProduce;
+    }
+
+    @Override
+    public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder modifierStatsBuilder) {
+        ToolTankHelper.CAPACITY_STAT.add(modifierStatsBuilder,1000);
     }
 }

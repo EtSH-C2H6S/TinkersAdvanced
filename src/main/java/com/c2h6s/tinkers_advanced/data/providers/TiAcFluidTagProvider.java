@@ -22,6 +22,8 @@ public class TiAcFluidTagProvider extends FluidTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(TiAcTagkeys.Fluids.MOLTEN_BISMUTH).add(TiAcFluids.MOLTEN_BISMUTH.get());
         tag(TinkerTags.Fluids.METAL_TOOLTIPS).add(TiAcFluids.MOLTEN_BISMUTH.get());
+        tag(TinkerTags.Fluids.METAL_TOOLTIPS).add(TiAcFluids.MOLTEN_ANTIMONY.get());
+        tag(TiAcTagkeys.Fluids.MOLTEN_ANTIMONY).add(TiAcFluids.MOLTEN_ANTIMONY.get());
         tag(TinkerTags.Fluids.METAL_TOOLTIPS).add(TiAcFluids.MOLTEN_BLAZE_NETHERITE.get());
         tag(TinkerTags.Fluids.METAL_TOOLTIPS).add(TiAcFluids.MOLTEN_IRIDIUM.get());
         tag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM).add(TiAcFluids.MOLTEN_IRIDIUM.get());

@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/nugget"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ]
+    }
+  ],
+  "cooling_time": 22,
+  "fluid": {
+    "amount": 10,
+    "fluid": "tinkers_advanced:molten_biltz_lumium"
+  },
+  "result": "tinkers_advanced:blitz_lumium_nugget"
+}

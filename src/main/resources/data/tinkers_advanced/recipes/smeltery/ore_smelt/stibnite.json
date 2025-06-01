@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:ore_melting",
+  "byproducts": [
+    {
+      "amount": 30,
+      "rate": "metal",
+      "fluid": "tinkers_advanced:molten_antimony"
+    }
+  ],
+  "ingredient": {
+    "item": "tinkers_advanced:stibnite"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 1500,
+    "fluid": "tconstruct:scorched_stone"
+  },
+  "temperature": 1550,
+  "time": 20
+}

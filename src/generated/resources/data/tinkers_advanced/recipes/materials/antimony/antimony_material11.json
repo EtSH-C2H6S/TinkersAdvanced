@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "tag": "forge:ingots/antimony"
+  },
+  "material": "tinkers_advanced:antimony",
+  "needed": 1,
+  "value": 1
+}

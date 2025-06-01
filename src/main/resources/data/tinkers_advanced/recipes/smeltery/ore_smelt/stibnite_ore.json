@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:ore_melting",
+  "byproducts": [
+    {
+      "amount": 60,
+      "rate": "metal",
+      "fluid": "tinkers_advanced:molten_antimony"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ores/stibnite"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 1500,
+    "fluid": "tconstruct:scorched_stone"
+  },
+  "temperature": 1440,
+  "time": 80
+}

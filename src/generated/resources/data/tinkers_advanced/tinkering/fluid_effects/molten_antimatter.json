@@ -35,7 +35,7 @@
   "entity_effects": [
     {
       "type": "tconstruct:damage",
-      "damage": 12.0,
+      "damage": 24.0,
       "damage_type": {
         "melee": "minecraft:explosion",
         "ranged": "minecraft:explosion"

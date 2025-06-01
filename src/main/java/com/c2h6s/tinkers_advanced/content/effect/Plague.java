@@ -2,11 +2,13 @@ package com.c2h6s.tinkers_advanced.content.effect;
 
 import com.c2h6s.etstlib.content.effects.EtSTBaseEffect;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Plague extends EtSTBaseEffect {
@@ -23,11 +25,11 @@ public class Plague extends EtSTBaseEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         int cooldown = pLivingEntity.invulnerableTime;
         Random random = new Random();
-        DamageSource source = Arrays.stream((new DamageSource[]{
+        DamageSource source = List.of(
                 new LegacyDamageSource(pLivingEntity.damageSources().wither().typeHolder(),null).setBypassInvulnerableTime(),
-                new LegacyDamageSource(pLivingEntity.damageSources().magic().typeHolder(),null).setBypassInvulnerableTime(),
-        })).toList().get(random.nextInt(2));
-        pLivingEntity.hurt(source,pAmplifier*1.5f);
+                new LegacyDamageSource(pLivingEntity.damageSources().magic().typeHolder(),null).setBypassInvulnerableTime()
+        ).get(random.nextInt(2));
+        pLivingEntity.hurt(source, (float) (pAmplifier* TiAcConfig.COMMON.EFFECT_PLAGUE_DAMAGE.get()));
         pLivingEntity.invulnerableTime = cooldown;
     }
 }

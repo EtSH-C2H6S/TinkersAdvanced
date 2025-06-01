@@ -6,7 +6,7 @@ These features has already added to TiAc and most of them will stay stable.
 These features don't requires a mod. Will appear in your game once TiAc and its dependencies are installed.
 * Materials
   * Bismuthinite
-    > Tier 2 material that can be found as an ore that spawns majorly in deepslates. Provides a new way to obtain seared brick.
+    > Tier 2 material that can be found as an ore that spawns in deepslates. Provides a new way to obtain seared brick.
   * Bismuth
     > Tier 4 material made by smelting bismuthinite inside a foundry. Work as a functional material that inflicts a debuff that make targets take more damage on hurt.
   * Blaze Netherite
@@ -19,9 +19,13 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
     > Tier 4 material. Comes with modifiers relating to vibration.
   * Voltaic Crystal
     > Tier 4 material. Comes with Energy Loaded modifier and capable of dealing AOE damage.
+  * Stibnite
+    > Tier 4 material that can be found as an ore in the Nether. Could be explosive when mining carelessly.
+  * Antimony
+    > Tier 4 material made by smelting Stibnite inside a foundry. Work as a functional material that inflicts a debuff that constantly hurt target and reduce heath regeneration.
 * Fuels
   * Lavas
-    > Over Heated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 3000℃, and 4000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
+    > Over Heated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 4000℃, and 8000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
 * Tools
   * Ionized Cannon
     > A weapon that use fluids as ammo. Consumes fluids to shoot plasma beam that deals melee damage and inflict Fluid Effects to nearby mobs. Core part crafted by casting molten material on Echo Shard. Has special upgrades including Deep Catalysis, Focusing Array, Resonance Amplifier.

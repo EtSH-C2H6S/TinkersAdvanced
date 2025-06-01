@@ -258,14 +258,16 @@ public class MatterManipulator extends ModifiableItem {
                 } else if (tool.getPersistentData().getBoolean(LOCATION_PRI_MODE)) {
                     FluidEffects fluidEffects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
                     if (fluidEffects.hasBlockEffects()) {
-                         if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.SIMULATE)>0){
-                             fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result), IFluidHandler.FluidAction.EXECUTE));
+                        FluidEffectContext.Block context1 = FluidEffectContext.builder(level).user(player).block(result);
+                         if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, context1, IFluidHandler.FluidAction.SIMULATE)>0){
+                             fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, context1, IFluidHandler.FluidAction.EXECUTE));
                          }
                         if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
                             for (BlockPos blockPos1 : tool.getHook(ToolHooks.AOE_ITERATOR).getBlocks(tool, context, blockState, AreaOfEffectIterator.AOEMatchType.DISPLAY)) {
                                 BlockHitResult result1 = new BlockHitResult(blockPos1.getCenter(), result.getDirection(), blockPos1, true);
-                                if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result1), IFluidHandler.FluidAction.SIMULATE)>0){
-                                    fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, new FluidEffectContext.Block(level, player, null, result1), IFluidHandler.FluidAction.EXECUTE));
+                                FluidEffectContext.Block context2 = FluidEffectContext.builder(level).user(player).block(result1);
+                                if (fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, context2, IFluidHandler.FluidAction.SIMULATE)>0){
+                                    fluidStack.shrink(fluidEffects.applyToBlock(new FluidStack(fluidStack.getFluid(), 1000), 2, context2, IFluidHandler.FluidAction.EXECUTE));
                                 }
                             }
                         }

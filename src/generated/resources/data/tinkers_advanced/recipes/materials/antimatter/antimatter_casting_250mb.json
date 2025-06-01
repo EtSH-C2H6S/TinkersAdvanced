@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "cooling_time": 222,
+  "cooling_time": 251,
   "fluid": {
     "amount": 250,
     "fluid": "tinkers_advanced:molten_antimatter"

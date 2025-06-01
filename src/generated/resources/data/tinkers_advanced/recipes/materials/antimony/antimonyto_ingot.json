@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    },
+    {
+      "tag": "forge:nuggets/antimony"
+    }
+  ],
+  "result": {
+    "item": "tinkers_advanced:antimony_ingot"
+  }
+}

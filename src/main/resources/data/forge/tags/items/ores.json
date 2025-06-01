@@ -1,5 +1,6 @@
 {
   "values": [
-    "#forge:ores/bismuthinite"
+    "#forge:ores/bismuthinite",
+    "#forge:ores/stibnite"
   ]
 }

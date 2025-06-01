@@ -32,6 +32,7 @@ import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -78,102 +79,104 @@ public class ElectronTunerItem extends ModifiableSwordItem {
         return 0;
     }
 
+    public static void generatorTick(ItemStack stack, Level level, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity){
+        ToolStack tool = ToolStack.from(stack);
+        ToolEnergyProduction production;
+        if (tool.getPersistentData().contains(ToolEnergyProduction.LOCATION, CompoundTag.TAG_COMPOUND)){
+            production = ToolEnergyProduction.readFromTool(tool);
+        } else{
+            production = ToolEnergyProduction.getOrCreate(tool);
+        }
+        long remainedEnergyToGen = production.energyToProduce;
+        long remainedEnergyToCost = production.energyToReduce;
+        long energyToGenTotal = 0;
+        long energyToCostTotal = 0;
+        int energyToGenerateThisTick = production.generatePerTick;
+        int energyToConsumeThisTick = production.consumePerTick;
+        if (production.needUpdate()) {
+            if (production.requireGeneration()) energyToGenerateThisTick = 0;
+            if (production.requireConsumption()) energyToConsumeThisTick = 0;
+            IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null);
+            for (ModifierEntry modifier : tool.getModifierList()) {
+                GeneratorModuleModifierHook hook = modifier.getHook(TiAcModifierHooks.GENERATOR_MODULE);
+                int baseAmount = hook.getBasicGeneration(tool, modifier);
+                int amplifiedAmount = (int) (baseAmount * tool.getStats().get(TiAcToolStats.POWER_MULTIPLIER));
+                amplifiedAmount = hook.getConditionalGeneration(tool, modifier, holderEntity, holderBlockEntity, baseAmount, amplifiedAmount);
+                if (amplifiedAmount > 0&&production.requireGeneration()) {
+                    energyToGenTotal += hook.shrinkIngredientAndGetTotalEnergy(tool, modifier, holderEntity, holderBlockEntity, amplifiedAmount, handler);
+                    if (energyToGenTotal>0){
+                        energyToGenerateThisTick += amplifiedAmount;
+                    }
+                }
+                if (amplifiedAmount < 0&&production.requireConsumption()) {
+                    energyToCostTotal -= hook.shrinkIngredientAndGetTotalEnergy(tool, modifier, holderEntity, holderBlockEntity, amplifiedAmount, handler);
+                    if (energyToGenTotal>0){
+                        energyToConsumeThisTick -= amplifiedAmount;
+                    }
+                }
+            }
+
+            energyToGenTotal = Math.max(energyToGenTotal, 0);
+            energyToCostTotal = Math.max(energyToCostTotal, 0);
+            if (energyToGenTotal > 0) {
+                long baseAmount = energyToGenTotal;
+                for (ModifierEntry modifier : tool.getModifierList()) {
+                    energyToGenTotal = modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalGeneration(tool, modifier, holderEntity, holderBlockEntity,stack,baseAmount, energyToGenTotal);
+                }
+            }
+            if (energyToCostTotal > 0) {
+                long baseAmount = energyToCostTotal;
+                for (ModifierEntry modifier : tool.getModifierList()) {
+                    energyToCostTotal = -modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalGeneration(tool, modifier, holderEntity, holderBlockEntity,stack,-baseAmount, -energyToCostTotal);
+                }
+            }
+            energyToGenTotal = Math.max(energyToGenTotal, 0);
+            energyToCostTotal = Math.max(energyToCostTotal, 0);
+            remainedEnergyToCost += energyToCostTotal;
+            remainedEnergyToGen += energyToGenTotal;
+            energyToConsumeThisTick = Math.max(energyToConsumeThisTick, 0);
+            energyToGenerateThisTick = Math.max(energyToGenerateThisTick, 0);
+            production.energyToProduce = remainedEnergyToGen;
+            production.energyToReduce = remainedEnergyToCost;
+            if (energyToGenerateThisTick > 0 && remainedEnergyToGen > 0) {
+                int baseAmount = energyToGenerateThisTick;
+                for (ModifierEntry modifier : tool.getModifierList()) {
+                    energyToGenerateThisTick = modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalPerTick(tool, modifier, holderEntity, holderBlockEntity,stack,baseAmount, energyToGenerateThisTick);
+                }
+                energyToGenerateThisTick = Math.max(energyToGenerateThisTick, 0);
+            }
+            if (energyToConsumeThisTick > 0 && remainedEnergyToCost > 0) {
+                int baseAmount = energyToConsumeThisTick;
+                for (ModifierEntry modifier : tool.getModifierList()) {
+                    energyToConsumeThisTick = -modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalPerTick(tool, modifier, holderEntity, holderBlockEntity,stack,baseAmount, -energyToConsumeThisTick);
+                }
+                energyToConsumeThisTick = Math.max(energyToConsumeThisTick, 0);
+            }
+        }
+        production.consumePerTick = energyToConsumeThisTick;
+        production.generatePerTick = energyToGenerateThisTick;
+        production.toolStack = tool;
+        production.tick();
+        if (level.getServer()!=null){
+            production.gameTimeLastTick = level.getServer().getTickCount();
+        }
+        int changed = production.lastGeneration;
+        ToolEnergyProduction.updateProduction(tool,production);
+        for (ModifierEntry modifier : tool.getModifierList()) {
+            modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).onGeneratorTick(tool, modifier, holderEntity, holderBlockEntity,stack, changed);
+        }
+        if (holderEntity instanceof Player player&&player.containerMenu instanceof ElectronTunerMenu menu&&menu.getToolItem()==stack){
+            menu.updateToolSlot(stack);
+            TiAcPacketHandler.sendToClient(new PElectronTunerMenuSyncS2C(stack,menu.toolSlot));
+        }
+    }
+
     @Override
     public void inventoryTick(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull Entity entityIn, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
         if (!worldIn.isClientSide) {
-            ToolStack tool = ToolStack.from(stack);
-            ToolEnergyProduction production;
             LivingEntity holder = entityIn instanceof LivingEntity e ? e : null;
-            if (tool.getPersistentData().contains(ToolEnergyProduction.LOCATION, CompoundTag.TAG_COMPOUND)){
-                production = ToolEnergyProduction.readFromTool(tool);
-            } else{
-                production = ToolEnergyProduction.getOrCreate(tool);
-            }
-            long remainedEnergyToGen = production.energyToProduce;
-            long remainedEnergyToCost = production.energyToReduce;
-            long energyToGenTotal = 0;
-            long energyToCostTotal = 0;
-            int energyToGenerateThisTick = production.generatePerTick;
-            int energyToConsumeThisTick = production.consumePerTick;
-            if (production.needUpdate()) {
-                if (production.requireGeneration()) energyToGenerateThisTick = 0;
-                if (production.requireConsumption()) energyToConsumeThisTick = 0;
-                IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null);
-                for (ModifierEntry modifier : tool.getModifierList()) {
-                    GeneratorModuleModifierHook hook = modifier.getHook(TiAcModifierHooks.GENERATOR_MODULE);
-                    int baseAmount = hook.getBasicGeneration(tool, modifier);
-                    int amplifiedAmount = (int) (baseAmount * tool.getStats().get(TiAcToolStats.POWER_MULTIPLIER));
-                    amplifiedAmount = hook.getConditionalGeneration(tool, modifier, holder, null, baseAmount, amplifiedAmount);
-                    if (amplifiedAmount > 0&&production.requireGeneration()) {
-                        energyToGenTotal += hook.shrinkIngredientAndGetTotalEnergy(tool, modifier, holder, null, amplifiedAmount, handler);
-                        if (energyToGenTotal>0){
-                            energyToGenerateThisTick += amplifiedAmount;
-                        }
-                    }
-                    if (amplifiedAmount < 0&&production.requireConsumption()) {
-                        energyToCostTotal -= hook.shrinkIngredientAndGetTotalEnergy(tool, modifier, holder, null, amplifiedAmount, handler);
-                        if (energyToGenTotal>0){
-                            energyToConsumeThisTick -= amplifiedAmount;
-                        }
-                    }
-                }
-
-                energyToGenTotal = Math.max(energyToGenTotal, 0);
-                energyToCostTotal = Math.max(energyToCostTotal, 0);
-                if (energyToGenTotal > 0) {
-                    long baseAmount = energyToGenTotal;
-                    for (ModifierEntry modifier : tool.getModifierList()) {
-                        energyToGenTotal = modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalGeneration(tool, modifier, holder, null,stack,baseAmount, energyToGenTotal);
-                    }
-                }
-                if (energyToCostTotal > 0) {
-                    long baseAmount = energyToCostTotal;
-                    for (ModifierEntry modifier : tool.getModifierList()) {
-                        energyToCostTotal = -modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalGeneration(tool, modifier, holder, null,stack,-baseAmount, -energyToCostTotal);
-                    }
-                }
-                energyToGenTotal = Math.max(energyToGenTotal, 0);
-                energyToCostTotal = Math.max(energyToCostTotal, 0);
-                remainedEnergyToCost += energyToCostTotal;
-                remainedEnergyToGen += energyToGenTotal;
-                energyToConsumeThisTick = Math.max(energyToConsumeThisTick, 0);
-                energyToGenerateThisTick = Math.max(energyToGenerateThisTick, 0);
-                production.energyToProduce = remainedEnergyToGen;
-                production.energyToReduce = remainedEnergyToCost;
-                if (energyToGenerateThisTick > 0 && remainedEnergyToGen > 0) {
-                    int baseAmount = energyToGenerateThisTick;
-                    for (ModifierEntry modifier : tool.getModifierList()) {
-                        energyToGenerateThisTick = modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalPerTick(tool, modifier, holder, null,stack,baseAmount, energyToGenerateThisTick);
-                    }
-                    energyToGenerateThisTick = Math.max(energyToGenerateThisTick, 0);
-                }
-                if (energyToConsumeThisTick > 0 && remainedEnergyToCost > 0) {
-                    int baseAmount = energyToConsumeThisTick;
-                    for (ModifierEntry modifier : tool.getModifierList()) {
-                        energyToConsumeThisTick = -modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).modifyTotalPerTick(tool, modifier, holder, null,stack,baseAmount, -energyToConsumeThisTick);
-                    }
-                    energyToConsumeThisTick = Math.max(energyToConsumeThisTick, 0);
-                }
-            }
-            production.consumePerTick = energyToConsumeThisTick;
-            production.generatePerTick = energyToGenerateThisTick;
-            production.toolStack = tool;
-            production.tick();
-            if (worldIn.getServer()!=null){
-                production.gameTimeLastTick = worldIn.getServer().getTickCount();
-            }
-            int changed = production.lastGeneration;
-            ToolEnergyProduction.updateProduction(tool,production);
-            //TiAcPacketHandler.sendToClient(new PToolEnergyProductionSyncS2C(production));
-            for (ModifierEntry modifier : tool.getModifierList()) {
-                modifier.getHook(TiAcModifierHooks.MODIFY_GENERATION).onGeneratorTick(tool, modifier, holder, null,stack, changed);
-            }
-
-            if (holder instanceof Player player&&player.containerMenu instanceof ElectronTunerMenu menu&&menu.getToolItem()==stack){
-                menu.updateToolSlot(stack);
-                TiAcPacketHandler.sendToClient(new PElectronTunerMenuSyncS2C(stack,menu.toolSlot));
-            }
+            generatorTick(stack,worldIn,holder,null);
         }
     }
 

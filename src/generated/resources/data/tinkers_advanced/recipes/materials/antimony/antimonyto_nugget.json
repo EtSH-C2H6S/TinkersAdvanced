@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/antimony"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "tinkers_advanced:antimony_nugget"
+  }
+}

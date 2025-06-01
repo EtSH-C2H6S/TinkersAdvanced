@@ -70,9 +70,9 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
                         } else if (this.fluidStack != null && FluidEffectManager.INSTANCE.find(fluidStack.getFluid()).hasEntityEffects()&&!b) {
                             entity.invulnerableTime = 0;
                             FluidEffects effects = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-                            FluidEffectContext.Entity context = new FluidEffectContext.Entity(this.level(), player, this, (LivingEntity) entity);
+                            FluidEffectContext.Entity context = FluidEffectContext.builder(this.level()).user(player).target(entity);
                             effects.applyToEntity(new FluidStack(fluidStack.getFluid(), 1000), baseDamage*damageScale*0.25f, context, IFluidHandler.FluidAction.EXECUTE);
-                        } else entity.hurt(this.damageSources().mobProjectile(this, player), baseDamage/8);
+                        } else entity.hurt(this.damageSources().mobProjectile(this, player), baseDamage*damageScale*0.25f);
                     }
                 }
             }

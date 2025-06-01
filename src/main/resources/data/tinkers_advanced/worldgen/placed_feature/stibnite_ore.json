@@ -1,0 +1,30 @@
+{
+  "feature": "tinkers_advanced:stibnite_ore",
+  "placement": [
+    {
+      "type": "tinkers_advanced:config_stibnite"
+    },
+    {
+      "type": "minecraft:count",
+      "count": 3
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "above_bottom": 118
+        },
+        "min_inclusive": {
+          "above_bottom": 72
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

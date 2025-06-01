@@ -210,6 +210,18 @@
   "modifier.tinkers_advanced.smeltery_generator.flavor": "Heat it up!",
   "modifier.tinkers_advanced.smeltery_generator.description": "Your tool can produce energy by consuming Smeltery Fuels. Base speed +250 FE/t , affected by temperature (Lava = 1x).",
 
+  "modifier.tinkers_advanced.unstable": "Unstable",
+  "modifier.tinkers_advanced.unstable.flavor": "Handle it carefully!",
+  "modifier.tinkers_advanced.unstable.description": "Randomize attack damage, dig speed and durability cost.",
+
+  "modifier.tinkers_advanced.plague": "Plague",
+  "modifier.tinkers_advanced.plague.flavor": "The pathogen.",
+  "modifier.tinkers_advanced.plague.description": "Inflicts Plague effect, causing damage and reduce health regeneration.",
+
+  "modifier.tinkers_advanced.poison_defense": "Poison Defense",
+  "modifier.tinkers_advanced.poison_defense.flavor": "Poison Defense",
+  "modifier.tinkers_advanced.poison_defense.description": "Grant immunity to Poison and Wither.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -325,6 +337,12 @@
   "material.tinkers_advanced.nutritive_slime": "Nutritive Slimesteel",
   "material.tinkers_advanced.nutritive_slime.flavor": "Completely free of heavy metal, safe to eat.",
 
+  "material.tinkers_advanced.antimony": "Antimony",
+  "material.tinkers_advanced.antimony.flavor": "Don't worry, It won't annihilate your money.",
+
+  "material.tinkers_advanced.stibnite": "Stibnite",
+  "material.tinkers_advanced.stibnite.flavor": "An explosive nether ore, sounds familiar...",
+
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
   "item.tinkers_advanced.bismuthinite": "Bismuthinite",
@@ -347,6 +365,9 @@
   "item.tinkers_advanced.nutrition_slime_ingot": "Nutritive Slimesteel Ingot",
   "item.tinkers_advanced.antimony_ingot": "Antimony Ingot",
   "item.tinkers_advanced.stibnite": "Stibnite",
+  "item.tinkers_advanced.blitz_lumium_nugget": "Blitz Lumium Nugget",
+  "item.tinkers_advanced.antimony_nugget": "Antimony Nugget",
+  "item.tinkers_advanced.bismuth_nugget": "Bismuth nugget",
 
   "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
@@ -357,6 +378,10 @@
   "fluid.tinkers_advanced.molten_bismuth": "Molten Bismuth",
   "item.tinkers_advanced.molten_bismuth_bucket": "Molten Bismuth Bucket",
   "fluid.tinkers_advanced.molten_bismuth.fluid_effect": "Reduce armor and increase damage taken.",
+
+  "fluid.tinkers_advanced.molten_antimony": "Molten Antimony",
+  "item.tinkers_advanced.molten_antimony_bucket": "Molten Antimony Bucket",
+  "fluid.tinkers_advanced.molten_antimony.fluid_effect": "Nobody know why such a heavy metal could be linked to plague.",
 
   "fluid.tinkers_advanced.molten_antimatter": "Molten Antimatter",
   "item.tinkers_advanced.molten_antimatter_bucket": "Molten Antimatter Bucket",
@@ -409,6 +434,7 @@
 
   "fluid.tinkers_advanced.molten_neutronite": "Fluid_Neutronite",
   "item.tinkers_advanced.molten_neutronite_bucket": "Fluid_Neutronite Bucket",
+  "fluid.tinkers_advanced.molten_neutronite.fluid_effect": "Fluid-form Neutronite can instantly tears your target into particles.",
 
   "fluid.tinkers_advanced.molten_osgloglas": "Molten Osgloglas",
   "item.tinkers_advanced.molten_osgloglas_bucket": "Molten Osgloglas Bucket",
@@ -513,5 +539,9 @@
 
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "Attack range +3, attack ignores armor.",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "Deal AOE damage on swinging (Main hand).",
-  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "Deal AOE damage on hit, +3 Severing level."
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "Deal AOE damage on hit, +3 Severing level.",
+
+
+  "entity_ticker.tinkers_advanced.ionized": "Ionized",
+  "entity_ticker.tinkers_advanced.sculk_marked": "Sculk Marked"
 }

@@ -35,6 +35,27 @@ public enum EnumMaterialStats {
             new LimbMaterialStats(376,-0.1f,0.15f,0.1f),
             new FluxCoreMaterialStat(0.35f,1.25f)
     ),
+    ANTIMONY(
+            armor(25,3f,8f,6f,3f).toughness(0).knockbackResistance(0.25f),
+            true,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(-0.15f,0.25f,-0.1f,0.1f),
+            new HeadMaterialStats(800,7f, Tiers.NETHERITE,3f),
+            new GripMaterialStats(-0.05f,-0.05f,2.45f),
+            new LimbMaterialStats(700,-0.2f,0.25f,0.1f),
+            new FluxCoreMaterialStat(3.5f,2.0f),
+            StatlessMaterialStats.MAILLE
+    ),
+    STIBNITE(
+            null,
+            false,
+            StatlessMaterialStats.BINDING,
+            new HandleMaterialStats(0.1f,-0.2f,0.25f,-0.1f),
+            new HeadMaterialStats(325,4.5f, Tiers.DIAMOND,2.5f),
+            new GripMaterialStats(-0.05f,0.1f,2.5f),
+            new LimbMaterialStats(326,0.2f,-0.1f,-0.05f),
+            new FluxCoreMaterialStat(1.35f,3.25f)
+    ),
     CERTUS(
             null,
             false,

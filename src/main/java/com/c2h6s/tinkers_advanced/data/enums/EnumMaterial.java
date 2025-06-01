@@ -19,6 +19,8 @@ import static com.c2h6s.tinkers_advanced.data.enums.EnumMaterialModifier.*;
 public enum EnumMaterial {
     BISMUTH(TiAcMaterialIds.BISMUTH,4,false,false,EnumMaterialStats.BISMUTH,null,EnumMaterialModifier.BISMUTH),
     BISMUTHINITE(TiAcMaterialIds.BISMUTHINITE,2,true,false,EnumMaterialStats.BISMUTHINITE,null,EnumMaterialModifier.BISMUTHINITE,BISMUTHINITE_FLUX_CORE),
+    ANTIMONY(TiAcMaterialIds.ANTIMONY,4,false,false,EnumMaterialStats.ANTIMONY,null, ANTIMONY_ARMOR,ANTIMONY_DEFAULT),
+    STIBNITE(TiAcMaterialIds.STIBNITE,4,true,false,EnumMaterialStats.STIBNITE,null, STIBNITE_DEFAULT,STIBNITE_FLUX_CORE),
     ALLOY_ATOMIC(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC,3,true,false,EnumMaterialStats.ALLOY_ATOMIC, tagFilled(MekanismTags.Items.ALLOYS_ATOMIC),EnumMaterialModifier.ALLOY_ATOMIC),
     FLUIX(TiAcMaterialIds.AE2.FLUIX,2,true,false,EnumMaterialStats.FLUIX, tagFilled(ConventionTags.FLUIX_CRYSTAL),FLUIX_ARMOR,FLUIX_BINDING,FLUIX_GRIP,FLUIX_HEAD,FLUIX_HANDLE,FLUIX_LIMB, FLUIX_FLUX_CORE),
     CERTUS(TiAcMaterialIds.AE2.CERTUS,1,true,false,EnumMaterialStats.CERTUS, tagFilled(ConventionTags.CERTUS_QUARTZ),CERTUS_ARMOR,CERTUS_DEFAULT),

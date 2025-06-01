@@ -99,6 +99,12 @@ public enum EnumMaterialModifier {
     PIG_IRON_FLUX_CORE(FluxCoreMaterialStat.ID,entry(TiAcModifiers.ELECTRIC_FOOD.getId())),
 
     COBALT_FLUX_CORE(FluxCoreMaterialStat.ID,entry(ModifierIds.lightweight),entry(TiAcModifiers.TRANSITION_CATALYST.getId())),
+
+    STIBNITE_FLUX_CORE(FluxCoreMaterialStat.ID,entry(TiAcModifiers.UNSTABLE.getId()),entry(TiAcModifiers.PIEZOELECTRIC_EFFECT.getId(),4)),
+    STIBNITE_DEFAULT(null,entry(TiAcModifiers.UNSTABLE.getId()),entry(EtSTLibModifier.ANISOTROPY.getId())),
+
+    ANTIMONY_DEFAULT(null,entry(TiAcModifiers.PLAGUE.getId()),entry(ModifierIds.heavy)),
+    ANTIMONY_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.POISON_DEFENSE.getId())),
     ;
 
     public final ModifierEntry[] modifiers;

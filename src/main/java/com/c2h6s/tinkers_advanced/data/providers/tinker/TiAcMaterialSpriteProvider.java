@@ -61,8 +61,24 @@ public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
                 .addARGB(102,0xFF1A1A1A)
                 .addARGB(140,0xFF212121)
                 .addARGB(178,0xFF303030)
-                .addARGB(216,0xFF424242)
-                .addARGB(255,0xFF828181).build());
+                .addARGB(216,0xFF525252)
+                .addARGB(255,0xFF929191).build());
+        this.buildMaterial(TiAcMaterialIds.ANTIMONY).armor().ranged().meleeHarvest().fallbacks("metal").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF3F4D3F)
+                .addARGB(102,0xFF5B6E5A)
+                .addARGB(140,0xFF809680)
+                .addARGB(178,0xFF9DB09F)
+                .addARGB(216,0xFFB6C4BB)
+                .addARGB(255,0xFFC7D6CC).build());
+        this.buildMaterial(TiAcMaterialIds.STIBNITE).ranged().meleeHarvest().fallbacks("crystal", "rock", "stick").colorMapper(GreyToColorMapping.builder()
+                .addARGB(0,0xFF000000)
+                .addARGB(63,0xFF002000)
+                .addARGB(102,0xFF0c2d00)
+                .addARGB(140,0xFF000000)
+                .addARGB(178,0xFF1c3c00)
+                .addARGB(216,0xFF2e5908)
+                .addARGB(255,0xFF728c39).build());
         this.buildMaterial(TiAcMaterialIds.Mekanism.ALLOY_ATOMIC).statType(StatlessMaterialStats.BINDING.getIdentifier()).fallbacks("crystal", "metal").colorMapper(GreyToColorMapping.builder()
                 .addARGB(0,0xFF000000)
                 .addARGB(63,0xFF383338)

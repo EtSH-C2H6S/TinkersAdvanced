@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:nuggets/antimony"
+  },
+  "result": {
+    "amount": 10,
+    "fluid": "tinkers_advanced:molten_antimony"
+  },
+  "temperature": 970,
+  "time": 22
+}
