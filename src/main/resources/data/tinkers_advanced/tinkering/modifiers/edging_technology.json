@@ -1,7 +1,16 @@
 {
   "condition": {
-    "type": "forge:mod_loaded",
-    "modid": "mekanism"
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "forge:mod_loaded",
+        "modid": "mekanism"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "rainbowcompound"
+      }
+    ]
   },
   "level_display": "tconstruct:single_level",
   "modules": [

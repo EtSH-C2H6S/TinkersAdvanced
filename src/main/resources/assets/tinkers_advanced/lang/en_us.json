@@ -3,6 +3,7 @@
   "itemGroup.tinkers_advanced.tiac_mixc": "Tinkers' Advanced Misc",
   "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced Blocks",
   "itemGroup.tinkers_advanced.tiac_tool": "Tinkers' Advanced Tools&Parts",
+  "itemGroup.tinkers_advanced.tiac_misc": "Tinkers' Advanced Misc",
 
 
 
@@ -222,6 +223,18 @@
   "modifier.tinkers_advanced.poison_defense.flavor": "Poison Defense",
   "modifier.tinkers_advanced.poison_defense.description": "Grant immunity to Poison and Wither.",
 
+  "modifier.tinkers_advanced.extra_capacity": "Extra Capacity",
+  "modifier.tinkers_advanced.extra_capacity.flavor": "According to the formula W=0.5CU²: With greater capacity, you can store more energy at the same voltage.",
+  "modifier.tinkers_advanced.extra_capacity.description": "Increase 20% Max Energy each level.",
+
+  "modifier.tinkers_advanced.compressed_air_generator": "Compressed Air Generator",
+  "modifier.tinkers_advanced.compressed_air_generator.flavor": "dW=-d(pV)",
+  "modifier.tinkers_advanced.compressed_air_generator.description": "Your tool can consume compressed air to generate energy. Base speed +Pressure*50FE/t ,conversion efficiency is ideal to Compressed Air Dynamo.",
+
+  "modifier.tinkers_advanced.swift_strike_ex": "Swift Strike Ex",
+  "modifier.tinkers_advanced.swift_strike_ex.flavor": "Fast spot boi.",
+  "modifier.tinkers_advanced.swift_strike_ex.description": "+25% attack speed each level",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -368,10 +381,12 @@
   "item.tinkers_advanced.blitz_lumium_nugget": "Blitz Lumium Nugget",
   "item.tinkers_advanced.antimony_nugget": "Antimony Nugget",
   "item.tinkers_advanced.bismuth_nugget": "Bismuth nugget",
+  "item.tinkers_advanced.ultra_dense_book": "Ultra Dense Book",
 
   "block.tinkers_advanced.iridium_lean_ore": "Iridium Lean Ore",
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
   "block.tinkers_advanced.stibnite_ore": "Stibnite Ore",
+  "block.tinkers_advanced.exchanger": "Atom Exchanger",
 
 
 
@@ -530,6 +545,10 @@
   "tooltip.tinkers_advanced.found_in_overworld": "Found in the end.",
   "tooltip.tinkers_advanced.found_in_end": "Found in the overworld.",
 
+  "tooltip.tinkers_advanced.exchanger1": "Allow interactions between tool placed inside and other blocks.",
+  "tooltip.tinkers_advanced.exchanger2": "Processes energy generation for Electron Tuner.",
+  "tooltip.tinkers_advanced.exchanger3": "R-Click to insert tool ,R-Click with tool handle to toggle energy ejection.",
+
 
   "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :",
 
@@ -540,6 +559,9 @@
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "Attack range +3, attack ignores armor.",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "Deal AOE damage on swinging (Main hand).",
   "info.tinkers_advanced.electron_tuner.cleaver.bonus": "Deal AOE damage on hit, +3 Severing level.",
+
+  "tooltip.tinkers_advanced.ultra_dense_book1": "A book that is ultra dense, or a book made by Ultra Dense? Nobody knows.",
+  "tooltip.tinkers_advanced.ultra_dense_book2": "-Tinker's Advanced Guide Book-",
 
 
   "entity_ticker.tinkers_advanced.ionized": "Ionized",

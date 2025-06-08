@@ -22,6 +22,8 @@ public class TiAcPacketHandler {
         INSTANCE.messageBuilder(PElectronTunerOpenMenuC2S.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PElectronTunerOpenMenuC2S::new).encoder(PElectronTunerOpenMenuC2S::toByte).consumerMainThread(PElectronTunerOpenMenuC2S::handle).add();
         INSTANCE.messageBuilder(PElectronTunerMenuSyncS2C.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PElectronTunerMenuSyncS2C::new).encoder(PElectronTunerMenuSyncS2C::toByte).consumerMainThread(PElectronTunerMenuSyncS2C::handle).add();
         INSTANCE.messageBuilder(PToolEnergyProductionSyncS2C.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PToolEnergyProductionSyncS2C::new).encoder(PToolEnergyProductionSyncS2C::toByte).consumerMainThread(PToolEnergyProductionSyncS2C::handle).add();
+        INSTANCE.messageBuilder(PExchangerBEItemSyncS2C.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(PExchangerBEItemSyncS2C::new).encoder(PExchangerBEItemSyncS2C::toByte).consumerMainThread(PExchangerBEItemSyncS2C::handle).add();
+        INSTANCE.messageBuilder(PExchangerBEItemSyncC2S.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PExchangerBEItemSyncC2S::new).encoder(PExchangerBEItemSyncC2S::toByte).consumerMainThread(PExchangerBEItemSyncC2S::handle).add();
     }
 
     public static <MSG> void sendToServer(MSG msg){

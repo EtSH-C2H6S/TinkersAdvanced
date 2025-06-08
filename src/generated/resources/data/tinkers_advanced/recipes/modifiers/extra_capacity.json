@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "level": {
+    "max": 255
+  },
+  "result": "tinkers_advanced:extra_capacity",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "item": "tinkers_advanced:electron_tuner"
+  }
+}

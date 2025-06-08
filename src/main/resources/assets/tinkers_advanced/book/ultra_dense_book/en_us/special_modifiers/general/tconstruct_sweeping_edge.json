@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tconstruct:sweeping_edge",
+  "text": [
+    {
+      "text": "Sweeping Edge can boost the damage of arc created by Electron Tuner."
+    },
+    {
+      "text": "Each level +20%, at a maximum of +60%(Total 80%)"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+  ]
+}

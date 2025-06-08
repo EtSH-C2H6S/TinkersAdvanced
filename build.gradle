@@ -178,6 +178,10 @@ dependencies {
     //implementation fg.deobf("curse.maven:anvilcraft-986251:6476286")
     implementation fg.deobf("curse.maven:industrial-foregoing-266515:5474059")
     implementation fg.deobf("curse.maven:titanium-287342:5468426")
+    implementation fg.deobf("curse.maven:create-rainbow-compound-735609:5952070")
+    implementation fg.deobf("curse.maven:caelus-308989:5281700")
+    implementation fg.deobf("curse.maven:create-328085:6323270")
+    implementation fg.deobf("curse.maven:curios-309927:6418456")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

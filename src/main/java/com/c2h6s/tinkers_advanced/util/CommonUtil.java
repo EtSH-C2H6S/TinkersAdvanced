@@ -1,10 +1,17 @@
 package com.c2h6s.tinkers_advanced.util;
 
+import com.c2h6s.etstlib.util.ModListConstants;
+import com.c2h6s.tinkers_advanced.content.compact.pnc.capability.ItemMachineConvertHandler;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Comparator;
 import java.util.List;
@@ -58,5 +65,13 @@ public class CommonUtil {
 
     public static String getEnergyString(long amount){
         return getUnitLong(amount)+"FE";
+    }
+
+    public static <T> @NotNull LazyOptional<T> getCompactCapability(@NotNull ItemStack stack, @NotNull Capability<T> capability, @Nullable Direction direction){
+        if (ModListConstants.PnCLoaded){
+            ItemMachineConvertHandler handler = new ItemMachineConvertHandler(stack);
+            if (handler.getCapability(capability).isPresent()) return handler.getCapability(capability).cast();
+        }
+        return LazyOptional.empty();
     }
 }

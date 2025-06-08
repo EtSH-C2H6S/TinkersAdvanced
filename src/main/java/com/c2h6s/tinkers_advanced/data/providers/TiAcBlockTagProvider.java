@@ -24,10 +24,12 @@ public class TiAcBlockTagProvider extends BlockTagsProvider {
         tag(Tiers.DIAMOND.getTag()).add(TiAcBlocks.BISMUTHINITE.get(),
                 TiAcBlocks.STIBNITE_ORE.get()
         );
+        tag(Tiers.WOOD.getTag()).add(TiAcBlocks.EXCHANGER.get());
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(TiAcBlocks.IRIDIUM_LEAN_ORE.get())
                 .add(TiAcBlocks.BISMUTHINITE.get())
                 .add(TiAcBlocks.STIBNITE_ORE.get())
+                .add(TiAcBlocks.EXCHANGER.get())
         ;
     }
 }

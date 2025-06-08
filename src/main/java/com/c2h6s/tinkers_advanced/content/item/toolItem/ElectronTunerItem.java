@@ -31,6 +31,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.Capability;
@@ -39,11 +40,16 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectManager;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
+import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.capability.ToolEnergyCapability;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -53,6 +59,8 @@ import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 import java.util.List;
+
+import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.TANK_HELPER;
 
 @Mod.EventBusSubscriber(modid = TinkersAdvanced.MODID,bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ElectronTunerItem extends ModifiableSwordItem {
@@ -250,6 +258,14 @@ public class ElectronTunerItem extends ModifiableSwordItem {
             list.add(Component.translatable(getModeKey(tool)+".bonus").withStyle(ChatFormatting.LIGHT_PURPLE));
         }
         return list;
+    }
+
+    @Override
+    public List<Component> getStatInformation(IToolStackView tool, @org.jetbrains.annotations.Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
+        if (player != null) {
+            tooltips.add(Component.translatable("tool_stat.tinkers_advanced.generate_factor").append("§4" + tool.getStats().get(TiAcToolStats.POWER_MULTIPLIER)));
+        }
+        return super.getStatInformation(tool, player, tooltips, key, tooltipFlag);
     }
 
     @Nullable

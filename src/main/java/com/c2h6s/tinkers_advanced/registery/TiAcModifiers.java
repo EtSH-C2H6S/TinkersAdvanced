@@ -1,31 +1,20 @@
 package com.c2h6s.tinkers_advanced.registery;
 
-import com.c2h6s.etstlib.tool.modifiers.Combat.Defense.Clearing;
+import com.c2h6s.etstlib.tool.modifiers.Combat.Defense.*;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.*;
 import com.c2h6s.tinkers_advanced.content.modifier.combat.ionizedCannon.*;
-import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.EnderTuning;
-import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.OverHold;
-import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.SculkResonance;
+import com.c2h6s.tinkers_advanced.content.modifier.combat.toolBase.*;
 import com.c2h6s.tinkers_advanced.content.modifier.common.*;
-//import com.c2h6s.tinkers_advanced.content.modifier.compat.ae2.PocketCell;
-import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.AtomGrade;
-import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadiationBurning;
-import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.RadioactiveArmor;
-import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AirSlash;
-import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.AerialProtection;
+import com.c2h6s.tinkers_advanced.content.modifier.compat.mekanism.*;
+import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.*;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.thermal.*;
 import com.c2h6s.tinkers_advanced.content.modifier.defense.*;
 import com.c2h6s.tinkers_advanced.content.modifier.durability.*;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyConsumption.ElectricFood;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.CombustionGenerator;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.OverslimeGenerator;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.PiezoelectricEffect;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.SmelteryGenerator;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.PlatinoidCatalyst;
-import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.TransitionCatalyst;
-import com.c2h6s.tinkers_advanced.content.modifier.harvest.DisIntegrate;
-import com.c2h6s.tinkers_advanced.content.modifier.harvest.ProtoRefining;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyConsumption.*;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.*;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.*;
+import com.c2h6s.tinkers_advanced.content.modifier.harvest.*;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -67,6 +56,8 @@ public class TiAcModifiers {
     public static StaticModifier<ResonanceAmplifier> RESONANCE_AMPLIFIER = MODIFIERS.register("resonance_amplifier", ResonanceAmplifier::new);
     public static StaticModifier<FocusArray> FOCUSING_ARRAY = MODIFIERS.register("focusing_array", FocusArray::new);
     public static StaticModifier<DeepCatalyst> DEEP_CATALYST = MODIFIERS.register("deep_catalysis", DeepCatalyst::new);
+    public static StaticModifier<ExtraCapacity> EXTRA_CAPACITY = MODIFIERS.register("extra_capacity", ExtraCapacity::new);
+
     //工具自带强化，与工具强绑定
     public static StaticModifier<SculkResonance> SCULK_RESONANCE = MODIFIERS.register("sculk_resonance", SculkResonance::new);
     public static StaticModifier<OverHold> OVER_HOLD = MODIFIERS.register("over_hold", OverHold::new);
@@ -93,6 +84,7 @@ public class TiAcModifiers {
     //PnC联动属性
     public static StaticModifier<AirSlash> AIR_SLASH = PNC_MODIFIERS.register("air_slash", AirSlash::new);
     public static StaticModifier<AerialProtection> AERIAL_PROTECTION = PNC_MODIFIERS.register("aerial_protection", AerialProtection::new);
+    public static StaticModifier<CompressedAirGenerator> COMPRESSED_AIR_GENERATOR = PNC_MODIFIERS.register("compressed_air_generator", CompressedAirGenerator::new);
 
 
     //热力联动属性

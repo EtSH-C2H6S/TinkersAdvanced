@@ -1,0 +1,42 @@
+{
+  "values": [
+    "tinkers_advanced:antimony_ingot",
+    "tinkers_advanced:bismuth_ingot",
+    {
+      "id": "tinkers_advanced:densium_ingot",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:osgloglas_ingot",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:neutronite_ingot",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:nutrition_slime_ingot",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:blaze_netherite",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:basalz_signalum",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:blitz_lumium",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:blizz_enderium",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:penumatic_reinforced_steel",
+      "required": false
+    }
+  ]
+}

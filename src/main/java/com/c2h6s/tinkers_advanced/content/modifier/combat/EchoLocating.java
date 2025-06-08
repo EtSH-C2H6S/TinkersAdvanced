@@ -70,7 +70,7 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         if (vibrationContext.directEntity instanceof LivingEntity entity) living = entity;
         if (living!=null) {
             EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
-            managerInstance.addTicker(new EntityTickerInstance(TiAcEntityTicker.SCULK_MARKED.get(), 1,4+4*modifierEntry.getLevel()),Integer::max,Integer::sum);
+            managerInstance.addTicker(new EntityTickerInstance(TiAcEntityTicker.SCULK_MARKED.get(), 1,10+10*modifierEntry.getLevel()),Integer::max,Integer::sum);
             iToolStackView.getPersistentData().putInt(KEY_COOLDOWN,4);
         }
     }

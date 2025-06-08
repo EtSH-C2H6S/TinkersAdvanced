@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tconstruct:sweeping_edge",
+  "text": [
+    {
+      "text": "横扫之刃强化能提升环流电子调谐剑的弧光伤害比例，同时也会增加生成弧光的能量消耗。"
+    },
+    {
+      "text": "每级增加20%伤害比例，最大60%（加上弧光的初始20%就是80%）"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+  ]
+}

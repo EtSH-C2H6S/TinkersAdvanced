@@ -69,4 +69,14 @@ public class TiAcTabs {
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_tool"))
             .icon(() -> TiAcItems.IONIZED_CANNON.get().getRenderTool())
             .displayItems(TiAcTabs::addToolItems).build());
+    public static final RegistryObject<CreativeModeTab> MIXC_TAG = CREATIVE_MODE_TABS.register("tiac_misc", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.tinkers_advanced.tiac_misc"))
+            .icon(() -> TiAcItems.ULTRA_DENSE_BOOK.get().getDefaultInstance())
+            .displayItems((parameters, output) -> {
+                for (RegistryObject<Item> object:TiAcItems.LIST_MIXC){
+                    if (object.isPresent()) {
+                        output.accept(object.get());
+                    }
+                }
+            }).build());
 }

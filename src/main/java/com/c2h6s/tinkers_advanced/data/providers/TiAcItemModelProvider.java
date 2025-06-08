@@ -1,23 +1,17 @@
 package com.c2h6s.tinkers_advanced.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.loaders.DynamicFluidContainerModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.RegistryObject;
 import slimeknights.mantle.registration.object.FluidObject;
-import slimeknights.tconstruct.library.client.model.FluidContainerModel;
-
-import java.util.Map;
 
 public class TiAcItemModelProvider extends ItemModelProvider {
     public static final String PARENT_SIMPLE_ITEM ="item/generated";
@@ -49,8 +43,11 @@ public class TiAcItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for (RegistryObject<Item> object: TiAcItems.getListSimpleModel()){
+        for (RegistryObject<Item> object: TiAcItems.getListSimpleMaterialModel()){
             generateItemModel(object,"material");
+        }
+        for (RegistryObject<Item> object: TiAcItems.getListSimpleMiscModel()){
+            generateItemModel(object,"misc");
         }
         for (RegistryObject<BlockItem> object:TiAcItems.getListSimpleBlock()){
             generateBlockItemModel(object);

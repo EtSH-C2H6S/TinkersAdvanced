@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "BCB",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "tconstruct:scorched_proxy_tank"
+    },
+    "B": {
+      "item": "tinkers_advanced:voltaic_crystal"
+    }
+  },
+  "result": {
+    "item": "tinkers_advanced:exchanger",
+    "count": 1
+  }
+}

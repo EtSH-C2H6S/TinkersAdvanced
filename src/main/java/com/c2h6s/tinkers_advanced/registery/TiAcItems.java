@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.content.item.HiddenMaterial;
+import com.c2h6s.tinkers_advanced.content.item.UltraDenseBookItem;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
 import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
 import com.c2h6s.tinkers_advanced.content.item.toolItem.IonizedCannonItem;
@@ -43,9 +44,13 @@ public class TiAcItems {
     protected static List<RegistryObject<BlockItem>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
     protected static List<RegistryObject<BlockItem>> LIST_MIXC_BLOCK =new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_MATERIAL_ITEM_MODEL =new ArrayList<>( List.of());
+    protected static List<RegistryObject<Item>> LIST_MIXC_ITEM_MODEL =new ArrayList<>( List.of());
 
-    public static List<RegistryObject<Item>> getListSimpleModel(){
+    public static List<RegistryObject<Item>> getListSimpleMaterialModel(){
         return List.copyOf(LIST_MATERIAL_ITEM_MODEL);
+    }
+    public static List<RegistryObject<Item>> getListSimpleMiscModel(){
+        return List.copyOf(LIST_MIXC_ITEM_MODEL);
     }
 
     public static List<RegistryObject<BlockItem>> getListSimpleBlock(){
@@ -56,7 +61,7 @@ public class TiAcItems {
         RegistryObject<Item> object = register.register(name,sup);
         LIST_MIXC.add(object);
         if (simpleModel){
-            LIST_MATERIAL_ITEM_MODEL.add(object);
+            LIST_MIXC_ITEM_MODEL.add(object);
         }
         return object;
     }
@@ -87,6 +92,7 @@ public class TiAcItems {
     public static final RegistryObject<BlockItem> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
     public static final RegistryObject<BlockItem> IRIDIUM_LEAN_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.IRIDIUM_LEAN_ORE);
     public static final RegistryObject<BlockItem> STIBNITE_ORE = registerBlockItem(ITEMS,TiAcBlocks.STIBNITE_ORE);
+    public static final RegistryObject<BlockItem> EXCHANGER = registerBlockItem(ITEMS,TiAcBlocks.EXCHANGER);
 
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTH_NUGGET = registerMaterial(ITEMS,"bismuth_nugget",()->new Item(new Item.Properties()),true);
@@ -99,6 +105,7 @@ public class TiAcItems {
     public static final RegistryObject<Item> ANTIMONY_INGOT = registerMaterial(ITEMS,"antimony_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> ANTIMONY_NUGGET = registerMaterial(ITEMS,"antimony_nugget",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> STIBNITE = registerMaterial(ITEMS,"stibnite",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
+    public static final RegistryObject<Item> ULTRA_DENSE_BOOK = registerMixc(ITEMS,"ultra_dense_book",()->new UltraDenseBookItem(new Item.Properties()),true);
 
     public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
     public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));

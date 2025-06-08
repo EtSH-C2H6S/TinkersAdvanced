@@ -15,5 +15,14 @@ public class PlayerEventHandler {
         if (event.getItemStack().is(TiAcItems.STIBNITE.get())||event.getItemStack().is(TiAcItems.STIBNITE_ORE.get())){
             event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.stibnite_ore").withStyle(ChatFormatting.GOLD));
         }
+        if (event.getItemStack().is(TiAcItems.EXCHANGER.get())){
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.exchanger1").withStyle(ChatFormatting.GRAY));
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.exchanger2").withStyle(ChatFormatting.GRAY));
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.exchanger3").withStyle(ChatFormatting.GRAY));
+        }
+        if (event.getItemStack().is(TiAcItems.ULTRA_DENSE_BOOK.get())){
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.ultra_dense_book1").withStyle(ChatFormatting.GRAY));
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.ultra_dense_book2").withStyle(ChatFormatting.LIGHT_PURPLE));
+        }
     }
 }

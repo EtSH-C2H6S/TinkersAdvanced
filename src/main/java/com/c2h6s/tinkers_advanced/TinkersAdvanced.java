@@ -2,8 +2,10 @@ package com.c2h6s.tinkers_advanced;
 
 import com.c2h6s.etstlib.util.ModListConstants;
 import com.c2h6s.tinkers_advanced.client.TiAcToolProperty;
+import com.c2h6s.tinkers_advanced.client.book.TiAcBookData;
 import com.c2h6s.tinkers_advanced.client.gui.screen.ElectronTunerScreen;
 import com.c2h6s.tinkers_advanced.client.renderer.*;
+import com.c2h6s.tinkers_advanced.client.renderer.blockEntity.ExchangerBERenderer;
 import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.content.event.eventHandler.LivingEventHandler;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
@@ -12,6 +14,7 @@ import com.c2h6s.tinkers_advanced.content.worldgen.TiAcPlacementModifier;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.registery.*;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -30,6 +33,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import slimeknights.tconstruct.library.client.model.TinkerItemProperties;
 import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
+import slimeknights.tconstruct.shared.CommonsClientEvents;
 
 import java.util.Random;
 
@@ -58,6 +62,7 @@ public class TinkersAdvanced
         TiAcParticleTypes.PARTICLES.register(modEventBus);
         TiAcPlacementModifier.PLACEMENT_MODIFIER.register(modEventBus);
         TiAcEntityTicker.TICKERS.register(modEventBus);
+        TiAcBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         if (ModListConstants.MekLoaded){
             TiAcItems.MEK_ITEMS.register(modEventBus);
             TiAcFluids.MEK_FLUIDS.register(modEventBus);
@@ -125,7 +130,10 @@ public class TinkersAdvanced
                 TinkerItemProperties.registerBrokenProperty(TiAcItems.IONIZED_CANNON.get());
                 TinkerItemProperties.registerToolProperties(TiAcItems.IONIZED_CANNON.get());
                 ItemProperties.register(TiAcItems.ELECTRON_TUNER.asItem(), ElectronTunerItem.KEY_ATTACK_DAMAGE, TiAcToolProperty.FUNCTION_ELECTRON_TUNER);
+                TiAcBookData.intiBook();
             });
+
+            TiAcBookData.ULTRA_DENSE_BOOK.fontRenderer = CommonsClientEvents.unicodeFontRender();
         }
 
         @SubscribeEvent
@@ -138,6 +146,8 @@ public class TinkersAdvanced
             if (ModList.get().isLoaded("thermal")){
                 event.registerEntityRenderer(TiAcEntities.THERMAL_SLASH.get(), RenderThermalSlash::new);
             }
+
+            event.registerBlockEntityRenderer(TiAcBlockEntities.EXCHANGER_BLOCK_ENTITY.get(), pContext -> new ExchangerBERenderer());
         }
     }
 }

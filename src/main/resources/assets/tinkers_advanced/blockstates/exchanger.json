@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "enabled=false": {
+      "model": "tinkers_advanced:block/exchanger"
+    },
+    "enabled=true": {
+      "model": "tinkers_advanced:block/exchanger_activate"
+    }
+  }
+}

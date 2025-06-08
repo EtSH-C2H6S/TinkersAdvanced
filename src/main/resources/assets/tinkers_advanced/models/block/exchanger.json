@@ -1,0 +1,7 @@
+{
+  "parent": "tconstruct:block/template/tank",
+  "textures": {
+    "top":  "tinkers_advanced:block/exchanger",
+    "side": "tinkers_advanced:block/exchanger"
+  }
+}

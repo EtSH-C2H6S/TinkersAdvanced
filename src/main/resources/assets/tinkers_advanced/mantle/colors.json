@@ -51,7 +51,10 @@
     "plague": "#314D24",
     "unstable": "#361414",
     "poison_defense": "#314D24",
+    "extra_capacity": "#F35858",
+    "swift_strike_ex": "#FDDFFF",
 
+    "compressed_air_generator": "#A7A7A7",
     "combustion_generator": "#574B42",
     "piezoelectric_effect": "#b8d8fc",
     "overslime_generator": "#455739",

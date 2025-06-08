@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.client.event;
 
+import com.c2h6s.tinkers_advanced.client.particles.BlueSparkParticle;
 import com.c2h6s.tinkers_advanced.client.particles.ElectricParticle;
 import com.c2h6s.tinkers_advanced.registery.TiAcParticleTypes;
 import net.minecraft.client.particle.ParticleEngine;
@@ -15,5 +16,7 @@ public class TiAcParticleEvent {
     public static void registerParticleProvider(RegisterParticleProvidersEvent event){
         ParticleEngine.SpriteParticleRegistration<SimpleParticleType> provider = ElectricParticle.Provider::new;
         event.registerSpriteSet(TiAcParticleTypes.ELECTRIC.get(), provider);
+        provider = BlueSparkParticle.Provider::new;
+        event.registerSpriteSet(TiAcParticleTypes.SPARK_BLUE.get(), provider);
     }
 }

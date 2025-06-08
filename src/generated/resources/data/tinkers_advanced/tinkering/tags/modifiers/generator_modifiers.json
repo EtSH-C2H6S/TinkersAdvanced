@@ -1,0 +1,13 @@
+{
+  "values": [
+    "tinkers_advanced:combustion_generator",
+    "tinkers_advanced:overslime_generator",
+    "tinkers_advanced:smeltery_generator",
+    "tinkers_advanced:platinoid_catalyst",
+    "tinkers_advanced:transition_catalyst",
+    {
+      "id": "tinkers_advanced:compressed_air_generator",
+      "required": false
+    }
+  ]
+}

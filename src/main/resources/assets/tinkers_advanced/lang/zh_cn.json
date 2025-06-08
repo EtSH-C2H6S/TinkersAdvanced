@@ -3,6 +3,7 @@
   "itemGroup.tinkers_advanced.tiac_mixc": "前沿匠艺 | 杂项",
   "itemGroup.tinkers_advanced.tiac_block": "前沿匠艺 | 方块",
   "itemGroup.tinkers_advanced.tiac_tool": "前沿匠艺 | 工具&部件",
+  "itemGroup.tinkers_advanced.tiac_misc": "前沿匠艺 | 杂项",
 
 
 
@@ -132,7 +133,7 @@
 
   "modifier.tinkers_advanced.supreme_density_armor": "极限密度",
   "modifier.tinkers_advanced.supreme_density_armor.flavor": "差一点就坍缩成黑洞...",
-  "modifier.tinkers_advanced.supreme_density_armor.description": "护甲和护甲韧性翻倍，受击时80%的伤害会额外经历一次减伤计算。",
+  "modifier.tinkers_advanced.supreme_density_armor.description": "护甲和护甲韧性翻倍，受击时受到的伤害会额外经历一次减伤计算。",
 
   "modifier.tinkers_advanced.ionized": "电离",
   "modifier.tinkers_advanced.ionized.flavor": "万物归于电荷",
@@ -221,6 +222,18 @@
   "modifier.tinkers_advanced.poison_defense": "百毒不侵",
   "modifier.tinkers_advanced.poison_defense.flavor": "我已炼成毒体...",
   "modifier.tinkers_advanced.poison_defense.description": "免疫中毒和凋零效果。",
+
+  "modifier.tinkers_advanced.extra_capacity": "额外电容",
+  "modifier.tinkers_advanced.extra_capacity.flavor": "根据 W=0.5CU² 可知电容增加则相同电压下电容存储的电能增加。",
+  "modifier.tinkers_advanced.extra_capacity.description": "每级增加20%能量容量。",
+
+  "modifier.tinkers_advanced.compressed_air_generator": "压缩空气能量模块",
+  "modifier.tinkers_advanced.compressed_air_generator.flavor": "气压其实是一种分子势能的体现。",
+  "modifier.tinkers_advanced.compressed_air_generator.description": "你的工具能通过消耗压缩空气发电。每级+压力*50FE/t的基础产出速率，能量转换率与压缩空气能源炉相当。",
+
+  "modifier.tinkers_advanced.swift_strike_ex": "强力迅捷打击",
+  "modifier.tinkers_advanced.swift_strike_ex.flavor": "魔法宝石的奇妙力量。",
+  "modifier.tinkers_advanced.swift_strike_ex.description": "每级增加25%攻击速度。",
 
 
 
@@ -380,11 +393,13 @@
   "item.tinkers_advanced.antimony_nugget": "锑粒",
   "item.tinkers_advanced.bismuth_nugget": "铋粒",
   "item.tinkers_advanced.nutrition_slime_ingot": "营养黏液浸钢",
+  "item.tinkers_advanced.ultra_dense_book": "超致密书",
 
 
   "block.tinkers_advanced.bismuthinite_ore": "辉铋矿",
   "block.tinkers_advanced.stibnite_ore": "辉锑矿",
   "block.tinkers_advanced.iridium_lean_ore": "贫铱矿",
+  "block.tinkers_advanced.exchanger": "粒子交换室",
 
 
 
@@ -537,6 +552,13 @@
   "tooltip.tinkers_advanced.found_in_nether": "发现于下界",
   "tooltip.tinkers_advanced.found_in_overworld": "发现于末地",
   "tooltip.tinkers_advanced.found_in_end": "发现于主世界",
+
+  "tooltip.tinkers_advanced.exchanger1": "当放入工具时允许工具与外界进行自动化交互（比如传输物品、能量）。",
+  "tooltip.tinkers_advanced.exchanger2": "放入环流电子调谐剑时能使其自动化产能。",
+  "tooltip.tinkers_advanced.exchanger3": "用工具右键以放入工具，用工具手柄右键切换自动弹出能量模式。",
+
+  "tooltip.tinkers_advanced.ultra_dense_book1": "是一本超级致密的书，还是一本由超致密制成的书？",
+  "tooltip.tinkers_advanced.ultra_dense_book2": "-前沿匠艺 指导书-",
 
 
   "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量：",

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "index",
+    "type": "mantle:index",
+    "data": "special_modifiers/index.json"
+  },
+  {
+    "name": "group_general",
+    "type": "mantle:text",
+    "data": "special_modifiers/general.json",
+    "extraData": {
+      "tconstruct:load_modifiers": {
+        "tag": "tinkers_advanced:special_tool", "path": "special_modifiers/general", "prefix": "general"
+      }
+    }
+  },
+  {
+    "name": "group_generator_modifier",
+    "type": "mantle:text",
+    "data": "special_modifiers/generator_modifier.json",
+    "extraData": {
+      "tconstruct:load_modifiers": {
+        "tag": "tinkers_advanced:generator_modifiers", "path": "special_modifiers/generator_modifier", "prefix": "generator_modifier"
+      }
+    }
+  }
+]

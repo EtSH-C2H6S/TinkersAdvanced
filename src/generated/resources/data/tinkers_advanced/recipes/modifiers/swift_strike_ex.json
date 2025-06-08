@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "amount_needed": 10,
+      "item": "minecraft:amethyst_block"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "result": "tinkers_advanced:swift_strike_ex",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "item": "tinkers_advanced:ionized_cannon"
+  }
+}

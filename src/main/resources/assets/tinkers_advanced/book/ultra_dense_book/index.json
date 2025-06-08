@@ -1,0 +1,9 @@
+[
+  {
+    "name": "special_modifiers",
+    "data": "sections/special_modifiers.json",
+    "icon": {
+      "item": "tinkers_advanced:resonance_crystal"
+    }
+  }
+]

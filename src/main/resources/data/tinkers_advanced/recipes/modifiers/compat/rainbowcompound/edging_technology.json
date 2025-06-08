@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "rainbowcompound"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "rainbowcompound:shadow_resonant_assembly"
+    },
+    {
+      "item": "rainbowcompound:integrated_circuit"
+    },
+    {
+      "item": "rainbowcompound:radiance_resonant_assembly"
+    }
+  ],
+  "level": 1,
+  "result": "tinkers_advanced:edging_technology",
+  "tools": {
+    "tag": "tconstruct:modifiable/bonus_slots"
+  }
+}

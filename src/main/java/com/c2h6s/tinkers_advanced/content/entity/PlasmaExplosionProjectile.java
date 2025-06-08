@@ -3,6 +3,8 @@ package com.c2h6s.tinkers_advanced.content.entity;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.base.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.registery.TiAcParticleTypes;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -77,11 +79,9 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
                 }
             }
             if (this.level() instanceof ServerLevel serverLevel){
-                if (scale>=2) {
-                    serverLevel.sendParticles(ParticleTypes.FLASH, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0);
-                }
-                serverLevel.sendParticles(ParticleTypes.FIREWORK,this.getX(),this.getY(),this.getZ(),(int)( 12*scale),0.05*scale,0.05*scale,0.05*scale,scale*0.2F);
-                serverLevel.playSeededSound(null,this.getX(),this.getY(),this.getZ(), SoundEvents.WARDEN_SONIC_BOOM, SoundSource.PLAYERS,scale*0.5f,1, TinkersAdvanced.RANDOM.nextLong());
+                if (scale>=2) serverLevel.sendParticles(ParticleTypes.FLASH, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0);
+                serverLevel.sendParticles((ParticleOptions) TiAcParticleTypes.SPARK_BLUE.get(),this.getX(),this.getY(),this.getZ(),(int)Math.min(30*scale,30),0.025*scale,0.025*scale,0.025*scale,0.4*scale);
+                if (scale>=2) serverLevel.playSeededSound(null,this.getX(),this.getY(),this.getZ(), SoundEvents.WARDEN_SONIC_BOOM, SoundSource.PLAYERS,1,1, TinkersAdvanced.RANDOM.nextLong());
             }
         }
     }

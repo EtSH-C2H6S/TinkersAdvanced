@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tinkers_advanced:item/material/hot_reinforced_steel"
+    "layer0": "tinkers_advanced:item/misc/hot_reinforced_steel"
   }
 }

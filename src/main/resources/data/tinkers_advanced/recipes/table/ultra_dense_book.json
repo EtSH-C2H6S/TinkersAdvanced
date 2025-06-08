@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:sculk_catalyst"
+    }
+  ],
+  "result": {
+    "item": "tinkers_advanced:ultra_dense_book",
+    "count": 1
+  }
+}

@@ -20,23 +20,26 @@ public class NutritiveSlime extends EtSTBaseModifier {
             OverslimeModifier overslime = TinkerModifiers.overslime.get();
             int slimeAmount = overslime.getShield(tool);
             if (slimeAmount<=0) return;
-            int recover;
+            int totalRecover =Math.min( TiAcConfig.COMMON.NUTRITIVE_SLIME_RECOVER.get()*modifier.getLevel(),slimeAmount/ TiAcConfig.COMMON.NUTRITIVE_SLIME_COST.get());
             if (foodData.needsFood()){
-                recover = Math.min(20-foodData.getFoodLevel(),slimeAmount/ TiAcConfig.COMMON.NUTRITIVE_SLIME_COST.get());
+                int recover = Math.min(20-foodData.getFoodLevel(),totalRecover);
                 if (recover>0){
                     foodData.setFoodLevel(foodData.getFoodLevel()+recover);
                     overslime.setShield(tool,modifier,overslime.getShield(tool)-recover*10);
-                    slimeAmount-=recover*10;
-                    if (slimeAmount<=0) return;
+                    slimeAmount = overslime.getShield(tool);
+                    totalRecover-=recover;
+                    if (slimeAmount<=0||totalRecover<=0) return;
                 }
             }
-            if (foodData.getSaturationLevel()<foodData.getFoodLevel()){
-                recover = (int) Math.min(foodData.getFoodLevel()-foodData.getSaturationLevel(), slimeAmount / TiAcConfig.COMMON.NUTRITIVE_SLIME_COST.get());
-                if (recover>0){
-                    foodData.setSaturation(foodData.getSaturationLevel()+recover);
-                    overslime.setShield(tool,modifier,overslime.getShield(tool)-recover*10);
-                }
-            }
+             if (foodData.getSaturationLevel()<foodData.getFoodLevel()) {
+                 totalRecover = Math.min(totalRecover, slimeAmount / TiAcConfig.COMMON.NUTRITIVE_SLIME_COST.get());
+                 int recover = (int) Math.min(foodData.getFoodLevel() - foodData.getSaturationLevel(), totalRecover);
+                 recover = Math.min(recover, TiAcConfig.COMMON.NUTRITIVE_SLIME_RECOVER.get() * modifier.getLevel());
+                 if (recover > 0) {
+                     foodData.setSaturation(foodData.getSaturationLevel() + recover);
+                     overslime.setShield(tool, modifier, overslime.getShield(tool) - recover * 10);
+                 }
+             }
         }
     }
 }

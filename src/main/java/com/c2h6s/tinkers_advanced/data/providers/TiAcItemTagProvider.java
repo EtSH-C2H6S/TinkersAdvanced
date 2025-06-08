@@ -11,6 +11,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -30,5 +31,20 @@ public class TiAcItemTagProvider extends ItemTagsProvider {
         this.tag(TiAcTagkeys.Items.ANTIMONY_NUGGET).add(TiAcItems.ANTIMONY_NUGGET.get());
         this.tag(TiAcTagkeys.Items.BISMUTH_NUGGET).add(TiAcItems.BISMUTH_NUGGET.get());
         this.tag(TiAcTagkeys.Items.ANTIMONY_INGOT).add(TiAcItems.ANTIMONY_INGOT.get());
+        this.tag(TiAcTagkeys.Items.BISMUTH_INGOT).add(TiAcItems.BISMUTH_INGOT.get());
+        this.tag(Tags.Items.INGOTS)
+                .add(TiAcItems.ANTIMONY_INGOT.get(),TiAcItems.BISMUTH_INGOT.get())
+                .addOptional(TiAcItems.DENSIUM_INGOT.getId())
+                .addOptional(TiAcItems.OSGLOGLAS_INGOT.getId())
+                .addOptional(TiAcItems.NEUTRONITE_INGOT.getId())
+                .addOptional(TiAcItems.NUTRITION_SLIME_INGOT.getId())
+                .addOptional(TiAcItems.BLAZE_NETHERITE.getId())
+                .addOptional(TiAcItems.BASALZ_SIGNALUM.getId())
+                .addOptional(TiAcItems.BLITZ_LUMIUM.getId())
+                .addOptional(TiAcItems.BLIZZ_ENDERIUM.getId())
+                .addOptional(TiAcItems.PNEUMATIC_STEEL.getId());
+        this.tag(Tags.Items.NUGGETS)
+                .add(TiAcItems.BISMUTH_NUGGET.get(),TiAcItems.ANTIMONY_NUGGET.get())
+                .addOptional(TiAcItems.BLITZ_LUMIUM_NUGGET.getId());
     }
 }

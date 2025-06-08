@@ -8,9 +8,11 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import slimeknights.mantle.client.SafeClientAccess;
 
 import java.util.function.Supplier;
 
@@ -65,8 +67,8 @@ public class PParticleChainS2C {
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(()->{
-            ClientLevel level = Minecraft.getInstance().level;
-            ParticleChainUtil.Client.drawLine((ParticleOptions) ForgeRegistries.PARTICLE_TYPES.getValue(partId),level,posStart,posEnd,spacing,velocityFunctionName,velocityFunctionArg,offsetFunctionName,offsetFunctionArg,distanceLimit,countLimit);
+            Level level = SafeClientAccess.getLevel();
+            if (level!=null) ParticleChainUtil.Client.drawLine((ParticleOptions) ForgeRegistries.PARTICLE_TYPES.getValue(partId),(ClientLevel) level,posStart,posEnd,spacing,velocityFunctionName,velocityFunctionArg,offsetFunctionName,offsetFunctionArg,distanceLimit,countLimit);
         });
         return true;
     }

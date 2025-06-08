@@ -76,6 +76,7 @@ public class TiAcConfig {
         public final ForgeConfigSpec.DoubleValue SMELTERY_GENERATOR_TEMPERATURE_MULTIPLIER;
         public final ForgeConfigSpec.DoubleValue ANNIHILATE_EXPLOSION_ATTACK_MULTIPLIER;
         public final ForgeConfigSpec.DoubleValue ANNIHILATE_EXPLOSION_SELF_MULTIPLIER;
+        public final ForgeConfigSpec.IntValue COMPRESSED_AIR_GENERATON_BASIC_GENERATION;
 
         public final ForgeConfigSpec.DoubleValue EFFECT_TETANUS_DAMAGE_MULTIPLIER;
         public final ForgeConfigSpec.DoubleValue EFFECT_PROTO_POISON_HEALTH_DECREASE;
@@ -197,15 +198,18 @@ public class TiAcConfig {
                     .defineInRange("platinoid_catalyst_bonus",0.25,0,Integer.MAX_VALUE);
 
             this.SMELTERY_GENERATOR_BASIC_GENERATION = builder.comment("Basic FE/t for each level of Smeltery Generator modifier, 300 by default")
-                    .comment("基础的每tick能量产出。默认300 FE/t。")
+                    .comment("冶炼炉能量模块基础的每tick能量产出。默认300 FE/t。")
                     .defineInRange("smeltery_generator_generation",300,0,Integer.MAX_VALUE);
             this.SMELTERY_GENERATOR_EACH_BURNING_TIME = builder.comment("Energy per burning time, 10000 by default.")
-                    .comment("每tick燃烧时长带来的总能量产出。默认10 kFE。")
+                    .comment("每tick燃烧时长带来的总能量产出。默认10kFE。")
                     .defineInRange("smeltery_generator_generation_for_time",10000,0,Integer.MAX_VALUE);
             this.SMELTERY_GENERATOR_TEMPERATURE_MULTIPLIER = builder.comment("Power multiplier for fuel temp, 0.001 by default , meaning that a 2000℃ fuel makes FE/t times 2.")
                     .comment("燃料温度对产能速率的影响。默认0.001，意味着2000℃的燃料会带来2倍的产能速度。")
                     .defineInRange("smeltery_generator_temperature_multiplier",0.001d,0,Integer.MAX_VALUE);
 
+            this.COMPRESSED_AIR_GENERATON_BASIC_GENERATION = builder.comment("Basic FE/t for each level of Compressed Air Generator modifier, 200 by default")
+                    .comment("气动能量模块基础的每tick能量产出，默认50FE/t。注：最终产能会乘以工具压力。")
+                    .defineInRange("compressed_air_generator_generation",50,0,Integer.MAX_VALUE);
 
             builder.pop();
 

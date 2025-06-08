@@ -71,16 +71,17 @@ public class SupremeDensityArmor extends EtSTBaseModifier implements ToolStatsMo
     }
 
     @SubscribeEvent
-    public static void livinghurtevent(LivingDamageEvent event) {
+    public static void onLivingDamage(LivingDamageEvent event) {
         LivingEntity living = event.getEntity();
         living.getCapability(TinkerDataCapability.CAPABILITY).ifPresent((holder) -> {
             int level = holder.get(key, 0);
             if (level > 0&&living instanceof Player &&event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
-                float am = event.getAmount()*0.75F;
+                float percent = Math.min(1,0.4f*level);
+                float am = event.getAmount()*percent;
                 am = ForgeHooks.onLivingHurt(living,event.getSource(), am);
                 am = CombatRules.getDamageAfterAbsorb(am, (float) living.getArmorValue(), (float) living.getAttributeValue(Attributes.ARMOR_TOUGHNESS));
-                am = getMagicDR(am,event.getSource(),living);
-                event.setAmount(event.getAmount()*0.8f+am);
+                am = getMagicDR(am+event.getAmount()*(1-percent),event.getSource(),living);
+                event.setAmount(am);
             }
         });
     }

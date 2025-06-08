@@ -6,6 +6,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.ForgeRegistries;
+import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierManager;
 
 
 public class TiAcTagkeys {
@@ -38,5 +40,14 @@ public class TiAcTagkeys {
         public static final TagKey<Item> IRIDIUM_NUGGET = forgeTag("nuggets/iridium");
         public static final TagKey<Item> IRIDIUM_BLOCK = forgeTag("storage_blocks/iridium");
         public static final TagKey<Item> PLASTIC = tiacTag("plastic");
+    }
+
+    public static class Modifiers{
+        private static TagKey<Modifier> tiacTag(String name){
+            return ModifierManager.getTag(new ResourceLocation(TinkersAdvanced.MODID,name));
+        }
+
+        public static final TagKey<Modifier> GENERATOR_MODIFIERS = tiacTag("generator_modifiers");
+        public static final TagKey<Modifier> SPECIAL_TOOL = tiacTag("special_tool");
     }
 }
