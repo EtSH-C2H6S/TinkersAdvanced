@@ -7,7 +7,7 @@
   "cooling_time": 65,
   "fluid": {
     "amount": 90,
-    "fluid": "tinkers_advanced:molten_antimony"
+    "tag": "forge:molten_antimony"
   },
   "result": {
     "tag": "forge:ingots/antimony"

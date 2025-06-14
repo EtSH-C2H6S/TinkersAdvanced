@@ -77,6 +77,10 @@ public class TiAcConfig {
         public final ForgeConfigSpec.DoubleValue ANNIHILATE_EXPLOSION_ATTACK_MULTIPLIER;
         public final ForgeConfigSpec.DoubleValue ANNIHILATE_EXPLOSION_SELF_MULTIPLIER;
         public final ForgeConfigSpec.IntValue COMPRESSED_AIR_GENERATON_BASIC_GENERATION;
+        public final ForgeConfigSpec.IntValue DISINTEGRATE_EACH_BONUS;
+        public final ForgeConfigSpec.IntValue DISINTEGRATE_MAX_BONUS;
+        public final ForgeConfigSpec.IntValue DISINTEGRATE_EACH_DECREASE;
+        public final ForgeConfigSpec.DoubleValue VOID_DODGING_CHANCE;
 
         public final ForgeConfigSpec.DoubleValue EFFECT_TETANUS_DAMAGE_MULTIPLIER;
         public final ForgeConfigSpec.DoubleValue EFFECT_PROTO_POISON_HEALTH_DECREASE;
@@ -158,6 +162,21 @@ public class TiAcConfig {
             this.ANNIHILATE_EXPLOSION_SELF_MULTIPLIER = builder.comment("Explosion damage multiplier that deals to attacker, 2.5 by default.")
                     .comment("湮灭词条对自己造成的爆炸伤害倍率，默认2.5倍")
                     .defineInRange("annihilation_attack_self_multiplier",2.5d,0,Integer.MAX_VALUE);
+            builder.comment("Disintegrate").comment("解离");
+            this.DISINTEGRATE_EACH_BONUS = builder.comment("Bonus each block mined (%), 20(%) by default")
+                    .comment("挖掘每个方块带来的加成（单位为%），默认20%。注：耐久惩罚是加成的一半。")
+                    .defineInRange("disintegrate_each_bonus",20,0,Integer.MAX_VALUE);
+            this.DISINTEGRATE_MAX_BONUS = builder.comment("Max bonus, 2000% by default.")
+                    .comment("最大加成（单位为%），默认2000%。")
+                    .defineInRange("disintegrate_max_bonus",2000,0,Integer.MAX_VALUE);
+            this.DISINTEGRATE_EACH_DECREASE = builder.comment("Bonus decrease each second, 5% by default.")
+                    .comment("每秒减少的加成（单位为%），默认5%。")
+                    .defineInRange("disintegrate_each_decrease",5,0,Integer.MAX_VALUE);
+            builder.comment("Void Dodging").comment("虚无闪避");
+            this.VOID_DODGING_CHANCE = builder.comment("Chance for dodging arrow each level, 0.25 by default.")
+                    .comment("每级闪避箭矢的概率，默认0.25。")
+                    .defineInRange("void_dodging_chance",0.25,0,1);
+
             builder.comment("Return to Slime").comment("万物归于黏液");
 
             builder.comment("Generator Modules").comment("能量模块类强化");

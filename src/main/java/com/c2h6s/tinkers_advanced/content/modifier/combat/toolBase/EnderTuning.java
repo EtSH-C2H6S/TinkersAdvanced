@@ -139,7 +139,6 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
 
     @Override
     public void addTooltip(IToolStackView tool, ModifierEntry modifierEntry, @Nullable Player player, List<Component> list, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
-        list.add(Component.translatable(tool.getPersistentData().getBoolean(KEY_DISALLOW_INSERT)?"tooltip.tinkers_advanced.disallow_insert":"tooltip.tinkers_advanced.allow_insert").withStyle(ChatFormatting.RED));
         super.addTooltip(tool,modifierEntry,player,list,tooltipKey,tooltipFlag);
         ToolEnergyProduction production = ToolEnergyProduction.getOrCreate((ToolStack) tool);
         int value = production.lastGeneration;

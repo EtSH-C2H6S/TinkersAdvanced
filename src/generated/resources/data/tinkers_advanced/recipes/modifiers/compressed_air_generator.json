@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tinkers_advanced:disintegrate_crystal"
+    },
+    {
+      "item": "pneumaticcraft:reinforced_air_canister"
+    },
+    {
+      "item": "pneumaticcraft:pneumatic_dynamo"
+    }
+  ],
+  "level": 1,
+  "result": "tinkers_advanced:compressed_air_generator",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "tinkers_advanced:electron_tuner"
+  }
+}

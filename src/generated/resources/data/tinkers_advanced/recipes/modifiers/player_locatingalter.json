@@ -1,0 +1,38 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "createutilities"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "item": "createutilities:graviton_tube"
+    },
+    {
+      "item": "tinkers_advanced:voltaic_crystal"
+    },
+    {
+      "item": "createutilities:graviton_tube"
+    }
+  ],
+  "level": 1,
+  "result": "tinkers_advanced:player_locating",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "tinkers_advanced:electron_tuner"
+  }
+}

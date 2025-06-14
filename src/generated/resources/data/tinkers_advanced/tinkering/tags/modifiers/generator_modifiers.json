@@ -5,6 +5,8 @@
     "tinkers_advanced:smeltery_generator",
     "tinkers_advanced:platinoid_catalyst",
     "tinkers_advanced:transition_catalyst",
+    "tinkers_advanced:energy_bin",
+    "tinkers_advanced:energy_distributor",
     {
       "id": "tinkers_advanced:compressed_air_generator",
       "required": false

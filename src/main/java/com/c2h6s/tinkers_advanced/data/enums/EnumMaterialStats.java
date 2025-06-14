@@ -306,6 +306,17 @@ public enum EnumMaterialStats {
             new FluxCoreMaterialStat(25.5f,1.7f),
             new LimbMaterialStats(1100,0.1f,-0.1f,-0.05f)
     ),
+    VOID_STEEL(
+            armor(60,2.5f,7.5f,6,2).toughness(3).knockbackResistance(0.2f),
+            true,
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.MAILLE,
+            new HandleMaterialStats(0.15f,0.1f,0.15f,0.1f),
+            new FluxCoreMaterialStat(2.5F,4.9F),
+            new HeadMaterialStats(1592,6.5f, Tiers.NETHERITE,3.75f),
+            new GripMaterialStats(0.15f,0.01f,3.75f),
+            new LimbMaterialStats(1592,0.05f,0.1f,0.01f)
+    ),
 
 
 

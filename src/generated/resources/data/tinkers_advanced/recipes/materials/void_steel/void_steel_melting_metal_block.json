@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "createutilities"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "createutilities:void_steel_block"
+  },
+  "result": {
+    "amount": 810,
+    "tag": "forge:molten_void_steel"
+  },
+  "temperature": 1400,
+  "time": 233
+}

@@ -17,8 +17,26 @@ public class TiAcModifierTagProvider extends AbstractModifierTagProvider {
 
     @Override
     protected void addTags() {
-        this.tag(TiAcTagkeys.Modifiers.GENERATOR_MODIFIERS).add(COMBUSTION_GENERATOR.getId(), OVERSLIME_GENERATOR.getId(), SMELTERY_GENERATOR.getId(),PLATINOID_CATALYST.getId(),TRANSITION_CATALYST.getId()).addOptional(COMPRESSED_AIR_GENERATOR.getId());
-        this.tag(TiAcTagkeys.Modifiers.SPECIAL_TOOL).add(RESONANCE_AMPLIFIER.getId(),DEEP_CATALYST.getId(),EXTRA_CAPACITY.getId(),FOCUSING_ARRAY.getId(),AUTO_SHOT.getId(), TinkerModifiers.expanded.getId(),TinkerModifiers.sweeping.getId(), TiAcModifierIds.SWIFT_STRIKE_EX);
+        this.tag(TiAcTagkeys.Modifiers.GENERATOR_MODIFIERS)
+                .add(
+                        COMBUSTION_GENERATOR.getId(),
+                        OVERSLIME_GENERATOR.getId(),
+                        SMELTERY_GENERATOR.getId(),
+                        PLATINOID_CATALYST.getId(),
+                        TRANSITION_CATALYST.getId(),
+                        ENERGY_BIN.getId(),
+                        ENERGY_DISTRIBUTOR.getId()
+                ).addOptional(COMPRESSED_AIR_GENERATOR.getId());
+        this.tag(TiAcTagkeys.Modifiers.SPECIAL_TOOL)
+                .add(RESONANCE_AMPLIFIER.getId(),
+                        DEEP_CATALYST.getId(),
+                        EXTRA_CAPACITY.getId(),
+                        FOCUSING_ARRAY.getId(),
+                        AUTO_SHOT.getId(),
+                        PLAYER_LOCATING.getId(),
+                        TinkerModifiers.expanded.getId(),
+                        TinkerModifiers.sweeping.getId(),
+                        TiAcModifierIds.SWIFT_STRIKE_EX);
     }
 
     @Override

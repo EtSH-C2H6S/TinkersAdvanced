@@ -5,7 +5,7 @@
   },
   "result": {
     "amount": 90,
-    "fluid": "tinkers_advanced:molten_antimony"
+    "tag": "forge:molten_antimony"
   },
   "temperature": 970,
   "time": 65

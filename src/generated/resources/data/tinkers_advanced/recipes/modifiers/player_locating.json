@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tinkers_advanced:resonance_crystal"
+    },
+    {
+      "item": "tinkers_advanced:disintegrate_crystal"
+    },
+    {
+      "item": "tinkers_advanced:voltaic_crystal"
+    },
+    {
+      "item": "tconstruct:molten_ender_bucket"
+    },
+    {
+      "item": "tconstruct:ender_slime_bucket"
+    }
+  ],
+  "level": 1,
+  "result": "tinkers_advanced:player_locating",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "tinkers_advanced:electron_tuner"
+  }
+}

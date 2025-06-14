@@ -45,6 +45,7 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
         buildRenderInfo(TiAcMaterialIds.PnC.COMPRESSED_IRON).color(0xFFa1a1a1).fallbacks("metal");
         buildRenderInfo(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL).color(0xFFf77dbf).fallbacks("slime_metal","metal");
         buildRenderInfo(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL).color(0xFFd08cc5).fallbacks("slime_metal","metal");
+        buildRenderInfo(TiAcMaterialIds.CreateUtilities.VOID_STEEL).color(0xFF1a7565).fallbacks("metal");
     }
 
     @Override

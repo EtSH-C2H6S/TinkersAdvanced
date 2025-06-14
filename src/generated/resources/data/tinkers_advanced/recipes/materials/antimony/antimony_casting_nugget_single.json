@@ -6,7 +6,7 @@
   "cooling_time": 22,
   "fluid": {
     "amount": 10,
-    "fluid": "tinkers_advanced:molten_antimony"
+    "tag": "forge:molten_antimony"
   },
   "result": {
     "tag": "forge:nuggets/antimony"

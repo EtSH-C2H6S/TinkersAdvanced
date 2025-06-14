@@ -105,6 +105,9 @@ public enum EnumMaterialModifier {
 
     ANTIMONY_DEFAULT(null,entry(TiAcModifiers.PLAGUE.getId()),entry(ModifierIds.heavy)),
     ANTIMONY_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.POISON_DEFENSE.getId())),
+
+    VOID_STEEL_DEFAULT(null,entry(EtSTLibModifier.GLOBAL_TRAVELER.getId()),entry(TiAcModifiers.METAMORPHIUM.getId())),
+    VOID_STEEL_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.VOID_DODGING.getId()),entry(TiAcModifiers.METAMORPHIUM.getId())),
     ;
 
     public final ModifierEntry[] modifiers;

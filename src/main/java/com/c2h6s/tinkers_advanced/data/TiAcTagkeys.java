@@ -20,6 +20,7 @@ public class TiAcTagkeys {
         public static final TagKey<Fluid> MOLTEN_BISMUTH = forgeTag("molten_bismuth");
         public static final TagKey<Fluid> MOLTEN_IRIDIUM = forgeTag("molten_iridium");
         public static final TagKey<Fluid> MOLTEN_ANTIMONY = forgeTag("molten_antimony");
+        public static final TagKey<Fluid> MOLTEN_VOID_STEEL = forgeTag("molten_void_steel");
     }
 
     public static class Items{

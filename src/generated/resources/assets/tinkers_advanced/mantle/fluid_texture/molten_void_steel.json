@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tinkers_advanced:block/fluid/molten_void_steel/flowing",
+  "still": "tinkers_advanced:block/fluid/molten_void_steel/still"
+}

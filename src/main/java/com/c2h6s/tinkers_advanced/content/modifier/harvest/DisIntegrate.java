@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced.content.modifier.harvest;
 
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +18,8 @@ import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import java.util.Random;
+
 
 public class DisIntegrate extends EtSTBaseModifier implements BlockBreakModifierHook , BreakSpeedModifierHook {
     public static final ResourceLocation KEY_DISINTEGRATE = TinkersAdvanced.getLocation("dis_integrate");
@@ -29,27 +32,32 @@ public class DisIntegrate extends EtSTBaseModifier implements BlockBreakModifier
 
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)>0){
-            tool.getPersistentData().putInt(KEY_DISINTEGRATE,tool.getPersistentData().getInt(KEY_DISINTEGRATE)- modifier.getLevel());
+        if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)>0&&!world.isClientSide&&world.getGameTime()%20==0){
+            tool.getPersistentData().putInt(KEY_DISINTEGRATE,tool.getPersistentData().getInt(KEY_DISINTEGRATE)- modifier.getLevel()* TiAcConfig.COMMON.DISINTEGRATE_EACH_DECREASE.get());
         }
     }
 
     @Override
     public void afterBlockBreak(IToolStackView tool, ModifierEntry modifierEntry, ToolHarvestContext toolHarvestContext) {
-        tool.getPersistentData().putInt(KEY_DISINTEGRATE,tool.getPersistentData().getInt(KEY_DISINTEGRATE)+50*modifierEntry.getLevel());
+        if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)<TiAcConfig.COMMON.DISINTEGRATE_MAX_BONUS.get()) tool.getPersistentData().putInt(KEY_DISINTEGRATE,tool.getPersistentData().getInt(KEY_DISINTEGRATE)+TiAcConfig.COMMON.DISINTEGRATE_EACH_DECREASE.get()*modifierEntry.getLevel());
     }
 
     @Override
     public void onBreakSpeed(IToolStackView tool, ModifierEntry modifierEntry, PlayerEvent.BreakSpeed breakSpeed, Direction direction, boolean b, float v) {
         if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)>0){
-            breakSpeed.setNewSpeed(breakSpeed.getNewSpeed()*(1+tool.getPersistentData().getInt(KEY_DISINTEGRATE)/250f));
+            breakSpeed.setNewSpeed(breakSpeed.getNewSpeed()*(1+tool.getPersistentData().getInt(KEY_DISINTEGRATE)/100f));
         }
     }
 
     @Override
     public int modifierDamageTool(IToolStackView tool, ModifierEntry modifier, int amount, @Nullable LivingEntity holder) {
         if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)>0){
-            amount = (int) (amount*(1+tool.getPersistentData().getInt(KEY_DISINTEGRATE)/500f));
+            float value = (amount*(1+tool.getPersistentData().getInt(KEY_DISINTEGRATE)/200f));
+            amount = (int) value;
+            Random random = new Random();
+            if (random.nextFloat()<value-amount){
+                amount+=1;
+            }
         }
         return amount;
     }

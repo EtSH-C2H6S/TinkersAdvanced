@@ -10,6 +10,9 @@ import com.c2h6s.tinkers_advanced.data.enums.EnumModifier;
 import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import me.desht.pneumaticcraft.api.data.PneumaticCraftTags;
+import me.desht.pneumaticcraft.common.core.ModBlocks;
+import me.desht.pneumaticcraft.common.core.ModItems;
+import me.duquee.createutilities.items.CUItems;
 import mekanism.api.datagen.recipe.builder.CombinerRecipeBuilder;
 import mekanism.common.recipe.ingredient.creator.ItemStackIngredientCreator;
 import mekanism.common.registries.MekanismFluids;
@@ -61,7 +64,7 @@ import slimeknights.tconstruct.shared.TinkerMaterials;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-import static com.c2h6s.tinkers_advanced.registery.TiAcModifiers.EXTRA_CAPACITY;
+import static com.c2h6s.tinkers_advanced.registery.TiAcModifiers.*;
 
 public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecipeHelper {
     public TiAcRecipeProvider(PackOutput generator) {
@@ -148,18 +151,18 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
 
         folder = namedFolder("bismuth");
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_BISMUTH, 90, TiAcMaterialIds.BISMUTH, 770, consumer, folder);
-        melt1Ingot(TiAcFluids.MOLTEN_BISMUTH.get(), TiAcTagkeys.Items.BISMUTH_INGOT, 770, consumer, folder);
+        melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_BISMUTH, TiAcTagkeys.Items.BISMUTH_INGOT, 770, consumer, folder);
         materialRecipe(TiAcMaterialIds.BISMUTH, Ingredient.of(TiAcTagkeys.Items.BISMUTH_INGOT), 1, 1, consumer, folder);
         tableNugget(TiAcItems.BISMUTH_INGOT.get(), TiAcItems.BISMUTH_NUGGET.get(), Ingredient.of(TiAcTagkeys.Items.BISMUTH_INGOT), Ingredient.of(TiAcTagkeys.Items.BISMUTH_NUGGET), consumer, folder);
-        melt1Nugget(TiAcFluids.MOLTEN_BISMUTH.get(), TiAcTagkeys.Items.BISMUTH_NUGGET, 770, consumer, folder);
+        melt1Nugget(TiAcTagkeys.Fluids.MOLTEN_BISMUTH, TiAcTagkeys.Items.BISMUTH_NUGGET, 770, consumer, folder);
         folder = namedFolder("bismuthinite");
         materialRecipe(TiAcMaterialIds.BISMUTHINITE, Ingredient.of(TiAcItems.BISMUTHINITE.get()), 1, 1, consumer, folder);
         folder = namedFolder("antimony");
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_ANTIMONY, 90, TiAcMaterialIds.ANTIMONY, 970, consumer, folder);
-        melt1Ingot(TiAcFluids.MOLTEN_ANTIMONY.get(), TiAcTagkeys.Items.ANTIMONY_INGOT, 970, consumer, folder);
+        melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_ANTIMONY, TiAcTagkeys.Items.ANTIMONY_INGOT, 970, consumer, folder);
         materialRecipe(TiAcMaterialIds.ANTIMONY, Ingredient.of(TiAcTagkeys.Items.ANTIMONY_INGOT), 1, 1, consumer, folder);
         tableNugget(TiAcItems.ANTIMONY_INGOT.get(), TiAcItems.ANTIMONY_NUGGET.get(), Ingredient.of(TiAcTagkeys.Items.ANTIMONY_INGOT), Ingredient.of(TiAcTagkeys.Items.ANTIMONY_NUGGET), consumer, folder);
-        melt1Nugget(TiAcFluids.MOLTEN_ANTIMONY.get(), TiAcTagkeys.Items.ANTIMONY_NUGGET, 970, consumer, folder);
+        melt1Nugget(TiAcTagkeys.Fluids.MOLTEN_ANTIMONY, TiAcTagkeys.Items.ANTIMONY_NUGGET, 970, consumer, folder);
         folder = namedFolder("stibnite");
         materialRecipe(TiAcMaterialIds.STIBNITE, Ingredient.of(TiAcItems.STIBNITE.get()), 1, 1, consumer, folder);
         folder = namedFolder("disintegrate_crystal");
@@ -292,8 +295,16 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
         conditional = withCondition(consumer, modLoaded("industrialforegoing"));
         folder = namedFolder("pink_slime_metal");
         meltMaterial(TiAcFluids.MOLTEN_PINK_SLIME.get(), 90, TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL, 980, conditional, folder);
-        melt1Slimeball(TiAcFluids.MOLTEN_PINK_SLIME.get(), ModuleCore.PINK_SLIME_INGOT.get(), 980, conditional, folder);
+        melt1Ingot(TiAcFluids.MOLTEN_PINK_SLIME.get(), ModuleCore.PINK_SLIME_INGOT.get(), 980, conditional, folder);
         materialRecipe(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL, Ingredient.of(ModuleCore.PINK_SLIME_INGOT.get()), 1, 1, conditional, folder);
+        //CreateUtilities
+        conditional = withCondition(consumer, modLoaded("createutilities"));
+        folder = namedFolder("void_steel");
+        meltMaterial(TiAcTagkeys.Fluids.MOLTEN_VOID_STEEL, 90, TiAcMaterialIds.CreateUtilities.VOID_STEEL, 1400, conditional, folder);
+        melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_VOID_STEEL, ForgeRegistries.ITEMS.getValue(new ResourceLocation("createutilities", "void_steel_ingot")), 1400, conditional, folder);
+        melt1Plate(TiAcTagkeys.Fluids.MOLTEN_VOID_STEEL, ForgeRegistries.ITEMS.getValue(new ResourceLocation("createutilities", "void_steel_sheet")), 1400, conditional, folder);
+        materialRecipe(TiAcMaterialIds.CreateUtilities.VOID_STEEL, Ingredient.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation("createutilities", "void_steel_ingot"))), 1, 1, conditional, folder);
+        melt9Ingot(TiAcTagkeys.Fluids.MOLTEN_VOID_STEEL, ForgeRegistries.ITEMS.getValue(new ResourceLocation("createutilities", "void_steel_block")),1400,conditional,folder);
         //Common Integration
         folder = namedFolder("plastic");
         conditional = withCondition(consumer, tagFilled(TiAcTagkeys.Items.PLASTIC));
@@ -316,6 +327,65 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
                 .setMaxLevel(255);
         builder.save(consumer,modifierFolder(EXTRA_CAPACITY.getId().getPath()));
         builder.saveSalvage(consumer,salvageFolder(EXTRA_CAPACITY.getId().getPath()));
+
+        builder = ModifierRecipeBuilder.modifier(COMPRESSED_AIR_GENERATOR.getId())
+                .addInput(TiAcItems.DISINTEGRATE_CRYSTAL.get())
+                .addInput(ModItems.REINFORCED_AIR_CANISTER.get())
+                .addInput(ModBlocks.PNEUMATIC_DYNAMO.get())
+                .allowCrystal()
+                .setTools(Ingredient.of(TiAcItems.ELECTRON_TUNER.asItem()))
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1);
+        builder.save(consumer,modifierFolder(COMPRESSED_AIR_GENERATOR.getId().getPath()));
+        builder.saveSalvage(consumer,salvageFolder(COMPRESSED_AIR_GENERATOR.getId().getPath()));
+
+        builder = ModifierRecipeBuilder.modifier(PLAYER_LOCATING.getId())
+                .addInput(TiAcItems.RESONANCE_CRYSTAL.get())
+                .addInput(TiAcItems.DISINTEGRATE_CRYSTAL.get())
+                .addInput(TiAcItems.VOLTAIC_CRYSTAL.get())
+                .addInput(TinkerFluids.moltenEnder.asItem())
+                .addInput(TinkerFluids.enderSlime.asItem())
+                .allowCrystal()
+                .setTools(Ingredient.of(TiAcItems.ELECTRON_TUNER.asItem()))
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1);
+        builder.save(consumer,modifierFolder(PLAYER_LOCATING.getId().getPath()));
+        builder.saveSalvage(consumer,salvageFolder(PLAYER_LOCATING.getId().getPath()));
+
+        conditional = withCondition(consumer, modLoaded("createutilities"));
+        builder = ModifierRecipeBuilder.modifier(PLAYER_LOCATING.getId())
+                .addInput(ForgeRegistries.ITEMS.getValue(new ResourceLocation("createutilities", "graviton_tube")))
+                .addInput(TiAcItems.VOLTAIC_CRYSTAL.get())
+                .addInput(ForgeRegistries.ITEMS.getValue(new ResourceLocation("createutilities", "graviton_tube")))
+                .allowCrystal()
+                .setTools(Ingredient.of(TiAcItems.ELECTRON_TUNER.asItem()))
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1);
+        builder.save(conditional,modifierFolder(PLAYER_LOCATING.getId().getPath()+"alter"));
+        builder.saveSalvage(conditional,salvageFolder(PLAYER_LOCATING.getId().getPath()+"alter"));
+
+        builder = ModifierRecipeBuilder.modifier(ENERGY_DISTRIBUTOR.getId())
+                .addInput(Items.REDSTONE)
+                .addInput(Items.REPEATER)
+                .addInput(Items.REDSTONE)
+                .addInput(Items.REPEATER)
+                .addInput(Items.COMPARATOR)
+                .allowCrystal()
+                .setTools(Ingredient.of(TiAcItems.ELECTRON_TUNER.asItem()))
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1);
+        builder.save(consumer,modifierFolder(ENERGY_DISTRIBUTOR.getId().getPath()));
+        builder.saveSalvage(consumer,salvageFolder(ENERGY_DISTRIBUTOR.getId().getPath()));
+
+        builder = ModifierRecipeBuilder.modifier(ENERGY_BIN.getId())
+                .addInput(Items.REDSTONE)
+                .addInput(Items.LAVA_BUCKET)
+                .allowCrystal()
+                .setTools(Ingredient.of(TiAcItems.ELECTRON_TUNER.asItem()))
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1);
+        builder.save(consumer,modifierFolder(ENERGY_BIN.getId().getPath()));
+        builder.saveSalvage(consumer,salvageFolder(ENERGY_BIN.getId().getPath()));
     }
 
     public void melt1B(Fluid fluid, ItemLike ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
@@ -334,9 +404,9 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,900),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(900))).save(consumer, new  ResourceLocation(location+"_melting_gem_block"));
         ItemCastingRecipeBuilder.basinRecipe(ingredient).setFluid(FluidIngredient.of(new FluidStack(fluid,900))).setCoolingTime(temperature,900).save(consumer,new  ResourceLocation(location+"_casting_gem_block"));
     }
-    public void melt9Ingot(Fluid fluid,ItemLike ingredient,int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
-        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,810),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(810))).save(consumer,new  ResourceLocation(location+"_melting_metal_block"));
-        ItemCastingRecipeBuilder.basinRecipe(ingredient).setFluid(FluidIngredient.of(new FluidStack(fluid,810))).setCoolingTime(temperature,810).save(consumer,new  ResourceLocation(location+"_casting_metal_block"));
+    public void melt9Ingot(TagKey<Fluid> fluid,ItemLike ingredient,int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
+        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),FluidOutput.fromTag(fluid,810),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(810))).save(consumer,new  ResourceLocation(location+"_melting_metal_block"));
+        ItemCastingRecipeBuilder.basinRecipe(ingredient).setFluid(FluidIngredient.of(fluid,810)).setCoolingTime(temperature,810).save(consumer,new  ResourceLocation(location+"_casting_metal_block"));
     }
     public void melt9Ingot(Fluid fluid,TagKey<Item> ingredient,int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,810),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(810))).save(consumer,new  ResourceLocation(location+"_melting_metal_block"));
@@ -370,10 +440,15 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(PLATE_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_plate_single"));
         ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(PLATE_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_plate_multi"));
     }
-    public void melt1Ingot(Fluid fluid, TagKey<Item> ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
-        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),new FluidStack(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));
-        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
-        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(new FluidStack(fluid,90))).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
+    public void melt1Plate(TagKey<Fluid> fluid, Item ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
+        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),FluidOutput.fromTag(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_plate"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(FluidIngredient.of(fluid,90))).setCast(PLATE_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_plate_single"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(FluidIngredient.of(fluid,90))).setCast(PLATE_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_plate_multi"));
+    }
+    public void melt1Ingot(TagKey<Fluid> fluid, Item ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
+        MeltingRecipeBuilder.melting(Ingredient.of(ingredient),FluidOutput.fromTag(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(FluidIngredient.of(fluid,90))).setCast(INGOT_MULTICAST,false).save(consumer,new  ResourceLocation(location+"_casting_ingot_single"));
+        ItemCastingRecipeBuilder.tableRecipe(ingredient).setCoolingTime(temperature,90).setFluid(FluidIngredient.of(FluidIngredient.of(fluid,90))).setCast(INGOT_SINGLECAST,true).save(consumer,new  ResourceLocation(location+"_casting_ingot_multi"));
     }
     public void melt1Ingot(TagKey<Fluid> fluid, TagKey<Item> ingredient, int temperature, Consumer<FinishedRecipe> consumer, ResourceLocation location){
         MeltingRecipeBuilder.melting(Ingredient.of(ingredient),FluidOutput.fromTag(fluid,90),temperature, IMeltingRecipe.calcTime(temperature, IMeltingRecipe.calcTimeFactor(90))).save(consumer,new  ResourceLocation(location+"_melting_ingot"));

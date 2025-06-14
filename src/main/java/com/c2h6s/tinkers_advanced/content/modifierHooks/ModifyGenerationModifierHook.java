@@ -11,9 +11,13 @@ import java.util.Collection;
 
 public interface ModifyGenerationModifierHook {
     //修改全部发电机模块的总产出，产能为正值耗能为负值
-    long modifyTotalGeneration(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, ItemStack stack,long baseAmount, long amount);
+    default long modifyTotalGeneration(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, ItemStack stack,long baseAmount, long amount){
+        return amount;
+    }
     //修改全部发电机模块的总每刻产出速率，产能为正值耗能为负值
-    int modifyTotalPerTick(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, ItemStack stack,int baseAmount, int amount);
+    default int modifyTotalPerTick(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, ItemStack stack,int baseAmount, int amount){
+        return amount;
+    }
     //在全部能量模块运行后被调用，根据当前刻内的发电/耗电量来施加一些效果。
     default void onGeneratorTick(IToolStackView tool, ModifierEntry entry, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity, ItemStack stack, int generatedAmount){}
 

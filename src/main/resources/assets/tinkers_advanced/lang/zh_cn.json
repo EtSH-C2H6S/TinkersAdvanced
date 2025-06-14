@@ -141,7 +141,7 @@
 
   "modifier.tinkers_advanced.disintegrate": "解离",
   "modifier.tinkers_advanced.disintegrate.flavor": "解析一切",
-  "modifier.tinkers_advanced.disintegrate.description": "随着挖掘的进行而无止尽地增加挖掘速度，但是耐久消耗也成倍增加。",
+  "modifier.tinkers_advanced.disintegrate.description": "随着挖掘的进行而大量增加挖掘速度，但是耐久消耗也成倍增加。",
 
   "modifier.tinkers_advanced.electric": "带电",
   "modifier.tinkers_advanced.electric.flavor": "尖端放电",
@@ -234,6 +234,22 @@
   "modifier.tinkers_advanced.swift_strike_ex": "强力迅捷打击",
   "modifier.tinkers_advanced.swift_strike_ex.flavor": "魔法宝石的奇妙力量。",
   "modifier.tinkers_advanced.swift_strike_ex.description": "每级增加25%攻击速度。",
+
+  "modifier.tinkers_advanced.energy_bin": "能量垃圾桶",
+  "modifier.tinkers_advanced.energy_bin.flavor": "我不确定FE能不能被扔进熔岩...",
+  "modifier.tinkers_advanced.energy_bin.description": "每tick销毁工具存储的所有能量。",
+
+  "modifier.tinkers_advanced.player_locating": "玩家定位器",
+  "modifier.tinkers_advanced.player_locating.flavor": "但是，有什么用呢？",
+  "modifier.tinkers_advanced.player_locating.description": "在背包中用纸右键时将你的ID写入工具。",
+
+  "modifier.tinkers_advanced.energy_distributor": "能量分配器",
+  "modifier.tinkers_advanced.energy_distributor.flavor": "就像一个充电宝。",
+  "modifier.tinkers_advanced.energy_distributor.description": "将工具存储的能量分配到玩家的快捷栏、副手物品和护甲栏。",
+
+  "modifier.tinkers_advanced.void_dodging": "虚无闪避",
+  "modifier.tinkers_advanced.void_dodging.flavor": "把它们送进虚空！",
+  "modifier.tinkers_advanced.void_dodging.description": "有概率闪避箭矢的攻击，并将其摧毁。",
 
 
 
@@ -329,7 +345,7 @@
 
   "material.tinkers_advanced.disintegrate_crystal": "解离水晶",
   "material.tinkers_advanced.disintegrate_crystal.flavor": "高能量，不稳定，极致的破坏性。",
-  "material.tinkers_advanced.disintegrate_crystal.encyclopedia": "每次挖掘增加20%*属性等级挖掘速度和10%*属性等级耐久消耗，无上限。",
+  "material.tinkers_advanced.disintegrate_crystal.encyclopedia": "每次挖掘增加20%*属性等级挖掘速度和10%*属性等级耐久消耗。",
 
   "material.tinkers_advanced.plastic": "塑料",
   "material.tinkers_advanced.plastic.flavor": "现代工业的瑰宝",
@@ -361,6 +377,12 @@
 
   "material.tinkers_advanced.stibnite": "辉锑矿",
   "material.tinkers_advanced.stibnite.flavor": "这种易爆的下界矿物勾起了我的痛苦回忆...",
+
+  "material.tinkers_advanced.void_steel": "虚空钢",
+  "material.tinkers_advanced.void_steel.flavor": "具有传输物质和能量的能力。",
+  "material.tinkers_advanced.void_steel.encyclopedia": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
+  "material.tinkers_advanced.void_steel.armor": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。每级有25%的概率闪避箭矢，不同件之间独立运算。",
+  "material.tinkers_advanced.void_steel.ranged": "每次磨损工具有10%的概率使工具获得属性增幅，最高增幅25%属性。",
 
 
 
@@ -476,6 +498,9 @@
 
   "fluid.tinkers_advanced.molten_pink_slime": "熔融粉色史莱姆金属",
   "item.tinkers_advanced.molten_pink_slime_bucket": "熔融粉色史莱姆金属桶",
+
+  "fluid.tinkers_advanced.molten_void_steel": "熔融虚空钢",
+  "item.tinkers_advanced.molten_void_steel_bucket": "熔融虚空钢桶",
 
 
 

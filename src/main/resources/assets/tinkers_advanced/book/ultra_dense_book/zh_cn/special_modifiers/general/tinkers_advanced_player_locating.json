@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tinkers_advanced:player_locating",
+  "text": [
+    {
+      "text": "在给环流电子调谐剑传入玩家UUID后，当环流电子调谐剑置于粒子交换室内时，能生效在玩家身上施加效果的能量模块强化（例如能量分配器）。"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:repeater"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:repeater"
+    },
+    {
+      "item": "minecraft:comparator"
+    }
+  ],
+  "level": 1,
+  "result": "tinkers_advanced:energy_distributor",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "tinkers_advanced:electron_tuner"
+  }
+}

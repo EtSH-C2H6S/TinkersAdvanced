@@ -235,6 +235,22 @@
   "modifier.tinkers_advanced.swift_strike_ex.flavor": "Fast spot boi.",
   "modifier.tinkers_advanced.swift_strike_ex.description": "+25% attack speed each level",
 
+  "modifier.tinkers_advanced.energy_bin": "Energy Trash Bin",
+  "modifier.tinkers_advanced.energy_bin.flavor": "I'm not sure if energy can be thrown into lava...",
+  "modifier.tinkers_advanced.energy_bin.description": "Clears all the energy stored inside tool every tick.",
+
+  "modifier.tinkers_advanced.player_locating": "Player Locator",
+  "modifier.tinkers_advanced.player_locating.flavor": "But, what's the purpose?",
+  "modifier.tinkers_advanced.player_locating.description": "R-Click with a paper in inventory to store your ID to the tool.",
+
+  "modifier.tinkers_advanced.energy_distributor": "Energy Distributor",
+  "modifier.tinkers_advanced.energy_distributor.flavor": "Just like a power bank.",
+  "modifier.tinkers_advanced.energy_distributor.description": "Distribute energy stored to hot bar, offhand and armor items.",
+
+  "modifier.tinkers_advanced.void_dodging": "Void Dodging",
+  "modifier.tinkers_advanced.void_dodging.flavor": "Send them into the void !",
+  "modifier.tinkers_advanced.void_dodging.description": "Grant a chance to dodge and then destroy incoming arrow.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",
@@ -356,6 +372,12 @@
   "material.tinkers_advanced.stibnite": "Stibnite",
   "material.tinkers_advanced.stibnite.flavor": "An explosive nether ore, sounds familiar...",
 
+  "material.tinkers_advanced.void_steel": "Void Steel",
+  "material.tinkers_advanced.void_steel.flavor": "Capable of transporting.",
+  "material.tinkers_advanced.void_steel.encyclopedia": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
+  "material.tinkers_advanced.void_steel.armor": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%. 25% chance for dodging arrow.",
+  "material.tinkers_advanced.void_steel.ranged": "Each damage tool taken has a 10% chance to increase most stats.With maximum amplifier of 25%.",
+
 
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
   "item.tinkers_advanced.bismuthinite": "Bismuthinite",
@@ -466,6 +488,9 @@
 
   "fluid.tinkers_advanced.molten_pink_slime": "Molten Pink Slime",
   "item.tinkers_advanced.molten_pink_slime_bucket": "Molten Pink Slime Bucket",
+
+  "fluid.tinkers_advanced.molten_void_steel": "Molten Void Steel",
+  "item.tinkers_advanced.molten_void_steel_bucket": "Molten Void Steel Bucket",
 
 
 

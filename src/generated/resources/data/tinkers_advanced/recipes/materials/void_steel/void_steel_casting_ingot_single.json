@@ -1,5 +1,8 @@
 {
   "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/ingot"
+  },
   "conditions": [
     {
       "type": "forge:or",
@@ -10,15 +13,15 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "industrialforegoing"
+          "modid": "createutilities"
         }
       ]
     }
   ],
-  "cooling_time": 110,
+  "cooling_time": 78,
   "fluid": {
-    "amount": 250,
-    "fluid": "tinkers_advanced:molten_pink_slime"
+    "amount": 90,
+    "tag": "forge:molten_void_steel"
   },
-  "result": "industrialforegoing:pink_slime_ingot"
+  "result": "createutilities:void_steel_ingot"
 }

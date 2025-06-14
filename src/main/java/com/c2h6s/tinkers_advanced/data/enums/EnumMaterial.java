@@ -45,7 +45,8 @@ public enum EnumMaterial {
     PROTOCITE(TiAcMaterialIds.Mekanism.PROTOCITE,4,false,false,EnumMaterialStats.PROTOCITE,modLoaded("mekanism"),PROTOCITE_ARMOR,PROTOCITE_DEFAULT),
     COMPRESSED_IRON(TiAcMaterialIds.PnC.COMPRESSED_IRON,2,true,false,EnumMaterialStats.COMPRESSED_IRON,tagFilled(PneumaticCraftTags.Items.INGOTS_COMPRESSED_IRON),COMPRESSED_IRON_ARMOR,COMPRESSED_IRON_DEFAULT),
     PINK_SLIME_STEEL(TiAcMaterialIds.IndustrialForgoing.PINK_SLIME_METAL,3,false,false,EnumMaterialStats.PINK_SLIME_METAL,modLoaded("industrialforegoing"),PINK_SLIME_METAL),
-    NUTRITIVE_SLIMESTEEL(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL,3,false,false,EnumMaterialStats.NUTRITIVE_SLIMESTEEL,modLoaded("mekanism"),EnumMaterialModifier.NUTRITIVE_SLIMESTEEL)
+    NUTRITIVE_SLIMESTEEL(TiAcMaterialIds.Mekanism.NUTRITIVE_SLIMESTEEL,3,false,false,EnumMaterialStats.NUTRITIVE_SLIMESTEEL,modLoaded("mekanism"),EnumMaterialModifier.NUTRITIVE_SLIMESTEEL),
+    VOID_STEEL(TiAcMaterialIds.CreateUtilities.VOID_STEEL,4,false,false,EnumMaterialStats.VOID_STEEL,modLoaded("createutilities"),VOID_STEEL_ARMOR,VOID_STEEL_DEFAULT),
     ;
     public final MaterialId id;
     public final int tier;

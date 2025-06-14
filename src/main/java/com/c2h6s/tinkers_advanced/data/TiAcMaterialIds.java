@@ -58,4 +58,8 @@ public class TiAcMaterialIds {
         public static final MaterialId PINK_SLIME_METAL =new MaterialId(TinkersAdvanced.getLocation("pink_slime_metal"));
     }
 
+    public static class CreateUtilities{
+        public static final MaterialId VOID_STEEL = new MaterialId(TinkersAdvanced.getLocation("void_steel"));
+    }
+
 }

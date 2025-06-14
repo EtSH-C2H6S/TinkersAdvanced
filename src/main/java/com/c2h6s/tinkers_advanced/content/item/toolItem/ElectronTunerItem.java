@@ -79,7 +79,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
             if (playerIn.level().isClientSide) TiAcPacketHandler.sendToServer(new PElectronTunerOpenMenuC2S(slot));
             return InteractionResultHolder.success(playerIn.getItemInHand(hand));
         }
-        return InteractionResultHolder.fail(playerIn.getItemInHand(hand));
+        return super.use(worldIn,playerIn,hand);
     }
 
     @Override
@@ -95,13 +95,13 @@ public class ElectronTunerItem extends ModifiableSwordItem {
         } else{
             production = ToolEnergyProduction.getOrCreate(tool);
         }
-        long remainedEnergyToGen = production.energyToProduce;
-        long remainedEnergyToCost = production.energyToReduce;
-        long energyToGenTotal = 0;
-        long energyToCostTotal = 0;
-        int energyToGenerateThisTick = production.generatePerTick;
-        int energyToConsumeThisTick = production.consumePerTick;
         if (production.needUpdate()) {
+            long remainedEnergyToGen = production.energyToProduce;
+            long remainedEnergyToCost = production.energyToReduce;
+            long energyToGenTotal = 0;
+            long energyToCostTotal = 0;
+            int energyToGenerateThisTick = production.generatePerTick;
+            int energyToConsumeThisTick = production.consumePerTick;
             if (production.requireGeneration()) energyToGenerateThisTick = 0;
             if (production.requireConsumption()) energyToConsumeThisTick = 0;
             IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null);
@@ -160,9 +160,9 @@ public class ElectronTunerItem extends ModifiableSwordItem {
                 }
                 energyToConsumeThisTick = Math.max(energyToConsumeThisTick, 0);
             }
+            production.consumePerTick = energyToConsumeThisTick;
+            production.generatePerTick = energyToGenerateThisTick;
         }
-        production.consumePerTick = energyToConsumeThisTick;
-        production.generatePerTick = energyToGenerateThisTick;
         production.toolStack = tool;
         production.tick();
         if (level.getServer()!=null){
@@ -300,4 +300,10 @@ public class ElectronTunerItem extends ModifiableSwordItem {
         } else return "info.tinkers_advanced.electron_tuner.cleaver";
     }
 
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        ToolStack tool = ToolStack.from(stack);
+        tooltip.add(Component.translatable(tool.getPersistentData().getBoolean(KEY_DISALLOW_INSERT)?"tooltip.tinkers_advanced.disallow_insert":"tooltip.tinkers_advanced.allow_insert").withStyle(ChatFormatting.RED));
+    }
 }

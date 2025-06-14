@@ -85,6 +85,9 @@ public class TinkersAdvanced
             TiAcFluids.IF_FLUIDS.register(modEventBus);
             TiAcItems.IF_ITEMS.register(modEventBus);
         }
+        if (ModList.get().isLoaded("createutilities")){
+            TiAcFluids.CREATE_UTILITIES_FLUIDS.register(modEventBus);
+        }
         TiAcModifiers.MODIFIERS.register(modEventBus);
         TiAcEntities.ENTITIES.register(modEventBus);
         TiAcMenus.MENUS.register(modEventBus);
@@ -105,7 +108,6 @@ public class TinkersAdvanced
     {
         EntityModifierCapability.registerEntityPredicate(entity -> entity instanceof VisualScaledProjectile);
         event.enqueueWork(TiAcMaterialStat::init);
-        event.enqueueWork(TiAcToolStats::init);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)

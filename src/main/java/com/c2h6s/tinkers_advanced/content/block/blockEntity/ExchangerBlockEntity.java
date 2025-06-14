@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced.content.block.blockEntity;
 import com.c2h6s.tinkers_advanced.content.block.ExchangerBlock;
 import com.c2h6s.tinkers_advanced.content.capability.ExchangerWrappedEnergyHandler;
 import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.PlayerLocating;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.network.packets.PExchangerBEItemSyncS2C;
 import com.c2h6s.tinkers_advanced.registery.TiAcBlockEntities;
@@ -12,7 +13,9 @@ import com.c2h6s.tinkers_advanced.util.CommonUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -24,6 +27,10 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+
+import java.util.UUID;
 
 public class ExchangerBlockEntity extends BlockEntity {
     public ExchangerBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -89,7 +96,19 @@ public class ExchangerBlockEntity extends BlockEntity {
         if (level.isClientSide) return;
         if (blockEntity.exchangingItem.isEmpty()) return;
         if (blockEntity.exchangingItem.is(TiAcItems.ELECTRON_TUNER.get())){
-            ElectronTunerItem.generatorTick(blockEntity.exchangingItem,level,null,blockEntity);
+            ToolStack toolStack = ToolStack.from(blockEntity.exchangingItem);
+            ModDataNBT toolData = toolStack.getPersistentData();
+            LivingEntity holder = null;
+            if (toolData.contains(PlayerLocating.KEY_PLAYER_ID, Tag.TAG_STRING)&&level instanceof ServerLevel serverLevel){
+                UUID uuid = null;
+                try {
+                    uuid = UUID.fromString(toolData.getString(PlayerLocating.KEY_PLAYER_ID));
+                }catch (Exception ignored){}
+                if (uuid!=null){
+                    holder = serverLevel.getEntity(uuid) instanceof LivingEntity living?living:null;
+                }
+            }
+            ElectronTunerItem.generatorTick(blockEntity.exchangingItem,level,holder,blockEntity);
         }
         if (state.is(TiAcBlocks.EXCHANGER.get())&&state.getValue(ExchangerBlock.ENERGY_OUTPUT)){
             ejectEnergy(level,blockPos,state,blockEntity);

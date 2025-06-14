@@ -11,6 +11,7 @@ import com.c2h6s.tinkers_advanced.content.modifier.compat.pnc.*;
 import com.c2h6s.tinkers_advanced.content.modifier.compat.thermal.*;
 import com.c2h6s.tinkers_advanced.content.modifier.defense.*;
 import com.c2h6s.tinkers_advanced.content.modifier.durability.*;
+import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.PlayerLocating;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyConsumption.*;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyGeneration.*;
 import com.c2h6s.tinkers_advanced.content.modifier.generatorModifiers.energyModification.*;
@@ -50,6 +51,8 @@ public class TiAcModifiers {
     public static StaticModifier<Unstable> UNSTABLE = MODIFIERS.register("unstable", Unstable::new);
     public static StaticModifier<PlagueModifier> PLAGUE = MODIFIERS.register("plague", PlagueModifier::new);
     public static StaticModifier<Clearing> POISON_DEFENSE = MODIFIERS.register("poison_defense", Clearing::new);
+    public static StaticModifier<PlayerLocating> PLAYER_LOCATING = MODIFIERS.register("player_locating", PlayerLocating::new);
+    public static StaticModifier<VoidDodging> VOID_DODGING = MODIFIERS.register("void_dodging", VoidDodging::new);
 
 
     //工具特有强化，需要工具采用特定工具属性才有效
@@ -73,6 +76,8 @@ public class TiAcModifiers {
 
     public static StaticModifier<PlatinoidCatalyst> PLATINOID_CATALYST = MODIFIERS.register("platinoid_catalyst", PlatinoidCatalyst::new);
     public static StaticModifier<TransitionCatalyst> TRANSITION_CATALYST = MODIFIERS.register("transition_catalyst", TransitionCatalyst::new);
+    public static StaticModifier<EnergyBin> ENERGY_BIN = MODIFIERS.register("energy_bin", EnergyBin::new);
+    public static StaticModifier<EnergyDistribute> ENERGY_DISTRIBUTOR = MODIFIERS.register("energy_distributor", EnergyDistribute::new);
 
 
     //mek联动属性

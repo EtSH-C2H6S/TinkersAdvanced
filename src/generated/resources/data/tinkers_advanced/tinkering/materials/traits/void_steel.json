@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "etstlib:global_traveler"
+    },
+    {
+      "level": 1,
+      "name": "tinkers_advanced:metamorphium"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tinkers_advanced:void_dodging"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:metamorphium"
+      }
+    ]
+  }
+}

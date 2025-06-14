@@ -53,6 +53,10 @@
     "poison_defense": "#314D24",
     "extra_capacity": "#F35858",
     "swift_strike_ex": "#FDDFFF",
+    "player_locating": "#007773",
+    "energy_distributor": "#FF8B8B",
+    "energy_bin": "#FF6565",
+    "void_dodging": "#007773",
 
     "compressed_air_generator": "#A7A7A7",
     "combustion_generator": "#574B42",
@@ -86,6 +90,7 @@
     "resonance_crystal" : "#22E8A3",
     "voltaic_crystal" : "#7463D4",
     "stibnite": "#361414",
-    "antimony": "#C7D6CC"
+    "antimony": "#C7D6CC",
+    "void_steel": "#007773"
   }
 }

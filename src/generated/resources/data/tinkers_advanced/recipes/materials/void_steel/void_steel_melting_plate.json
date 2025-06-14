@@ -10,18 +10,18 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "industrialforegoing"
+          "modid": "createutilities"
         }
       ]
     }
   ],
   "ingredient": {
-    "item": "industrialforegoing:pink_slime_ingot"
+    "item": "createutilities:void_steel_sheet"
   },
   "result": {
-    "amount": 250,
-    "fluid": "tinkers_advanced:molten_pink_slime"
+    "amount": 90,
+    "tag": "forge:molten_void_steel"
   },
-  "temperature": 980,
-  "time": 110
+  "temperature": 1400,
+  "time": 78
 }

@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.modifier.compat.pnc;
 
+import com.c2h6s.etstlib.tool.modifiers.base.BasicPressurizableModifier;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.etstlib.tool.modifiers.capabilityProvider.PnCIntegration.AirStorageProvider;
 import com.c2h6s.tinkers_advanced.TiAcConfig;
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class CompressedAirGenerator extends EtSTBaseModifier implements GeneratorModuleModifierHook {
+public class CompressedAirGenerator extends BasicPressurizableModifier implements GeneratorModuleModifierHook {
     @Override
     public int getBasicGeneration(IToolStackView tool, ModifierEntry entry) {
         return (int) (TiAcConfig.COMMON.COMPRESSED_AIR_GENERATON_BASIC_GENERATION.get()*AirStorageProvider.getPressure(tool));
@@ -32,5 +33,15 @@ public class CompressedAirGenerator extends EtSTBaseModifier implements Generato
             }
         }
         return 0;
+    }
+
+    @Override
+    public int getBaseVolume(ModifierEntry modifierEntry) {
+        return 1000;
+    }
+
+    @Override
+    public float getMaxPressure(ModifierEntry modifierEntry) {
+        return 10;
     }
 }

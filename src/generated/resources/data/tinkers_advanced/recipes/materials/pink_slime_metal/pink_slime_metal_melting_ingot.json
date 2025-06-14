@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "industrialforegoing"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "industrialforegoing:pink_slime_ingot"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tinkers_advanced:molten_pink_slime"
+  },
+  "temperature": 980,
+  "time": 66
+}

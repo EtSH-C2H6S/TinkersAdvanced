@@ -5,7 +5,7 @@
   },
   "result": {
     "amount": 10,
-    "fluid": "tinkers_advanced:molten_bismuth"
+    "tag": "forge:molten_bismuth"
   },
   "temperature": 770,
   "time": 20
