@@ -40,8 +40,8 @@ public class SculkResonance extends FluidDisplayBaseModifier implements ToolStat
 
     @Override
     public void addToolStats(IToolContext iToolContext, ModifierEntry modifierEntry, ModifierStatsBuilder builder) {
-        TiAcToolStats.RANGE.update(builder,TiAcConfig.COMMON.IONIZED_CANNON_BASE_RANGE.get().floatValue());
-        TiAcToolStats.SCALE.update(builder,TiAcConfig.COMMON.IONIZED_CANNON_BASE_SCALE.get().floatValue());
-        TiAcToolStats.FLUID_EFFICIENCY.update(builder,TiAcConfig.COMMON.IONIZED_CANNON_BASE_FLUID_EFFICIENCY.get().floatValue());
+        TiAcToolStats.RANGE.update(builder, TiAcConfig.COMMON.IONIZED_CANNON_BASE_RANGE.get().floatValue());
+        TiAcToolStats.SCALE.update(builder, TiAcConfig.COMMON.IONIZED_CANNON_BASE_SCALE.get().floatValue());
+        TiAcToolStats.FLUID_EFFICIENCY.update(builder, TiAcConfig.COMMON.IONIZED_CANNON_BASE_FLUID_EFFICIENCY.get().floatValue());
     }
 }
