@@ -64,7 +64,7 @@ import static slimeknights.tconstruct.library.modifiers.hook.interaction.General
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.*;
 
 public class IonizedCannonItem extends ModifiableItem {
-    public static final ResourceLocation TAG_SOUND = new ResourceLocation(TinkersAdvanced.MODID,"cannon_sound");
+    public static final ResourceLocation TAG_SOUND = new ResourceLocation(TinkersAdvanced.MODID, "cannon_sound");
 
     public IonizedCannonItem(Properties properties) {
         super(properties, TiAcToolDefinitions.IONIZE_CANNON);
@@ -91,7 +91,7 @@ public class IonizedCannonItem extends ModifiableItem {
     }
 
     @Override
-    public Map<Enchantment,Integer> getAllEnchantments(ItemStack stack) {
+    public Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
         return EnchantmentModifierHook.getAllEnchantments(stack);
     }
 
@@ -185,7 +185,7 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
-        return target.hurt(player.damageSources().playerAttack(player),1);
+        return target.hurt(player.damageSources().playerAttack(player), 1);
     }
 
     @Override
@@ -231,24 +231,24 @@ public class IonizedCannonItem extends ModifiableItem {
             return InteractionResultHolder.fail(stack);
         }
         FluidStack fluidStack = TANK_HELPER.getFluid(tool);
-        if (fluidStack.isEmpty()){
+        if (fluidStack.isEmpty()) {
             return InteractionResultHolder.fail(stack);
         }
-        float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
-        fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
-        float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+        float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
+        fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
+        float fluidFactor = Math.max(0, 1 - fluidEfficiency);
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
         int consume = (int) Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F * COMMON.IONIZED_CANNON_FLUID_FACTOR.get() : 10 * COMMON.IONIZED_CANNON_FLUID_FACTOR.get()) * fluidFactor), 1));
-        if (fluidStack.getAmount()<consume&&!creative){
+        if (fluidStack.getAmount() < consume && !creative) {
             return InteractionResultHolder.fail(stack);
         }
         int drawTime;
-        if (hand==InteractionHand.MAIN_HAND){
-            drawTime = Math.round(player.getCurrentItemAttackStrengthDelay()*4);
-        }
-        else drawTime = (int) (COMMON.IONIZED_CANNON_BASE_CHARGE_TIME.get()/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
-        tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
-        if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())<=0) {
+        if (hand == InteractionHand.MAIN_HAND) {
+            drawTime = Math.round(player.getCurrentItemAttackStrengthDelay() * 4);
+        } else
+            drawTime = (int) (COMMON.IONIZED_CANNON_BASE_CHARGE_TIME.get() / ConditionalStatModifierHook.getModifiedStat(tool, player, ToolStats.ATTACK_SPEED));
+        tool.getPersistentData().putInt(KEY_DRAWTIME, drawTime);
+        if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get()) <= 0) {
             tool.getPersistentData().putBoolean(TAG_SOUND, true);
         }
         player.startUsingItem(hand);
@@ -257,11 +257,11 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
-        int chargeTime = this.getUseDuration(pStack)-pRemainingUseDuration;
+        int chargeTime = this.getUseDuration(pStack) - pRemainingUseDuration;
         ToolStack toolStack = ToolStack.from(pStack);
-        float charge = GeneralInteractionModifierHook.getToolCharge(toolStack,chargeTime);
-        if (charge>=0.5f&&toolStack.getPersistentData().getBoolean(TAG_SOUND)){
-            pLevel.playSound(null,pLivingEntity.getX(),pLivingEntity.getY(),pLivingEntity.getZ(), SoundEvents.WARDEN_SONIC_CHARGE,pLivingEntity.getSoundSource(),1,1);
+        float charge = GeneralInteractionModifierHook.getToolCharge(toolStack, chargeTime);
+        if (charge >= 0.5f && toolStack.getPersistentData().getBoolean(TAG_SOUND)) {
+            pLevel.playSound(null, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), SoundEvents.WARDEN_SONIC_CHARGE, pLivingEntity.getSoundSource(), 1, 1);
             toolStack.getPersistentData().remove(TAG_SOUND);
         }
     }
@@ -277,16 +277,16 @@ public class IonizedCannonItem extends ModifiableItem {
             tool.getPersistentData().remove(KEY_DRAWTIME);
             return;
         }
-        int chargeTime = this.getUseDuration(stack)-timeLeft;
+        int chargeTime = this.getUseDuration(stack) - timeLeft;
         float charge = GeneralInteractionModifierHook.getToolCharge(tool, chargeTime);
-        if (charge<0.45f){
+        if (charge < 0.45f) {
             return;
         }
         boolean creative = player.getAbilities().instabuild;
 
-        float fluidEfficiency =tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
-        fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
-        float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+        float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
+        fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
+        float fluidFactor = Math.max(0, 1 - fluidEfficiency);
 
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
         int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
@@ -294,17 +294,17 @@ public class IonizedCannonItem extends ModifiableItem {
         double baseScale;
         double baseDamage;
 
-        baseRange = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.RANGE);
-        baseRange += player.getEntityReach()*2;
+        baseRange = ConditionalStatModifierHook.getModifiedStat(tool, living, TiAcToolStats.RANGE);
+        baseRange += player.getEntityReach() * 2;
 
-        baseScale = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.SCALE);
-        baseScale += tool.getModifierLevel(TinkerModifiers.expanded.get())/2d;
+        baseScale = ConditionalStatModifierHook.getModifiedStat(tool, living, TiAcToolStats.SCALE);
+        baseScale += tool.getModifierLevel(TinkerModifiers.expanded.get()) / 2d;
         baseScale *= charge;
 
-        consume= (int) (consume*(1+baseScale*0.5));
+        consume = (int) (consume * (1 + baseScale * 0.5));
 
-        baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool,living,player.getUsedItemHand()==InteractionHand.MAIN_HAND?EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND);
-        baseDamage *= effect.hasEntityEffects()?COMMON.IONIZED_CANNON_DAMAGE_BONUS.get():1;
+        baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool, living, player.getUsedItemHand() == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
+        baseDamage *= effect.hasEntityEffects() ? COMMON.IONIZED_CANNON_DAMAGE_BONUS.get() : 1;
         baseDamage *= charge;
 
 
@@ -312,19 +312,19 @@ public class IonizedCannonItem extends ModifiableItem {
         Vec3 vec3 = living.getLookAngle();
         projectile.tool = tool;
         projectile.fluidStack = fluidStack;
-        projectile.shoot(vec3.x,vec3.y,vec3.z,1,0);
+        projectile.shoot(vec3.x, vec3.y, vec3.z, 1, 0);
         projectile.setOwner(living);
-        projectile.setPos(new Vec3(living.getX(),living.getEyeY(),living.getZ()));
+        projectile.setPos(new Vec3(living.getX(), living.getEyeY(), living.getZ()));
         projectile.setDataLength((float) baseRange);
         projectile.baseDamage = (float) baseDamage;
-        projectile.OffHand = player.getUsedItemHand()==InteractionHand.OFF_HAND;
+        projectile.OffHand = player.getUsedItemHand() == InteractionHand.OFF_HAND;
         level.addFreshEntity(projectile);
-        if (!creative){
+        if (!creative) {
             fluidStack.shrink(consume);
-            TANK_HELPER.setFluid(tool,fluidStack);
+            TANK_HELPER.setFluid(tool, fluidStack);
         }
         tool.getPersistentData().remove(KEY_DRAWTIME);
-        ToolDamageUtil.damageAnimated(tool,1,player);
+        ToolDamageUtil.damageAnimated(tool, 1, player);
         player.awardStat(Stats.ITEM_USED.get(this));
     }
 
@@ -334,7 +334,7 @@ public class IonizedCannonItem extends ModifiableItem {
             FluidStack fluidStack = TANK_HELPER.getFluid(tool);
             float fluidEfficiency = tool.getStats().get(TiAcToolStats.FLUID_EFFICIENCY);
             fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.FLUID_EFFICIENCY, fluidEfficiency);
-            float fluidFactor =Math.max(0,1-fluidEfficiency) ;
+            float fluidFactor = Math.max(0, 1 - fluidEfficiency);
 
             FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
             int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
