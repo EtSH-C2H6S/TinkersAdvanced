@@ -59,6 +59,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import static com.c2h6s.tinkers_advanced.TiAcConfig.COMMON;
 import static slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook.KEY_DRAWTIME;
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.*;
 
@@ -237,7 +238,7 @@ public class IonizedCannonItem extends ModifiableItem {
         fluidEfficiency = ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.FLUID_EFFICIENCY,fluidEfficiency);
         float fluidFactor =Math.max(0,1-fluidEfficiency) ;
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
-        int consume = (int) Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F * TiAcConfig.COMMON.IONIZED_CANNON_FLUID_FACTOR.get() : 10 * TiAcConfig.COMMON.IONIZED_CANNON_FLUID_FACTOR.get()) * fluidFactor), 1));
+        int consume = (int) Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F * COMMON.IONIZED_CANNON_FLUID_FACTOR.get() : 10 * COMMON.IONIZED_CANNON_FLUID_FACTOR.get()) * fluidFactor), 1));
         if (fluidStack.getAmount()<consume&&!creative){
             return InteractionResultHolder.fail(stack);
         }
@@ -245,7 +246,7 @@ public class IonizedCannonItem extends ModifiableItem {
         if (hand==InteractionHand.MAIN_HAND){
             drawTime = Math.round(player.getCurrentItemAttackStrengthDelay()*4);
         }
-        else drawTime = (int) (TiAcConfig.COMMON.IONIZED_CANNON_BASE_CHARGE_TIME.get()/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
+        else drawTime = (int) (COMMON.IONIZED_CANNON_BASE_CHARGE_TIME.get()/ConditionalStatModifierHook.getModifiedStat(tool,player,ToolStats.ATTACK_SPEED));
         tool.getPersistentData().putInt(KEY_DRAWTIME,drawTime);
         if (tool.getModifierLevel(TiAcModifiers.AUTO_SHOT.get())<=0) {
             tool.getPersistentData().putBoolean(TAG_SOUND, true);
@@ -289,33 +290,33 @@ public class IonizedCannonItem extends ModifiableItem {
 
         FluidEffects effect = FluidEffectManager.INSTANCE.find(fluidStack.getFluid());
         int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
-        float baseRange;
-        float baseScale;
-        float baseDamage;
+        double baseRange;
+        double baseScale;
+        double baseDamage;
 
         baseRange = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.RANGE);
-        baseRange += (float) (player.getEntityReach()*2);
+        baseRange += player.getEntityReach()*2;
 
         baseScale = ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.SCALE);
-        baseScale += (float) tool.getModifierLevel(TinkerModifiers.expanded.get())/2;
+        baseScale += tool.getModifierLevel(TinkerModifiers.expanded.get())/2d;
         baseScale *= charge;
 
         consume= (int) (consume*(1+baseScale*0.5));
 
         baseDamage = ToolAttackUtil.getAttributeAttackDamage(tool,living,player.getUsedItemHand()==InteractionHand.MAIN_HAND?EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND);
-        baseDamage *= effect.hasEntityEffects()?3:1;
+        baseDamage *= effect.hasEntityEffects()?COMMON.IONIZED_CANNON_DAMAGE_BONUS.get():1;
         baseDamage *= charge;
 
 
-        PlasmaBeamProjectile projectile = new PlasmaBeamProjectile(level,baseScale);
+        PlasmaBeamProjectile projectile = new PlasmaBeamProjectile(level, (float) baseScale);
         Vec3 vec3 = living.getLookAngle();
         projectile.tool = tool;
         projectile.fluidStack = fluidStack;
-        projectile.shoot((float) vec3.x,(float)vec3.y,(float)vec3.z,1,0);
+        projectile.shoot(vec3.x,vec3.y,vec3.z,1,0);
         projectile.setOwner(living);
         projectile.setPos(new Vec3(living.getX(),living.getEyeY(),living.getZ()));
-        projectile.setDataLength(baseRange);
-        projectile.baseDamage = baseDamage;
+        projectile.setDataLength((float) baseRange);
+        projectile.baseDamage = (float) baseDamage;
         projectile.OffHand = player.getUsedItemHand()==InteractionHand.OFF_HAND;
         level.addFreshEntity(projectile);
         if (!creative){
