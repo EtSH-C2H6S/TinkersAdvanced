@@ -1,10 +1,12 @@
 package com.c2h6s.tinkers_advanced.data.providers.tinker;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
+import com.c2h6s.tinkers_advanced.content.modifier.common.ReturnToSlime;
 import com.c2h6s.tinkers_advanced.data.TiAcModifierIds;
 import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierTagProvider;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
@@ -37,6 +39,12 @@ public class TiAcModifierTagProvider extends AbstractModifierTagProvider {
                         TinkerModifiers.expanded.getId(),
                         TinkerModifiers.sweeping.getId(),
                         TiAcModifierIds.SWIFT_STRIKE_EX);
+        this.tag(TinkerTags.Modifiers.OVERSLIME_FRIEND)
+                .add(
+                        RETURN_TO_SLIME.getId(),
+                        NUTRITIVE_SLIME.getId(),
+                        OVERSLIME_GENERATOR.getId()
+                );
     }
 
     @Override

@@ -20,7 +20,7 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         for (var object : TiAcItems.getListSimpleMaterialModel()) {
-            if (object.get() instanceof HiddenMaterial) {
+            if (object.isPresent()&&object.get() instanceof HiddenMaterial) {
                 registration.addIngredientInfo(object.get(), Component.translatable("info.tinkers_advanced.hidden_material"));
             }
         }

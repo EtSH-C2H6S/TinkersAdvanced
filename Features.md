@@ -109,4 +109,7 @@ These features are integrations between mods other than TConstruct. The correspo
 * Integration Materials
     * Pink Slime Metal
       > Tier 3 material. Recovers Overslime after mining or killing according to the amount of loot.
-
+### Create Utilities Compact
+* Integration Materials
+    * Void Steel
+      > Tier 4 material. Has Global Traveler trait as a tool. Has a chance to avoid arrow damage as an armor.
