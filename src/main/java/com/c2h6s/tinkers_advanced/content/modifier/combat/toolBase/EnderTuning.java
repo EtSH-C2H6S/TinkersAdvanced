@@ -133,7 +133,9 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
     @Override
     public void addAttributes(IToolStackView tool, ModifierEntry modifierEntry, EquipmentSlot equipmentSlot, BiConsumer<Attribute, AttributeModifier> biConsumer) {
         if (getMode(tool) == 0&&TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()) {
-            biConsumer.accept(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(((IToolUuidGetter) tool).etstlib$getUuid(), ForgeMod.ENTITY_REACH.get().getDescriptionId(), 3, AttributeModifier.Operation.ADDITION));
+            IToolUuidGetter.getUuid(tool).ifPresent(uuid ->
+                    biConsumer.accept(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, ForgeMod.ENTITY_REACH.get().getDescriptionId(), 3, AttributeModifier.Operation.ADDITION)));
+
         }
     }
 

@@ -23,12 +23,12 @@ logoFile = "tiac_2.png"
 [[dependencies.tinkers_advanced]]
 modId="etstlib"
 mandatory=true
-versionRange="[3.0.0-beta.9,)"
+versionRange="[3.0.0-beta.10,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.tinkers_advanced]]
 modId="tconstruct"
 mandatory=true
-versionRange="[3.10.0.67,)"
+versionRange="[3.10.1.76,)"
 ordering="AFTER"
 side="BOTH"

@@ -12,6 +12,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
 
 import java.util.Comparator;
 import java.util.List;
@@ -73,5 +74,9 @@ public class CommonUtil {
             if (handler.getCapability(capability).isPresent()) return handler.getCapability(capability).cast();
         }
         return LazyOptional.empty();
+    }
+
+    public static boolean isModifiable(ItemStack stack){
+        return stack.getItem() instanceof IModifiable;
     }
 }

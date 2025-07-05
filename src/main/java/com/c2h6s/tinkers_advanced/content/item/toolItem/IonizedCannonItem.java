@@ -60,6 +60,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static com.c2h6s.tinkers_advanced.TiAcConfig.COMMON;
+import static com.c2h6s.tinkers_advanced.util.CommonUtil.isModifiable;
 import static slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook.KEY_DRAWTIME;
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.*;
 
@@ -226,6 +227,7 @@ public class IonizedCannonItem extends ModifiableItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         boolean creative = player.getAbilities().instabuild;
         ItemStack stack = player.getItemInHand(hand);
+        if (!isModifiable(stack)) return InteractionResultHolder.fail(stack);
         ToolStack tool = ToolStack.from(stack);
         if (tool.isBroken()) {
             return InteractionResultHolder.fail(stack);
@@ -257,6 +259,7 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
+        if (!isModifiable(pStack)) return;
         int chargeTime = this.getUseDuration(pStack) - pRemainingUseDuration;
         ToolStack toolStack = ToolStack.from(pStack);
         float charge = GeneralInteractionModifierHook.getToolCharge(toolStack, chargeTime);
@@ -268,7 +271,7 @@ public class IonizedCannonItem extends ModifiableItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity living, int timeLeft) {
-        if (!(living instanceof Player player)) {
+        if (!(living instanceof Player player)||!isModifiable(stack)) {
             return;
         }
         ToolStack tool = ToolStack.from(stack);

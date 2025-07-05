@@ -60,6 +60,7 @@ import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 import java.util.List;
 
+import static com.c2h6s.tinkers_advanced.util.CommonUtil.isModifiable;
 import static slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper.TANK_HELPER;
 
 @Mod.EventBusSubscriber(modid = TinkersAdvanced.MODID,bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -88,6 +89,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
     }
 
     public static void generatorTick(ItemStack stack, Level level, @Nullable LivingEntity holderEntity, @Nullable BlockEntity holderBlockEntity){
+        if (!isModifiable(stack)) return;
         ToolStack tool = ToolStack.from(stack);
         ToolEnergyProduction production;
         if (tool.getPersistentData().contains(ToolEnergyProduction.LOCATION, CompoundTag.TAG_COMPOUND)){
@@ -190,7 +192,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
 
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack slotStack, ItemStack held, Slot slot, ClickAction action, Player player, SlotAccess access) {
-        if (slot.allowModification(player)&&action==ClickAction.SECONDARY&&held.isEmpty()){
+        if (slot.allowModification(player)&&action==ClickAction.SECONDARY&&held.isEmpty()&&isModifiable(slotStack)){
             ToolStack tool = ToolStack.from(slotStack);
             tool.getPersistentData().putBoolean(KEY_DISALLOW_INSERT,!tool.getPersistentData().getBoolean(KEY_DISALLOW_INSERT));
             return true;
@@ -215,7 +217,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
 
     @Override
     public boolean onLeftClickEntity(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
-        if (TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& player.getAttackStrengthScale(0)>0.8 && player.level() instanceof ServerLevel level){
+        if (isModifiable(stack)&&TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& player.getAttackStrengthScale(0)>0.8 && player.level() instanceof ServerLevel level){
             ToolStack tool = ToolStack.from(stack);
             if (getMode(tool)>=1){
                 if (ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true)>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()) {
@@ -234,7 +236,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
     public static void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event){
         Player player = event.getEntity();
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        if (TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& player.getAttackStrengthScale(0)>0.8 && player.level() instanceof ServerLevel level){
+        if (isModifiable(stack)&&TiAcConfig.COMMON.ELECTRON_TUNER_SPECIAL_BONUS.get()&& player.getAttackStrengthScale(0)>0.8 && player.level() instanceof ServerLevel level){
             ToolStack tool = ToolStack.from(stack);
             if (getMode(tool)==1){
                 if (ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true)>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()) {
@@ -271,7 +273,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-        return new ToolCapabilityProvider(stack){
+        if (stack.getItem() instanceof ElectronTunerItem) return new ToolCapabilityProvider(stack){
             @NotNull
             @Override
             public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
@@ -281,6 +283,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
                 return super.getCapability(cap, side);
             }
         };
+        return super.initCapabilities(stack,nbt);
     }
 
     public static int getMode(IToolStackView tool){

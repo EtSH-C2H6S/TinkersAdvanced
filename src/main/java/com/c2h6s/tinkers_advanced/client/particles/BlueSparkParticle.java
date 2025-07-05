@@ -13,6 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
+
 public class BlueSparkParticle extends TextureSheetParticle {
     public double xdo;
     public double ydo;
@@ -27,6 +28,7 @@ public class BlueSparkParticle extends TextureSheetParticle {
         this.friction = 0.8F;
         this.sprite = pSprites.get(this.random);
         this.hasPhysics = false;
+
     }
 
     @Override

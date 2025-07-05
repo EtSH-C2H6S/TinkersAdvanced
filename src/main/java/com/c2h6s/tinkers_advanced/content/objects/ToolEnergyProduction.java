@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.content.objects;
 
+import com.c2h6s.etstlib.util.CommonUtil;
 import com.c2h6s.etstlib.util.IToolUuidGetter;
 import com.c2h6s.etstlib.util.ToolEnergyUtil;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
@@ -8,6 +9,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -44,19 +46,22 @@ public class ToolEnergyProduction {
         ENERGY_PRODUCTION_MAP.put(((IToolUuidGetter)this.toolStack).etstlib$getUuid(),this);
     }
     public static void updateProduction(ToolStack toolStack,ToolEnergyProduction production){
-        ENERGY_PRODUCTION_MAP.put(((IToolUuidGetter)toolStack).etstlib$getUuid(),production);
+        IToolUuidGetter.getUuid(toolStack).ifPresent(uuid ->
+                ENERGY_PRODUCTION_MAP.put(uuid,production));
+
     }
 
-    public static ToolEnergyProduction getFromMap(ToolStack toolStack){
-        return ENERGY_PRODUCTION_MAP.get(((IToolUuidGetter)toolStack).etstlib$getUuid());
+    public static @Nullable ToolEnergyProduction getFromMap(ToolStack toolStack){
+        if (CommonUtil.getUuidFromTool(toolStack)!=null) return ENERGY_PRODUCTION_MAP.get(CommonUtil.getUuidFromTool(toolStack));
+        return null;
     }
-    public static @NotNull ToolEnergyProduction getOrCreate(ToolStack tool){
+    public static @NotNull ToolEnergyProduction getOrCreate(@NotNull ToolStack tool){
         ToolEnergyProduction production = getFromMap(tool);
         if (production!=null){
             return production;
         }
         production = emptyInstance(tool);
-        ENERGY_PRODUCTION_MAP.put(((IToolUuidGetter)tool).etstlib$getUuid(),production);
+        if (CommonUtil.getUuidFromTool(tool)!=null) ENERGY_PRODUCTION_MAP.put(CommonUtil.getUuidFromTool(tool),production);
         return production;
     }
 
