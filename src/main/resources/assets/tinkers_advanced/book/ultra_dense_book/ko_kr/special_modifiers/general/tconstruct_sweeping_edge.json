@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tconstruct:sweeping_edge",
+  "text": [
+    {
+      "text": "휩쓸기 공격 발동 시 전자 조율기가 방출하는 전류의 피해가 증가합니다."
+    },
+    {
+      "text": "레벨 당 +20%, 최대 +60% (전체 80%)"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+  ]
+}
