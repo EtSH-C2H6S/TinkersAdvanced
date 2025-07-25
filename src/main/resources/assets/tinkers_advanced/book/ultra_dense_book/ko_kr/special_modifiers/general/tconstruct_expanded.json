@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tconstruct:expanded",
+  "text": [
+    {
+      "text": "물질 조작기의 기본 성능에 추가적으로, 확장 수식어는 이온화 캐논의 효과 범위를 0.75/공격 범위를 7.5 증가시키며, 전자 조율기의 경우 참격의 크기를 66.7% 증가시킵니다."
+    }
+  ],
+  "more_text_space": true,
+  "effects": []
+}
