@@ -25,7 +25,7 @@ public class BasalzDefense extends EtSTBaseModifier implements ToolStatsModifier
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (isCorrectSlot){
-            holder.addEffect(new MobEffectInstance(CoreMobEffects.EXPLOSION_RESISTANCE.get(),10,0,false,false));
+            holder.addEffect(new MobEffectInstance(CoreMobEffects.EXPLOSION_RESISTANCE.get(),100,0,false,false,false));
         }
     }
 

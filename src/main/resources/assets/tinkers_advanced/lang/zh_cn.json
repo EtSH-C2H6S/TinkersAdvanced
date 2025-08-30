@@ -589,9 +589,9 @@
   "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量：",
 
 
-  "info.tinkers_advanced.electron_tuner.rapier": "西洋剑形态",
+  "info.tinkers_advanced.electron_tuner.rapier": "轻剑形态",
   "info.tinkers_advanced.electron_tuner.sword": "阔剑形态",
-  "info.tinkers_advanced.electron_tuner.cleaver": "劈刀形态",
+  "info.tinkers_advanced.electron_tuner.cleaver": "重剑形态",
 
   "info.tinkers_advanced.electron_tuner.rapier.bonus": "触及距离+3，伤害无视护甲和无敌帧。",
   "info.tinkers_advanced.electron_tuner.sword.bonus": "挥舞时造成范围伤害（仅主手）。",

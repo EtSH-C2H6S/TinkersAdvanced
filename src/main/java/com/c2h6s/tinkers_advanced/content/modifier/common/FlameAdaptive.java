@@ -34,7 +34,7 @@ public class FlameAdaptive extends EtSTBaseModifier {
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if(isCorrectSlot){
-            holder.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, false, false));
+            holder.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100, 0, false, false,false));
             if (holder.isOnFire()||holder.isInLava()){
                 if (tool.getDamage()>0&&RANDOM.nextInt(40)<modifier.getLevel()&&!world.isClientSide){
                     tool.setDamage(tool.getDamage()-1);

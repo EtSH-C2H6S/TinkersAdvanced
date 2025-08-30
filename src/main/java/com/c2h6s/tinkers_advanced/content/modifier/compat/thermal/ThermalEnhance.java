@@ -153,13 +153,13 @@ public class ThermalEnhance extends EtSTBaseModifier implements OnAttackedModifi
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (isCorrectSlot) {
-            holder.addEffect(new MobEffectInstance(CoreMobEffects.COLD_RESISTANCE.get(), 10, 0, false, false));
-            holder.addEffect(new MobEffectInstance(CoreMobEffects.LIGHTNING_RESISTANCE.get(),10,0,false,false));
-            holder.addEffect(new MobEffectInstance(CoreMobEffects.EXPLOSION_RESISTANCE.get(), 10, 0, false, false));
-            holder.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, false, false));
-            holder.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 400, 0, false, false));
+            holder.addEffect(new MobEffectInstance(CoreMobEffects.COLD_RESISTANCE.get(), 100, 0, false, false,false));
+            holder.addEffect(new MobEffectInstance(CoreMobEffects.LIGHTNING_RESISTANCE.get(),100,0,false,false,false));
+            holder.addEffect(new MobEffectInstance(CoreMobEffects.EXPLOSION_RESISTANCE.get(), 100, 0, false, false,false));
+            holder.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100, 0, false, false,false));
+            holder.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 400, 0, false, false,false));
             if (holder.isOnFire()||holder.isInLava()){
-                if (tool.getDamage()>0&&RANDOM.nextInt(40)<modifier.getLevel()&&!world.isClientSide){
+                if (tool.getDamage()>0&&RANDOM.nextInt(10)<modifier.getLevel()&&!world.isClientSide){
                     tool.setDamage(tool.getDamage()-1);
                 }
             }

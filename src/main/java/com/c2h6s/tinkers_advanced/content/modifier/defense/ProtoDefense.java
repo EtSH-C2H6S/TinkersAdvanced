@@ -32,9 +32,9 @@ public class ProtoDefense extends EtSTBaseModifier implements EffectApplicableMo
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (isCorrectSlot&&holder.getItemBySlot(EquipmentSlot.CHEST)==stack){
-            holder.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,20,modifier.getLevel()-1,false,false));
-            holder.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,20,modifier.getLevel()-1,false,false));
-            holder.addEffect(new MobEffectInstance(MobEffects.JUMP,20,modifier.getLevel()-1,false,false));
+            holder.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,200,modifier.getLevel()-1,false,false,false));
+            holder.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,200,modifier.getLevel()-1,false,false,false));
+            holder.addEffect(new MobEffectInstance(MobEffects.JUMP,200,modifier.getLevel()-1,false,false,false));
         }
     }
 }

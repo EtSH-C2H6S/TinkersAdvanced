@@ -28,10 +28,7 @@ public class TiAcPartSpriteProvider extends AbstractPartSpriteProvider {
                 .addHead("mode_rapier/small_blade")
                 .addHead("mode_sword/small_blade")
                 .addPart("flux_core",StatlessMaterialStats.REPAIR_KIT.getIdentifier())
-                .addPart("mode_cleaver/flux_core",StatlessMaterialStats.REPAIR_KIT.getIdentifier())
-                .addPart("mode_rapier/flux_core",StatlessMaterialStats.REPAIR_KIT.getIdentifier())
-                .addPart("mode_sword/flux_core",StatlessMaterialStats.REPAIR_KIT.getIdentifier())
                 .addHandle("tool_handle")
-                .addHandle("tough_handle");
+                .addHandle("tough_handle").withLarge();
     }
 }

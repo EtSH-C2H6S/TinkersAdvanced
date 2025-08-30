@@ -5,15 +5,28 @@
     "small_blade":   "tinkers_advanced:item/tool/electron_tuner/small_blade",
     "flux_core": "tinkers_advanced:item/tool/electron_tuner/flux_core",
     "tough_handle":  "tinkers_advanced:item/tool/electron_tuner/tough_handle",
-    "tool_handle": "tinkers_advanced:item/tool/electron_tuner/tool_handle"
+    "tool_handle": "tinkers_advanced:item/tool/electron_tuner/tool_handle",
+    "binding": "tinkers_advanced:item/tool/electron_tuner/binding",
+
+    "large_small_blade":   "tinkers_advanced:item/tool/electron_tuner/large/small_blade",
+    "large_flux_core": "tinkers_advanced:item/tool/electron_tuner/large/flux_core",
+    "large_tough_handle":  "tinkers_advanced:item/tool/electron_tuner/large/tough_handle",
+    "large_tool_handle": "tinkers_advanced:item/tool/electron_tuner/large/tool_handle",
+    "large_binding": "tinkers_advanced:item/tool/electron_tuner/large/binding"
   },
-  "modifier_roots": [ "tinkers_advanced:item/tool/electron_tuner/modifiers/" ],
+  "modifier_roots": {
+    "small":[ "tinkers_advanced:item/tool/electron_tuner/modifiers/" ],
+    "large":[ "tinkers_advanced:item/tool/electron_tuner/large/modifiers/" ]
+  },
   "parts": [
     { "name": "small_blade",  "index": 0 },
     { "name": "flux_core", "index": 1 },
     { "name": "tough_handle",   "index": 2 },
-    { "name": "tool_handle",  "index": 3 }
+    { "name": "tool_handle",  "index": 3 },
+    { "name": "binding",  "index": 4 }
   ],
+  "large": true,
+  "large_offset": [-2, 2],
   "overrides": [
     {
       "predicate": {"tinkers_advanced:attack_damage_factor": -0.5 },

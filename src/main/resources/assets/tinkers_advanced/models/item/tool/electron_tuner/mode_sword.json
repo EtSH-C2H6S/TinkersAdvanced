@@ -3,16 +3,29 @@
   "parent": "forge:item/default-tool",
   "textures": {
     "small_blade":   "tinkers_advanced:item/tool/electron_tuner/mode_sword/small_blade",
-    "flux_core": "tinkers_advanced:item/tool/electron_tuner/mode_sword/flux_core",
-    "tough_handle":  "tinkers_advanced:item/tool/electron_tuner/empty",
-    "tool_handle": "tinkers_advanced:item/tool/electron_tuner/tool_handle"
+    "flux_core": "tinkers_advanced:item/tool/electron_tuner/flux_core",
+    "tough_handle":  "tinkers_advanced:item/tool/electron_tuner/tough_handle",
+    "tool_handle": "tinkers_advanced:item/tool/electron_tuner/tool_handle",
+    "binding": "tinkers_advanced:item/tool/electron_tuner/binding",
+
+    "large_small_blade":   "tinkers_advanced:item/tool/electron_tuner/large/mode_sword/small_blade",
+    "large_flux_core": "tinkers_advanced:item/tool/electron_tuner/large/flux_core",
+    "large_tough_handle":  "tinkers_advanced:item/tool/electron_tuner/large/tough_handle",
+    "large_tool_handle": "tinkers_advanced:item/tool/electron_tuner/large/tool_handle",
+    "large_binding": "tinkers_advanced:item/tool/electron_tuner/large/binding"
   },
-  "modifier_roots": [ "tinkers_advanced:item/tool/electron_tuner/mode_sword/modifiers/" ],
+  "modifier_roots": {
+    "small":[ "tinkers_advanced:item/tool/electron_tuner/mode_sword/modifiers/" ],
+    "large":[ "tinkers_advanced:item/tool/electron_tuner/large/mode_sword/modifiers/" ]
+  },
+  "large": true,
+  "large_offset": [-2, 2],
   "first_modifiers": [{ "name": "tinkers_advanced:ender_tuner", "forced": true }],
   "parts": [
     { "name": "small_blade",  "index": 0 },
     { "name": "flux_core", "index": 1 },
     { "name": "tough_handle",   "index": 2 },
-    { "name": "tool_handle",  "index": 3 }
+    { "name": "tool_handle",  "index": 3 },
+    { "name": "binding",  "index": 4 }
   ]
 }

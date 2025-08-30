@@ -28,7 +28,7 @@
       },
       "icon": "tconstruct:tough_handle",
       "translation_key": "item.tconstruct.tough_handle",
-      "x": 17,
+      "x": 21,
       "y": 43
     },
     {
@@ -37,7 +37,16 @@
       },
       "icon": "tconstruct:tool_handle",
       "translation_key": "item.tconstruct.tool_handle",
-      "x": 7,
+      "x": 3,
+      "y": 62
+    },
+    {
+      "filter": {
+        "item": "tconstruct:tough_binding"
+      },
+      "icon": "tconstruct:tough_binding",
+      "translation_key": "item.tconstruct.tough_binding",
+      "x": 21,
       "y": 62
     }
   ],
