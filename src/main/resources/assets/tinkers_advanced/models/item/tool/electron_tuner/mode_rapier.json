@@ -19,7 +19,7 @@
     "large":[ "tinkers_advanced:item/tool/electron_tuner/large/mode_rapier/modifiers/" ]
   },
   "large": true,
-  "large_offset": [-2, 2],
+  "large_offset": [4, -4],
   "first_modifiers": [{ "name": "tinkers_advanced:ender_tuner", "forced": true }],
   "parts": [
     { "name": "small_blade",  "index": 0 },
