@@ -10,7 +10,7 @@
       },
       "icon": "tconstruct:small_blade",
       "translation_key": "item.tconstruct.small_blade",
-      "x": 45,
+      "x": 44,
       "y": 26
     },
     {
@@ -19,8 +19,8 @@
       },
       "icon": "tinkers_advanced:flux_core",
       "translation_key": "item.tinkers_advanced.flux_core",
-      "x": 35,
-      "y": 43
+      "x": 26,
+      "y": 44
     },
     {
       "filter": {
@@ -28,8 +28,8 @@
       },
       "icon": "tconstruct:tough_handle",
       "translation_key": "item.tconstruct.tough_handle",
-      "x": 21,
-      "y": 43
+      "x": 8,
+      "y": 62
     },
     {
       "filter": {
@@ -37,8 +37,8 @@
       },
       "icon": "tconstruct:tool_handle",
       "translation_key": "item.tconstruct.tool_handle",
-      "x": 3,
-      "y": 62
+      "x": 8,
+      "y": 44
     },
     {
       "filter": {
@@ -46,7 +46,7 @@
       },
       "icon": "tconstruct:tough_binding",
       "translation_key": "item.tconstruct.tough_binding",
-      "x": 21,
+      "x": 26,
       "y": 62
     }
   ],

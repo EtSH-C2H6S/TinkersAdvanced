@@ -8,7 +8,7 @@
     "tool_handle": "tinkers_advanced:item/tool/electron_tuner/tool_handle",
     "binding": "tinkers_advanced:item/tool/electron_tuner/binding",
 
-    "large_small_blade":   "tinkers_advanced:item/tool/electron_tuner/large/small_blade",
+    "large_small_blade":   "tinkers_advanced:item/tool/electron_tuner/large/small_blade_broken",
     "large_flux_core": "tinkers_advanced:item/tool/electron_tuner/large/flux_core",
     "large_tough_handle":  "tinkers_advanced:item/tool/electron_tuner/large/tough_handle",
     "large_tool_handle": "tinkers_advanced:item/tool/electron_tuner/large/tool_handle",
