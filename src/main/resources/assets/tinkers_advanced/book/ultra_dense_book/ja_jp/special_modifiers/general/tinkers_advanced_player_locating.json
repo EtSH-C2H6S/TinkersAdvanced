@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tinkers_advanced:player_locating",
+  "text": [
+    {
+      "text": "プレイヤーのUUIDをエレクトロンチューナーに保存すると、アトム交換機内にある場合にプレイヤーに効果を適用する発電モジュールを処理できるようになります。"
+    }
+  ],
+  "more_text_space": true,
+  "effects": []
+}

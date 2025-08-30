@@ -1,0 +1,594 @@
+{
+  "itemGroup.tinkers_advanced.tiac_material": "팅커스 어드밴스드 재료",
+  "itemGroup.tinkers_advanced.tiac_mixc": "팅커스 어드벤스드 아이템",
+  "itemGroup.tinkers_advanced.tiac_block": "팅커스 어드밴스드 블럭",
+  "itemGroup.tinkers_advanced.tiac_tool": "팅커스 어드밴스드 도구&부품",
+  "itemGroup.tinkers_advanced.tiac_misc": "팅커스 어드벤스드 아이템",
+
+
+
+  "modifier.tinkers_advanced.fragile": "금이 간",
+  "modifier.tinkers_advanced.fragile.flavor": "금이 간 도구는 오래 쓰기 어렵죠",
+  "modifier.tinkers_advanced.fragile.description": "레벨 당 내구도가 감소할 때 추가로 1의 내구도를 더 잃을 확률이 10% 증가합니다",
+
+  "modifier.tinkers_advanced.tetanus": "파상풍",
+  "modifier.tinkers_advanced.tetanus.flavor": "아! 레고 밟았어!",
+  "modifier.tinkers_advanced.tetanus.description": "타격 대상에게 파상풍 효과를 부여합니다.\n방어력을 조금 감소시키고 20% 더 많은 피해를 가합니다",
+
+  "modifier.tinkers_advanced.sculk_resonance": "스컬크 공명",
+  "modifier.tinkers_advanced.sculk_resonance.flavor": "*흥얼흥얼...",
+  "modifier.tinkers_advanced.sculk_resonance.description": "피해가 음파 공격으로 전환됩니다",
+
+  "modifier.tinkers_advanced.auto_shot": "자동 사격",
+  "modifier.tinkers_advanced.auto_shot.flavor": "자동 사격",
+  "modifier.tinkers_advanced.auto_shot.description": "최대 차지시 자동 사격을 시작합니다",
+
+  "modifier.tinkers_advanced.annihilate": "절멸",
+  "modifier.tinkers_advanced.annihilate.flavor": "내 고통을 느껴라!",
+  "modifier.tinkers_advanced.annihilate.description": "당신과 범위 내의 모든 대상에게 폭발 피해를 입힙니다.\n대부분 방어력을 우회하여 공격합니다",
+
+  "modifier.tinkers_advanced.reactive_explosive_armor": "반응형 폭발 방어구",
+  "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "반응형 폭발 방어구",
+  "modifier.tinkers_advanced.reactive_explosive_armor.description": "25%의 피해를 흡수하고 폭발의 형태로 방출합니다. 폭발과 발사체에 대한 면역을 부여합니다",
+
+  "modifier.tinkers_advanced.atom_grade": "원자 기술",
+  "modifier.tinkers_advanced.atom_grade.flavor": "여전히 인간의 뇌보다는 덜 복잡하지만",
+  "modifier.tinkers_advanced.atom_grade.description": "도구 유형에 따라 방어 슬롯, 혹은 강화 슬롯을 1개 추가합니다",
+
+  "modifier.tinkers_advanced.edging_technology": "정밀 기술",
+  "modifier.tinkers_advanced.edging_technology.flavor": "이보다 더 특이한 것은 없지",
+  "modifier.tinkers_advanced.edging_technology.description": "도구에 강화 슬롯과 능력 슬롯을 각각 1개 추가합니다",
+
+  "modifier.tinkers_advanced.quantum_technology": "양자 기술",
+  "modifier.tinkers_advanced.quantum_technology.flavor": "매우 심층적인 것이죠",
+  "modifier.tinkers_advanced.quantum_technology.description": "도구에 강화 슬롯과 능력 슬롯을 각각 1개 추가합니다",
+
+  "modifier.tinkers_advanced.deep_catalysis": "심층 촉매",
+  "modifier.tinkers_advanced.deep_catalysis.flavor": "친환경적입니다",
+  "modifier.tinkers_advanced.deep_catalysis.description": "레벨 당 액체 소비량이 10% 감소합니다",
+
+  "modifier.tinkers_advanced.focusing_array": "초점 조율",
+  "modifier.tinkers_advanced.focusing_array.flavor": "다들 집에 접시 안테나 하나씩 있죠?",
+  "modifier.tinkers_advanced.focusing_array.description": "레벨 당 유체 효과의 범위를 100% 증가시킵니다",
+
+  "modifier.tinkers_advanced.resonance_amplifier": "공명 증폭기",
+  "modifier.tinkers_advanced.resonance_amplifier.flavor": "음파로 거리를 어떻게 잴까요?",
+  "modifier.tinkers_advanced.resonance_amplifier.description": "레벨 당 범위를 10칸 늘립니다",
+
+  "modifier.tinkers_advanced.radioactive_armor": "방사능 방어구",
+  "modifier.tinkers_advanced.radioactive_armor.flavor": "납 바지를 입으셨겠죠?",
+  "modifier.tinkers_advanced.radioactive_armor.description": "방사능 공격을 가하면 피격 대상의 피해를 줄입니다. \n각 레벨 당 25%의 방사능 저항을 부여합니다",
+
+  "modifier.tinkers_advanced.air_slash": "참격",
+  "modifier.tinkers_advanced.air_slash.flavor": "증기 배출을 시작합니다",
+  "modifier.tinkers_advanced.air_slash.description": "주 사용 손으로 도구를 휘두를 시 강력한 참격을 날립니다. 공기를 소모합니다",
+
+  "modifier.tinkers_advanced.aerial_protection": "대기의 수호",
+  "modifier.tinkers_advanced.aerial_protection.flavor": "고기 방패가 아니라 공기 방패입니다",
+  "modifier.tinkers_advanced.aerial_protection.description": "5의 피해를 차단하고, 그 이상은 10% 경감합니다",
+
+  "modifier.tinkers_advanced.sensor_interrupt": "시각 교란",
+  "modifier.tinkers_advanced.sensor_interrupt.flavor": "빛을 왜곡합니다",
+  "modifier.tinkers_advanced.sensor_interrupt.description": "적대적인 몹의 눈에 덜 띕니다",
+
+  "modifier.tinkers_advanced.metamorphium": "변성",
+  "modifier.tinkers_advanced.metamorphium.flavor": "변성 진행중 99.9%...",
+  "modifier.tinkers_advanced.metamorphium.description": "도구가 손상될수록 더 강해집니다",
+
+  "modifier.tinkers_advanced.basalz_defense": "바살즈 디펜스",
+  "modifier.tinkers_advanced.basalz_defense.flavor": "바위처럼 단단하게",
+  "modifier.tinkers_advanced.basalz_defense.description": "피해를 약간 증가시킵니다. 폭발 저항을 부여합니다",
+
+  "modifier.tinkers_advanced.basalz_inflict": "산산조각",
+  "modifier.tinkers_advanced.basalz_inflict.flavor": "*와장창!!",
+  "modifier.tinkers_advanced.basalz_inflict.description": "타격 시 절단 효과를 부여합니다",
+
+  "modifier.tinkers_advanced.blitz_defense": "블리츠 디펜스",
+  "modifier.tinkers_advanced.blitz_defense.flavor": "번개처럼 빠르게",
+  "modifier.tinkers_advanced.blitz_defense.description": "번개 저항을 부여합니다. 5% 확률로 피해를 상쇄하고 공격자에게 반사합니다",
+
+  "modifier.tinkers_advanced.blitz_inflict": "충격",
+  "modifier.tinkers_advanced.blitz_inflict.flavor": "정말 '충격'적이군요",
+  "modifier.tinkers_advanced.blitz_inflict.description": "전류를 방출하여 범위 내 대상을 타격합니다",
+
+  "modifier.tinkers_advanced.blizz_inflict": "서리 도금",
+  "modifier.tinkers_advanced.blizz_inflict.flavor": "스스로 식힙니다. 열역학 제1법칙의 실직 순간이죠",
+  "modifier.tinkers_advanced.blizz_inflict.description": "타격 대상을 얼립니다. 불타는 적에게 두배의 피해를 입힙니다",
+
+  "modifier.tinkers_advanced.blizz_defense": "블리즈 디펜스",
+  "modifier.tinkers_advanced.blizz_defense.flavor": "빙하처럼 차갑게",
+  "modifier.tinkers_advanced.blizz_defense.description": "빙결 저항을 부여합니다. 공격한 대상을 얼립니다",
+
+  "modifier.tinkers_advanced.over_hold": "과적",
+  "modifier.tinkers_advanced.over_hold.flavor": "이건 아니궈던...",
+  "modifier.tinkers_advanced.over_hold.description": "900%의 유체 저장량을 추가합니다",
+
+  "modifier.tinkers_advanced.flame_adaptive": "화염 적응성",
+  "modifier.tinkers_advanced.flame_adaptive.flavor": "불닭을 먹어도 끄떡없을걸?",
+  "modifier.tinkers_advanced.flame_adaptive.description": "화염 저항을 부여합니다. 사용자가 불에 탈 시 천천히 내구도를 회복합니다",
+
+  "modifier.tinkers_advanced.flux_infused": "플럭스 주입",
+  "modifier.tinkers_advanced.flux_infused.flavor": "Team CoFH의 특제 비법",
+  "modifier.tinkers_advanced.flux_infused.description": "레벨 당 1MFE의 에너지 용량을 제공합니다. 지정된 키를 누를 시 모드를 변경합니다.",
+
+  "modifier.tinkers_advanced.thermal_enhance": "써멀 강화",
+  "modifier.tinkers_advanced.thermal_enhance.flavor": "모든 원소의 힘을 하나로 모으면?!",
+  "modifier.tinkers_advanced.thermal_enhance.description": "바살즈 디펜스, 산산조각, 블리츠 디펜스, 충격, 서리 도금, 블리즈 디펜스, 화염 적응성의 모든 효과를 가집니다!",
+
+  "modifier.tinkers_advanced.flux_arrow": "플럭스 화살",
+  "modifier.tinkers_advanced.flux_arrow.flavor": "Team CoFH의 특제 비법",
+  "modifier.tinkers_advanced.flux_arrow.description": "활성 모드에서는 에너지를 소모해 화살을 생성합니다. 강화 모드에서는 물약 화살을 생성할 수 있으며, 화살이 피격되면 폭발합니다",
+
+  "modifier.tinkers_advanced.thermal_slash": "플럭스 참격",
+  "modifier.tinkers_advanced.thermal_slash.flavor": "Team CoFH의 특제 비법",
+  "modifier.tinkers_advanced.thermal_slash.description": "레벨 당 +1의 행운 및 약탈 효과를 부여합니다. 활성 모드에서는 에너지를 소모해 채굴 속도를 높이고, 공격 시 4의 추가 피해를 입힙니다. 강화 모드에서 휘두를 시 원소 참격을 날립니다",
+
+  "modifier.tinkers_advanced.flux_defense": "플럭스 보호막",
+  "modifier.tinkers_advanced.flux_defense.flavor": "Team CoFH의 특제 비법",
+  "modifier.tinkers_advanced.flux_defense.description": "활성 모드에서는 5% 확률로 피해를 차단합니다. 강화 모드에서는 에너지를 소모해 최대 20%의 피해를 상쇄시킵니다",
+
+  "modifier.tinkers_advanced.supreme_density": "초 고밀도",
+  "modifier.tinkers_advanced.supreme_density.flavor": "블랙홀로 붕괴한다!! 라고 할 뻔",
+  "modifier.tinkers_advanced.supreme_density.description": "대부분의 공격 수식어를 강화합니다",
+
+  "modifier.tinkers_advanced.supreme_density_armor": "초 고밀도",
+  "modifier.tinkers_advanced.supreme_density_armor.flavor": "블랙홀로 붕괴한다!! 라고 할 뻔",
+  "modifier.tinkers_advanced.supreme_density_armor.description": "대부분의 방어 수식어를 강화합니다",
+
+  "modifier.tinkers_advanced.ionized": "이온화",
+  "modifier.tinkers_advanced.ionized.flavor": "이온과 이온으로 분리해주지",
+  "modifier.tinkers_advanced.ionized.description": "이온화 효과를 부여해 피해와 싱태를 감소시킵니다",
+
+  "modifier.tinkers_advanced.disintegrate": "붕괴",
+  "modifier.tinkers_advanced.disintegrate.flavor": "다 부숴버리겠어!",
+  "modifier.tinkers_advanced.disintegrate.description": "지속적인 채굴을 통해 채굴 속도와 내구도를 강화합니다",
+
+  "modifier.tinkers_advanced.electric": "일렉트릭",
+  "modifier.tinkers_advanced.electric.flavor": "정전기 방전!",
+  "modifier.tinkers_advanced.electric.description": "공격시 전류를 방출합니다",
+
+  "modifier.tinkers_advanced.echo_locating": "메아리 탐지법",
+  "modifier.tinkers_advanced.echo_locating.flavor": "방해하지 마...",
+  "modifier.tinkers_advanced.echo_locating.description": "도구가 진동을 감지하여 대상 몹에게 표식을 부여합니다. 표식이 부여된 몹을 공격할 시 추가적인 음파가 발생합니다",
+
+  "modifier.tinkers_advanced.elastic": "유연함",
+  "modifier.tinkers_advanced.elastic.flavor": "부드러움이 항상 별로인건 아닙니다",
+  "modifier.tinkers_advanced.elastic.description": "도구가 손상되었을 때, 내구성을 잃지 않을 확률이 있습니다",
+
+  "modifier.tinkers_advanced.shaping": "형성",
+  "modifier.tinkers_advanced.shaping.flavor": "조각하고 바꿔라",
+  "modifier.tinkers_advanced.shaping.description": "도구가 여러번 손상된 후 도구에 강화 슬롯(혹은 방어 슬롯)을 추가합니다",
+
+  "modifier.tinkers_advanced.radiation_burning": "방사능 분출",
+  "modifier.tinkers_advanced.radiation_burning.flavor": "치사량의 이온화 방사선",
+  "modifier.tinkers_advanced.radiation_burning.description": "대상에게 방사선을 부여합니다. 해당 대상은 받는 피해가 증가합니다",
+
+  "modifier.tinkers_advanced.proto_refining": "프로토 정제법",
+  "modifier.tinkers_advanced.proto_refining.flavor": "표독합니다",
+  "modifier.tinkers_advanced.proto_refining.description": "지속적인 채굴이나 공격을 통해 추가적인 행운 및 약탈 레벨을 부여",
+
+  "modifier.tinkers_advanced.proto_defense": "프로토 에너지 팩",
+  "modifier.tinkers_advanced.proto_defense.flavor": "에너지 팩. 근데 에너지가 필요 없는",
+  "modifier.tinkers_advanced.proto_defense.description": "디버프에 대해 면역을 부여합니다. 흉갑 슬롯에 장착 시 성급함, 점프 강화, 신속 효과를 부여합니다",
+
+  "modifier.tinkers_advanced.return_to_slime": "재 슬라임화",
+  "modifier.tinkers_advanced.return_to_slime.flavor": "뜯고 삼키리",
+  "modifier.tinkers_advanced.return_to_slime.description": "채굴 또는 몹 처치 시 전리품의 양에 따라 슬라임 막을 획득합니다",
+
+  "modifier.tinkers_advanced.nutritive_slime": "영양 주입 슬라임",
+  "modifier.tinkers_advanced.nutritive_slime.flavor": "맛대가리 없습니다...",
+  "modifier.tinkers_advanced.nutritive_slime.description": "장착 시 슬라임 막을 소모해 허기를 보충합니다",
+
+  "modifier.tinkers_advanced.ender_tuner": "엔더 튜닝",
+  "modifier.tinkers_advanced.ender_tuner.flavor": "고객 만족도 최상의 커스텀",
+  "modifier.tinkers_advanced.ender_tuner.description": "엔드의 흉포함을 부여하고, 50kFE의 에너지 저장소를 제공합니다. 웅크리기 + 우클릭으로 설정 메뉴를 엽니다",
+
+  "modifier.tinkers_advanced.combustion_generator": "연소 발전기 모듈",
+  "modifier.tinkers_advanced.combustion_generator.flavor": "싹 다 불태워라, fire~",
+  "modifier.tinkers_advanced.combustion_generator.description": "해당 도구는 용광로 연료를 소비해 자가발전이 가능해집니다. 기본 속도 + 200FE/t",
+
+  "modifier.tinkers_advanced.overslime_generator": "슬라임 발전기 모듈",
+  "modifier.tinkers_advanced.overslime_generator.flavor": "슬라임은 천연 이온 교환 매체입니다",
+  "modifier.tinkers_advanced.overslime_generator.description": "해당 도구는 슬라임 막을 소비해 자가발전이 가능해집니다. 기본 속도 + 250FE/t, 각 슬라임 막 당 5kFE를 생산합니다",
+
+  "modifier.tinkers_advanced.piezoelectric_effect": "압전 효과",
+  "modifier.tinkers_advanced.piezoelectric_effect.flavor": "결정 변형의 징후",
+  "modifier.tinkers_advanced.piezoelectric_effect.description": "대상을 타격함으로써 자가발전이 가능해집니다. 기본 속도 + 100FE/t, 입힌 피해 1 당 10FE를 생산합니다",
+
+  "modifier.tinkers_advanced.electric_food": "전자식 소화 기관",
+  "modifier.tinkers_advanced.electric_food.flavor": "전기로 직접 힘을 얻으세요",
+  "modifier.tinkers_advanced.electric_food.description": "에너지를 소비하여 허기를 회복합니다. 기본 속도 + 100FE/t, 각 단위 음식량에 따라 25kFE가 필요합니다",
+
+  "modifier.tinkers_advanced.platinoid_catalyst": "플래티노이드 촉매",
+  "modifier.tinkers_advanced.platinoid_catalyst.flavor": "엄청 비싼 촉매제",
+  "modifier.tinkers_advanced.platinoid_catalyst.description": "레벨 당 25%씩 에너지 생산/소비 속도를 증가시키고, 생산/소비 양을 늘립니다.",
+
+  "modifier.tinkers_advanced.transition_catalyst": "전이 촉매",
+  "modifier.tinkers_advanced.transition_catalyst.flavor": "무난한 촉매",
+  "modifier.tinkers_advanced.transition_catalyst.description": "레벨 당 25%씩 에너지 생산량을 늘리거나, 에너지 소비량을 줄입니다",
+
+  "modifier.tinkers_advanced.smeltery_generator": "용해소 발전기",
+  "modifier.tinkers_advanced.smeltery_generator.flavor": "열 좀 올려볼까?!",
+  "modifier.tinkers_advanced.smeltery_generator.description": "해당 도구는 제련 연료를 소비해 자가발전이 가능해집니다. 기본 속도 + 250FE/t, 온도(용암 = 1.0배)의 영향을 받습니다",
+
+  "modifier.tinkers_advanced.unstable": "불안정",
+  "modifier.tinkers_advanced.unstable.flavor": "절대 손을 미끄러트리지 마!",
+  "modifier.tinkers_advanced.unstable.description": "공격 피해, 채굴 속도, 내구도 비용을 무작위로 설정합니다",
+
+  "modifier.tinkers_advanced.plague": "역병",
+  "modifier.tinkers_advanced.plague.flavor": "병원균",
+  "modifier.tinkers_advanced.plague.description": "대상에게 역병 효과를 부여합니다. 대상에게 피해를 가하고 체력 재생을 감소시킵니다",
+
+  "modifier.tinkers_advanced.poison_defense": "포이즌 디펜스",
+  "modifier.tinkers_advanced.poison_defense.flavor": "맹독 저항",
+  "modifier.tinkers_advanced.poison_defense.description": "독과 시듦 효과에 면역을 부여합니다",
+
+  "modifier.tinkers_advanced.extra_capacity": "추가 용량",
+  "modifier.tinkers_advanced.extra_capacity.flavor": "W=0.5CU² 공식에 따르면: 더 큰 용량은 동일한 전압에서 더 많은 에너지를 저장할 수 있습니다",
+  "modifier.tinkers_advanced.extra_capacity.description": "레벨 당 최대 에너지 저장량을 20% 증가시킵니다",
+
+  "modifier.tinkers_advanced.compressed_air_generator": "압축 공기 발전기",
+  "modifier.tinkers_advanced.compressed_air_generator.flavor": "dW=-d(pV)",
+  "modifier.tinkers_advanced.compressed_air_generator.description": "해당 도구는 압축 공기를 소비해 자가발전이 가능해집니다. 기본 속도 + 압력*50FE/t, 변환 효율은 압축 공기 다이너모에 이상적입니다",
+
+  "modifier.tinkers_advanced.swift_strike_ex": "신속한 타격 Ex",
+  "modifier.tinkers_advanced.swift_strike_ex.flavor": "일루와잇!",
+  "modifier.tinkers_advanced.swift_strike_ex.description": "레벨 당 공격 속도 +25% 증가",
+
+  "modifier.tinkers_advanced.energy_bin": "에너지 쓰레기통",
+  "modifier.tinkers_advanced.energy_bin.flavor": "용암이 에너지도 태우던가...?",
+  "modifier.tinkers_advanced.energy_bin.description": "매 틱마다 도구 내부에 저장된 모든 에너지를 제거합니다",
+
+  "modifier.tinkers_advanced.player_locating": "플레이어 탐색기",
+  "modifier.tinkers_advanced.player_locating.flavor": "근데, 우선 친구가 있는지부터 묻는게...?",
+  "modifier.tinkers_advanced.player_locating.description": "인벤토리에 있는 종이를 우클릭하여 ID를 도구에 저장합니다",
+
+  "modifier.tinkers_advanced.energy_distributor": "에너지 분배기",
+  "modifier.tinkers_advanced.energy_distributor.flavor": "보조 베터리",
+  "modifier.tinkers_advanced.energy_distributor.description": "저장된 에너지를 퀵슬롯, 반대 손, 갑옷 아이템에 분배합니다",
+
+  "modifier.tinkers_advanced.void_dodging": "공허 회피 기동",
+  "modifier.tinkers_advanced.void_dodging.flavor": "피했죠?",
+  "modifier.tinkers_advanced.void_dodging.description": "화살을 회피할 확률이 주어지며, 다가오는 화살을 파괴할 확률이 있습니다",
+
+
+
+  "material.tinkers_advanced.bismuth": "비스무트",
+  "material.tinkers_advanced.bismuth.flavor": "비스무트는 아름다운 결정으로 유명합니다",
+  "material.tinkers_advanced.bismuth.encyclopedia": "파상풍 레벨 당 2의 방어력을 감소시킵니다",
+  "material.tinkers_advanced.bismuth.ranged": "파상풍 레벨 당 2의 방어력을 감소시킵니다",
+  "material.tinkers_advanced.bismuth.armor": "파상풍 레벨 당 2의 방어력을 감소시킵니다",
+
+  "material.tinkers_advanced.bismuthinite": "휘창연",
+  "material.tinkers_advanced.bismuthinite.flavor": "자연에서 발견되는 비스무트의 기본 형태",
+  "material.tinkers_advanced.bismuthinite.encyclopedia": "최대 내구도에서 피해 20% 증가/감소",
+  "material.tinkers_advanced.bismuthinite.ranged": "최대 내구도에서 피해 10% 증가/감소",
+  "material.tinkers_advanced.bismuthinite.armor": "방어구 값이 계산된 후 5% 미만일 때 피해량을 20% 줄이거나, 그렇지 않으면 10% 증가시킵니다",
+
+  "material.tinkers_advanced.certus_quartz": "서투스 석영",
+  "material.tinkers_advanced.certus_quartz.flavor": "외우주에서 온 신비로운 흰 수정",
+  "material.tinkers_advanced.certus_quartz.encyclopedia": "최대 내구도에서 피해 20% 증가/감소",
+  "material.tinkers_advanced.certus_quartz.ranged": "최대 내구도에서 피해 10% 증가/감소",
+  "material.tinkers_advanced.certus_quartz.armor": "방어구 값이 계산된 후 5% 미만일 때 피해량을 20% 줄이거나, 그렇지 않으면 10% 증가시킵니다",
+
+  "material.tinkers_advanced.fluix_crystal": "액정",
+  "material.tinkers_advanced.fluix_crystal.flavor": "인공적인 결정체",
+  "material.tinkers_advanced.fluix_crystal.encyclopedia": "3 + (레벨)에 해당하는 마법 피해를 제공합니다. 각 내구도 손실을 복구하는데 25 AE가 요구됩니다. 수식어 레벨이 높을수록 더 빨리 복구합니다",
+  "material.tinkers_advanced.fluix_crystal.ranged": "3 + (레벨)에 해당하는 마법 피해를 제공합니다. 각 내구도 손실을 복구하는데 25 AE가 요구됩니다. 수식어 레벨이 높을수록 더 빨리 복구합니다",
+  "material.tinkers_advanced.fluix_crystal.armor": "3 + (레벨)에 해당하는 마법 피해를 제공합니다. 각 내구도 손실을 복구하는데 25 AE가 요구됩니다. 수식어 레벨이 높을수록 더 빨리 복구합니다",
+
+  "material.tinkers_advanced.alloy_atomic": "원자 합금",
+  "material.tinkers_advanced.alloy_atomic.flavor": "아토믹 테크놀로지아!",
+
+  "material.tinkers_advanced.antimatter": "반물질",
+  "material.tinkers_advanced.antimatter.flavor": "반물질을 제련소에 넣어도 괜찮은건가?",
+
+  "material.tinkers_advanced.refined_obsidian": "정제된 흑요석",
+  "material.tinkers_advanced.refined_obsidian.flavor": "단단하고, 튼튼하며, 오래가죠",
+  "material.tinkers_advanced.refined_obsidian.encyclopedia": "레벨 당 5%의 공격 속도를 추가하며, 최대 50%까지 적용 가능합니다",
+
+  "material.tinkers_advanced.refined_glowstone": "정제된 발광석",
+  "material.tinkers_advanced.refined_glowstone.flavor": "눈돌아가는 반짝임",
+
+  "material.tinkers_advanced.irradium": "방사늄",
+  "material.tinkers_advanced.irradium.flavor": "단단하고 방사성입니다. 적을 속이기에는 최적이죠!",
+  "material.tinkers_advanced.irradium.encyclopedia": "각 Sv 방사선은 피해를 5% 증가시킵니다. 최대 75%까지 증가시킬 수 있습니다",
+  "material.tinkers_advanced.irradium.ranged": "각 Sv 방사선은 피해를 5% 증가시킵니다. 최대 75%까지 증가시킬 수 있습니다",
+  "material.tinkers_advanced.irradium.armor": "각 Sv 방사선은 피해를 5% 증가시킵니다. 최대 75%까지 증가시킬 수 있습니다",
+
+  "material.tinkers_advanced.pneumatic_steel": "압축 강철",
+  "material.tinkers_advanced.pneumatic_steel.flavor": "복합성 소재. 급속 냉각을 통해 강화되었습니다",
+  "material.tinkers_advanced.pneumatic_steel.encyclopedia": "참격을 사용하려면 100mL의 공기가 필요합니다",
+  "material.tinkers_advanced.pneumatic_steel.armor": "각 피해는 100mL의 공기를 소모합니다",
+
+  "material.tinkers_advanced.basalz_signalum": "대지의 시그널륨",
+  "material.tinkers_advanced.basalz_signalum.flavor": "대지의 힘을 담은 신비로운 소재",
+  "material.tinkers_advanced.basalz_signalum.encyclopedia": "파편 효과는 레벨 당 방어력을 25% 감소시킵니다",
+  "material.tinkers_advanced.basalz_signalum.ranged": "파편 효과는 레벨 당 방어력을 25% 감소시킵니다",
+  "material.tinkers_advanced.basalz_signalum.armor": "탐지 범위가 (5/레벨)로 감소합니다",
+
+  "material.tinkers_advanced.blitz_lumium": "뇌전의 루미움",
+  "material.tinkers_advanced.blitz_lumium.flavor": "끝없는 뇌전을 방출하는 광채",
+  "material.tinkers_advanced.blitz_lumium.encyclopedia": "충격 효과는 레벨 당 3의 피해를 감소시킵니다. 방출된 전류는 2+0.5*레벨 만큼의 피해를 가합니다",
+  "material.tinkers_advanced.blitz_lumium.ranged": "충격 효과는 레벨 당 3의 피해를 감소시킵니다. 방출된 전류는 2+0.5*레벨 만큼의 피해를 가합니다",
+
+  "material.tinkers_advanced.blizz_enderium": "혹한의 엔더리움",
+  "material.tinkers_advanced.blizz_enderium.flavor": "기이하게 변형되는 세계 끝의 물질",
+  "material.tinkers_advanced.blizz_enderium.encyclopedia": "도구의 손상은 가장 높은 스텟을 10% 증가시킵니다. 최대 25%",
+  "material.tinkers_advanced.blizz_enderium.armor": "도구의 손상은 가장 높은 스텟을 10% 증가시킵니다. 최대 25%",
+  "material.tinkers_advanced.blizz_enderium.ranged": "도구의 손상은 가장 높은 스텟을 10% 증가시킵니다. 최대 25%",
+
+  "material.tinkers_advanced.blaze_netherite": "열화의 네더라이트",
+  "material.tinkers_advanced.blaze_netherite.flavor": "열을 가하면 스스로 회복하는 지옥의 금속",
+
+  "material.tinkers_advanced.activated_chromatic_steel": "활성화된 크로마틱 합금",
+  "material.tinkers_advanced.activated_chromatic_steel.activated": "활성화된 크로마틱 합금",
+  "material.tinkers_advanced.activated_chromatic_steel.empowered": "활성화된 크로마틱 합금",
+  "material.tinkers_advanced.activated_chromatic_steel.flavor": "마법 금속과 원소 에너지로 이루어진 불안정한 합금",
+  "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "도구의 손상은 500FE를 소모합니다. 채굴 모드 활성화 시 채굴 속도 +100%(100FE 소모), 공격 시 250FE 소모, 강화 모드 활성화 시 500FE를 소모해 참격을 날립니다",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "도구의 손상은 500FE를 소모합니다. 채굴 모드 활성화 시 채굴 속도 +100%(100FE 소모), 공격 시 250FE 소모, 강화 모드 활성화 시 500FE를 소모해 참격을 날립니다.",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "도구의 손상은 500FE를 소모합니다. 활성화 시 20kFE를 소모해 흡수하고,  강화 모드 활성화 시 2kFE를 소모해 피해를 무효화합니다",
+
+  "material.tinkers_advanced.iridium": "이리듐",
+  "material.tinkers_advanced.iridium.flavor": "화학 반응성이 낮은 매우 희귀한 금속",
+
+  "material.tinkers_advanced.densium": "단다니움",
+  "material.tinkers_advanced.densium.flavor": "말 그대로 엄청 단단합니다",
+
+  "material.tinkers_advanced.neutronite": "뉴트로나이트",
+  "material.tinkers_advanced.neutronite.flavor": "중성자별에서 응축된 물질",
+
+  "material.tinkers_advanced.osgloglas": "오슬로글라스",
+  "material.tinkers_advanced.osgloglas.flavor": "한때 자주 보이던 합금",
+
+  "material.tinkers_advanced.silicon": "실리콘",
+  "material.tinkers_advanced.diamond": "다이아몬드",
+
+  "material.tinkers_advanced.plastic": "플라스틱",
+  "material.tinkers_advanced.plastic.flavor": "현대 과학의 선물",
+
+  "material.tinkers_advanced.resonance_crystal": "공명 수정",
+  "material.tinkers_advanced.resonance_crystal.flavor": "워든 인사이드™",
+
+  "material.tinkers_advanced.voltaic_crystal": "방전 수정",
+  "material.tinkers_advanced.voltaic_crystal.flavor": "충격적인 전자 소재",
+
+  "material.tinkers_advanced.protocite": "프로토사이트",
+  "material.tinkers_advanced.protocite.flavor": "다른 차원의 독을 품고 있습니다",
+  "material.tinkers_advanced.protocite.encyclopedia": "채굴 또는 공격을 5회 수행한 수 최대 3*수식어 레벨 수준의 행운 및 약탈을 부여합니다",
+
+  "material.tinkers_advanced.compressed_iron": "압축된 철",
+  "material.tinkers_advanced.compressed_iron.flavor": "압축된 철은 압축된 철입니다. 왜냐면 압축된 철이거든요",
+
+  "material.tinkers_advanced.pink_slime_metal": "핑크 슬라임 금속",
+  "material.tinkers_advanced.pink_slime_metal.flavor": "남자는 핑크입니다. 반박 안받습니다",
+
+  "material.tinkers_advanced.nutritive_slime": "영양 주입 슬라임강철",
+  "material.tinkers_advanced.nutritive_slime.flavor": "중금속 검사는 통과했습니다. 안심하고 드세요",
+
+  "material.tinkers_advanced.antimony": "안티모니",
+  "material.tinkers_advanced.antimony.flavor": "걱정마세요. 당신의 돈을 털어갈 일은 없습니다",
+
+  "material.tinkers_advanced.stibnite": "휘안석",
+  "material.tinkers_advanced.stibnite.flavor": "폭발하는 네더 광석이라, 익숙한 느낌이...",
+
+  "material.tinkers_advanced.void_steel": "공허 강철",
+  "material.tinkers_advanced.void_steel.flavor": "운송에 특화되었습니다",
+  "material.tinkers_advanced.void_steel.encyclopedia": "최대 증폭기가 25%일 때, 각 피해는 10% 확률로 최대의 스텟을 증가시킬 확률이 있습니다.",
+  "material.tinkers_advanced.void_steel.armor": "최대 증폭기가 25%일 때, 각 피해는 10% 확률로 최대의 스텟을 증가시킬 확률이 있습니다. 25% 확률로 화살을 회피합니다",
+  "material.tinkers_advanced.void_steel.ranged": "최대 증폭기가 25%일 때, 각 피해는 10% 확률로 최대의 스텟을 증가시킬 확률이 있습니다%",
+
+
+  "item.tinkers_advanced.bismuth_ingot": "비스무트 주괴",
+  "item.tinkers_advanced.bismuthinite": "휘창연",
+  "item.tinkers_advanced.irradium_ingot": "방사늄 펠릿",
+  "item.tinkers_advanced.hot_reinforced_steel": "과열된 정제 강철",
+  "item.tinkers_advanced.penumatic_reinforced_steel": "공압 정제 강철",
+  "item.tinkers_advanced.basalz_signalum": "대지의 시그널륨",
+  "item.tinkers_advanced.blitz_lumium": "뇌전의 루미움",
+  "item.tinkers_advanced.blizz_enderium": "혹한의 엔더리움",
+  "item.tinkers_advanced.disintegrate_crystal": "붕괴 수정",
+  "item.tinkers_advanced.activated_chromatic_steel": "활성화된 크로마틱 합금 판",
+  "item.tinkers_advanced.blaze_netherite": "열화의 네더라이트",
+  "item.tinkers_advanced.iridium_chunk": "이리듐 덩어리",
+  "item.tinkers_advanced.densium_ingot": "단다니움 주괴",
+  "item.tinkers_advanced.neutronite_ingot": "뉴트로나이트 주괴",
+  "item.tinkers_advanced.osgloglas_ingot": "오슬로글라스 주괴",
+  "item.tinkers_advanced.resonance_crystal": "공명 수정",
+  "item.tinkers_advanced.voltaic_crystal": "방전 수정",
+  "item.tinkers_advanced.protocite_pellet": "프로토사이트 펠릿",
+  "item.tinkers_advanced.nutrition_slime_ingot": "영양 주입 슬라임강철 주괴",
+  "item.tinkers_advanced.antimony_ingot": "안티모니 주괴",
+  "item.tinkers_advanced.stibnite": "휘안석",
+  "item.tinkers_advanced.blitz_lumium_nugget": "뇌전의 루미움 조각",
+  "item.tinkers_advanced.antimony_nugget": "안티모니 조각",
+  "item.tinkers_advanced.bismuth_nugget": "비스무트 조각",
+  "item.tinkers_advanced.ultra_dense_book": "초 고밀도 책",
+
+  "block.tinkers_advanced.iridium_lean_ore": "미약한 이리듐 원석",
+  "block.tinkers_advanced.bismuthinite_ore": "휘창연광",
+  "block.tinkers_advanced.stibnite_ore": "휘안석 원석",
+  "block.tinkers_advanced.exchanger": "원자 교환기",
+
+
+
+  "fluid.tinkers_advanced.molten_bismuth": "녹은 비스무트",
+  "item.tinkers_advanced.molten_bismuth_bucket": "녹은 비스무트 양동이",
+  "fluid.tinkers_advanced.molten_bismuth.fluid_effect": "방어력을 감소시키고, 받는 피해를 증가시킵니다",
+
+  "fluid.tinkers_advanced.molten_antimony": "녹은 안티모니",
+  "item.tinkers_advanced.molten_antimony_bucket": "녹은 안티모니 양동이",
+  "fluid.tinkers_advanced.molten_antimony.fluid_effect": "아무도 이 중금속이 역병과 연관 있는지 모를겁니다",
+
+  "fluid.tinkers_advanced.molten_antimatter": "녹은 반물질",
+  "item.tinkers_advanced.molten_antimatter_bucket": "녹은 반물질 양동이",
+  "fluid.tinkers_advanced.molten_antimatter.fluid_effect": "반물질은 매우 폭발적입니다. 절대 쏘지 마세요!",
+
+  "fluid.tinkers_advanced.molten_irradium": "녹은 방사늄",
+  "item.tinkers_advanced.molten_irradium_bucket": "녹은 방사늄 양동이",
+  "fluid.tinkers_advanced.molten_irradium.fluid_effect": "방사성 액체",
+
+  "fluid.tinkers_advanced.molten_basalz_signalum": "녹은 대지의 시그널륨",
+  "item.tinkers_advanced.molten_basalz_signalum_bucket": "녹은 대지의 시그널륨 양동이",
+  "fluid.tinkers_advanced.molten_basalz_signalum.fluid_effect": "대지의 시그널륨은 적의 방어구를 관통하는데 적합합나다. 마찬가지로 채굴에도 유용합니다",
+
+  "fluid.tinkers_advanced.molten_biltz_lumium": "녹은 뇌전의 루미움",
+  "item.tinkers_advanced.molten_biltz_lumium_bucket": "녹은 뇌전의 루미움 양동이",
+  "fluid.tinkers_advanced.molten_biltz_lumium.fluid_effect": "뇌전의 루미움은 적을 무력화시키고 그들이 주는 피해를 약화시킵니다",
+
+  "fluid.tinkers_advanced.molten_blizz_enderium": "녹은 혹한의 엔더리움",
+  "item.tinkers_advanced.molten_blizz_enderium_bucket": "녹은 혹한의 엔더리움 양동이",
+  "fluid.tinkers_advanced.molten_blizz_enderium.fluid_effect": "혹한의 엔더리움은 매우 차가워, 대상을 얼릴 수 있습니다",
+
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel": "녹은 활성화된 크로마틱 합금",
+  "item.tinkers_advanced.molten_activated_chromatic_steel_bucket": "녹은 활성화된 크로마틱 합금 양동이",
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel.fluid_effect": "모든 원소가 휘몰아칩니다. 반응성이 매우 높고, 공격적입니다",
+
+  "fluid.tinkers_advanced.pyrotheum": "파이로티움",
+  "item.tinkers_advanced.pyrotheum_bucket": "파이로티움 양동이",
+  "fluid.tinkers_advanced.pyrotheum.fluid_effect": "마침내 구현된 연료. 가장 '뜨거운' 관심거리죠",
+
+  "fluid.tinkers_advanced.molten_blaze_netherite": "녹은 열화의 네더라이트",
+  "item.tinkers_advanced.molten_blaze_netherite_bucket": "녹은 열화의 네더라이트 양동이",
+
+  "fluid.tinkers_advanced.molten_iridium": "녹은 이리듐",
+  "item.tinkers_advanced.molten_iridium_bucket": "녹은 이리듐 양동이",
+
+  "fluid.tinkers_advanced.over_heated_lava": "과열 용암",
+  "item.tinkers_advanced.over_heated_lava_bucket": "과열 용암 양동이",
+  "fluid.tinkers_advanced.over_heated_lava.fluid_effect": "이 엄청-뜨거운 유체는 엔티티에게 불 피해를 입힐 수 있습니다",
+
+  "fluid.tinkers_advanced.gaseous_lava": "가스화 용암",
+  "item.tinkers_advanced.gaseous_lava_bucket": "가스화 용암 양동이",
+  "fluid.tinkers_advanced.gaseous_lava.fluid_effect": "더 높은 온도, 더 높은 피해! 가성비가 매우 뛰어납니다",
+
+  "fluid.tinkers_advanced.plasmatic_lava": "이온화 용암",
+  "item.tinkers_advanced.plasmatic_lava_bucket": "이온화 용암 양동이",
+  "fluid.tinkers_advanced.plasmatic_lava.fluid_effect": "뭐야, 어케 만듦?",
+
+  "fluid.tinkers_advanced.molten_densium": "녹은 단다니움",
+  "item.tinkers_advanced.molten_densium_bucket": "녹은 단다니움 양동이",
+
+  "fluid.tinkers_advanced.molten_neutronite": "녹은 뉴트로나이트",
+  "item.tinkers_advanced.molten_neutronite_bucket": "녹은 뉴트로나이트 양동이",
+  "fluid.tinkers_advanced.molten_neutronite.fluid_effect": "녹은 뉴트로나이트는 사람을 찢어!",
+
+  "fluid.tinkers_advanced.molten_osgloglas": "녹은 오슬로글라스",
+  "item.tinkers_advanced.molten_osgloglas_bucket": "녹은 오슬로글라스 양동이",
+
+  "material.tinkers_advanced.disintegrate_crystal": "붕괴 수정",
+  "material.tinkers_advanced.disintegrate_crystal.flavor": "파괴적인 힘을 방출하는 강력한 물질",
+
+  "fluid.tinkers_advanced.molten_protocite": "녹은 프로토사이트",
+  "item.tinkers_advanced.molten_protocite_bucket": "녹은 프로토사이트 양동이",
+  "fluid.tinkers_advanced.molten_protocite.fluid_effect": "프로토 맹독은 지속 시간 동안 대상의 체력을 영구적으로 25% 감소시키며, 레벨 당 체력 회복량을 20% 감소시킵니다",
+
+  "fluid.tinkers_advanced.molten_nutritive_slime": "녹은 영양 주입 슬라임강철",
+  "item.tinkers_advanced.molten_nutritive_slime_bucket": "녹은 영양 주입 슬라임강철 양동이",
+
+  "fluid.tinkers_advanced.molten_pink_slime": "녹은 핑크 슬라임",
+  "item.tinkers_advanced.molten_pink_slime_bucket": "녹은 핑크 슬라임 양동이",
+
+  "fluid.tinkers_advanced.molten_void_steel": "녹은 공허 강철",
+  "item.tinkers_advanced.molten_void_steel_bucket": "녹은 공허 강철 양동이",
+
+
+
+  "effect.tinkers_advanced.tetanus": "파상풍",
+  "effect.tinkers_advanced.ionized": "이온화",
+  "effect.tinkers_advanced.proto_poison": "프로토 맹독",
+  "effect.tinkers_advanced.plague": "역병",
+
+
+
+  "item.tinkers_advanced.ionize_chamber": "이온 채임버",
+  "item.tinkers_advanced.ionized_cannon": "이온화 캐논",
+  "item.tinkers_advanced.ionized_cannon.description": "이온화 캐논은 유체를 소모해 공격하는 중거리 근접 무기입니다. 충전 후 플라즈마 광선을 발사해 음파 피해를 가합니다. 타격 시 주위로 액체 효과를 흩뿌립니다. (유출 수식어와 유사하게 작동합니다)",
+  "tooltip.tinkers_advanced.fluid_consumption": "유체 배출",
+  "tooltip.tinkers_advanced.range": "공격 범위",
+  "tooltip.tinkers_advanced.scale": "효과 범위",
+  "pattern.tinkers_advanced.ionize_chamber": "이온 채임버",
+
+  "item.tinkers_advanced.particle_container": "입자 수용기",
+  "item.tinkers_advanced.matter_manipulator": "물질 조작기",
+  "item.tinkers_advanced.matter_manipulator.description": "물질 조작기는 효율적인 채굴 도구로, 사용 시 채굴 레이저를 발사합니다. 간단하게 블럭을 채굴하거나, 전투 중 방어를 수행할 수 있습니다. 인벤토리 안에서 우클릭 시 모드를 전환합니다",
+  "tooltip.tinkers_advanced.speed_addup": "채굴 가속",
+  "tooltip.tinkers_advanced.expand_mining": "상호작용 모드-AOE | 범위: ",
+  "tooltip.tinkers_advanced.single_mining": "상호작용 모드-단일",
+  "tooltip.tinkers_advanced.mining_mode": "주 모드-채굴",
+  "tooltip.tinkers_advanced.splashing_mode": "주 모드-흩뿌리기",
+  "tooltip.tinkers_advanced.primary_mode_info": "인벤토리 안에서 도구를 우클릭하여 모드를 전환",
+  "tooltip.tinkers_advanced.secondary_mode_info": "우클릭 해 모드 전환",
+  "pattern.tinkers_advanced.particle_container": "입자 수용기",
+
+  "item.tinkers_advanced.flux_core": "플럭스 코어",
+  "stat.tinkers_advanced.flux_core": "플럭스 코어",
+  "item.tinkers_advanced.electron_tuner": "전자 조율기",
+  "item.tinkers_advanced.electron_tuner.description": "전자 조율기는 공격 속도를 조절할 수 있는 근접 무기입니다. Shift+우클릭으로 조정 UI를 엽니다",
+  "tooltip.tinkers_advanced.energy": "최대 에너지: ",
+  "tooltip.tinkers_advanced.power_multiplier": "파워 증폭기: ",
+  "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "기본 용량에 곱해질 최대 에너지 배율",
+  "tool_stat.tinkers_advanced.flux_core.generate_factor.description": "에너지 모듈의 생성/소비 양",
+  "tool_stat.tinkers_advanced.capacity_factor": "최대 에너지",
+  "tool_stat.tinkers_advanced.generate_factor": "파워 증폭기",
+  "tooltip.tinkers_advanced.energy_gen_remain": "에너지 생성 잔여량: ",
+  "tooltip.tinkers_advanced.energy_cost_remain": "에너지 소비 잔여량: ",
+  "tooltip.tinkers_advanced.disallow_insert": "에너지 수신 비활성화. 우클릭하여 활성화로 전환합니다",
+  "tooltip.tinkers_advanced.allow_insert": "에너지 수신 활성화. 우클릭하여 비활성화로 전환합니다",
+
+
+
+  "pattern.tinkers_advanced.ae2_circuit": "출력 프로세서",
+
+
+  "death.attack.plasma": "%1$s 이/가 이온과 이온으로 분리되었습니다.",
+
+
+  "fluid_effect.tconstruct.damage.explosion": "%s 폭발 피해",
+  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s 방사능 피해",
+
+
+  "msg.tinkers_advanced.flux_mode.thermal_slash.0": "진압됨",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.1": "활성화",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "권능",
+  "msg.tinkers_advanced.global_traveler.container_bind": "수용기 결속",
+
+
+  "tooltip.tinkers_advanced.material_story": "Shift를 눌러 자세히 보기...",
+
+  "tooltip.tinkers_advanced.material_banned": "이 물질은 얻을 수 없습니다!",
+
+  "info.tinkers_advanced.hidden_material": "이 숨겨진 물질은 정상적인 방법으로는 구할 수 없기에, 레시피를 찾을 수 없습니다. Shift를 누르고 특정 퍼즐을 풀어야합니다. 만약 작동하지 않으면 절대 못 구하겠네요. 아쉬워라 ^오^",
+
+  "tooltip.tinkers_advanced.hidden_material_mek": "% 숨겨진 물질-메카니즘 %",
+  "tooltip.tinkers_advanced.neutronite_1": "중성자별은 초신성이 남긴 죽은 별의 핵이다.",
+  "tooltip.tinkers_advanced.neutronite_2": "§b핵융합§f은 별의 생명이다. §c 철§f의 형성은 그 끝을 의미할지니.",
+  "tooltip.tinkers_advanced.neutronite_3": "비록 중성자별에 도달할 수는 없겠지만, 만들 순 있다.",
+
+  "tooltip.tinkers_advanced.stibnite_ore": "조심하세요. 이 광석들은 폭ㅂ-",
+  "tooltip.tinkers_advanced.found_in_nether": "네더에서 발견됩니다.",
+  "tooltip.tinkers_advanced.found_in_overworld": "엔드에서 발견됩니다.",
+  "tooltip.tinkers_advanced.found_in_end": "오버월드에서 발견됩니다.",
+
+  "tooltip.tinkers_advanced.exchanger1": "내부에 놓인 도구와 외부 블럭을 상호작용하게 합니다.",
+  "tooltip.tinkers_advanced.exchanger2": "전자 조율기를 위한 에너지 생성을 다룹니다.",
+  "tooltip.tinkers_advanced.exchanger3": "우클릭하여 도구를 삽입하고, 손에 들고 우클릭하여 에너지 방출을 전환합니다.",
+
+
+  "tooltip.tinkers_advanced.modifiers.shaping": "현재 슬롯 보너스 :",
+
+  "info.tinkers_advanced.electron_tuner.rapier": "수리 모드",
+  "info.tinkers_advanced.electron_tuner.sword": "검 모드",
+  "info.tinkers_advanced.electron_tuner.cleaver": "대검 모드",
+
+  "info.tinkers_advanced.electron_tuner.rapier.bonus": "공격 범의 +3, 방어도를 무시하고 공격합니다",
+  "info.tinkers_advanced.electron_tuner.sword.bonus": "주 손에 들고 휘두를 시 AOE 피해를 가합니다",
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "타격 시 AOE 피해를 가하고, 절단 레벨을 +3 더 부여합니다",
+
+  "tooltip.tinkers_advanced.ultra_dense_book1": "책이 단단한걸까, 아니면 단단한 책일까? 몰?루",
+  "tooltip.tinkers_advanced.ultra_dense_book2": "-팅커스 어드벤스드 가이드 북-",
+
+
+  "entity_ticker.tinkers_advanced.ionized": "이온화",
+  "entity_ticker.tinkers_advanced.sculk_marked": "스컬크 표식"
+}

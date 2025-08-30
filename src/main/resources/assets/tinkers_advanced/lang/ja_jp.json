@@ -1,0 +1,575 @@
+{
+  "itemGroup.tinkers_advanced.tiac_material": "Tinkers' Advanced 素材",
+  "itemGroup.tinkers_advanced.tiac_mixc": "Tinkers' Advanced その他",
+  "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced ブロック",
+  "itemGroup.tinkers_advanced.tiac_tool": "Tinkers' Advanced ツールとパーツ",
+  "itemGroup.tinkers_advanced.tiac_misc": "Tinkers' Advanced その他",
+
+  "modifier.tinkers_advanced.fragile": "脆化",
+  "modifier.tinkers_advanced.fragile.flavor": "脆い素材は長持ちしない。",
+  "modifier.tinkers_advanced.fragile.description": "レベル毎に、ダメージを受けた際に追加で耐久値を1消費する確率が10%増加する。",
+
+  "modifier.tinkers_advanced.tetanus": "破傷風",
+  "modifier.tinkers_advanced.tetanus.flavor": "敵の体内に金属片を残す。",
+  "modifier.tinkers_advanced.tetanus.description": "敵に破傷風の効果を与える。\n防御力をわずかに低下させ、被ダメージを20%増加させる。",
+
+  "modifier.tinkers_advanced.sculk_resonance": "スカルク共振",
+  "modifier.tinkers_advanced.sculk_resonance.flavor": "*ブーンというハミング音…",
+  "modifier.tinkers_advanced.sculk_resonance.description": "与えたダメージをソニックブームに変換する。",
+
+  "modifier.tinkers_advanced.auto_shot": "オートショット",
+  "modifier.tinkers_advanced.auto_shot.flavor": "自動発射",
+  "modifier.tinkers_advanced.auto_shot.description": "フルチャージ時に自動で矢を放つ。",
+
+  "modifier.tinkers_advanced.annihilate": "対消滅",
+  "modifier.tinkers_advanced.annihilate.flavor": "塵すら残さない。",
+  "modifier.tinkers_advanced.annihilate.description": "範囲内の自身とターゲットの両方に爆発ダメージを与える。\nこの攻撃はバニラのほとんどの防御手段を貫通する。",
+
+  "modifier.tinkers_advanced.reactive_explosive_armor": "反応装甲",
+  "modifier.tinkers_advanced.reactive_explosive_armor.flavor": "爆発反応装甲",
+  "modifier.tinkers_advanced.reactive_explosive_armor.description": "被ダメージの25%を無効化し、爆発として放出する。爆発と炎への耐性を得る。",
+
+  "modifier.tinkers_advanced.atom_grade": "原子級技術",
+  "modifier.tinkers_advanced.atom_grade.flavor": "それでも人間の脳よりは単純だ。",
+  "modifier.tinkers_advanced.atom_grade.description": "ツールの種類に応じて、防御スロットまたは強化スロットを1つ追加する。",
+
+  "modifier.tinkers_advanced.edging_technology": "最先端技術",
+  "modifier.tinkers_advanced.edging_technology.flavor": "これ以上にエキゾチックなものはない。",
+  "modifier.tinkers_advanced.edging_technology.description": "ツールに強化スロットとアビリティスロットを1つずつ追加する。",
+
+  "modifier.tinkers_advanced.quantum_technology": "量子技術",
+  "modifier.tinkers_advanced.quantum_technology.flavor": "中身は量子。",
+  "modifier.tinkers_advanced.quantum_technology.description": "ツールに強化スロットとアビリティスロットを1つずつ追加する。",
+
+  "modifier.tinkers_advanced.deep_catalysis": "深部触媒",
+  "modifier.tinkers_advanced.deep_catalysis.flavor": "環境に優しい。",
+  "modifier.tinkers_advanced.deep_catalysis.description": "レベル毎に液体の消費量を10%削減する。",
+
+  "modifier.tinkers_advanced.focusing_array": "集束アレイ",
+  "modifier.tinkers_advanced.focusing_array.flavor": "君の家のパラボラアンテナみたいなものだ。",
+  "modifier.tinkers_advanced.focusing_array.description": "レベル毎に液体効果の範囲を100%増加させる。",
+
+  "modifier.tinkers_advanced.resonance_amplifier": "共振増幅器",
+  "modifier.tinkers_advanced.resonance_amplifier.flavor": "定在波でどうやって距離を測るんだ？",
+  "modifier.tinkers_advanced.resonance_amplifier.description": "レベル毎に範囲が10m増加する。",
+
+  "modifier.tinkers_advanced.radioactive_armor": "放射性装甲",
+  "modifier.tinkers_advanced.radioactive_armor.flavor": "鉛のパンツを履いたことはあるかい？",
+  "modifier.tinkers_advanced.radioactive_armor.description": "攻撃者に放射線効果を与え、放射線を帯びた攻撃者からのダメージを軽減する。\nレベル毎に放射線耐性が25%上昇する。",
+
+  "modifier.tinkers_advanced.air_slash": "エアスラッシュ",
+  "modifier.tinkers_advanced.air_slash.flavor": "圧縮空気の射出。",
+  "modifier.tinkers_advanced.air_slash.description": "メインハンドで振ると強力な斬撃を放つ。空気を消費する。",
+
+  "modifier.tinkers_advanced.aerial_protection": "空中保護",
+  "modifier.tinkers_advanced.aerial_protection.flavor": "気体の盾。",
+  "modifier.tinkers_advanced.aerial_protection.description": "5ダメージを防ぎ、5を超えるダメージを10%軽減する。空気を消費する。",
+
+  "modifier.tinkers_advanced.sensor_interrupt": "視覚妨害",
+  "modifier.tinkers_advanced.sensor_interrupt.flavor": "光跡の歪み。",
+  "modifier.tinkers_advanced.sensor_interrupt.description": "敵対的なMobから見つかりにくくなる。",
+
+  "modifier.tinkers_advanced.metamorphium": "メタモルフィウム",
+  "modifier.tinkers_advanced.metamorphium.flavor": "再形成中…",
+  "modifier.tinkers_advanced.metamorphium.description": "ツールが受ける全てのダメージが、その強度を増加させる。",
+
+  "modifier.tinkers_advanced.basalz_defense": "バサルツ防御",
+  "modifier.tinkers_advanced.basalz_defense.flavor": "岩のように固い。",
+  "modifier.tinkers_advanced.basalz_defense.description": "ダメージをわずかに増加させ、爆発耐性を得る。",
+
+  "modifier.tinkers_advanced.basalz_inflict": "破砕",
+  "modifier.tinkers_advanced.basalz_inflict.flavor": "砕け散る。",
+  "modifier.tinkers_advanced.basalz_inflict.description": "攻撃命中時、破砕効果を与える。",
+
+  "modifier.tinkers_advanced.blitz_defense": "ブリッツ防御",
+  "modifier.tinkers_advanced.blitz_defense.flavor": "稲妻のように素早く。",
+  "modifier.tinkers_advanced.blitz_defense.description": "電撃耐性を得る。5%の確率でダメージを無効化し、攻撃者に電撃を与える。",
+
+  "modifier.tinkers_advanced.blitz_inflict": "感電",
+  "modifier.tinkers_advanced.blitz_inflict.flavor": "「衝撃的」だろ？",
+  "modifier.tinkers_advanced.blitz_inflict.description": "範囲内の他のターゲットに向かって稲妻を発生させる。",
+
+  "modifier.tinkers_advanced.blizz_inflict": "氷霜メッキ",
+  "modifier.tinkers_advanced.blizz_inflict.flavor": "自己冷却する。熱力学の第一法則はどうした？",
+  "modifier.tinkers_advanced.blizz_inflict.description": "攻撃命中時、ターゲットを凍結させる。炎上している敵には2倍のダメージを与える。",
+
+  "modifier.tinkers_advanced.blizz_defense": "ブリズ防御",
+  "modifier.tinkers_advanced.blizz_defense.flavor": "窒素処理。",
+  "modifier.tinkers_advanced.blizz_defense.description": "氷結耐性を得る。攻撃者を凍結させる。",
+
+  "modifier.tinkers_advanced.over_hold": "過積載",
+  "modifier.tinkers_advanced.over_hold.flavor": "これは良くない。",
+  "modifier.tinkers_advanced.over_hold.description": "液体容量+900%。",
+
+  "modifier.tinkers_advanced.flame_adaptive": "炎順応",
+  "modifier.tinkers_advanced.flame_adaptive.flavor": "炎に飢えている。",
+  "modifier.tinkers_advanced.flame_adaptive.description": "装備時、火炎耐性を得る。プレイヤーが炎上している間、ゆっくりと耐久値が回復する。",
+
+  "modifier.tinkers_advanced.flux_infused": "フラックス注入",
+  "modifier.tinkers_advanced.flux_infused.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.flux_infused.description": "レベル毎にエネルギー貯蔵量が+1MFE。CoFHのモード切替キーでモードを切り替える。",
+
+  "modifier.tinkers_advanced.thermal_enhance": "サーマル強化",
+  "modifier.tinkers_advanced.thermal_enhance.flavor": "属性強化ツール！",
+  "modifier.tinkers_advanced.thermal_enhance.description": "バサルツ防御、破砕、ブリッツ防御、感電、氷霜メッキ、ブリズ防御、炎順応の全ての効果を得る。",
+
+  "modifier.tinkers_advanced.flux_arrow": "フラックスアロー",
+  "modifier.tinkers_advanced.flux_arrow.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.flux_arrow.description": "「有効」モードではエネルギーを消費して矢を生成する。「強化」モードではポーションの矢を生成でき、矢が命中時に爆発する。",
+
+  "modifier.tinkers_advanced.thermal_slash": "フラックススラッシュ",
+  "modifier.tinkers_advanced.thermal_slash.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.thermal_slash.description": "幸運とドロップ増加レベル+1。「有効」モードではエネルギーを消費して採掘速度を上げ、攻撃時に追加で4ダメージを与える。「強化」モードでは振る時に属性の斬撃を放つ。",
+
+  "modifier.tinkers_advanced.flux_defense": "フラックスシールド",
+  "modifier.tinkers_advanced.flux_defense.flavor": "Powered by Team CoFH.",
+  "modifier.tinkers_advanced.flux_defense.description": "「有効」モードでは5%の確率でダメージを無効化する。「強化」モードではエネルギーを消費して最大20%のダメージを無効化する。",
+
+  "modifier.tinkers_advanced.supreme_density": "超高密度",
+  "modifier.tinkers_advanced.supreme_density.flavor": "もう少しでブラックホールに崩壊するところだった。",
+  "modifier.tinkers_advanced.supreme_density.description": "ほとんどの近接および遠距離攻撃の強化効果を増強する。",
+
+  "modifier.tinkers_advanced.supreme_density_armor": "超高密度",
+  "modifier.tinkers_advanced.supreme_density_armor.flavor": "もう少しでブラックホールに崩壊するところだった。",
+  "modifier.tinkers_advanced.supreme_density_armor.description": "ほとんどの防具の強化効果を増強する。",
+
+  "modifier.tinkers_advanced.ionized": "イオン化",
+  "modifier.tinkers_advanced.ionized.flavor": "全てをイオンに分解する。",
+  "modifier.tinkers_advanced.ionized.description": "イオン化効果を与え、ダメージとステータス低下を引き起こす。",
+
+  "modifier.tinkers_advanced.disintegrate": "分解",
+  "modifier.tinkers_advanced.disintegrate.flavor": "全てを破壊する。",
+  "modifier.tinkers_advanced.disintegrate.description": "継続して採掘すると、採掘速度と耐久値の消費が増加する。",
+
+  "modifier.tinkers_advanced.electric": "エレクトリック",
+  "modifier.tinkers_advanced.electric.flavor": "静電気放電！",
+  "modifier.tinkers_advanced.electric.description": "攻撃時に電撃を召喚する。",
+
+  "modifier.tinkers_advanced.echo_locating": "反響定位",
+  "modifier.tinkers_advanced.echo_locating.flavor": "邪魔するな…",
+  "modifier.tinkers_advanced.echo_locating.description": "ツールが振動を検知し、その原因となったMobをマークする。マークされたMobを攻撃すると、追加の音波ダメージを与える。",
+
+  "modifier.tinkers_advanced.elastic": "弾性",
+  "modifier.tinkers_advanced.elastic.flavor": "柔らかいことが常に悪いとは限らない。",
+  "modifier.tinkers_advanced.elastic.description": "ツールがダメージを受けた際、確率でダメージを受ける代わりに耐久値が回復する。",
+
+  "modifier.tinkers_advanced.shaping": "成形",
+  "modifier.tinkers_advanced.shaping.flavor": "変化を求めて彫り続ける。",
+  "modifier.tinkers_advanced.shaping.description": "ツールが何度もダメージを受けると、強化スロット（防具の場合は防御スロット）が追加される。",
+
+  "modifier.tinkers_advanced.radiation_burning": "放射線燃焼",
+  "modifier.tinkers_advanced.radiation_burning.flavor": "危険な量の電離放射線。",
+  "modifier.tinkers_advanced.radiation_burning.description": "ターゲットに放射線効果を与える。放射線を帯びたターゲットを攻撃するとダメージが増加する。",
+
+  "modifier.tinkers_advanced.proto_refining": "プロト精製",
+  "modifier.tinkers_advanced.proto_refining.flavor": "プロト汚染物質による精製。",
+  "modifier.tinkers_advanced.proto_refining.description": "継続して採掘または攻撃すると、より高いレベルの幸運とドロップ増加を得る。",
+
+  "modifier.tinkers_advanced.proto_defense": "プロトエネルギーパック",
+  "modifier.tinkers_advanced.proto_defense.flavor": "エネルギーを必要としないエネルギーパック。",
+  "modifier.tinkers_advanced.proto_defense.description": "デバフへの耐性を得る。チェストプレートとして装備すると、採掘速度上昇、跳躍力上昇、移動速度上昇の効果を得る。",
+
+  "modifier.tinkers_advanced.return_to_slime": "スライム還元",
+  "modifier.tinkers_advanced.return_to_slime.flavor": "分析と捕食。",
+  "modifier.tinkers_advanced.return_to_slime.description": "採掘またはMobを倒すとオーバースライムを得る。量はドロップアイテムの数によって決まる。",
+
+  "modifier.tinkers_advanced.nutritive_slime": "栄養スライム",
+  "modifier.tinkers_advanced.nutritive_slime.flavor": "でも、美味しくはない…",
+  "modifier.tinkers_advanced.nutritive_slime.description": "装備時、オーバースライムを消費して満腹度を回復する。",
+
+  "modifier.tinkers_advanced.ender_tuner": "エンダーチューニング",
+  "modifier.tinkers_advanced.ender_tuner.flavor": "調整可能な装備。",
+  "modifier.tinkers_advanced.ender_tuner.description": "エンダーフィアスを与え、50kFEのエネルギー貯蔵を可能にする。Shift+右クリックでメニューを開き、ツールを調整できる。",
+
+  "modifier.tinkers_advanced.combustion_generator": "燃焼発電モジュール",
+  "modifier.tinkers_advanced.combustion_generator.flavor": "全ての始まり。",
+  "modifier.tinkers_advanced.combustion_generator.description": "かまどの燃料を消費してエネルギーを生成できる。基本速度 +200 FE/t。",
+
+  "modifier.tinkers_advanced.overslime_generator": "オーバースライム発電機",
+  "modifier.tinkers_advanced.overslime_generator.flavor": "スライムは天然のイオン交換媒体だ。",
+  "modifier.tinkers_advanced.overslime_generator.description": "オーバースライムを消費してエネルギーを生成できる。基本速度 +250 FE/t、オーバースライム1個あたり5kFEを生成する。",
+
+  "modifier.tinkers_advanced.piezoelectric_effect": "圧電効果",
+  "modifier.tinkers_advanced.piezoelectric_effect.flavor": "結晶変形の兆候。",
+  "modifier.tinkers_advanced.piezoelectric_effect.description": "ターゲットに命中するとエネルギーを生成する。基本速度 +100FE/t、1ダメージあたり10FEを生成する。",
+
+  "modifier.tinkers_advanced.electric_food": "電気食品",
+  "modifier.tinkers_advanced.electric_food.flavor": "電気で直接動けるようになる。",
+  "modifier.tinkers_advanced.electric_food.description": "エネルギーを消費して満腹度を回復する。基本速度 +100FE/t、満腹度1ポイントあたり25kFEを必要とする。",
+
+  "modifier.tinkers_advanced.platinoid_catalyst": "白金族触媒",
+  "modifier.tinkers_advanced.platinoid_catalyst.flavor": "高価な触媒。",
+  "modifier.tinkers_advanced.platinoid_catalyst.description": "エネルギーの生成/消費速度を増加させるが、生成量は減少し、消費量は増加する。レベル毎に25%。",
+
+  "modifier.tinkers_advanced.transition_catalyst": "遷移金属触媒",
+  "modifier.tinkers_advanced.transition_catalyst.flavor": "一般的な触媒。",
+  "modifier.tinkers_advanced.transition_catalyst.description": "エネルギー生成量を増加させるか、消費量を減少させる。レベル毎に25%。",
+
+  "modifier.tinkers_advanced.smeltery_generator": "製錬炉発電機",
+  "modifier.tinkers_advanced.smeltery_generator.flavor": "加熱しろ！",
+  "modifier.tinkers_advanced.smeltery_generator.description": "製錬炉の燃料を消費してエネルギーを生成できる。基本速度 +250 FE/t、温度に影響される（溶岩 = 1倍）。",
+
+  "modifier.tinkers_advanced.unstable": "不安定",
+  "modifier.tinkers_advanced.unstable.flavor": "慎重に扱え！",
+  "modifier.tinkers_advanced.unstable.description": "攻撃ダメージ、採掘速度、耐久値の消費をランダム化する。",
+
+  "modifier.tinkers_advanced.plague": "疫病",
+  "modifier.tinkers_advanced.plague.flavor": "病原体。",
+  "modifier.tinkers_advanced.plague.description": "疫病効果を与え、ダメージを与え、体力回復を減少させる。",
+
+  "modifier.tinkers_advanced.poison_defense": "毒耐性",
+  "modifier.tinkers_advanced.poison_defense.flavor": "毒への耐性。",
+  "modifier.tinkers_advanced.poison_defense.description": "毒と衰弱への耐性を得る。",
+
+  "modifier.tinkers_advanced.extra_capacity": "追加容量",
+  "modifier.tinkers_advanced.extra_capacity.flavor": "公式 W=0.5CU² によれば、容量が大きいほど同じ電圧でより多くのエネルギーを蓄えられる。",
+  "modifier.tinkers_advanced.extra_capacity.description": "レベル毎に最大エネルギーが20%増加する。",
+
+  "modifier.tinkers_advanced.compressed_air_generator": "圧縮空気発電機",
+  "modifier.tinkers_advanced.compressed_air_generator.flavor": "dW=-d(pV)",
+  "modifier.tinkers_advanced.compressed_air_generator.description": "圧縮空気を消費してエネルギーを生成できる。基本速度 +圧力*50FE/t、変換効率は圧縮空気ダイナモと同等。",
+
+  "modifier.tinkers_advanced.swift_strike_ex": "スウィフトストライクEx",
+  "modifier.tinkers_advanced.swift_strike_ex.flavor": "速いやつ。",
+  "modifier.tinkers_advanced.swift_strike_ex.description": "レベル毎に攻撃速度+25%",
+
+  "modifier.tinkers_advanced.energy_bin": "エネルギーゴミ箱",
+  "modifier.tinkers_advanced.energy_bin.flavor": "エネルギーを溶岩に捨てられるかは定かではないが…",
+  "modifier.tinkers_advanced.energy_bin.description": "毎ティック、ツール内に保存されている全てのエネルギーを消去する。",
+
+  "modifier.tinkers_advanced.player_locating": "プレイヤー探知機",
+  "modifier.tinkers_advanced.player_locating.flavor": "しかし、何のために？",
+  "modifier.tinkers_advanced.player_locating.description": "インベントリに紙を持った状態で右クリックすると、あなたのIDをツールに保存する。",
+
+  "modifier.tinkers_advanced.energy_distributor": "エネルギー分配器",
+  "modifier.tinkers_advanced.energy_distributor.flavor": "まるでモバイルバッテリーだ。",
+  "modifier.tinkers_advanced.energy_distributor.description": "ホットバー、オフハンド、防具のアイテムにエネルギーを分配する。",
+
+  "modifier.tinkers_advanced.void_dodging": "ヴォイド回避",
+  "modifier.tinkers_advanced.void_dodging.flavor": "奴らを奈落へ送ってやれ！",
+  "modifier.tinkers_advanced.void_dodging.description": "確率で飛来する矢を回避し、破壊する。",
+
+  "material.tinkers_advanced.bismuth": "ビスマス",
+  "material.tinkers_advanced.bismuth.flavor": "ビスマスはその結晶の美しい形で知られている。",
+  "material.tinkers_advanced.bismuth.encyclopedia": "破傷風のレベル毎に防御力を2低下させる。",
+  "material.tinkers_advanced.bismuth.ranged": "破傷風のレベル毎に防御力を2低下させる。",
+  "material.tinkers_advanced.bismuth.armor": "破傷風のレベル毎に防御力を2低下させる。",
+
+  "material.tinkers_advanced.bismuthinite": "輝蒼鉛鉱",
+  "material.tinkers_advanced.bismuthinite.flavor": "自然界におけるビスマス鉱石の基本的な形。",
+  "material.tinkers_advanced.bismuthinite.encyclopedia": "耐久値が最大の時、ダメージが20%増減する。",
+  "material.tinkers_advanced.bismuthinite.ranged": "耐久値が最大の時、ダメージが10%増減する。",
+  "material.tinkers_advanced.bismuthinite.armor": "ダメージが5未満の場合20%軽減し、それ以上の場合は10%増加させる（防御値計算後）。",
+
+  "material.tinkers_advanced.certus_quartz": "サータスクォーツ",
+  "material.tinkers_advanced.certus_quartz.flavor": "宇宙から来た神秘的な白い結晶。",
+  "material.tinkers_advanced.certus_quartz.encyclopedia": "耐久値が最大の時、ダメージが20%増減する。",
+  "material.tinkers_advanced.certus_quartz.ranged": "耐久値が最大の時、ダメージが10%増減する。",
+  "material.tinkers_advanced.certus_quartz.armor": "ダメージが5未満の場合20%軽減し、それ以上の場合は10%増加させる（防御値計算後）。",
+
+  "material.tinkers_advanced.fluix_crystal": "フルーシュクリスタル",
+  "material.tinkers_advanced.fluix_crystal.flavor": "人工の結晶。",
+  "material.tinkers_advanced.fluix_crystal.encyclopedia": "3 + 強化レベル分の魔法ダメージを与える。耐久値が1失われる毎に25AEを消費して修復する。強化レベルが高いほど修復が速い。",
+  "material.tinkers_advanced.fluix_crystal.ranged": "3 + 強化レベル分の魔法ダメージを与える。耐久値が1失われる毎に25AEを消費して修復する。強化レベルが高いほど修復が速い。",
+  "material.tinkers_advanced.fluix_crystal.armor": "3 + 強化レベル分の魔法ダメージを与える。耐久値が1失われる毎に25AEを消費して修復する。強化レベルが高いほど修復が速い。",
+
+  "material.tinkers_advanced.alloy_atomic": "アトミック合金",
+  "material.tinkers_advanced.alloy_atomic.flavor": "原子級の技術。",
+
+  "material.tinkers_advanced.antimatter": "反物質",
+  "material.tinkers_advanced.antimatter.flavor": "反物質が安全に製錬炉に入れられるのを見るのは面白い。",
+
+  "material.tinkers_advanced.refined_obsidian": "精錬黒曜石",
+  "material.tinkers_advanced.refined_obsidian.flavor": "高密度、高強度、高耐久。",
+  "material.tinkers_advanced.refined_obsidian.encyclopedia": "使用時、レベル毎に攻撃速度が5%上昇し、最大で50%まで上昇する。",
+
+  "material.tinkers_advanced.refined_glowstone": "精錬グロウストーン",
+  "material.tinkers_advanced.refined_glowstone.flavor": "輝く宝物。",
+
+  "material.tinkers_advanced.irradium": "イラジウム",
+  "material.tinkers_advanced.irradium.flavor": "硬くて放射性。敵にいたずらするには最高の素材だ！",
+  "material.tinkers_advanced.irradium.encyclopedia": "放射線1Sv毎にダメージが5%増加する。最大75%。",
+  "material.tinkers_advanced.irradium.ranged": "放射線1Sv毎にダメージが5%増加する。最大75%。",
+  "material.tinkers_advanced.irradium.armor": "放射線1Sv毎にダメージが5%減少する。最大75%。",
+
+  "material.tinkers_advanced.pneumatic_steel": "ニューマチックスチール",
+  "material.tinkers_advanced.pneumatic_steel.flavor": "複合相材料。急速冷却により強化されている。",
+  "material.tinkers_advanced.pneumatic_steel.encyclopedia": "一回の斬撃に100mLの空気を必要とする。",
+  "material.tinkers_advanced.pneumatic_steel.armor": "1ダメージ毎に100mLの空気を消費する。",
+
+  "material.tinkers_advanced.basalz_signalum": "バサルツシグナリウム",
+  "material.tinkers_advanced.basalz_signalum.flavor": "大地と密接な関係を持つ魔法の素材。",
+  "material.tinkers_advanced.basalz_signalum.encyclopedia": "破砕効果はレベル毎に防御力を25%低下させる。",
+  "material.tinkers_advanced.basalz_signalum.ranged": "破砕効果はレベル毎に防御力を25%低下させる。",
+  "material.tinkers_advanced.basalz_signalum.armor": "探知範囲がレベル毎に5減少する。",
+
+  "material.tinkers_advanced.blitz_lumium": "ブリッツルミニウム",
+  "material.tinkers_advanced.blitz_lumium.flavor": "絶えず電気パルスを発する輝く素材。",
+  "material.tinkers_advanced.blitz_lumium.encyclopedia": "感電効果はレベル毎にダメージを3減少させる。電撃は2+0.5*レベルのダメージを与える。",
+  "material.tinkers_advanced.blitz_lumium.ranged": "感電効果はレベル毎にダメージを3減少させる。電撃は2+0.5*レベルのダメージを与える。",
+
+  "material.tinkers_advanced.blizz_enderium": "ブリズエンデリウム",
+  "material.tinkers_advanced.blizz_enderium.flavor": "見た目は冷たく、触れると凍える。",
+  "material.tinkers_advanced.blizz_enderium.encyclopedia": "ツールがダメージを受ける毎に、10%の確率でほとんどのステータスが増加する。最大増幅率は25%。",
+  "material.tinkers_advanced.blizz_enderium.armor": "ツールがダメージを受ける毎に、10%の確率でほとんどのステータスが増加する。最大増幅率は25%。",
+  "material.tinkers_advanced.blizz_enderium.ranged": "ツールがダメージを受ける毎に、10%の確率でほとんどのステータスが増加する。最大増幅率は25%。",
+
+  "material.tinkers_advanced.blaze_netherite": "ブレイズネザライト",
+  "material.tinkers_advanced.blaze_netherite.flavor": "熱すると自己修復する、地獄のように熱い金属。",
+
+  "material.tinkers_advanced.activated_chromatic_steel": "活性化クロマチックスチール",
+  "material.tinkers_advanced.activated_chromatic_steel.activated": "活性化クロマチックスチール",
+  "material.tinkers_advanced.activated_chromatic_steel.empowered": "活性化クロマチックスチール",
+  "material.tinkers_advanced.activated_chromatic_steel.flavor": "魔法の金属と元素エネルギーから作られた、非常に反応性の高い合金。",
+  "material.tinkers_advanced.activated_chromatic_steel.encyclopedia": "耐久値が1失われる毎に500FEを消費する。「有効」時：採掘速度+100%（100FE消費）、攻撃時に250FE消費。「強化」時：500FEを消費して斬撃を生成。",
+  "material.tinkers_advanced.activated_chromatic_steel.ranged": "耐久値が1失われる毎に500FEを消費する。「有効」時：500FEを消費して矢を生成し、矢のダメージを1増加させる。「強化」時：矢の爆発に追加で1000FEを消費。",
+  "material.tinkers_advanced.activated_chromatic_steel.armor": "耐久値が1失われる毎に500FEを消費する。「有効」時：ブロック毎に20kFE消費。「強化」時：ダメージを無効化するのに2kFE消費。",
+
+  "material.tinkers_advanced.iridium": "イリジウム",
+  "material.tinkers_advanced.iridium.flavor": "化学反応性が極めて低い、非常に希少な金属。",
+
+  "material.tinkers_advanced.densium": "デンシウム",
+  "material.tinkers_advanced.densium.flavor": "デンシウムはとても高密度。",
+
+  "material.tinkers_advanced.neutronite": "ニュートロニウム",
+  "material.tinkers_advanced.neutronite.flavor": "中性子星から来た物質の塊。",
+
+  "material.tinkers_advanced.osgloglas": "オスグログラス",
+  "material.tinkers_advanced.osgloglas.flavor": "過去への一瞥。",
+
+  "material.tinkers_advanced.silicon": "シリコン",
+  "material.tinkers_advanced.diamond": "ダイヤモンド",
+
+  "material.tinkers_advanced.plastic": "プラスチック",
+  "material.tinkers_advanced.plastic.flavor": "現代技術からの贈り物。",
+
+  "material.tinkers_advanced.resonance_crystal": "共振クリスタル",
+  "material.tinkers_advanced.resonance_crystal.flavor": "ウォーデン™入ってる",
+
+  "material.tinkers_advanced.voltaic_crystal": "ボルタクリスタル",
+  "material.tinkers_advanced.voltaic_crystal.flavor": "あなたを感電させる電気素材。",
+
+  "material.tinkers_advanced.protocite": "プロトサイト",
+  "material.tinkers_advanced.protocite.flavor": "異世界の毒を含んでいる。",
+  "material.tinkers_advanced.protocite.encyclopedia": "5回の採掘または攻撃の後、幸運とドロップ増加レベルを3付与する。最大で3 * 特性レベルまで。",
+
+  "material.tinkers_advanced.compressed_iron": "圧縮鉄",
+  "material.tinkers_advanced.compressed_iron.flavor": "圧縮鉄は、圧縮された鉄である。",
+
+  "material.tinkers_advanced.pink_slime_metal": "ピンクスライムメタル",
+  "material.tinkers_advanced.pink_slime_metal.flavor": "ピンキーを思い出す。",
+
+  "material.tinkers_advanced.nutritive_slime": "栄養スライムスチール",
+  "material.tinkers_advanced.nutritive_slime.flavor": "重金属を一切含まず、安全に食べられる。",
+
+  "material.tinkers_advanced.antimony": "アンチモン",
+  "material.tinkers_advanced.antimony.flavor": "心配ご無用、あなたのお金を消し去ったりはしない。",
+
+  "material.tinkers_advanced.stibnite": "輝安鉱",
+  "material.tinkers_advanced.stibnite.flavor": "爆発性のネザー鉱石、どこかで聞いたような…",
+
+  "material.tinkers_advanced.void_steel": "ヴォイドスチール",
+  "material.tinkers_advanced.void_steel.flavor": "転送能力を持つ。",
+  "material.tinkers_advanced.void_steel.encyclopedia": "ツールがダメージを受ける毎に、10%の確率でほとんどのステータスが増加する。最大増幅率は25%。",
+  "material.tinkers_advanced.void_steel.armor": "ツールがダメージを受ける毎に、10%の確率でほとんどのステータスが増加する。最大増幅率は25%。25%の確率で矢を回避する。",
+  "material.tinkers_advanced.void_steel.ranged": "ツールがダメージを受ける毎に、10%の確率でほとんどのステータスが増加する。最大増幅率は25%。",
+
+  "item.tinkers_advanced.bismuth_ingot": "ビスマスのインゴット",
+  "item.tinkers_advanced.bismuthinite": "輝蒼鉛鉱",
+  "item.tinkers_advanced.irradium_ingot": "イラジウムペレット",
+  "item.tinkers_advanced.hot_reinforced_steel": "過熱強化鋼",
+  "item.tinkers_advanced.penumatic_reinforced_steel": "ニューマチック強化鋼",
+  "item.tinkers_advanced.basalz_signalum": "バサルツシグナリウム",
+  "item.tinkers_advanced.blitz_lumium": "ブリッツルミニウム",
+  "item.tinkers_advanced.blizz_enderium": "ブリズエンデリウム",
+  "item.tinkers_advanced.disintegrate_crystal": "分解クリスタル",
+  "item.tinkers_advanced.activated_chromatic_steel": "活性化クロマチックスチールプレート",
+  "item.tinkers_advanced.blaze_netherite": "ブレイズネザライト",
+  "item.tinkers_advanced.iridium_chunk": "イリジウムの塊",
+  "item.tinkers_advanced.densium_ingot": "デンシウムのインゴット",
+  "item.tinkers_advanced.neutronite_ingot": "ニュートロニウムのインゴット",
+  "item.tinkers_advanced.osgloglas_ingot": "オスグログラスのインゴット",
+  "item.tinkers_advanced.resonance_crystal": "共振クリスタル",
+  "item.tinkers_advanced.voltaic_crystal": "ボルタクリスタル",
+  "item.tinkers_advanced.protocite_pellet": "プロトサイトペレット",
+  "item.tinkers_advanced.nutrition_slime_ingot": "栄養スライムスチールのインゴット",
+  "item.tinkers_advanced.antimony_ingot": "アンチモンのインゴット",
+  "item.tinkers_advanced.stibnite": "輝安鉱",
+  "item.tinkers_advanced.blitz_lumium_nugget": "ブリッツルミニウムの粒",
+  "item.tinkers_advanced.antimony_nugget": "アンチモンの粒",
+  "item.tinkers_advanced.bismuth_nugget": "ビスマスの粒",
+  "item.tinkers_advanced.ultra_dense_book": "超高密度の本",
+
+  "block.tinkers_advanced.iridium_lean_ore": "イリジウム貧鉱石",
+  "block.tinkers_advanced.bismuthinite_ore": "輝蒼鉛鉱石",
+  "block.tinkers_advanced.stibnite_ore": "輝安鉱石",
+  "block.tinkers_advanced.exchanger": "アトム交換機",
+
+  "fluid.tinkers_advanced.molten_bismuth": "溶融ビスマス",
+  "item.tinkers_advanced.molten_bismuth_bucket": "溶融ビスマスのバケツ",
+  "fluid.tinkers_advanced.molten_bismuth.fluid_effect": "防御力を低下させ、被ダメージを増加させる。",
+
+  "fluid.tinkers_advanced.molten_antimony": "溶融アンチモン",
+  "item.tinkers_advanced.molten_antimony_bucket": "溶融アンチモンのバケツ",
+  "fluid.tinkers_advanced.molten_antimony.fluid_effect": "なぜこれほど重い金属が疫病と結びつくのか、誰にも分からない。",
+
+  "fluid.tinkers_advanced.molten_antimatter": "溶融反物質",
+  "item.tinkers_advanced.molten_antimatter_bucket": "溶融反物質のバケツ",
+  "fluid.tinkers_advanced.molten_antimatter.fluid_effect": "反物質は非常に爆発しやすい。こぼさないように！",
+
+  "fluid.tinkers_advanced.molten_irradium": "溶融イラジウム",
+  "item.tinkers_advanced.molten_irradium_bucket": "溶融イラジウムのバケツ",
+  "fluid.tinkers_advanced.molten_irradium.fluid_effect": "放射性の液体。",
+
+  "fluid.tinkers_advanced.molten_basalz_signalum": "溶融バサルツシグナリウム",
+  "item.tinkers_advanced.molten_basalz_signalum_bucket": "溶融バサルツシグナリウムのバケツ",
+  "fluid.tinkers_advanced.molten_basalz_signalum.fluid_effect": "バサルツシグナリウムは敵の装甲を貫通するのに最適な液体だ。採掘にも向いている。",
+
+  "fluid.tinkers_advanced.molten_biltz_lumium": "溶融ブリッツルミニウム",
+  "item.tinkers_advanced.molten_biltz_lumium_bucket": "溶融ブリッツルミニウムのバケツ",
+  "fluid.tinkers_advanced.molten_biltz_lumium.fluid_effect": "ブリッツルミニウムは敵を無力化し、ダメージを軽減することができる。",
+
+  "fluid.tinkers_advanced.molten_blizz_enderium": "溶融ブリズエンデリウム",
+  "item.tinkers_advanced.molten_blizz_enderium_bucket": "溶融ブリズエンデリウムのバケツ",
+  "fluid.tinkers_advanced.molten_blizz_enderium.fluid_effect": "ブリズエンデリウムは極低温で、ターゲットを凍結させることができる。",
+
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel": "溶融活性化クロマチックスチール",
+  "item.tinkers_advanced.molten_activated_chromatic_steel_bucket": "溶融活性化クロマチックスチールのバケツ",
+  "fluid.tinkers_advanced.molten_activated_chromatic_steel.fluid_effect": "万物の元素の液体。非常に反応性が高く、攻撃的。",
+
+  "fluid.tinkers_advanced.pyrotheum": "パイロセウム",
+  "item.tinkers_advanced.pyrotheum_bucket": "パイロセウムのバケツ",
+  "fluid.tinkers_advanced.pyrotheum.fluid_effect": "パイロジェンの具現化した姿。最も「ホット」な話題の一つ。",
+
+  "fluid.tinkers_advanced.molten_blaze_netherite": "溶融ブレイズネザライト",
+  "item.tinkers_advanced.molten_blaze_netherite_bucket": "溶融ブレイズネザライトのバケツ",
+
+  "fluid.tinkers_advanced.molten_iridium": "溶融イリジウム",
+  "item.tinkers_advanced.molten_iridium_bucket": "溶融イリジウムのバケツ",
+
+  "fluid.tinkers_advanced.over_heated_lava": "過熱溶岩",
+  "item.tinkers_advanced.over_heated_lava_bucket": "過熱溶岩のバケツ",
+  "fluid.tinkers_advanced.over_heated_lava.fluid_effect": "この超高温の液体は、エンティティに火属性ダメージを与える。",
+
+  "fluid.tinkers_advanced.gaseous_lava": "ガス状溶岩",
+  "item.tinkers_advanced.gaseous_lava_bucket": "ガス状溶岩のバケツ",
+  "fluid.tinkers_advanced.gaseous_lava.fluid_effect": "高温ほど高ダメージ、実に合理的だ！",
+
+  "fluid.tinkers_advanced.plasmatic_lava": "イオン化溶岩",
+  "item.tinkers_advanced.plasmatic_lava_bucket": "イオン化溶岩のバケツ",
+  "fluid.tinkers_advanced.plasmatic_lava.fluid_effect": "どうやってこれを作ったんだ？",
+
+  "fluid.tinkers_advanced.molten_densium": "溶融デンシウム",
+  "item.tinkers_advanced.molten_densium_bucket": "溶融デンシウムのバケツ",
+
+  "fluid.tinkers_advanced.molten_neutronite": "流動ニュートロニウム",
+  "item.tinkers_advanced.molten_neutronite_bucket": "流動ニュートロニウムのバケツ",
+  "fluid.tinkers_advanced.molten_neutronite.fluid_effect": "液体状のニュートロニウムは、ターゲットを瞬時に素粒子レベルまで分解する。",
+
+  "fluid.tinkers_advanced.molten_osgloglas": "溶融オスグログラス",
+  "item.tinkers_advanced.molten_osgloglas_bucket": "溶融オスグログラスのバケツ",
+
+  "material.tinkers_advanced.disintegrate_crystal": "分解クリスタル",
+  "material.tinkers_advanced.disintegrate_crystal.flavor": "破壊的なエネルギーを放射する、高エネルギー物質。",
+
+  "fluid.tinkers_advanced.molten_protocite": "溶融プロトサイト",
+  "item.tinkers_advanced.molten_protocite_bucket": "溶融プロトサイトのバケツ",
+  "fluid.tinkers_advanced.molten_protocite.fluid_effect": "プロト汚染はターゲットの最大体力を25%恒久的に減少させ、効果時間中はレベル毎に体力回復を20%低下させる。",
+
+  "fluid.tinkers_advanced.molten_nutritive_slime": "溶融栄養スライムスチール",
+  "item.tinkers_advanced.molten_nutritive_slime_bucket": "溶融栄養スライムスチールのバケツ",
+
+  "fluid.tinkers_advanced.molten_pink_slime": "溶融ピンクスライム",
+  "item.tinkers_advanced.molten_pink_slime_bucket": "溶融ピンクスライムのバケツ",
+
+  "fluid.tinkers_advanced.molten_void_steel": "溶融ヴォイドスチール",
+  "item.tinkers_advanced.molten_void_steel_bucket": "溶融ヴォイドスチールのバケツ",
+
+  "effect.tinkers_advanced.tetanus": "破傷風",
+  "effect.tinkers_advanced.ionized": "イオン化",
+  "effect.tinkers_advanced.proto_poison": "プロト汚染",
+  "effect.tinkers_advanced.plague": "疫病",
+
+  "item.tinkers_advanced.ionize_chamber": "イオンチャンバー",
+  "item.tinkers_advanced.ionized_cannon": "イオンキャノン",
+  "item.tinkers_advanced.ionized_cannon.description": "イオンキャノンは液体を消費して攻撃する中距離近接武器。チャージ後に音波ダメージを与えるプラズマ光線を放つ。命中時、近くのターゲットに液体効果を与える（「こぼれる」強化と同様の効果）。",
+  "tooltip.tinkers_advanced.fluid_consumption": "液体消費量",
+  "tooltip.tinkers_advanced.range": "攻撃範囲",
+  "tooltip.tinkers_advanced.scale": "効果範囲",
+  "pattern.tinkers_advanced.ionize_chamber": "イオンチャンバー",
+
+  "item.tinkers_advanced.particle_container": "パーティクルコンテナ",
+  "item.tinkers_advanced.matter_manipulator": "マターマニピュレーター",
+  "item.tinkers_advanced.matter_manipulator.description": "マターマニピュレーターは効率的な採掘ツールで、使用時に採掘レーザーを発射する。ブロックを採掘するだけでなく、戦闘中にブロック効果を発揮することもできる。インベントリで右クリックしてモードを切り替える。",
+  "tooltip.tinkers_advanced.speed_addup": "採掘速度ブースト",
+  "tooltip.tinkers_advanced.expand_mining": "相互作用モード - 範囲 | 範囲: ",
+  "tooltip.tinkers_advanced.single_mining": "相互作用モード - 単体",
+  "tooltip.tinkers_advanced.mining_mode": "メインモード - 採掘",
+  "tooltip.tinkers_advanced.splashing_mode": "メインモード - 飛散",
+  "tooltip.tinkers_advanced.primary_mode_info": "ツールハンドルを持って右クリックでモード切替。",
+  "tooltip.tinkers_advanced.secondary_mode_info": "右クリックでモード切替。",
+  "pattern.tinkers_advanced.particle_container": "パーティクルコンテナ",
+
+  "item.tinkers_advanced.flux_core": "フラックスコア",
+  "stat.tinkers_advanced.flux_core": "フラックスコア",
+  "item.tinkers_advanced.electron_tuner": "エレクトロンチューナー",
+  "item.tinkers_advanced.electron_tuner.description": "エレクトロンチューナーは攻撃速度を調整できる近接武器。Shift+右クリックでGUIを開く。",
+  "tooltip.tinkers_advanced.energy": "最大エネルギー: ",
+  "tooltip.tinkers_advanced.power_multiplier": "出力倍率: ",
+  "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "基本容量に乗算される最大エネルギーの倍率。",
+  "tool_stat.tinkers_advanced.flux_core.generate_factor.description": "エネルギーモジュール特性の生成/消費率。",
+  "tool_stat.tinkers_advanced.capacity_factor": "最大エネルギー",
+  "tool_stat.tinkers_advanced.generate_factor": "出力倍率",
+  "tooltip.tinkers_advanced.energy_gen_remain": "エネルギー生成残量: ",
+  "tooltip.tinkers_advanced.energy_cost_remain": "エネルギー消費残量: ",
+  "tooltip.tinkers_advanced.disallow_insert": "エネルギー受け入れ無効。右クリックで有効化。",
+  "tooltip.tinkers_advanced.allow_insert": "エネルギー受け入れ有効。右クリックで無効化。",
+
+  "pattern.tinkers_advanced.ae2_circuit": "プリントプロセッサ",
+
+  "death.attack.plasma": "%1$sはイオンに分解された。",
+
+  "fluid_effect.tconstruct.damage.explosion": "%s 爆発ダメージ",
+  "fluid_effect.tconstruct.damage.mekanism.radiation": "%s 放射線ダメージ",
+
+  "msg.tinkers_advanced.flux_mode.thermal_slash.0": "鎮静",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.1": "有効",
+  "msg.tinkers_advanced.flux_mode.thermal_slash.2": "強化",
+  "msg.tinkers_advanced.global_traveler.container_bind": "コンテナが紐付けられました",
+
+  "tooltip.tinkers_advanced.material_story": "Shiftキーで詳細を表示…",
+
+  "tooltip.tinkers_advanced.material_banned": "この素材は入手不可能です！",
+
+  "info.tinkers_advanced.hidden_material": "隠された素材は通常の方法ではクラフトできません。そのためレシピが見つからないのです。Shiftキーを押しながら、与えられた謎を解く必要があります。Shiftキーが機能しない場合、その素材は入手が禁止されている可能性があり、二度と手に入れることはできません。残念 :(",
+
+  "tooltip.tinkers_advanced.hidden_material_mek": "% 隠し素材 - Mekanism %",
+  "tooltip.tinkers_advanced.neutronite_1": "中性子星は、超新星爆発の後に残された死んだ星の核である。",
+  "tooltip.tinkers_advanced.neutronite_2": "§b核融合§fは星の生命。§c鉄§fの形成は、星の終焉を意味する。",
+  "tooltip.tinkers_advanced.neutronite_3": "中性子星に着陸することは不可能だが、星を創り出すことは十分に可能だ。",
+
+  "tooltip.tinkers_advanced.stibnite_ore": "この鉱石を採掘する際は注意が必要だ…",
+  "tooltip.tinkers_advanced.found_in_nether": "ネザーで発見される。",
+  "tooltip.tinkers_advanced.found_in_overworld": "オーバーワールドで発見される。",
+  "tooltip.tinkers_advanced.found_in_end": "ジ・エンドで発見される。",
+
+  "tooltip.tinkers_advanced.exchanger1": "内部に設置されたツールと他のブロックとの相互作用を可能にする。",
+  "tooltip.tinkers_advanced.exchanger2": "エレクトロンチューナーのエネルギー生成を処理する。",
+  "tooltip.tinkers_advanced.exchanger3": "右クリックでツールを挿入、ツールハンドルを持って右クリックでエネルギー排出を切り替え。",
+
+  "tooltip.tinkers_advanced.modifiers.shaping": "現在のスロットボーナス:",
+
+  "info.tinkers_advanced.electron_tuner.rapier": "レイピアモード",
+  "info.tinkers_advanced.electron_tuner.sword": "ソードモード",
+  "info.tinkers_advanced.electron_tuner.cleaver": "クリーバーモード",
+
+  "info.tinkers_advanced.electron_tuner.rapier.bonus": "攻撃範囲+3、攻撃は防具を無視する。",
+  "info.tinkers_advanced.electron_tuner.sword.bonus": "振る時に範囲ダメージを与える（メインハンド）。",
+  "info.tinkers_advanced.electron_tuner.cleaver.bonus": "命中時に範囲ダメージを与え、首狩りレベル+3。",
+
+  "tooltip.tinkers_advanced.ultra_dense_book1": "超高密度の本か、それとも超高密度によって作られた本か？誰も知らない。",
+  "tooltip.tinkers_advanced.ultra_dense_book2": "- Tinkers' Advanced ガイドブック -",
+
+  "entity_ticker.tinkers_advanced.ionized": "イオン化",
+  "entity_ticker.tinkers_advanced.sculk_marked": "スカルクマーク"
+}

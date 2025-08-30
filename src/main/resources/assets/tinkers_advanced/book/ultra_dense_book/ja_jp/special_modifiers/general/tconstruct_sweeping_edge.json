@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tconstruct:sweeping_edge",
+  "text": [
+    {
+      "text": "「範囲攻撃」はエレクトロンチューナーが生み出す電撃のダメージを増加させます。"
+    },
+    {
+      "text": "レベル毎に+20%、最大で+60%（合計80%）まで。"
+    }
+  ],
+  "more_text_space": true,
+  "effects": []
+}

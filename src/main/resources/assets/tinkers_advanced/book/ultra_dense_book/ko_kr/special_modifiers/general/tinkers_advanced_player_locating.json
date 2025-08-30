@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tinkers_advanced:player_locating",
+  "text": [
+    {
+      "text": "플레이어의 UUID를 전자 조율기에 저장한 후, 원자 교환기 내부에서 발전 모듈을 가동합니다."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+  ]
+}
