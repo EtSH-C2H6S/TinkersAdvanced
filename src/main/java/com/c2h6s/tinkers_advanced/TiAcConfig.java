@@ -169,8 +169,8 @@ public class TiAcConfig {
             this.DISINTEGRATE_MAX_BONUS = builder.comment("Max bonus, 2000% by default.")
                     .comment("最大加成（单位为%），默认2000%。")
                     .defineInRange("disintegrate_max_bonus",2000,0,Integer.MAX_VALUE);
-            this.DISINTEGRATE_EACH_DECREASE = builder.comment("Bonus decrease each second, 5% by default.")
-                    .comment("每秒减少的加成（单位为%），默认5%。")
+            this.DISINTEGRATE_EACH_DECREASE = builder.comment("Clear bonus after ticks of stopping, 5s by default.")
+                    .comment("停止挖掘多久后清除加成，默认5秒。")
                     .defineInRange("disintegrate_each_decrease",5,0,Integer.MAX_VALUE);
             builder.comment("Void Dodging").comment("虚无闪避");
             this.VOID_DODGING_CHANCE = builder.comment("Chance for dodging arrow each level, 0.25 by default.")

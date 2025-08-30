@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced.util;
 
+import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -9,6 +10,7 @@ import java.util.UUID;
 
 public class CommonConstants {
     public static final UUID PROTO_POISON_UUID = UUID.fromString("18038687-2500-7a0c-ba0c-744c441ad40e");
+    public static final ResourceLocation KEY_LAST_TICK_1 = TinkersAdvanced.getLocation("last_tick_1");
 
     public static class Tags{
         private static TagKey<Item> forgeTag(String name){

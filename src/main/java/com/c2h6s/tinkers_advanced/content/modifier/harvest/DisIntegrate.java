@@ -4,12 +4,16 @@ import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import net.minecraft.core.Direction;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
@@ -20,9 +24,18 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import java.util.Random;
 
+import static com.c2h6s.tinkers_advanced.util.CommonConstants.KEY_LAST_TICK_1;
+
 
 public class DisIntegrate extends EtSTBaseModifier implements BlockBreakModifierHook , BreakSpeedModifierHook {
     public static final ResourceLocation KEY_DISINTEGRATE = TinkersAdvanced.getLocation("dis_integrate");
+
+    @Override
+    public Component onModifierRemoved(IToolStackView tool, Modifier modifier) {
+        tool.getPersistentData().remove(KEY_DISINTEGRATE);
+        tool.getPersistentData().remove(KEY_LAST_TICK_1);
+        return super.onModifierRemoved(tool, modifier);
+    }
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
@@ -33,13 +46,14 @@ public class DisIntegrate extends EtSTBaseModifier implements BlockBreakModifier
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)>0&&!world.isClientSide&&world.getGameTime()%20==0){
-            tool.getPersistentData().putInt(KEY_DISINTEGRATE,tool.getPersistentData().getInt(KEY_DISINTEGRATE)- modifier.getLevel()* TiAcConfig.COMMON.DISINTEGRATE_EACH_DECREASE.get());
+            if ((int) (world.getGameTime()%Integer.MAX_VALUE) - tool.getPersistentData().getInt(KEY_LAST_TICK_1)>=20*TiAcConfig.COMMON.DISINTEGRATE_EACH_DECREASE.get()) tool.getPersistentData().remove(KEY_DISINTEGRATE);
         }
     }
 
     @Override
     public void afterBlockBreak(IToolStackView tool, ModifierEntry modifierEntry, ToolHarvestContext toolHarvestContext) {
         if (tool.getPersistentData().getInt(KEY_DISINTEGRATE)<TiAcConfig.COMMON.DISINTEGRATE_MAX_BONUS.get()) tool.getPersistentData().putInt(KEY_DISINTEGRATE,tool.getPersistentData().getInt(KEY_DISINTEGRATE)+TiAcConfig.COMMON.DISINTEGRATE_EACH_DECREASE.get()*modifierEntry.getLevel());
+        tool.getPersistentData().putInt(KEY_LAST_TICK_1, (int) (toolHarvestContext.getWorld().getGameTime()%Integer.MAX_VALUE));
     }
 
     @Override
@@ -60,5 +74,10 @@ public class DisIntegrate extends EtSTBaseModifier implements BlockBreakModifier
             }
         }
         return amount;
+    }
+
+    @Override
+    public Component getDisplayName(IToolStackView tool, ModifierEntry entry, @Nullable RegistryAccess access) {
+        return super.getDisplayName().copy().append(" +"+tool.getPersistentData().getInt(KEY_DISINTEGRATE)+"%");
     }
 }

@@ -213,7 +213,7 @@
 
   "modifier.tinkers_advanced.unstable": "不稳定",
   "modifier.tinkers_advanced.unstable.flavor": "轻拿轻放！",
-  "modifier.tinkers_advanced.unstable.description": "使挖掘速度、攻击伤害和耐久消耗随机变化。",
+  "modifier.tinkers_advanced.unstable.description": "使挖掘速度、攻击伤害和耐久消耗随机变化。挖掘方块时稳定化相邻的辉锑矿。",
 
   "modifier.tinkers_advanced.plague": "疫毒",
   "modifier.tinkers_advanced.plague.flavor": "死亡之素。",
