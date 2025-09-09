@@ -171,13 +171,13 @@
   "modifier.tinkers_advanced.proto_defense.flavor": "不需要耗能的能量背包",
   "modifier.tinkers_advanced.proto_defense.description": "免疫负面效果，当位于胸甲栏位时给予穿戴者急迫、迅捷和跳跃提升。",
 
-  "modifier.tinkers_advanced.return_to_slime": "万物归于粘液",
+  "modifier.tinkers_advanced.return_to_slime": "万物归于黏液",
   "modifier.tinkers_advanced.return_to_slime.flavor": "解析、吞噬、同化。",
-  "modifier.tinkers_advanced.return_to_slime.description": "挖掘/击杀生物后有概率根据获得的战利品的数量恢复黏液附层。",
+  "modifier.tinkers_advanced.return_to_slime.description": "挖掘/击杀生物后有概率根据获得的战利品的数量恢复黏液覆层。",
 
-  "modifier.tinkers_advanced.nutritive_slime": "营养粘液",
+  "modifier.tinkers_advanced.nutritive_slime": "营养黏液",
   "modifier.tinkers_advanced.nutritive_slime.flavor": "但是并不美味...",
-  "modifier.tinkers_advanced.nutritive_slime.description": "装备时消耗粘液附层恢复饱食度和饱和度。",
+  "modifier.tinkers_advanced.nutritive_slime.description": "装备时消耗黏液覆层恢复饱食度和饱和度。",
 
   "modifier.tinkers_advanced.ender_tuner": "末影调谐",
   "modifier.tinkers_advanced.ender_tuner.flavor": "真正的“可改进”",
@@ -189,7 +189,7 @@
 
   "modifier.tinkers_advanced.overslime_generator": "凝胶电化学能量模块",
   "modifier.tinkers_advanced.overslime_generator.flavor": "黏液胶质形成的特殊空间网状结构是天然的离子交换介质。",
-  "modifier.tinkers_advanced.overslime_generator.description": "你的工具能通过消耗粘液附层来产生能量。每级+250FE/t基础产出速率，每点黏液附层能产生5kFE。",
+  "modifier.tinkers_advanced.overslime_generator.description": "你的工具能通过消耗黏液覆层来产生能量。每级+250FE/t基础产出速率，每点黏液覆层能产生5kFE。",
 
   "modifier.tinkers_advanced.piezoelectric_effect": "压电效应",
   "modifier.tinkers_advanced.piezoelectric_effect.flavor": "晶格变形的兆示。",
@@ -213,7 +213,7 @@
 
   "modifier.tinkers_advanced.unstable": "不稳定",
   "modifier.tinkers_advanced.unstable.flavor": "轻拿轻放！",
-  "modifier.tinkers_advanced.unstable.description": "使挖掘速度、攻击伤害和耐久消耗随机变化。挖掘方块时稳定化相邻的辉锑矿。",
+  "modifier.tinkers_advanced.unstable.description": "使挖掘速度、攻击伤害和耐久消耗随机变化。",
 
   "modifier.tinkers_advanced.plague": "疫毒",
   "modifier.tinkers_advanced.plague.flavor": "死亡之素。",
@@ -250,6 +250,10 @@
   "modifier.tinkers_advanced.void_dodging": "虚无闪避",
   "modifier.tinkers_advanced.void_dodging.flavor": "把它们送进虚空！",
   "modifier.tinkers_advanced.void_dodging.description": "有概率闪避箭矢的攻击，并将其摧毁。",
+
+  "modifier.tinkers_advanced.stabilize": "稳定化",
+  "modifier.tinkers_advanced.stabilize.flavor": "此面向上！",
+  "modifier.tinkers_advanced.stabilize.description": "每级+1.5近战伤害/护甲值，挖掘方块时稳定化附近的辉锑矿。但是每级降低10%移动速度。",
 
 
 
@@ -366,11 +370,11 @@
 
   "material.tinkers_advanced.pink_slime_metal": "粉色史莱姆金属",
   "material.tinkers_advanced.pink_slime_metal.flavor": "粉粉的，但是似乎并不能降低刷怪速度。",
-  "material.tinkers_advanced.pink_slime_metal.encyclopedia": "每个战利品提供属性等级点粘液附层，每级20%概率恢复粘液附层，不会吃掉你的战利品。",
+  "material.tinkers_advanced.pink_slime_metal.encyclopedia": "每个战利品提供属性等级点黏液覆层，每级20%概率恢复黏液覆层，不会吃掉你的战利品。",
 
   "material.tinkers_advanced.nutritive_slime": "营养黏液浸钢",
   "material.tinkers_advanced.nutritive_slime.flavor": "吃这玩意真的不会金属离子中毒吗？",
-  "material.tinkers_advanced.nutritive_slime.encyclopedia": "每秒消耗20点粘液附层恢复1饱食度，等级越高恢复速度越快。",
+  "material.tinkers_advanced.nutritive_slime.encyclopedia": "每秒消耗20点黏液覆层恢复1饱食度，等级越高恢复速度越快。",
 
   "material.tinkers_advanced.antimony": "锑",
   "material.tinkers_advanced.antimony.flavor": "你这元素怎么骂人啊？",
@@ -493,8 +497,8 @@
   "item.tinkers_advanced.molten_protocite_bucket": "熔融原体合金合金桶",
   "fluid.tinkers_advanced.molten_protocite.fluid_effect": "原毒毒素对目标的生命有很强遏制作用。它会永久减少25%目标生命值，并在持续时间内减少每级20%的受治疗量。",
 
-  "fluid.tinkers_advanced.molten_nutritive_slime": "熔融营养粘液浸钢",
-  "item.tinkers_advanced.molten_nutritive_slime_bucket": "熔融营养粘液浸钢桶",
+  "fluid.tinkers_advanced.molten_nutritive_slime": "熔融营养黏液浸钢",
+  "item.tinkers_advanced.molten_nutritive_slime_bucket": "熔融营养黏液浸钢桶",
 
   "fluid.tinkers_advanced.molten_pink_slime": "熔融粉色史莱姆金属",
   "item.tinkers_advanced.molten_pink_slime_bucket": "熔融粉色史莱姆金属桶",
@@ -535,7 +539,7 @@
   "item.tinkers_advanced.flux_core": "通量核心",
   "stat.tinkers_advanced.flux_core": "通量核心",
   "item.tinkers_advanced.electron_tuner": "环流电子调谐剑",
-  "item.tinkers_advanced.electron_tuner.description": "环流电子调谐剑是一种可调的近战武器，Shift-右键打开后可以配置其攻速和伤害，但是造价十分不菲且进行攻击要消耗能量。自带9格物品存储和一个流体容器，在强化了能量模块类强化后可以产能或者耗能。",
+  "item.tinkers_advanced.electron_tuner.description": "环流电子调谐剑是一种可调的近战武器，Shift-右键打开后可以配置其攻速和伤害，但是造价十分不菲且进行攻击要消耗能量。自带8格物品输入+8格物品输出，在强化了能量模块类强化后可以产能或者耗能。",
   "tooltip.tinkers_advanced.energy": "最大能量",
   "tooltip.tinkers_advanced.power_multiplier": "产出倍率",
   "tool_stat.tinkers_advanced.flux_core.capacity_factor.description": "能量容量的倍率，会乘以工具的能量容量。",
@@ -552,6 +556,7 @@
 
 
   "death.attack.plasma": "%1$s被灼热的正负离子解离了。",
+  "death.attack.flux": "%1$s被红石通量拆成了离子。",
 
 
   "fluid_effect.tconstruct.damage.explosion": "%s 爆炸伤害",

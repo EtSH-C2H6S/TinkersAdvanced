@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegisterEvent;
 import slimeknights.tconstruct.library.tools.stat.FloatToolStat;
@@ -18,17 +19,25 @@ public class TiAcToolStats {
     public static final FloatToolStat RANGE;
     public static final FloatToolStat POWER_MULTIPLIER;
 
+//    static {
+//        FLUID_EFFICIENCY = new FloatToolStat(name("fluid_efficiency"), -3135232, 0.0F, Integer.MIN_VALUE, 1.0F,null);
+//        RANGE = new FloatToolStat(name("range"), -3135232, 12.0F, 0.0F, 64.0F,null);
+//        SCALE = new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 8.0F,null);
+//        POWER_MULTIPLIER = new FloatToolStat(name("power_multiplier"), -3135232, 1.0F, 0.0F, Integer.MAX_VALUE,null);
+//    }
+
     static {
-        FLUID_EFFICIENCY = new FloatToolStat(name("fluid_efficiency"), -3135232, 0.0F, Integer.MIN_VALUE, 1.0F);
-        RANGE = new FloatToolStat(name("range"), -3135232, 12.0F, 0.0F, 64.0F);
-        SCALE = new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 8.0F);
-        POWER_MULTIPLIER = new FloatToolStat(name("power_multiplier"), -3135232, 1.0F, 0.0F, Integer.MAX_VALUE);
+        FLUID_EFFICIENCY = ToolStats.register(new FloatToolStat(name("fluid_efficiency"), -3135232, 0.0F, Integer.MIN_VALUE, 1.0F,null));
+        RANGE =ToolStats.register( new FloatToolStat(name("range"), -3135232, 12.0F, 0.0F, 64.0F,null));
+        SCALE =ToolStats.register( new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 8.0F,null));
+        POWER_MULTIPLIER =ToolStats.register( new FloatToolStat(name("power_multiplier"), -3135232, 1.0F, 0.0F, Integer.MAX_VALUE,null));
     }
 
-    public static void register(RegisterEvent event){
-        ToolStats.register(FLUID_EFFICIENCY);
-        ToolStats.register(RANGE);
-        ToolStats.register(SCALE);
-        ToolStats.register(POWER_MULTIPLIER);
-    }
+//    @SubscribeEvent
+//    public static void register(RegisterEvent event){
+//        ToolStats.register(FLUID_EFFICIENCY);
+//        ToolStats.register(RANGE);
+//        ToolStats.register(SCALE);
+//        ToolStats.register(POWER_MULTIPLIER);
+//    }
 }

@@ -103,8 +103,8 @@ public enum EnumMaterialModifier {
     STIBNITE_FLUX_CORE(FluxCoreMaterialStat.ID,entry(TiAcModifiers.UNSTABLE.getId()),entry(TiAcModifiers.PIEZOELECTRIC_EFFECT.getId(),4)),
     STIBNITE_DEFAULT(null,entry(TiAcModifiers.UNSTABLE.getId()),entry(EtSTLibModifier.ANISOTROPY.getId())),
 
-    ANTIMONY_DEFAULT(null,entry(TiAcModifiers.PLAGUE.getId()),entry(ModifierIds.heavy)),
-    ANTIMONY_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.POISON_DEFENSE.getId())),
+    ANTIMONY_DEFAULT(null,entry(TiAcModifiers.PLAGUE.getId()),entry(TiAcModifiers.STABILIZE.getId())),
+    ANTIMONY_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.POISON_DEFENSE.getId()),entry(TiAcModifiers.STABILIZE.getId())),
 
     VOID_STEEL_DEFAULT(null,entry(EtSTLibModifier.GLOBAL_TRAVELER.getId()),entry(TiAcModifiers.METAMORPHIUM.getId())),
     VOID_STEEL_ARMOR(MaterialRegistry.ARMOR,entry(TiAcModifiers.VOID_DODGING.getId()),entry(TiAcModifiers.METAMORPHIUM.getId())),

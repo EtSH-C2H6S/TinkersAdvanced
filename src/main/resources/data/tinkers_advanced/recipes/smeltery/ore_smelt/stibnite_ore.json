@@ -2,7 +2,7 @@
   "type": "tconstruct:ore_melting",
   "byproducts": [
     {
-      "amount": 60,
+      "amount": 270,
       "rate": "metal",
       "fluid": "tinkers_advanced:molten_antimony"
     }

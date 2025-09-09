@@ -112,13 +112,6 @@ public class Unstable extends EtSTBaseModifier implements BreakSpeedModifierHook
 
     @Override
     public void afterBlockBreak(IToolStackView tool, ModifierEntry modifier, ToolHarvestContext context) {
-        for (Direction direction:Direction.values()){
-            BlockPos blockPos = context.getTargetedPos().relative(direction);
-            BlockState state = context.getWorld().getBlockState(blockPos);
-            if (state.is(TiAcBlocks.STIBNITE_ORE.get())){
-                context.getWorld().setBlockAndUpdate(blockPos,TiAcBlocks.STIBNITE_ORE.get().defaultBlockState().setValue(StibniteOreBlock.STIBNITE_STATE,false));
-            }
-        }
         randomize(tool);
     }
 }

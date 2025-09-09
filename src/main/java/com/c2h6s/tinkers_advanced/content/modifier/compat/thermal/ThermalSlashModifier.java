@@ -136,7 +136,7 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         Player player = context.getPlayerAttacker();
         if (player!=null&&getMode(tool)>=1&&ToolEnergyUtil.extractEnergy(tool,250,true)>=250&&context.isFullyCharged()) {
-            context.getTarget().hurt(LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setBypassMagic().setBypassInvulnerableTime().setBypassArmor(), 4);
+            context.getTarget().hurt(LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setBypassMagic().setBypassInvulnerableTime().setBypassArmor().setMsgId("flux"), 4);
             ToolEnergyUtil.extractEnergy(tool,250,false);
         }
     }

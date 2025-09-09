@@ -2,7 +2,7 @@
   "type": "tconstruct:ore_melting",
   "byproducts": [
     {
-      "amount": 30,
+      "amount": 60,
       "rate": "metal",
       "fluid": "tinkers_advanced:molten_bismuth"
     }
@@ -12,7 +12,7 @@
   },
   "rate": "metal",
   "result": {
-    "amount": 1500,
+    "amount": 750,
     "fluid": "tconstruct:seared_stone"
   },
   "temperature": 1250,

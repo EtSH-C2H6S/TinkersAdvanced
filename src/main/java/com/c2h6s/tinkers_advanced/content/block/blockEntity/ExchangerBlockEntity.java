@@ -99,13 +99,13 @@ public class ExchangerBlockEntity extends BlockEntity {
             ToolStack toolStack = ToolStack.from(blockEntity.exchangingItem);
             ModDataNBT toolData = toolStack.getPersistentData();
             LivingEntity holder = null;
-            if (toolData.contains(PlayerLocating.KEY_PLAYER_ID, Tag.TAG_STRING)&&level instanceof ServerLevel serverLevel){
+            if (toolData.contains(PlayerLocating.KEY_PLAYER_ID, Tag.TAG_STRING)&&level.getServer()!=null){
                 UUID uuid = null;
                 try {
                     uuid = UUID.fromString(toolData.getString(PlayerLocating.KEY_PLAYER_ID));
                 }catch (Exception ignored){}
                 if (uuid!=null){
-                    holder = serverLevel.getEntity(uuid) instanceof LivingEntity living?living:null;
+                    holder = level.getServer().getPlayerList().getPlayer(uuid);
                 }
             }
             ElectronTunerItem.generatorTick(blockEntity.exchangingItem,level,holder,blockEntity);

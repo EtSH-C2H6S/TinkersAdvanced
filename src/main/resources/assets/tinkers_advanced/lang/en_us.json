@@ -251,6 +251,10 @@
   "modifier.tinkers_advanced.void_dodging.flavor": "Send them into the void !",
   "modifier.tinkers_advanced.void_dodging.description": "Grant a chance to dodge and then destroy incoming arrow.",
 
+  "modifier.tinkers_advanced.stabilize": "Stabilize",
+  "modifier.tinkers_advanced.stabilize.flavor": "Still handle it carefully.",
+  "modifier.tinkers_advanced.stabilize.description": "Slightly increase melee damage or armor. Stabilize nearby stibnite ore after mining.",
+
 
 
   "material.tinkers_advanced.bismuth": "Bismuth",

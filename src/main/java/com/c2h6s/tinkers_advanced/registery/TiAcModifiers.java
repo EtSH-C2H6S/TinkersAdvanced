@@ -53,6 +53,7 @@ public class TiAcModifiers {
     public static StaticModifier<Clearing> POISON_DEFENSE = MODIFIERS.register("poison_defense", Clearing::new);
     public static StaticModifier<PlayerLocating> PLAYER_LOCATING = MODIFIERS.register("player_locating", PlayerLocating::new);
     public static StaticModifier<VoidDodging> VOID_DODGING = MODIFIERS.register("void_dodging", VoidDodging::new);
+    public static StaticModifier<Stabilize> STABILIZE = MODIFIERS.register("stabilize", Stabilize::new);
 
 
     //工具特有强化，需要工具采用特定工具属性才有效
