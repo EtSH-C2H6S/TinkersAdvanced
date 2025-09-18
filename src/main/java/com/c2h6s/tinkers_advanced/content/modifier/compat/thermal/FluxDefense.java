@@ -1,6 +1,7 @@
 package com.c2h6s.tinkers_advanced.content.modifier.compat.thermal;
 
 import cofh.core.common.network.packet.client.OverlayMessagePacket;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
 import net.minecraft.network.chat.Component;
@@ -53,9 +54,9 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
             MaterialId materialId = variant.getId();
             if (materialId.getNamespace().equals(TinkersAdvanced.MODID)&&materialId.getPath().equals("activated_chromatic_steel")){
                 switch (getMode(tool)){
-                    default -> toolStack.replaceMaterial(i, TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
                     case 1->toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED);
                     case 2->toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED);
+                    default -> toolStack.replaceMaterial(i, TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
                 }
             }
         }
@@ -63,14 +64,15 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
 
     @Override
     public boolean isDamageBlocked(IToolStackView tool, ModifierEntry modifierEntry, EquipmentContext context, EquipmentSlot equipmentSlot, DamageSource damageSource, float amount) {
+        float rate = TiAcConfig.COMMON.FLUX_ARMOR_DODGE_RATE.get().floatValue();
         LivingEntity living = context.getEntity();
         if (damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
         if (living.invulnerableTime>0){
             return true;
         }
         if (living.isInvulnerableTo(damageSource)) return true;
-        if (RANDOM.nextInt(20)==0&&getMode(tool)>=1&&extractEnergy(tool,20000,true)>=10000){
-            extractEnergy(tool,20000,false);
+        if (RANDOM.nextFloat()<rate&&getMode(tool)>=1&&extractEnergy(tool,getConsumption()*10,true)>=getConsumption()*10){
+            extractEnergy(tool,getConsumption()*10,false);
             living.invulnerableTime+=10;
             living.level().playSound(null,living.blockPosition(), SoundEvents.FIREWORK_ROCKET_LAUNCH,living.getSoundSource(),1,2);
             return true;
@@ -81,16 +83,21 @@ public class FluxDefense extends FluxInfused implements DamageBlockModifierHook 
 
     @Override
     public float modifyDamageTaken(IToolStackView tool, ModifierEntry modifierEntry, EquipmentContext context, EquipmentSlot equipmentSlot, DamageSource damageSource, float amount, boolean direct) {
+        float rate = TiAcConfig.COMMON.FLUX_ARMOR_DAMAGE_REDUCTION.get().floatValue();
         if (damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return amount;
         if (getMode(tool)>=2&&amount>0){
-            int toReduce = (int) (amount*0.2);
-            toReduce = Math.min(toReduce,extractEnergy(tool,2000*toReduce,true));
+            int toReduce = (int) (amount*rate);
+            toReduce = Math.min(toReduce,extractEnergy(tool,getConsumption()*toReduce,true)/getConsumption());
             if (toReduce>0){
-                extractEnergy(tool,2000*toReduce,false);
+                extractEnergy(tool,getConsumption()*toReduce,false);
                 return amount-toReduce;
             }
         }
         return amount;
+    }
+
+    public static int getConsumption(){
+        return TiAcConfig.COMMON.FLUX_ARMOR_CONSUMPTION.get();
     }
 
 }

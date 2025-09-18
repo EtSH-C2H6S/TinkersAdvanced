@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.content.modifier.compat.thermal;
 
 import cofh.core.common.network.packet.client.OverlayMessagePacket;
 import com.c2h6s.etstlib.util.ToolEnergyUtil;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
 import com.c2h6s.tinkers_advanced.util.FakeExplosionUtil;
@@ -63,9 +64,9 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
             MaterialId materialId = variant.getId();
             if (materialId.getNamespace().equals(TinkersAdvanced.MODID)&&materialId.getPath().equals("activated_chromatic_steel")){
                 switch (getMode(tool)){
-                    default -> toolStack.replaceMaterial(i, TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
                     case 1->toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED);
                     case 2->toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED);
+                    default -> toolStack.replaceMaterial(i, TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
                 }
             }
         }
@@ -73,8 +74,9 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
 
     @Override
     public ItemStack findAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity livingEntity, ItemStack stack, Predicate<ItemStack> predicate) {
-        if (getMode(tool)>0&& ToolEnergyUtil.extractEnergy(tool,500,true)>=500&&stack.isEmpty()){
-            ToolEnergyUtil.extractEnergy(tool,500,false);
+        int basicConsumption = TiAcConfig.COMMON.FLUX_ARROW_CONSUMPTION.get();
+        if (getMode(tool)>0&& ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,true)>=basicConsumption*2&&stack.isEmpty()){
+            ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,false);
             return new ItemStack(Items.ARROW,64);
         }
         return stack;
@@ -82,8 +84,9 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
 
     @Override
     public void shrinkAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, ItemStack ammo, int needed) {
-        if (!ammo.is(Items.ARROW)&&ToolEnergyUtil.extractEnergy(tool,1000,true)>=750&&getMode(tool)>1){
-            ToolEnergyUtil.extractEnergy(tool,750,false);
+        int basicConsumption = TiAcConfig.COMMON.FLUX_ARROW_CONSUMPTION.get();
+        if (!ammo.is(Items.ARROW)&&ToolEnergyUtil.extractEnergy(tool,basicConsumption*4,true)>=basicConsumption*4&&getMode(tool)>1){
+            ToolEnergyUtil.extractEnergy(tool,basicConsumption*4,false);
             return;
         }
         BowAmmoModifierHook.super.shrinkAmmo(tool,modifier,shooter,ammo,needed);
@@ -92,21 +95,22 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
     @Override
     public void modifierProjectileLaunch(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, ModDataNBT persistentData, boolean primary) {
         if (arrow!=null) {
+            int basicConsumption = TiAcConfig.COMMON.FLUX_ARROW_CONSUMPTION.get();
             switch (getMode(tool)) {
-                default -> {
-                }
                 case 1 -> {
-                    if (ToolEnergyUtil.extractEnergy(tool,500,true)>=500) {
+                    if (ToolEnergyUtil.extractEnergy(tool,basicConsumption,true)>=basicConsumption) {
                         arrow.setBaseDamage(arrow.getBaseDamage() + 1);
                         arrow.getPersistentData().putInt(KEY_ARROW_CHARGE, getMode(tool));
                     }
                 }
                 case 2->{
-                    if (ToolEnergyUtil.extractEnergy(tool,1000,true)>=1000) {
+                    if (ToolEnergyUtil.extractEnergy(tool,basicConsumption*3,true)>=basicConsumption*3) {
                         arrow.setBaseDamage(arrow.getBaseDamage() + 1);
-                        ToolEnergyUtil.extractEnergy(tool,1000,false);
+                        ToolEnergyUtil.extractEnergy(tool,basicConsumption*3,false);
                         arrow.getPersistentData().putInt(KEY_ARROW_CHARGE, getMode(tool));
                     }
+                }
+                default -> {
                 }
             }
         }
@@ -116,7 +120,7 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
     @Override
     public void onProjectileHitBlock(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, BlockHitResult hit, @Nullable LivingEntity attacker) {
         if (attacker!=null&&projectile instanceof AbstractArrow arrow&&arrow.isCritArrow()&&arrow.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
-            FakeExplosionUtil.fakeExplode(5,attacker,attacker.level(),hit.getLocation(),new IntOpenHashSet(attacker.getId()),false );
+            FakeExplosionUtil.fakeExplode(getExplosionDamage(arrow),attacker,attacker.level(),hit.getLocation(),new IntOpenHashSet(attacker.getId()),false );
         }
         if (projectile.getPersistentData().getInt(KEY_ARROW_CHARGE)>0){
             projectile.discard();
@@ -126,8 +130,12 @@ public class FluxArrow extends FluxInfused implements BowAmmoModifierHook {
     @Override
     public void afterArrowHit(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull LivingEntity target, float damageDealt) {
         if (attacker!=null&&arrow.isCritArrow()&&arrow.getPersistentData().getInt(KEY_ARROW_CHARGE)==2) {
-            FakeExplosionUtil.fakeExplode(5,attacker,attacker.level(),target.position().add(0,target.getBbHeight()/2,0),new IntOpenHashSet(attacker.getId()),false );
+            FakeExplosionUtil.fakeExplode(getExplosionDamage(arrow),attacker,attacker.level(),target.position().add(0,target.getBbHeight()/2,0),new IntOpenHashSet(attacker.getId()),false );
             target.invulnerableTime =0;
         }
+    }
+
+    public static float getExplosionDamage(AbstractArrow arrow){
+        return (float) (TiAcConfig.COMMON.FLUX_ARROW_BASE_EXPLOSION_DAMAGE.get().floatValue()+TiAcConfig.COMMON.FLUX_ARROW_EXPLOSION_DAMAGE_FROM_DAMAGE.get().floatValue()*arrow.getBaseDamage()*arrow.getDeltaMovement().length());
     }
 }

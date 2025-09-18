@@ -36,6 +36,7 @@ public class TiAcConfig {
         public final ForgeConfigSpec.DoubleValue MATTER_MANIPULATOR_CAPACITY_FACTOR;
         public final ForgeConfigSpec.DoubleValue MATTER_MANIPULATOR_FLUID_EFFICIENCY;
         public final ForgeConfigSpec.BooleanValue MATTER_MANIPULATOR_FLUID_ENCHANTING;
+        public final ForgeConfigSpec.BooleanValue MATTER_MANIPULATOR_CANCEL_SLOWDOWN;
         public final ForgeConfigSpec.BooleanValue EXPLODING_FUSION_REACTOR;
         public final ForgeConfigSpec.DoubleValue IONIZED_CANNON_FLUID_FACTOR;
         public final ForgeConfigSpec.DoubleValue IONIZED_CANNON_DAMAGE_BONUS;
@@ -82,6 +83,21 @@ public class TiAcConfig {
         public final ForgeConfigSpec.IntValue DISINTEGRATE_EACH_DECREASE;
         public final ForgeConfigSpec.DoubleValue VOID_DODGING_CHANCE;
 
+        public final ForgeConfigSpec.IntValue FLUX_INFUSE_CONSUMPTION;
+        public final ForgeConfigSpec.IntValue FLUX_SLASH_CONSUMPTION;
+        public final ForgeConfigSpec.DoubleValue FLUX_SLASH_FLUX_DAMAGE;
+        public final ForgeConfigSpec.DoubleValue FLUX_SLASH_BASIC_SLASH_DAMAGE;
+        public final ForgeConfigSpec.DoubleValue FLUX_SLASH_SLASH_DAMAGE_PER_SHARPNESS;
+        public final ForgeConfigSpec.DoubleValue FLUX_SLASH_SLASH_DAMAGE_FROM_ATTACK_DAMAGE;
+        public final ForgeConfigSpec.DoubleValue FLUX_SLASH_DIG_SPEED_BONUS;
+        public final ForgeConfigSpec.IntValue FLUX_ARROW_CONSUMPTION;
+        public final ForgeConfigSpec.DoubleValue FLUX_ARROW_BASE_EXPLOSION_DAMAGE;
+        public final ForgeConfigSpec.DoubleValue FLUX_ARROW_EXPLOSION_DAMAGE_FROM_DAMAGE;
+        public final ForgeConfigSpec.IntValue FLUX_ARMOR_CONSUMPTION;
+        public final ForgeConfigSpec.DoubleValue FLUX_ARMOR_DODGE_RATE;
+        public final ForgeConfigSpec.DoubleValue FLUX_ARMOR_DAMAGE_REDUCTION;
+
+
         public final ForgeConfigSpec.DoubleValue EFFECT_TETANUS_DAMAGE_MULTIPLIER;
         public final ForgeConfigSpec.DoubleValue EFFECT_PROTO_POISON_HEALTH_DECREASE;
         public final ForgeConfigSpec.DoubleValue EFFECT_PROTO_POISON_REGENERATION_DECREASE;
@@ -98,6 +114,9 @@ public class TiAcConfig {
 //        public final ForgeConfigSpec.BooleanValue ALLOW_ELECTRON_TUNER;
 
         public Common(ForgeConfigSpec.Builder builder){
+            builder.comment("***注意！").comment("***Notice")
+                    .comment("这些配置并不会同步修改语言文件中的描述，当你修改了某个工具/工具属性的性质后如果想要更改描述则需要手动覆盖语言文件！")
+                    .comment("This configure won't affect language display. When a certain modifier or tool is configured, please manually replace the description of the relating language contents.");
             builder.comment("Worldgen").comment("世界生成").push("worldgen");
             this.ALLOW_BISMUTHINITE = builder.comment("Allows Bismuthinite generation, true by default.").comment("允许辉铋矿生成，默认是。")
                     .define("allow_bismuthinite",true);
@@ -177,7 +196,49 @@ public class TiAcConfig {
                     .comment("每级闪避箭矢的概率，默认0.25。")
                     .defineInRange("void_dodging_chance",0.25,0,1);
 
-            builder.comment("Return to Slime").comment("万物归于黏液");
+            builder.comment("Flux Infuse").comment("通量注入");
+            this.FLUX_INFUSE_CONSUMPTION = builder.comment("通量注入抵消耐久消耗需要的能量，默认500FE")
+                    .comment("FE required for each durability loss, 500FE by default")
+                    .defineInRange("flux_infuse_consumption",500,0,Integer.MAX_VALUE);
+            builder.comment("Flux Slash").comment("通量赋能-近战");
+            this.FLUX_SLASH_CONSUMPTION = builder.comment("通量斩击的基础消耗（通量伤害消耗采用此值，剑气消耗为此值的2倍），默认250FE")
+                    .comment("Basic consumption for Flux Slash, 250FE by default.")
+                    .defineInRange("flux_slash_consumption",250,0,Integer.MAX_VALUE);
+            this.FLUX_SLASH_FLUX_DAMAGE = builder.comment("通量斩击的额外通量伤害，默认4")
+                    .comment("Additional Flux damage for Flux Slash, 4 by default.")
+                    .defineInRange("flux_slash_flux_damage",4f,0,Float.MAX_VALUE);
+            this.FLUX_SLASH_BASIC_SLASH_DAMAGE = builder.comment("通量斩击的剑气基础伤害，默认4")
+                    .comment("Base damage for the slash from Flux Slash, 4 by default.")
+                    .defineInRange("flux_slash_base_slash_damage",4,0,Float.MAX_VALUE);
+            this.FLUX_SLASH_SLASH_DAMAGE_PER_SHARPNESS = builder.comment("通量斩击的剑气受锋利词条的伤害加成，默认0.5每级")
+                    .comment("Sharpness modifier bonus damage for Slash from Flux Slash, 0.5 by default.")
+                    .defineInRange("flux_slash_damage_per_sharpness",0.5,0,Float.MAX_VALUE);
+            this.FLUX_SLASH_SLASH_DAMAGE_FROM_ATTACK_DAMAGE = builder.comment("通量斩击的剑气继承自工具伤害的伤害比例，默认0x")
+                    .comment("Damage bonus from tool's attack damage, 0x by default.")
+                    .defineInRange("flux_slash_damage_from_attack_damage",0,0,Float.MAX_VALUE);
+            this.FLUX_SLASH_DIG_SPEED_BONUS = builder.comment("通量斩击的挖掘加速（注能模式下为此值2倍），默认100%")
+                    .comment("Mining boost for Flux Slash, 100% by default.")
+                    .defineInRange("flux_slash_dig_speed_bonus",1,0,Float.MAX_VALUE);
+            builder.comment("Flux Arrow").comment("通量赋能-远程");
+            this.FLUX_ARROW_CONSUMPTION = builder.comment("通量箭矢的基础消耗（箭矢增伤消耗采用此值，产生箭矢消耗为此值的2倍，箭矢爆炸为此值的3倍，复制药水箭消耗为此值的4倍），默认250FE")
+                    .comment("Basic consumption for Flux Arrow, 250FE by default.")
+                    .defineInRange("flux_arrow_consumption",250,0,Integer.MAX_VALUE);
+            this.FLUX_ARROW_BASE_EXPLOSION_DAMAGE = builder.comment("通量箭矢的爆炸伤害，默认5")
+                    .comment("Arrow explosion damage for Flux Arrow, 5 by default.")
+                    .defineInRange("flux_arrow_explosion_damage",5,0,Float.MAX_VALUE);
+            this.FLUX_ARROW_EXPLOSION_DAMAGE_FROM_DAMAGE = builder.comment("通量箭矢爆炸受到箭矢伤害的增幅，默认0x")
+                    .comment("Additional damage for the arrow explosion boosted by arrow damage from Flux Arrow, 0x by default.")
+                    .defineInRange("flux_arrow_explosion_damage_from_arrow_damage",0,0,Float.MAX_VALUE);
+            builder.comment("Flux Armor").comment("通量赋能-护甲");
+            this.FLUX_ARMOR_CONSUMPTION = builder.comment("通量护甲的基础消耗（减伤消耗采用此值，闪避消耗为此值的10倍），默认2000FE")
+                    .comment("Basic consumption for Flux Armor, 2000FE by default.")
+                    .defineInRange("flux_armor_consumption",2000,0,Integer.MAX_VALUE);
+            this.FLUX_ARMOR_DAMAGE_REDUCTION = builder.comment("通量护甲的伤害减免，默认0.2x")
+                    .comment("Damage Reduction for Flux Armor, 0.2x by default.")
+                    .defineInRange("flux_armor_damage_reduction",0.2,0,1f);
+            this.FLUX_ARMOR_DODGE_RATE = builder.comment("通量护甲的闪避率，默认0.05")
+                    .comment("Dodge rate for Flux Armor, 0.05 by default.")
+                    .defineInRange("flux_armor_dodge_rate",0.05,0,1f);
 
             builder.comment("Generator Modules").comment("能量模块类强化");
 
@@ -283,6 +344,10 @@ public class TiAcConfig {
             this.MATTER_MANIPULATOR_FLUID_EFFICIENCY = builder.comment("Base fluid efficiency for Matter Manipulator, 1.0 by default.")
                     .comment("物质操纵器的基础流体效率，默认0.0。")
                     .defineInRange("matter_manipulator_base_fluid_efficiency",0.0,0.0,Integer.MAX_VALUE);
+            this.MATTER_MANIPULATOR_CANCEL_SLOWDOWN = builder.comment("Cancel the movement punishment when using Matter Manipulator,true by default.")
+                    .comment("取消物质操纵器使用时的移速惩罚，默认是。")
+                    .define("matter_manipulator_cancel_slowdown",true);
+
 
             builder.comment("Ionized Cannon behaviour").comment("等离子射线炮");
 //            this.ALLOW_IONIZED_CANNON = builder.comment("Enable Ionized Cannon, true by default.").comment("启用等离子射线炮，默认是。")

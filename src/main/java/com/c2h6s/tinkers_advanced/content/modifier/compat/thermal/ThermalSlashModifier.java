@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced.content.modifier.compat.thermal;
 import cofh.core.common.network.packet.client.OverlayMessagePacket;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.etstlib.util.ToolEnergyUtil;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.content.entity.ThermalSlashProjectile;
 import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
@@ -73,9 +74,9 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
             MaterialId materialId = variant.getId();
             if (materialId.getNamespace().equals(TinkersAdvanced.MODID)&&materialId.getPath().equals("activated_chromatic_steel")){
                 switch (getMode(tool)){
-                    default -> toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
                     case 1->toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_ACTIVATED);
                     case 2->toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.Variant.ACTIVATED_CHROMATIC_STEEL_EMPOWERED);
+                    default -> toolStack.replaceMaterial(i,TiAcMaterialIds.Thermal.ACTIVATED_CHROMATIC_STEEL);
                 }
             }
         }
@@ -83,46 +84,63 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
 
     @Override
     public void onLeftClickBlock(IToolStackView tool, ModifierEntry entry, Player player, Level level, EquipmentSlot equipmentSlot, BlockState state, BlockPos pos) {
-        if (getMode(tool)==2&&!level.isClientSide&&ToolEnergyUtil.extractEnergy(tool,500,true)>=500&&player.getAttackStrengthScale(0)>0.8&&!tool.getItem().isCorrectToolForDrops(state)){
+        int basicConsumption = TiAcConfig.COMMON.FLUX_SLASH_CONSUMPTION.get();
+        float basicDamage = TiAcConfig.COMMON.FLUX_SLASH_BASIC_SLASH_DAMAGE.get().floatValue();
+        float sharpnessBonus = TiAcConfig.COMMON.FLUX_SLASH_SLASH_DAMAGE_PER_SHARPNESS.get().floatValue();
+        float attackDamageBonus = TiAcConfig.COMMON.FLUX_SLASH_SLASH_DAMAGE_FROM_ATTACK_DAMAGE.get().floatValue();
+        if (getMode(tool)==2&&!level.isClientSide&&ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,true)>=basicConsumption*2&&player.getAttackStrengthScale(0)>0.8&&!tool.getItem().isCorrectToolForDrops(state)){
             ThermalSlashProjectile projectile = new ThermalSlashProjectile(level);
             Vec3 to = player.getLookAngle();
             projectile.setPos(player.getEyePosition());
             projectile.shoot(to.x, to.y, to.z,2f,0);
             projectile.setOwner(player);
             projectile.modifierLevel=entry.getLevel();
-            projectile.baseDamage+=0.5f*tool.getModifierLevel(ModifierIds.sharpness);
+            projectile.baseDamage = basicDamage;
+            projectile.baseDamage += sharpnessBonus*tool.getModifierLevel(ModifierIds.sharpness);
+            projectile.baseDamage += attackDamageBonus*tool.getStats().get(ToolStats.ATTACK_DAMAGE)*attackDamageBonus;
             level.addFreshEntity(projectile);
-            ToolEnergyUtil.extractEnergy(tool,500,false);
+            ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,false);
         }
     }
 
     @Override
     public void onLeftClickEmpty(IToolStackView tool, ModifierEntry entry, Player player, Level level, EquipmentSlot equipmentSlot) {
-        if (getMode(tool)==2&&!level.isClientSide&&ToolEnergyUtil.extractEnergy(tool,500,true)>=500&&player.getAttackStrengthScale(0)>0.8){
+        int basicConsumption = TiAcConfig.COMMON.FLUX_SLASH_CONSUMPTION.get();
+        float basicDamage = TiAcConfig.COMMON.FLUX_SLASH_BASIC_SLASH_DAMAGE.get().floatValue();
+        float sharpnessBonus = TiAcConfig.COMMON.FLUX_SLASH_SLASH_DAMAGE_PER_SHARPNESS.get().floatValue();
+        float attackDamageBonus = TiAcConfig.COMMON.FLUX_SLASH_SLASH_DAMAGE_FROM_ATTACK_DAMAGE.get().floatValue();
+        if (getMode(tool)==2&&!level.isClientSide&&ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,true)>=basicConsumption*2&&player.getAttackStrengthScale(0)>0.8){
             ThermalSlashProjectile projectile = new ThermalSlashProjectile(level);
             Vec3 to = player.getLookAngle();
             projectile.setPos(player.getEyePosition());
             projectile.shoot(to.x, to.y, to.z,2f,0);
             projectile.setOwner(player);
             projectile.modifierLevel=entry.getLevel();
-            projectile.baseDamage+=0.5f*tool.getModifierLevel(ModifierIds.sharpness);
+            projectile.baseDamage = basicDamage;
+            projectile.baseDamage += sharpnessBonus*tool.getModifierLevel(ModifierIds.sharpness);
+            projectile.baseDamage += attackDamageBonus*tool.getStats().get(ToolStats.ATTACK_DAMAGE)*attackDamageBonus;
             level.addFreshEntity(projectile);
-            ToolEnergyUtil.extractEnergy(tool,500,false);
+            ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,false);
         }
     }
 
     @Override
     public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
-        if (getMode(tool)==2&&!context.getLevel().isClientSide&&ToolEnergyUtil.extractEnergy(tool,500,true)>=500&&context.isFullyCharged()&&context.getAttacker() instanceof ServerPlayer player){
+        int basicConsumption = TiAcConfig.COMMON.FLUX_SLASH_CONSUMPTION.get();
+        float basicDamage = TiAcConfig.COMMON.FLUX_SLASH_BASIC_SLASH_DAMAGE.get().floatValue();
+        float sharpnessBonus = TiAcConfig.COMMON.FLUX_SLASH_SLASH_DAMAGE_PER_SHARPNESS.get().floatValue();
+        float attackDamageBonus = TiAcConfig.COMMON.FLUX_SLASH_SLASH_DAMAGE_FROM_ATTACK_DAMAGE.get().floatValue();
+        if (getMode(tool)==2&&!context.getLevel().isClientSide&&ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,true)>=basicConsumption*2&&context.isFullyCharged()&&context.getAttacker() instanceof ServerPlayer player){
             ThermalSlashProjectile projectile = new ThermalSlashProjectile(context.getLevel());
             Vec3 to = player.getLookAngle();
             projectile.setPos(player.getEyePosition());
             projectile.shoot(to.x, to.y, to.z,2f,0);
             projectile.setOwner(player);
-            projectile.modifierLevel=modifier.getLevel();
-            projectile.baseDamage+=0.5f*tool.getModifierLevel(ModifierIds.sharpness);
+            projectile.baseDamage = basicDamage;
+            projectile.baseDamage += sharpnessBonus*tool.getModifierLevel(ModifierIds.sharpness);
+            projectile.baseDamage += damage*attackDamageBonus;
             context.getLevel().addFreshEntity(projectile);
-            ToolEnergyUtil.extractEnergy(tool,500,false);
+            ToolEnergyUtil.extractEnergy(tool,basicConsumption*2,false);
         }
         return knockback;
     }
@@ -135,27 +153,31 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         Player player = context.getPlayerAttacker();
-        if (player!=null&&getMode(tool)>=1&&ToolEnergyUtil.extractEnergy(tool,250,true)>=250&&context.isFullyCharged()) {
-            context.getTarget().hurt(LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setBypassMagic().setBypassInvulnerableTime().setBypassArmor().setMsgId("flux"), 4);
-            ToolEnergyUtil.extractEnergy(tool,250,false);
+        int basicConsumption = TiAcConfig.COMMON.FLUX_SLASH_CONSUMPTION.get();
+        float basicDamage = TiAcConfig.COMMON.FLUX_SLASH_FLUX_DAMAGE.get().floatValue();
+        if (player!=null&&getMode(tool)>=1&&ToolEnergyUtil.extractEnergy(tool,basicConsumption,true)>=basicConsumption&&context.isFullyCharged()) {
+            context.getTarget().hurt(LegacyDamageSource.playerAttack(player).setBypassMagic().setBypassInvulnerableTime().setBypassArmor().setMsgId("flux"), basicDamage);
+            ToolEnergyUtil.extractEnergy(tool,basicConsumption,false);
         }
     }
 
     @Override
     public void onBreakSpeed(IToolStackView tool, ModifierEntry modifier, PlayerEvent.BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
         if (isEffective){
+            int basicConsumption = TiAcConfig.COMMON.FLUX_SLASH_CONSUMPTION.get();
+            float digSpeed = TiAcConfig.COMMON.FLUX_SLASH_DIG_SPEED_BONUS.get().floatValue();
             switch (getMode(tool)){
-                default -> {}
                 case 1 ->{
-                    if (ToolEnergyUtil.extractEnergy(tool,100,true)>=100) {
-                        event.setNewSpeed(event.getNewSpeed() +event.getOriginalSpeed());
+                    if (ToolEnergyUtil.extractEnergy(tool,basicConsumption/2,true)>=basicConsumption/4) {
+                        event.setNewSpeed(event.getNewSpeed() +event.getOriginalSpeed()*digSpeed);
                     }
                 }
                 case 2 ->{
-                    if (ToolEnergyUtil.extractEnergy(tool,200,true)>=200) {
-                        event.setNewSpeed(event.getNewSpeed() +event.getOriginalSpeed()*2);
+                    if (ToolEnergyUtil.extractEnergy(tool,basicConsumption,true)>=basicConsumption/2) {
+                        event.setNewSpeed(event.getNewSpeed() +event.getOriginalSpeed()*digSpeed*2);
                     }
                 }
+                default -> {}
             }
         }
     }
@@ -166,10 +188,11 @@ public class ThermalSlashModifier extends FluxInfused implements BreakSpeedModif
     @Override
     public void afterBlockBreak(IToolStackView tool, ModifierEntry modifierEntry, ToolHarvestContext toolHarvestContext) {
         if (toolHarvestContext.isEffective()){
+            int basicConsumption = TiAcConfig.COMMON.FLUX_SLASH_CONSUMPTION.get();
             switch (getMode(tool)){
+                case 1-> ToolEnergyUtil.extractEnergy(tool,basicConsumption/4,false);
+                case 2-> ToolEnergyUtil.extractEnergy(tool,basicConsumption/2,false);
                 default -> {}
-                case 1-> ToolEnergyUtil.extractEnergy(tool,100,false);
-                case 2-> ToolEnergyUtil.extractEnergy(tool,200,false);
             }
         }
     }

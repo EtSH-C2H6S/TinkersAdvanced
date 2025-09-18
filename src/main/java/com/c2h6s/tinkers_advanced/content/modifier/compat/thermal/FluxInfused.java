@@ -4,6 +4,7 @@ import cofh.core.client.CoreKeys;
 import com.c2h6s.etstlib.tool.modifiers.base.BasicFEModifier;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.etstlib.util.ToolEnergyUtil;
+import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.network.packets.PCofhModSwitchC2S;
@@ -102,8 +103,9 @@ public class FluxInfused extends BasicFEModifier {
 
     @Override
     public int modifierDamageTool(IToolStackView tool, ModifierEntry modifier, int amount, @Nullable LivingEntity holder) {
-        if (ToolEnergyUtil.extractEnergy(tool,500*amount,true)>=500){
-            int reduce = ToolEnergyUtil.extractEnergy(tool,500*amount,false)/500;
+        int basicConsumption = TiAcConfig.COMMON.FLUX_INFUSE_CONSUMPTION.get();
+        if (ToolEnergyUtil.extractEnergy(tool,basicConsumption*amount,true)>=basicConsumption){
+            int reduce = ToolEnergyUtil.extractEnergy(tool,basicConsumption*amount,false)/basicConsumption;
             if (reduce>=amount) return 0;
             return amount-reduce;
         }

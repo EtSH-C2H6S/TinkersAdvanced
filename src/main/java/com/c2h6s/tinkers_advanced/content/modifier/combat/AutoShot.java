@@ -24,7 +24,7 @@ public class AutoShot extends EtSTBaseModifier {
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (!world.isClientSide&&holder.isUsingItem()&&holder.getUseItem()==stack){
             int drawtime = ModifierUtil.getPersistentInt(stack, GeneralInteractionModifierHook.KEY_DRAWTIME, -1);
-            if ((stack.getUseDuration() + 1 - holder.getUseItemRemainingTicks()) / (float)drawtime>=1){
+            if ((stack.getUseDuration() + (stack.getUseDuration()<2?1:0) - holder.getUseItemRemainingTicks()) / (float)drawtime>=1){
                 holder.releaseUsingItem();
             }
         }

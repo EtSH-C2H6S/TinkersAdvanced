@@ -3,6 +3,7 @@ package com.c2h6s.tinkers_advanced.data.enums;
 import com.c2h6s.etstlib.data.EtSTLibModifierIds;
 import com.c2h6s.etstlib.register.EtSTLibModifier;
 import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
+import com.c2h6s.tinkers_advanced.registery.TiAcMaterialStat;
 import com.c2h6s.tinkers_advanced.registery.TiAcModifiers;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
@@ -60,7 +61,7 @@ public enum EnumMaterialModifier {
     BLAZE_NETHERITE(null,entry(TiAcModifiers.FLAME_ADAPTIVE.getId()),entry(ModifierIds.netherite)),
 
     IRIDIUM_DEFAULT(null,entry(EtSTLibModifier.INERT_METAL.getId()),entry(ModifierIds.dense)),
-    IRIDIUM_FLUX_CORE(null,entry(EtSTLibModifier.INERT_METAL.getId()),entry(TiAcModifiers.PLATINOID_CATALYST.getId())),
+    IRIDIUM_FLUX_CORE(FluxCoreMaterialStat.ID,entry(EtSTLibModifier.INERT_METAL.getId()),entry(TiAcModifiers.PLATINOID_CATALYST.getId())),
     IRIDIUM_ARMOR(MaterialRegistry.ARMOR,entry(EtSTLibModifier.INERT_METAL.getId()),entry(EtSTLibModifier.SECONDARY_ARMOR.getId())),
 
     DENSIUM_DEFAULT(null,entry(EtSTLibModifier.EXTRA_DENSE.getId())),

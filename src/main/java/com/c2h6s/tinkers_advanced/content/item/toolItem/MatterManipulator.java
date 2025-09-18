@@ -8,6 +8,7 @@ import com.c2h6s.tinkers_advanced.registery.TiAcToolStats;
 import com.c2h6s.tinkers_advanced.util.HarvestLogic;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -120,7 +121,6 @@ public class MatterManipulator extends ModifiableItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        boolean creative = player.getAbilities().instabuild;
         ItemStack stack = player.getItemInHand(hand);
         ToolStack tool = ToolStack.from(stack);
         FluidStack fluidStack = TANK_HELPER.getFluid(tool);
@@ -228,9 +228,14 @@ public class MatterManipulator extends ModifiableItem {
                         destroyProgress += Mth.clamp((breakSpeed / destroySpeed), 0, 10 - destroyProgress);
                         level.destroyBlockProgress(player.getId(), blockPos, (int) destroyProgress);
                         if (destroyProgress >= 10) {
-                            HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)));
-                            for(ModifierEntry entry:tool.getModifierList()){
-                                entry.getHook(ModifierHooks.TOOL_DAMAGE).onDamageTool(tool,entry,1,player);
+                            if (HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState, blockPos, result.getDirection(), blockState.canHarvestBlock(level, blockPos, serverPlayer), this.isCorrectToolForDrops(blockState)))) {
+                                ToolHarvestContext harvestContext = new ToolHarvestContext(serverLevel, player, blockState, blockPos, Direction.UP, true, isEffective);
+                                for (ModifierEntry entry : tool.getModifierList()) {
+                                    entry.getHook(ModifierHooks.BLOCK_BREAK).afterBlockBreak(tool, entry, harvestContext);
+                                }
+                                for (ModifierEntry entry : tool.getModifierList()) {
+                                    entry.getHook(ModifierHooks.TOOL_DAMAGE).onDamageTool(tool, entry, 1, player);
+                                }
                             }
                             serverLevel.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1);
                             if (tool.getPersistentData().getBoolean(LOCATION_SEC_MODE)) {
@@ -239,6 +244,10 @@ public class MatterManipulator extends ModifiableItem {
                                     float destroySpeed1 = blockState1.getDestroySpeed(level, blockPos1);
                                     if ((IsEffectiveToolHook.isEffective(tool, blockState1)||(!blockState.requiresCorrectToolForDrops()&&blockState.getDestroySpeed(level,blockPos)>=0)) && destroySpeed1 <= destroySpeed + 0.5 &&(TierSortingRegistry.isCorrectTierForDrops(tier, blockState1))) {
                                        if (HarvestLogic.breakBlockAndGiveItem(copy, stack1, new ToolHarvestContext(serverLevel, serverPlayer, blockState1, blockPos1, result.getDirection(), blockState1.canHarvestBlock(level, blockPos1, serverPlayer), this.isCorrectToolForDrops(blockState1)))){
+                                           ToolHarvestContext harvestContext = new ToolHarvestContext(serverLevel, player, blockState1, blockPos1, Direction.UP, true, isEffective);
+                                           for (ModifierEntry entry : tool.getModifierList()) {
+                                               entry.getHook(ModifierHooks.BLOCK_BREAK).afterBlockBreak(tool, entry, harvestContext);
+                                           }
                                            if (random.nextFloat() < fluidFactor*0.25f && !player.getAbilities().instabuild) {
                                                fluidStack.shrink(1);
                                                TANK_HELPER.setFluid(tool, new FluidStack(fluidStack.getFluid(), fluidStack.getAmount()));

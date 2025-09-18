@@ -6,7 +6,7 @@
     },
     {
       "level": 1,
-      "name": "tinkers_advanced:platinoid_catalyst"
+      "name": "tconstruct:dense"
     }
   ],
   "perStat": {
@@ -18,6 +18,16 @@
       {
         "level": 1,
         "name": "etstlib:secondary_armor"
+      }
+    ],
+    "tinkers_advanced:flux_core": [
+      {
+        "level": 1,
+        "name": "etstlib:inert_metal"
+      },
+      {
+        "level": 1,
+        "name": "tinkers_advanced:platinoid_catalyst"
       }
     ]
   }
