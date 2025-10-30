@@ -1,18 +1,20 @@
 ### Features for TiAc
+* Guide Book
+  > Shapeless recipe, putting a Bismuthinite and a Book together to get the Ultra Dense Book.
 
 # Added Features
-These features has already added to TiAc and most of them will stay stable.
+These features have already added to TiAc and most of them will stay stable.
 ## No Compact
-These features don't requires a mod. Will appear in your game once TiAc and its dependencies are installed.
+These features don't require a mod. Will appear in your game once TiAc and its dependencies are installed.
 * Materials
   * Bismuthinite
     > Tier 2 material that can be found as an ore that spawns in deepslates. Provides a new way to obtain seared brick.
   * Bismuth
     > Tier 4 material made by smelting bismuthinite inside a foundry. Work as a functional material that inflicts a debuff that make targets take more damage on hurt.
   * Blaze Netherite
-    > Tier 4 material made by casting blazing blood on Netherite Ingot. Provides fire resistant and self-repairs when holder is on fire.
+    > Tier 4 material made by casting blazing blood on Netherite Ingot. Provides Fire Resistant and self-repairs when holder is on fire.
   * Iridium
-    > Currently Tier 4 material found in The End dimension in small quantities. Has a high stat and capable of clearing harmful effects.
+    > Now at Tier 4, a material found in The End dimension in small quantities. Has a high stat and capable of clearing harmful effects.
   * Disintegrate Crystal
     > Tier 4 material. Boosts mining speed significantly and has high fortune level.
   * Resonate Crystal
@@ -25,14 +27,21 @@ These features don't requires a mod. Will appear in your game once TiAc and its 
     > Tier 4 material made by smelting Stibnite inside a foundry. Work as a functional material that inflicts a debuff that constantly hurt target and reduce heath regeneration.
 * Fuels
   * Lavas
-    > Over Heated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 4000℃, and 8000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
+    > Overheated Lava, Gaseous Lava and Plasmatic Lava are the 3 lavas added in TiAc which are smeltery fuels at 2000℃, 4000℃, and 8000℃. These lavas come with difficult default recipe and will have easier compact recipe when some mods are installed (WIP).
 * Tools
   * Ionized Cannon
-    > A weapon that use fluids as ammo. Consumes fluids to shoot plasma beam that deals melee damage and inflict Fluid Effects to nearby mobs. Core part crafted by casting molten material on Echo Shard. Has special upgrades including Deep Catalysis, Focusing Array, Resonance Amplifier.
+    > A weapon that use fluids as ammo. Consumes fluids to shoot plasma beam that deals melee damage and inflict Fluid Effects to nearby mobs. Core part crafted by casting molten material on Resonance Crystal. Has special upgrades including Deep Catalysis, Focusing Array, Resonance Amplifier.
   * Matter Manipulator
-    > A mining tool that resembles the Matter Manipulator in Starbound. It consumes fluids to shoot mining laser that conduct AOE mining in a range, and teleport the loots to user. Core part requires first casting Ichor on echo shard to craft Disintegrate Crystal, than cast molten material on it.
+    > A mining tool that resembles the Matter Manipulator in Starbound. It consumes fluids to shoot mining laser that conduct AOE mining in a range, and teleport the loots to user. Core part crafted by casting molten material on Disintegrate Crystal.
   * Electron Tuner
-    > End-game sword weapon that uses Forge Energy to gain special ability. After powered, shift-right click it to open a menu to adjust it. Can perform special effect after adding Generator Module modifier. (WIP)
+    > End-game sword weapon that uses Forge Energy to gain special ability. After powered, shift-right click it to open a menu to adjust it. Core part crafted by casting molten material on Voltaic Crystal. Can perform special effect after adding Generator Module modifier. (WIP)
+* Utilities
+  * Faster Faucets
+    > Including Cinderslime and Iridium variants. Transfers fluid at a higher speed. Casting Molten Cinderslime on Scorched Faucet to craft Cinderslime variant, then cast Molten Iridium on it to craft Iridium variant.
+  * Faster Casting Blocks
+    > Including Cinderslime and Iridium variants of Table and Basin. Crafting process similar to the Faucets. Maintains the property of Scorched Casting Blocks and with higher efficiency.
+  * Atom Exchanger
+    > A block working similarly to Scorched Tinker Tank but support more types including Item, Forge Energy, Compressed Air(PnC:R) and so on. Can be also used to automize Energy production of Electron Tuner.
 ## With Compact
 These features are integrations between mods other than TConstruct. The corresponding mod is required for these contents.
 ### Common Integration
@@ -47,9 +56,9 @@ These features are integrations between mods other than TConstruct. The correspo
     > Tier 4 material that requires Lumium Ingot and blitz powder to obtain.Can only be molten by a foundry with a great amount of loss.
     > Capable of inflicting Shocked debuff , hurting nearby targets and giving user night vision as weapon material, provide a chance of dodging damage as armor material.
   * Blizz Enderium
-    > Currently Tier 4 material(Will be migrated to Tier 5 once Sublimery is added). Inflicts Chilled debuff and will gain stat boost after long time of using.
+  Tier 4 material(Will be migrated to Tier 5 once Sublimery is added). Inflicts Chilled debuff and will gain stat boost after long time of using.
   * Activated Chromatic Steel
-    > Top-rated Thermal compat material. Currently Tier 4. Includes a serie of powerful flux based modifiers. Crafted by alloying Basalz Signalum, Blitz Lumium, Blizz Enderium and Blaze Netherite.
+    > Top-rated Thermal compat material, now at Tier 4. Includes a series of powerful flux based modifiers. Crafted by alloying Basalz Signalum, Blitz Lumium, Blizz Enderium and Blaze Netherite.
 * Fuels
   * Pyrotheum
     > 3000℃ Fuel that resembles Pyrotheum in legacy Thermal Expansion mod. Crafted by alloying Blazing Blood, Refined Fuel and Creosote.
@@ -62,7 +71,7 @@ These features are integrations between mods other than TConstruct. The correspo
    * Alloy Atomic
      > Tier 4 material that can only be used to craft bindings. It allows tool to ignore harvest tiers.
    * Antimatter
-     > Currently Tier 4 material that has a high stat. Deals explosion damage to both target and attacker as melee harvest material. Reflect some of the damage taken in the form of explosion as armor material.
+     > Now at Tier 4, a material that has a high stat. Deals explosion damage to both target and attacker as melee harvest material. Reflect some of the damage taken in the form of explosion as armor material.
  * Original Materials
    * Irradium
      > Tier 4 material that resembles Irradium from Frackin's Universe mod (Starbound). Crafted by combining Pellet Polonium and Manyullyn Ingot. Inflicts radiation to enemy and adds glowing effect.
