@@ -65,6 +65,17 @@ public class TiAcTabs {
                 }
             })
             .build());
+    public static final RegistryObject<CreativeModeTab> UTILITIES_TAB = CREATIVE_MODE_TABS.register("tiac_utilities", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.tinkers_advanced.tiac_utilities"))
+            .icon(() -> TiAcItems.EXCHANGER.get().getDefaultInstance())
+            .displayItems((parameters, output) -> {
+                for (RegistryObject<BlockItem> object:TiAcItems.LIST_UTILITIES_BLOCK){
+                    if (object.isPresent()) {
+                        output.accept(object.get());
+                    }
+                }
+            })
+            .build());
     public static final RegistryObject<CreativeModeTab> TOOL_TAB = CREATIVE_MODE_TABS.register("tiac_tool", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_tool"))
             .icon(() -> TiAcItems.IONIZED_CANNON.get().getRenderTool())

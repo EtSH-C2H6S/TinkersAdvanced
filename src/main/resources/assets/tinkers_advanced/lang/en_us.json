@@ -1,7 +1,7 @@
 {
   "itemGroup.tinkers_advanced.tiac_material": "Tinkers' Advanced Materials",
-  "itemGroup.tinkers_advanced.tiac_mixc": "Tinkers' Advanced Misc",
   "itemGroup.tinkers_advanced.tiac_block": "Tinkers' Advanced Blocks",
+  "itemGroup.tinkers_advanced.tiac_utilities": "Tinkers' Advanced Utilities",
   "itemGroup.tinkers_advanced.tiac_tool": "Tinkers' Advanced Tools&Parts",
   "itemGroup.tinkers_advanced.tiac_misc": "Tinkers' Advanced Misc",
 
@@ -386,7 +386,7 @@
   "item.tinkers_advanced.bismuth_ingot": "Bismuth Ingot",
   "item.tinkers_advanced.bismuthinite": "Bismuthinite",
   "item.tinkers_advanced.irradium_ingot": "Irradium Pellet",
-  "item.tinkers_advanced.hot_reinforced_steel": "Over Heated Reinforced Steel",
+  "item.tinkers_advanced.hot_reinforced_steel": "Overheated Reinforced Steel",
   "item.tinkers_advanced.penumatic_reinforced_steel": "Pneumatic Reinforced Steel",
   "item.tinkers_advanced.basalz_signalum": "Basalz Signalum",
   "item.tinkers_advanced.blitz_lumium": "Blitz Lumium",
@@ -413,6 +413,13 @@
   "block.tinkers_advanced.bismuthinite_ore": "Bismuthinite Ore",
   "block.tinkers_advanced.stibnite_ore": "Stibnite Ore",
   "block.tinkers_advanced.exchanger": "Atom Exchanger",
+
+  "block.tinkers_advanced.cinderslime_faucet": "Cinderslime Faucet",
+  "block.tinkers_advanced.iridium_faucet": "Iridium Faucet",
+  "block.tinkers_advanced.cinderslime_casting_table": "Cinderslime Casting Table",
+  "block.tinkers_advanced.cinderslime_casting_basin": "Cinderslime Casting Basin",
+  "block.tinkers_advanced.iridium_casting_table": "Iridium Casting Table",
+  "block.tinkers_advanced.iridium_casting_basin": "Iridium Casting Basin",
 
 
 
@@ -458,8 +465,8 @@
   "fluid.tinkers_advanced.molten_iridium": "Molten Iridium",
   "item.tinkers_advanced.molten_iridium_bucket": "Molten Iridium Bucket",
 
-  "fluid.tinkers_advanced.over_heated_lava": "Over Heated Lava",
-  "item.tinkers_advanced.over_heated_lava_bucket": "Over Heated Lava Bucket",
+  "fluid.tinkers_advanced.over_heated_lava": "Overheated Lava",
+  "item.tinkers_advanced.over_heated_lava_bucket": "Overheated Lava Bucket",
   "fluid.tinkers_advanced.over_heated_lava.fluid_effect": "This super-hot fluid can deal fire damage to entities.",
 
   "fluid.tinkers_advanced.gaseous_lava": "Gaseous Lava",
@@ -511,6 +518,7 @@
   "tooltip.tinkers_advanced.fluid_consumption": "Fluid Drain",
   "tooltip.tinkers_advanced.range": "Attack Range",
   "tooltip.tinkers_advanced.scale": "Effect Range",
+  "tooltip.tinkers_advanced.pierce": "Pierce Level",
   "pattern.tinkers_advanced.ionize_chamber": "Ion Chamber",
 
   "item.tinkers_advanced.particle_container": "Particle Container",
@@ -577,6 +585,9 @@
   "tooltip.tinkers_advanced.exchanger1": "Allow interactions between tool placed inside and other blocks.",
   "tooltip.tinkers_advanced.exchanger2": "Processes energy generation for Electron Tuner.",
   "tooltip.tinkers_advanced.exchanger3": "R-Click to insert tool ,R-Click with tool handle to toggle energy ejection.",
+
+  "tooltip.tinkers_advanced.cinderslime_casting": "Cooling speed x%2$s when original cooling speed <%1$ss. Otherwise Cooling speed x%3$s.",
+  "tooltip.tinkers_advanced.iridium_casting": "x%1$s Cooling speed.",
 
 
   "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :",

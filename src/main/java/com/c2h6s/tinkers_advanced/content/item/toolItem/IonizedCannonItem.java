@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
@@ -296,6 +297,7 @@ public class IonizedCannonItem extends ModifiableItem {
         double baseRange;
         double baseScale;
         double baseDamage;
+        int pierce;
 
         baseRange = ConditionalStatModifierHook.getModifiedStat(tool, living, TiAcToolStats.RANGE);
         baseRange += player.getEntityReach() * 2;
@@ -310,6 +312,9 @@ public class IonizedCannonItem extends ModifiableItem {
         baseDamage *= effect.hasEntityEffects() ? COMMON.IONIZED_CANNON_DAMAGE_BONUS.get() : 1;
         baseDamage *= charge;
 
+        pierce = Math.round(ConditionalStatModifierHook.getModifiedStat(tool,living,TiAcToolStats.PIERCE));
+        if (COMMON.IONIZED_CANNON_PIERCE_FROM_IMPALING.get()) pierce += tool.getModifierLevel(TinkerModifiers.impaling.get());
+
 
         PlasmaBeamProjectile projectile = new PlasmaBeamProjectile(level, (float) baseScale);
         Vec3 vec3 = living.getLookAngle();
@@ -321,6 +326,7 @@ public class IonizedCannonItem extends ModifiableItem {
         projectile.setDataLength((float) baseRange);
         projectile.baseDamage = (float) baseDamage;
         projectile.OffHand = player.getUsedItemHand() == InteractionHand.OFF_HAND;
+        projectile.setDataPierce(pierce);
         level.addFreshEntity(projectile);
         if (!creative) {
             fluidStack.shrink(consume);
@@ -343,6 +349,7 @@ public class IonizedCannonItem extends ModifiableItem {
             int consume = Math.round(Math.max(((effect.hasEntityEffects() ? effect.getAmount(fluidStack.getFluid()) * 0.5F : 10) * fluidFactor), 1));
             float baseRange;
             float baseScale;
+            int pierce;
             baseRange = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.RANGE);
             baseRange += (float) (player.getEntityReach() * 2);
             baseRange += (float) tool.getModifierLevel(TinkerModifiers.expanded.get()) * 7.5f;
@@ -350,11 +357,21 @@ public class IonizedCannonItem extends ModifiableItem {
             baseScale = ConditionalStatModifierHook.getModifiedStat(tool, player, TiAcToolStats.SCALE);
             baseScale += (float) tool.getModifierLevel(TinkerModifiers.expanded.get()) * 0.75f;
 
+            pierce = Math.round(ConditionalStatModifierHook.getModifiedStat(tool,player,TiAcToolStats.PIERCE));
+            if (COMMON.IONIZED_CANNON_PIERCE_FROM_IMPALING.get()) pierce += tool.getModifierLevel(TinkerModifiers.impaling.get());
+
             consume = (int) (consume * (1 + baseScale * 0.5));
 
-            tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : §4" + consume + " mB"));
-            tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : §e" + baseRange));
-            tooltips.add(Component.translatable("tooltip.tinkers_advanced.scale").append(" : §a" + baseScale));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.fluid_consumption").append(" : " + consume + " mB")
+                    .withStyle(s -> s.withColor(TiAcToolStats.FLUID_EFFICIENCY.getColor())));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.range").append(" : " + baseRange)
+                    .withStyle(s -> s.withColor(TiAcToolStats.RANGE.getColor())));
+            tooltips.add(Component.translatable("tooltip.tinkers_advanced.scale").append(" : " + baseScale)
+                    .withStyle(s -> s.withColor(TiAcToolStats.SCALE.getColor())));
+            if (pierce>0){
+                tooltips.add(Component.translatable("tooltip.tinkers_advanced.pierce").append(" : " + pierce)
+                        .withStyle(s -> s.withColor(TiAcToolStats.PIERCE.getColor())));
+            }
         }
         return super.getStatInformation(tool, player, tooltips, key, tooltipFlag);
     }

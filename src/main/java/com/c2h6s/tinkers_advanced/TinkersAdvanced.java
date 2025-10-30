@@ -34,6 +34,8 @@ import org.slf4j.Logger;
 import slimeknights.tconstruct.library.client.model.TinkerItemProperties;
 import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
 import slimeknights.tconstruct.shared.CommonsClientEvents;
+import slimeknights.tconstruct.smeltery.client.render.CastingBlockEntityRenderer;
+import slimeknights.tconstruct.smeltery.client.render.FaucetBlockEntityRenderer;
 
 import java.util.Random;
 
@@ -148,8 +150,16 @@ public class TinkersAdvanced
             if (ModList.get().isLoaded("thermal")){
                 event.registerEntityRenderer(TiAcEntities.THERMAL_SLASH.get(), RenderThermalSlash::new);
             }
-
             event.registerBlockEntityRenderer(TiAcBlockEntities.EXCHANGER_BLOCK_ENTITY.get(), pContext -> new ExchangerBERenderer());
+            event.registerBlockEntityRenderer(TiAcBlockEntities.CINDER_SLIME_BASIN.get(), CastingBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(TiAcBlockEntities.CINDER_SLIME_TABLE.get(), CastingBlockEntityRenderer::new);
+
+            event.registerBlockEntityRenderer(TiAcBlockEntities.IRIDIUM_BASIN.get(), CastingBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(TiAcBlockEntities.IRIDIUM_TABLE.get(), CastingBlockEntityRenderer::new);
+
+            event.registerBlockEntityRenderer(TiAcBlockEntities.CINDER_SLIME_FAUCET.get(), FaucetBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(TiAcBlockEntities.IRIDIUM_FAUCET.get(), FaucetBlockEntityRenderer::new);
+
         }
     }
 }

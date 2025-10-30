@@ -4,6 +4,7 @@ import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.etstlib.util.IToolUuidGetter;
 import com.c2h6s.tinkers_advanced.content.block.StibniteOreBlock;
 import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.util.CommonUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,6 +24,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
+import java.util.UUID;
 import java.util.function.BiConsumer;
 
 public class Stabilize extends EtSTBaseModifier implements BlockBreakModifierHook, ToolStatsModifierHook, AttributesModifierHook {
@@ -51,6 +53,7 @@ public class Stabilize extends EtSTBaseModifier implements BlockBreakModifierHoo
 
     @Override
     public void addAttributes(IToolStackView tool, ModifierEntry modifier, EquipmentSlot slot, BiConsumer<Attribute, AttributeModifier> consumer) {
-        IToolUuidGetter.getUuid(tool).ifPresent(uuid -> consumer.accept(Attributes.MOVEMENT_SPEED,new AttributeModifier(uuid,Attributes.MOVEMENT_SPEED.getDescriptionId(),-0.1*modifier.getLevel(), AttributeModifier.Operation.MULTIPLY_TOTAL)));
+        UUID uuid = CommonUtil.getUUIDFromTool(tool,modifier.getId(),slot);
+        consumer.accept(Attributes.MOVEMENT_SPEED,new AttributeModifier(uuid,Attributes.MOVEMENT_SPEED.getDescriptionId(),-0.1*modifier.getLevel(), AttributeModifier.Operation.MULTIPLY_TOTAL));
     }
 }

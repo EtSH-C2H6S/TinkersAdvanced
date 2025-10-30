@@ -1,0 +1,42 @@
+[
+  {
+    "name": "index",
+    "type": "mantle:index",
+    "data": "utilities/index.json"
+  },
+  {
+    "name": "cinderslime_casting_basin",
+    "type": "showcase",
+    "data": "utilities/cinderslime_casting_basin.json"
+  },
+  {
+    "name": "cinderslime_casting_table",
+    "type": "showcase",
+    "data": "utilities/cinderslime_casting_table.json"
+  },
+  {
+    "name": "cinderslime_faucet",
+    "type": "showcase",
+    "data": "utilities/cinderslime_faucet.json"
+  },
+  {
+    "name": "iridium_casting_basin",
+    "type": "showcase",
+    "data": "utilities/iridium_casting_basin.json"
+  },
+  {
+    "name": "iridium_casting_table",
+    "type": "showcase",
+    "data": "utilities/iridium_casting_table.json"
+  },
+  {
+    "name": "iridium_faucet",
+    "type": "showcase",
+    "data": "utilities/iridium_faucet.json"
+  },
+  {
+    "name": "exchanger",
+    "type": "showcase",
+    "data": "utilities/exchanger.json"
+  }
+]

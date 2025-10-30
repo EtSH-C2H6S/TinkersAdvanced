@@ -1,0 +1,13 @@
+{
+  "tool": "tinkers_advanced:electron_tuner",
+  "text": [
+    { "text": "Electron Tuner is a melee weapon that requires FE to fully function." },
+    { "text": "When powered, It's melee damage and attack speed can be adjusted, with several extra bonus.", "paragraph": false }
+  ],
+  "properties": [
+    "+2 Attack Damage",
+    "1.6 Attack Speed",
+    "Can apply Generator Module upgrades",
+    "Core part made by casting molten material on Voltaic Crystal"
+  ]
+}

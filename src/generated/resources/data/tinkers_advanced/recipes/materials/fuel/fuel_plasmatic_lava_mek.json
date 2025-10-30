@@ -17,11 +17,6 @@
   ],
   "inputs": [
     {
-      "amount": 360,
-      "catalyst": true,
-      "fluid": "tinkers_advanced:molten_densium"
-    },
-    {
       "amount": 270,
       "catalyst": true,
       "fluid": "tinkers_advanced:molten_irradium"

@@ -1,0 +1,13 @@
+{
+  "title": "Atom Exchanger",
+  "text": [
+    {
+      "text": "A good way to automatically interact with your tool."
+    },
+    {
+      "text": "R-click to insert tool or take away existing tool.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:exchanger"
+}

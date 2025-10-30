@@ -24,6 +24,7 @@ import java.util.List;
 
 public class StibniteOreBlock extends Block {
     public static final BooleanProperty STIBNITE_STATE = BlockStateProperties.UNSTABLE;
+    public static final BooleanProperty MIDDLE_STATE = BlockStateProperties.ENABLED;
     public StibniteOreBlock(Properties pProperties) {
         super(pProperties);
     }
@@ -31,6 +32,7 @@ public class StibniteOreBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(STIBNITE_STATE);
+        pBuilder.add(MIDDLE_STATE);
     }
 
     @Override
@@ -42,11 +44,13 @@ public class StibniteOreBlock extends Block {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return defaultBlockState().setValue(STIBNITE_STATE,false);
+        return defaultBlockState().setValue(STIBNITE_STATE,false).setValue(MIDDLE_STATE,false);
     }
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
+        if (pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&(pNewState.getValue(MIDDLE_STATE))) return;
+        if (pState.getValue(MIDDLE_STATE)) return;
         if (!pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&TiAcConfig.COMMON.ALLOW_STIBNITE_UNSTABLE.get()&&!pState.getValue(STIBNITE_STATE)){
             for (Direction direction:Direction.values()){
                 BlockPos pos = pPos.relative(direction);
@@ -56,17 +60,23 @@ public class StibniteOreBlock extends Block {
                 }
             }
         }
-        if (!pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&pState.getValue(STIBNITE_STATE)) this.blowUp(pPos,pLevel,10);
+        if (!pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&pState.getValue(STIBNITE_STATE)){
+            pLevel.setBlockAndUpdate(pPos,defaultBlockState().setValue(MIDDLE_STATE,true));
+            pLevel.setBlockAndUpdate(pPos,Blocks.AIR.defaultBlockState());
+            this.blowUp(pPos,pLevel,8);
+        }
     }
 
     public void blowUp(BlockPos blockPos, Level level, int remains){
+        level.setBlockAndUpdate(blockPos,defaultBlockState().setValue(MIDDLE_STATE,true));
         level.setBlockAndUpdate(blockPos, Blocks.AIR.defaultBlockState());
         Vec3 pos = blockPos.getCenter();
         Explosion explosion = level.explode(null, LegacyDamageSource.any(level.damageSources().explosion(null)).setBypassInvulnerableTime(), null, pos.x, pos.y, pos.z, 2.5F, true, Level.ExplosionInteraction.BLOCK);
         explosion.explode();
         if (remains>0) {
             List.copyOf(explosion.getToBlow()).forEach(blockPos1 -> {
-                if (level.getBlockState(blockPos1).getBlock() instanceof StibniteOreBlock block) {
+                if (level.getBlockState(blockPos1).getBlock() instanceof StibniteOreBlock block&&
+                        !level.getBlockState(blockPos1).getValue(MIDDLE_STATE)) {
                     block.blowUp(blockPos,level,remains-1);
                 }
             });

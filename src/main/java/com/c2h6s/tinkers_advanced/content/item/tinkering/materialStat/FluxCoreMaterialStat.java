@@ -48,7 +48,7 @@ public record FluxCoreMaterialStat(float capacityFactor, float generateFactor) i
 
     @Override
     public void apply(ModifierStatsBuilder modifierStatsBuilder, float v) {
-        ToolEnergyCapability.MAX_STAT.multiply(modifierStatsBuilder,v*this.capacityFactor);
+        ToolEnergyCapability.MAX_STAT.multiplyAll(modifierStatsBuilder,v*this.capacityFactor);
         TiAcToolStats.POWER_MULTIPLIER.percent(modifierStatsBuilder,v*this.generateFactor);
     }
 }

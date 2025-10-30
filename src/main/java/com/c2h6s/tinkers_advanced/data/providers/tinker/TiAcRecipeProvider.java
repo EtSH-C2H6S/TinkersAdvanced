@@ -44,6 +44,7 @@ import slimeknights.mantle.recipe.helper.FluidOutput;
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.mantle.recipe.ingredient.FluidIngredient;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.json.ConfigEnabledCondition;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
@@ -60,11 +61,14 @@ import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBui
 import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.shared.TinkerMaterials;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.world.TinkerWorld;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
 
 import static com.c2h6s.tinkers_advanced.registery.TiAcModifiers.*;
+import static slimeknights.tconstruct.tools.TinkerModifiers.*;
 
 public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecipeHelper {
     public TiAcRecipeProvider(PackOutput generator) {
@@ -96,6 +100,32 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
         Consumer<FinishedRecipe> conditional;
         folder = namedFolder("mixc");
         ToolBuildingRecipeBuilder.toolBuildingRecipe(TiAcItems.MATTER_MANIPULATOR.get()).save(consumer, new ResourceLocation(folder + "/matter_manipulator"));
+        folder = namedFolder("utilities");
+        ItemCastingRecipeBuilder.basinRecipe(TiAcItems.CINDERSILME_BASIN.get())
+                .setCast(TinkerSmeltery.scorchedBasin.asItem(),true)
+                .setFluid(TinkerFluids.moltenCinderslime.get(), 270)
+                .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/cinderslime_basin"));
+        ItemCastingRecipeBuilder.basinRecipe(TiAcItems.CINDERSILME_TABLE.get())
+                .setCast(TinkerSmeltery.scorchedTable.asItem(),true)
+                .setFluid(TinkerFluids.moltenCinderslime.get(), 270)
+                .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/cinderslime_table"));
+        ItemCastingRecipeBuilder.basinRecipe(TiAcItems.CINDERSILME_FAUCET.get())
+                .setCast(TinkerSmeltery.scorchedFaucet.asItem(),true)
+                .setFluid(TinkerFluids.moltenCinderslime.get(), 90)
+                .setCoolingTime(180).save(consumer,new ResourceLocation(folder+"/cinderslime_fauset"));
+
+        ItemCastingRecipeBuilder.basinRecipe(TiAcItems.IRIDIUM_BASIN.get())
+                .setCast(TiAcItems.CINDERSILME_BASIN.get(),true)
+                .setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 90)
+                .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/iridium_basin"));
+        ItemCastingRecipeBuilder.basinRecipe(TiAcItems.IRIDIUM_TABLE.get())
+                .setCast(TiAcItems.CINDERSILME_TABLE.get(),true)
+                .setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 90)
+                .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/iridium_table"));
+        ItemCastingRecipeBuilder.basinRecipe(TiAcItems.IRIDIUM_FAUCET.get())
+                .setCast(TiAcItems.CINDERSILME_FAUCET.get(),true)
+                .setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 30)
+                .setCoolingTime(180).save(consumer,new ResourceLocation(folder+"/iridium_faucet"));
 
         folder = namedFolder("fuel");
         fuel("over_heated_lava", FluidIngredient.of(TiAcFluids.OVER_HEATED_LAVA.get(), 100), 1000, 2000, consumer);
@@ -134,7 +164,6 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
                 .save(conditional, new ResourceLocation(folder + "_gaseous_lava_mek"));
         conditional = withCondition(consumer, modLoaded("mekanismgenerators"));
         AlloyRecipeBuilder.alloy(FluidOutput.fromStack(new FluidStack(TiAcFluids.PLASMATIC_LAVA.get(), 500)), 3000)
-                .addCatalyst(FluidIngredient.of(TiAcFluids.MOLTEN_DENSIUM.get(), 360))
                 .addCatalyst(FluidIngredient.of(TiAcFluids.MOLTEN_IRRADIUM.get(), 270))
                 .addInput(GeneratorsFluids.DEUTERIUM.getFluid(), 500)
                 .addInput(GeneratorsFluids.TRITIUM.getFluid(), 500)
@@ -180,7 +209,12 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
         materialRecipe(TiAcMaterialIds.IRIDIUM, Ingredient.of(TiAcItems.IRIDIUM_CHUNK.get()), 3, 1, consumer, folder);
         MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.IRIDIUM_CHUNK.get()), FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 30), 1375, 30).save(consumer, new ResourceLocation(folder + "_melting_chunk"));
         ItemCastingRecipeBuilder.tableRecipe(TiAcItems.IRIDIUM_CHUNK.get()).setCoolingTime(10).setFluid(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 30).save(consumer, new ResourceLocation(folder + "_casting_chunk"));
-        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.IRIDIUM_LEAN_ORE.get()), FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 90), 1575, 30).save(consumer, new ResourceLocation(folder + "_melting_ore"));
+        MeltingRecipeBuilder.melting(Ingredient.of(TiAcItems.IRIDIUM_LEAN_ORE.get()),
+                FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 90), 1575, 30)
+                .addByproduct(FluidOutput.fromTag(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 90))
+                .addByproduct(FluidOutput.fromTag(TinkerFluids.enderSlime.getTag(), 250))
+                .addByproduct(FluidOutput.fromTag(TinkerFluids.moltenEnder.getTag(), 250))
+                .save(consumer, new ResourceLocation(folder + "_melting_ore"));
         meltMaterial(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, 90, TiAcMaterialIds.IRIDIUM, 1375, consumer, folder);
         conditional = withCondition(consumer, tagFilled(TiAcTagkeys.Items.IRIDIUM_INGOT));
         melt1Ingot(TiAcTagkeys.Fluids.MOLTEN_IRIDIUM, TiAcTagkeys.Items.IRIDIUM_INGOT, 1375, conditional, folder);
@@ -351,6 +385,15 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
                 .setMaxLevel(1);
         builder.save(consumer,modifierFolder(PLAYER_LOCATING.getId().getPath()));
         builder.saveSalvage(consumer,salvageFolder(PLAYER_LOCATING.getId().getPath()));
+
+        builder = ModifierRecipeBuilder.modifier(impaling.getId())
+                .addInput(Items.POINTED_DRIPSTONE).addInput(Items.POINTED_DRIPSTONE).addInput(Items.POINTED_DRIPSTONE)
+                .addInput(TinkerWorld.earthGeode.asItem()).addInput(Items.ECHO_SHARD)
+                .setSlots(SlotType.UPGRADE,1)
+                .setTools(Ingredient.of(TiAcItems.IONIZED_CANNON.asItem()));
+        builder.save(consumer,modifierFolder(impaling.getId().getPath()));
+        builder.saveSalvage(consumer,salvageFolder(impaling.getId().getPath()));
+
 
         conditional = withCondition(consumer, modLoaded("createutilities"));
         builder = ModifierRecipeBuilder.modifier(PLAYER_LOCATING.getId())

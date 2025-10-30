@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tinkers_advanced:block/smeltery/iridium/table" },
+    "facing=south": { "model": "tinkers_advanced:block/smeltery/iridium/table", "y": 180 },
+    "facing=west":  { "model": "tinkers_advanced:block/smeltery/iridium/table", "y": 270 },
+    "facing=east":  { "model": "tinkers_advanced:block/smeltery/iridium/table", "y":  90 }
+  }
+}

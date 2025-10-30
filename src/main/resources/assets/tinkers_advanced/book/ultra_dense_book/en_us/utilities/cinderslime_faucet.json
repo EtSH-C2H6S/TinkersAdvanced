@@ -1,0 +1,13 @@
+{
+  "title": "Cinderslime Faucet",
+  "text": [
+    {
+      "text": "A faster faucet."
+    },
+    {
+      "text": "Crafted by casting 1 ingots of Molten Cinderslime on Scorched Faucet.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:cinderslime_faucet"
+}

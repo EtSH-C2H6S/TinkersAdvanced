@@ -1,5 +1,19 @@
 {
   "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 90,
+      "tag": "forge:molten_iridium"
+    },
+    {
+      "amount": 250,
+      "tag": "tconstruct:ender_slime"
+    },
+    {
+      "amount": 250,
+      "tag": "forge:ender"
+    }
+  ],
   "ingredient": {
     "item": "tinkers_advanced:iridium_lean_ore"
   },

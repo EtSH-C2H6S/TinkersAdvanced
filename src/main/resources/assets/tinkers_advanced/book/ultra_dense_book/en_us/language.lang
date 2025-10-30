@@ -1,3 +1,11 @@
 special_modifiers=Special Modifiers
 special_modifiers.group_general=General
 special_modifiers.group_generator_modifier=Energy Modules
+utilities=Utilities
+utilities.cinderslime_casting_basin=Cinderslime Basin
+utilities.cinderslime_casting_table=Cinderslime Table
+utilities.cinderslime_faucet=Cinderslime Faucet
+utilities.exchanger=Atom Exchanger
+utilities.iridium_casting_basin=Iridium Basin
+utilities.iridium_casting_table=Iridium Table
+utilities.iridium_faucet=Iridium Faucet

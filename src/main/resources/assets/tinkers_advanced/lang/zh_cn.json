@@ -1,9 +1,9 @@
 {
   "itemGroup.tinkers_advanced.tiac_material": "前沿匠艺 | 材料",
-  "itemGroup.tinkers_advanced.tiac_mixc": "前沿匠艺 | 杂项",
   "itemGroup.tinkers_advanced.tiac_block": "前沿匠艺 | 方块",
   "itemGroup.tinkers_advanced.tiac_tool": "前沿匠艺 | 工具&部件",
   "itemGroup.tinkers_advanced.tiac_misc": "前沿匠艺 | 杂项",
+  "itemGroup.tinkers_advanced.tiac_utilities": "前沿匠艺 | 实用设备",
 
 
 
@@ -427,6 +427,12 @@
   "block.tinkers_advanced.iridium_lean_ore": "贫铱矿",
   "block.tinkers_advanced.exchanger": "粒子交换室",
 
+  "block.tinkers_advanced.cinderslime_faucet": "余烬黏液浇筑口",
+  "block.tinkers_advanced.iridium_faucet": "铱制浇筑口",
+  "block.tinkers_advanced.cinderslime_casting_table": "余烬黏液铸件台",
+  "block.tinkers_advanced.cinderslime_casting_basin": "余烬黏液铸造盆",
+  "block.tinkers_advanced.iridium_casting_table": "铱制铸件台",
+  "block.tinkers_advanced.iridium_casting_basin": "铱制铸造盆",
 
 
   "fluid.tinkers_advanced.molten_bismuth": "熔融铋",
@@ -522,6 +528,7 @@
   "tooltip.tinkers_advanced.fluid_consumption": "流体消耗",
   "tooltip.tinkers_advanced.range": "有效射程",
   "tooltip.tinkers_advanced.scale": "范围倍率",
+  "tooltip.tinkers_advanced.pierce": "穿透次数",
   "pattern.tinkers_advanced.ionize_chamber": "离子化腔",
 
   "item.tinkers_advanced.particle_container": "粒子容器",
@@ -589,6 +596,9 @@
 
   "tooltip.tinkers_advanced.ultra_dense_book1": "是一本超级致密的书，还是一本由超致密制成的书？",
   "tooltip.tinkers_advanced.ultra_dense_book2": "-前沿匠艺 指导书-",
+
+  "tooltip.tinkers_advanced.cinderslime_casting": "配方冷却时间小于%1$s秒时冷却速度变为%2$s倍，否则变为%3$s倍。",
+  "tooltip.tinkers_advanced.iridium_casting": "冷却速度变为%1$s倍。",
 
 
   "tooltip.tinkers_advanced.modifiers.shaping": "增加的槽位数量：",

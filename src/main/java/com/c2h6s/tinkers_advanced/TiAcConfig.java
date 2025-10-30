@@ -44,6 +44,7 @@ public class TiAcConfig {
         public final ForgeConfigSpec.DoubleValue IONIZED_CANNON_BASE_SCALE;
         public final ForgeConfigSpec.DoubleValue IONIZED_CANNON_BASE_FLUID_EFFICIENCY;
         public final ForgeConfigSpec.IntValue IONIZED_CANNON_BASE_CHARGE_TIME;
+        public final ForgeConfigSpec.BooleanValue IONIZED_CANNON_PIERCE_FROM_IMPALING;
         public final ForgeConfigSpec.IntValue SHAPING_MAX_SLOT;
         public final ForgeConfigSpec.IntValue SHAPING_DAMAGES_EACH_SLOT;
         public final ForgeConfigSpec.IntValue PROTO_REFINING_BONUS_LEVEL;
@@ -104,6 +105,7 @@ public class TiAcConfig {
         public final ForgeConfigSpec.DoubleValue EFFECT_PLAGUE_DAMAGE;
         public final ForgeConfigSpec.DoubleValue EFFECT_PLAGUE_REGENERATION_DECREASE;
 
+
         public final ForgeConfigSpec.BooleanValue ALLOW_BISMUTHINITE;
         public final ForgeConfigSpec.BooleanValue ALLOW_STIBNITE;
         public final ForgeConfigSpec.BooleanValue ALLOW_LEAN_IRIDIUM;
@@ -112,6 +114,15 @@ public class TiAcConfig {
 //        public final ForgeConfigSpec.BooleanValue ALLOW_IONIZED_CANNON;
 //        public final ForgeConfigSpec.BooleanValue ALLOW_MATTER_MANIPULATOR;
 //        public final ForgeConfigSpec.BooleanValue ALLOW_ELECTRON_TUNER;
+
+
+        public final ForgeConfigSpec.IntValue CINDER_SLIME_FAUCET_SPEED;
+        public final ForgeConfigSpec.IntValue IRIDIUM_FAUCET_SPEED;
+        public final ForgeConfigSpec.DoubleValue CINDER_SLIME_CASTING_INCREASE;
+        public final ForgeConfigSpec.DoubleValue CINDER_SLIME_CASTING_DECREASE;
+        public final ForgeConfigSpec.IntValue CINDER_SLIME_TABLE_SEPARATION;
+        public final ForgeConfigSpec.IntValue CINDER_SLIME_BASIN_SEPARATION;
+        public final ForgeConfigSpec.DoubleValue IRIDIUM_CASTING_SPEED;
 
         public Common(ForgeConfigSpec.Builder builder){
             builder.comment("***注意！").comment("***Notice")
@@ -370,6 +381,9 @@ public class TiAcConfig {
             this.IONIZED_CANNON_BASE_CHARGE_TIME = builder.comment("Base duration for Ionized Cannon to charge, 40 ticks by default.")
                     .comment("等离子射线炮的基础蓄力时间，默认40 ticks。最终蓄力时间会除以攻速。")
                     .defineInRange("ionized_cannon_base_duration",40,0,Integer.MAX_VALUE);
+            this.IONIZED_CANNON_PIERCE_FROM_IMPALING = builder.comment("Allow Ionized Cannon to gain pierce level form impaling modifier, true by default.")
+                    .comment("允许等离子射线炮根据穿透词条的等级增加射线穿透数量，默认是。")
+                    .define("ionize_cannon_pierce_from_impaling",true);
 
             builder.comment("Electron Tuner behaviour").comment("环流电子调谐剑");
 //            this.ALLOW_ELECTRON_TUNER = builder.comment("Enable Electron Tuner, true by default.").comment("启用环流电子调谐剑，默认是。")
@@ -386,6 +400,31 @@ public class TiAcConfig {
             this.ELECTRON_TUNER_CONSUMPTION = builder.comment("The basic energy consumption when attacking for Electron Tuner, 250 by default.")
                     .comment("环流电子调谐剑攻击的能耗，默认250FE。")
                     .defineInRange("electron_tuner_consumption",250,0,Integer.MAX_VALUE);
+            builder.pop();
+
+            builder.comment("Utilities").comment("实用设备").push("utilities");
+            this.CINDER_SLIME_FAUCET_SPEED = builder.comment("Transfer speed for Cinderslime Faucet, 1000mB/t by default.")
+                    .comment("余烬黏液浇筑口的传输速率，默认1000mB/t。")
+                    .defineInRange("cinderslime_faucet_speed",1000,1,200000000);
+            this.IRIDIUM_FAUCET_SPEED = builder.comment("Transfer speed for Iridium Faucet, 2000000000mB/t by default.")
+                    .comment("铱浇筑口的传输速率，默认2000000000mB/t。")
+                    .defineInRange("iridium_faucet_speed",2000000000,1,2000000000);
+            this.CINDER_SLIME_CASTING_INCREASE = builder.comment("Cinderslime Casting Speed multiplier with low temp recipes,5x by default.")
+                    .comment("余烬黏液铸件台处理快速配方时的速度倍率，默认5x。")
+                    .defineInRange("cinderslime_casting_increase",5f,0,Integer.MAX_VALUE);
+            this.CINDER_SLIME_CASTING_DECREASE = builder.comment("Cinderslime Casting Speed multiplier with high temp recipes,0.5x by default.")
+                    .comment("余烬黏液铸件台处理慢速配方时的速度倍率，默认0.5x。")
+                    .defineInRange("cinderslime_casting_decrease",0.5f,0,Integer.MAX_VALUE);
+            this.CINDER_SLIME_TABLE_SEPARATION = builder.comment("Recipe time separator for Cinderslime Table containers,100 ticks by default.")
+                    .comment("余烬黏液铸件台的快慢速分界线，默认100刻(5秒)。")
+                    .defineInRange("cinderslime_table_separation",100,1,Integer.MAX_VALUE);
+            this.CINDER_SLIME_BASIN_SEPARATION = builder.comment("Recipe time separator for Cinderslime Basin containers,180 ticks by default.")
+                    .comment("余烬黏液铸件台的快慢速分界线，默认180刻(9秒)。")
+                    .defineInRange("cinderslime_basin_separation",180,1,Integer.MAX_VALUE);
+            this.IRIDIUM_CASTING_SPEED = builder.comment("Iridium Casting speed modifier, 3x by default.")
+                    .comment("铱铸件台的速度倍率，默认3x。")
+                    .defineInRange("iridium_casting_speed",3f,0,Integer.MAX_VALUE);
+
             builder.pop();
 
             builder.comment("Mekanism Interaction").comment("通用机械交互").push("mekanism_interaction");

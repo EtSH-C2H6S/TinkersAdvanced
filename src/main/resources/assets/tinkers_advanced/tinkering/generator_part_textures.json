@@ -54,6 +54,82 @@
     {
       "path": "tinkers_advanced:item/tool/matter_manipulator/tough_collar",
       "stat_type": "tconstruct:binding"
+    },
+
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/tool_handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/tough_handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/small_blade_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/flux_core",
+      "stat_type": "tinkers_advanced:flux_core"
+    },
+
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/tool_handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/tough_handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/small_blade_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/flux_core",
+      "stat_type": "tinkers_advanced:flux_core"
+    },
+
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/mode_sword/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/mode_rapier/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/mode_cleaver/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/mode_sword/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/mode_rapier/small_blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_advanced:item/tool/electron_tuner/large/mode_cleaver/small_blade",
+      "stat_type": "tconstruct:head"
     }
   ],
   "replace": false

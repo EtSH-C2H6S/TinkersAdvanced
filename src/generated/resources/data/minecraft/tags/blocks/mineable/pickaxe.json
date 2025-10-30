@@ -3,6 +3,12 @@
     "tinkers_advanced:iridium_lean_ore",
     "tinkers_advanced:bismuthinite_ore",
     "tinkers_advanced:stibnite_ore",
-    "tinkers_advanced:exchanger"
+    "tinkers_advanced:exchanger",
+    "tinkers_advanced:cinderslime_faucet",
+    "tinkers_advanced:cinderslime_casting_table",
+    "tinkers_advanced:cinderslime_casting_basin",
+    "tinkers_advanced:iridium_casting_basin",
+    "tinkers_advanced:iridium_casting_table",
+    "tinkers_advanced:iridium_faucet"
   ]
 }

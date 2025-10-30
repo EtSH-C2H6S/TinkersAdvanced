@@ -60,7 +60,7 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
 
     @Override
     public int getPriority() {
-        return Integer.MAX_VALUE;
+        return Integer.MAX_VALUE-2;
     }
 
     @Override

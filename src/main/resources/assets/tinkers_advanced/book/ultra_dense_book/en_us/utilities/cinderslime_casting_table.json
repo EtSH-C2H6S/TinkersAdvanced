@@ -1,0 +1,16 @@
+{
+  "title": "cinderslime_casting_table",
+  "text": [
+    {
+      "text": "Cinderslime Basin cools things faster when condition is proper."
+    },
+    {
+      "text": "Always requires a cast like the Scorched variant."
+    },
+    {
+      "text": "Crafted by casting 3 ingots of Molten Cinderslime on Scorched Table.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:cinderslime_casting_table"
+}

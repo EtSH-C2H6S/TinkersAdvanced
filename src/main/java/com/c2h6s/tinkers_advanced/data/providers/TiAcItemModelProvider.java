@@ -53,9 +53,11 @@ public class TiAcItemModelProvider extends ItemModelProvider {
             generateBlockItemModel(object);
         }
         generateBlockItemModel(TiAcItems.STIBNITE_ORE);
-//        Map<FluidObject<ForgeFlowingFluid>,Boolean> map = TiAcFluids.getFluidMap();
-//        for (FluidObject<ForgeFlowingFluid> object : map.keySet()){
-//            generateBucketItemModel(object,map.get(object));
-//        }
+        withExistingParent("cinderslime_casting_basin",TinkersAdvanced.getLocation("block/smeltery/cinderslime/basin"));
+        withExistingParent("cinderslime_casting_table",TinkersAdvanced.getLocation("block/smeltery/cinderslime/table"));
+        withExistingParent("cinderslime_faucet",TinkersAdvanced.getLocation("block/smeltery/cinderslime/faucet"));
+        withExistingParent("iridium_casting_basin",TinkersAdvanced.getLocation("block/smeltery/iridium/basin"));
+        withExistingParent("iridium_casting_table",TinkersAdvanced.getLocation("block/smeltery/iridium/table"));
+        withExistingParent("iridium_faucet",TinkersAdvanced.getLocation("block/smeltery/iridium/faucet"));
     }
 }

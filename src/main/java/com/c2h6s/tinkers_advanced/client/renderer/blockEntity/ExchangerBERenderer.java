@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
+import slimeknights.tconstruct.library.TinkerItemDisplays;
 
 public class ExchangerBERenderer implements BlockEntityRenderer<ExchangerBlockEntity> {
 
@@ -23,10 +24,11 @@ public class ExchangerBERenderer implements BlockEntityRenderer<ExchangerBlockEn
         if (!pBlockEntity.exchangingItem.isEmpty()&&level!=null){
             int ticks = (int) (level.getGameTime()%40);
             pPoseStack.pushPose();
-            pPoseStack.translate(0.5,0.375,0.5);
+            pPoseStack.translate(0.5,0.5,0.5);
+            pPoseStack.scale(0.5f,0.5f,0.5f);
             pPoseStack.mulPose(Axis.YP.rotationDegrees(9*(ticks+pPartialTick)));
             ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-            itemRenderer.renderStatic(pBlockEntity.exchangingItem, ItemDisplayContext.GROUND, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY,pPoseStack,pBuffer,level,0);
+            itemRenderer.renderStatic(pBlockEntity.exchangingItem, TinkerItemDisplays.MELTER, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY,pPoseStack,pBuffer,level,0);
             pPoseStack.popPose();
         }
     }

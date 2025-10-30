@@ -1,0 +1,6 @@
+{
+  "parent": "tconstruct:block/template/faucet",
+  "textures": {
+    "tex": "tinkers_advanced:block/smeltery/cinderslime/faucet"
+  }
+}

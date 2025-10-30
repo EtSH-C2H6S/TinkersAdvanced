@@ -1,0 +1,13 @@
+{
+  "title": "余烬黏液铸件台",
+  "text": [
+    {
+      "text": "余烬黏液铸件台能根据配方原先的冷却时间来改变冷却速度，在合适的条件下它冷却速度非常快！"
+    },
+    {
+      "text": "将3锭熔融余烬黏液浇筑在焦褐铸件台上来合成它。和焦褐铸件台一样，它需要放入铸膜才能工作。",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:cinderslime_casting_table"
+}

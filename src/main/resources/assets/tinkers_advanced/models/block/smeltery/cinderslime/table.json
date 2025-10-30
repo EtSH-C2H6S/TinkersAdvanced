@@ -1,0 +1,8 @@
+{
+  "parent": "tconstruct:block/template/table",
+  "textures": {
+    "side":   "tinkers_advanced:block/smeltery/cinderslime/casting/table_side",
+    "top":    "tinkers_advanced:block/smeltery/cinderslime/casting/top",
+    "bottom": "tinkers_advanced:block/smeltery/cinderslime/casting/bottom"
+  }
+}

@@ -18,6 +18,7 @@ public class TiAcToolStats {
     public static final FloatToolStat SCALE;
     public static final FloatToolStat RANGE;
     public static final FloatToolStat POWER_MULTIPLIER;
+    public static final FloatToolStat PIERCE;
 
 //    static {
 //        FLUID_EFFICIENCY = new FloatToolStat(name("fluid_efficiency"), -3135232, 0.0F, Integer.MIN_VALUE, 1.0F,null);
@@ -27,10 +28,11 @@ public class TiAcToolStats {
 //    }
 
     static {
-        FLUID_EFFICIENCY = ToolStats.register(new FloatToolStat(name("fluid_efficiency"), -3135232, 0.0F, Integer.MIN_VALUE, 1.0F,null));
-        RANGE =ToolStats.register( new FloatToolStat(name("range"), -3135232, 12.0F, 0.0F, 64.0F,null));
-        SCALE =ToolStats.register( new FloatToolStat(name("scale"), -3135232, 1.0F, 0.0F, 8.0F,null));
-        POWER_MULTIPLIER =ToolStats.register( new FloatToolStat(name("power_multiplier"), -3135232, 1.0F, 0.0F, Integer.MAX_VALUE,null));
+        FLUID_EFFICIENCY = ToolStats.register(new FloatToolStat(name("fluid_efficiency"), 0xC8FF5D, 0.0F, Integer.MIN_VALUE, 1.0F,null));
+        RANGE =ToolStats.register( new FloatToolStat(name("range"), 0x4BFFAB, 12.0F, 0.0F, 64.0F,null));
+        SCALE =ToolStats.register( new FloatToolStat(name("scale"), 0xA584FF, 1.0F, 0.0F, 8.0F,null));
+        POWER_MULTIPLIER =ToolStats.register( new FloatToolStat(name("power_multiplier"), 0xFF888A, 1.0F, 0.0F, Integer.MAX_VALUE,null));
+        PIERCE = ToolStats.register(new FloatToolStat(name("pierce"),0x7C6CFF,0,0,2048,null));
     }
 
 //    @SubscribeEvent

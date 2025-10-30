@@ -1,10 +1,14 @@
 package com.c2h6s.tinkers_advanced.util;
 
+import com.c2h6s.etstlib.util.AttributesModifierUtil;
+import com.c2h6s.etstlib.util.IToolUuidGetter;
 import com.c2h6s.etstlib.util.ModListConstants;
+import com.c2h6s.etstlib.util.UUIDUtil;
 import com.c2h6s.tinkers_advanced.content.compact.pnc.capability.ItemMachineConvertHandler;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
@@ -12,10 +16,13 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Predicate;
 
 import static com.c2h6s.etstlib.util.EntityInRangeUtil.toManhattanDistance;
@@ -78,5 +85,9 @@ public class CommonUtil {
 
     public static boolean isModifiable(ItemStack stack){
         return stack.getItem() instanceof IModifiable;
+    }
+
+    public static @NotNull UUID getUUIDFromTool(IToolStackView tool, ModifierId modifierId, EquipmentSlot slot){
+        return IToolUuidGetter.getUuid(tool).isPresent()?IToolUuidGetter.getUuid(tool).get(): UUIDUtil.UUIDFromSlot(slot,modifierId);
     }
 }

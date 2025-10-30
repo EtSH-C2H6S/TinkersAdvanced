@@ -1,3 +1,11 @@
 special_modifiers=特殊强化
 special_modifiers.group_general=常规特殊强化
 special_modifiers.group_generator_modifier=能量模块强化
+utilities=实用设备
+utilities.cinderslime_casting_basin=余烬黏液铸造盆
+utilities.cinderslime_casting_table=余烬黏液铸件台
+utilities.cinderslime_faucet=余烬黏液浇筑口
+utilities.exchanger = 粒子交换室
+utilities.iridium_casting_basin=铱制铸造盆
+utilities.iridium_casting_table=铱制铸件台
+utilities.iridium_faucet=铱制浇筑口

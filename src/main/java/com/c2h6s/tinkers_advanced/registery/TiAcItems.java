@@ -43,6 +43,7 @@ public class TiAcItems {
 
     protected static List<RegistryObject<BlockItem>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
     protected static List<RegistryObject<BlockItem>> LIST_MIXC_BLOCK =new ArrayList<>( List.of());
+    protected static List<RegistryObject<BlockItem>> LIST_UTILITIES_BLOCK =new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_MATERIAL_ITEM_MODEL =new ArrayList<>( List.of());
     protected static List<RegistryObject<Item>> LIST_MIXC_ITEM_MODEL =new ArrayList<>( List.of());
 
@@ -88,11 +89,25 @@ public class TiAcItems {
         LIST_MIXC_BLOCK.add(object);
         return object;
     }
+    public static RegistryObject<BlockItem> registerUtilitiesBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
+        RegistryObject<BlockItem> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
+        LIST_UTILITIES_BLOCK.add(object);
+        return object;
+    }
 
     public static final RegistryObject<BlockItem> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
     public static final RegistryObject<BlockItem> IRIDIUM_LEAN_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.IRIDIUM_LEAN_ORE);
     public static final RegistryObject<BlockItem> STIBNITE_ORE = registerBlockItem(ITEMS,TiAcBlocks.STIBNITE_ORE);
-    public static final RegistryObject<BlockItem> EXCHANGER = registerBlockItem(ITEMS,TiAcBlocks.EXCHANGER);
+
+
+    public static final RegistryObject<BlockItem> EXCHANGER = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.EXCHANGER);
+    public static final RegistryObject<BlockItem> CINDERSILME_FAUCET = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.CINDERSILME_FAUCET);
+    public static final RegistryObject<BlockItem> IRIDIUM_FAUCET = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.IRIDIUM_FAUCET);
+    public static final RegistryObject<BlockItem> CINDERSILME_TABLE = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.CINDERSLIME_TABLE);
+    public static final RegistryObject<BlockItem> CINDERSILME_BASIN = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.CINDERSLIME_BASIN);
+    public static final RegistryObject<BlockItem> IRIDIUM_TABLE = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.IRIDIUM_TABLE);
+    public static final RegistryObject<BlockItem> IRIDIUM_BASIN = registerUtilitiesBlockItem(ITEMS,TiAcBlocks.IRIDIUM_BASIN);
+
 
     public static final RegistryObject<Item> BISMUTH_INGOT = registerMaterial(ITEMS,"bismuth_ingot",()->new Item(new Item.Properties()),true);
     public static final RegistryObject<Item> BISMUTH_NUGGET = registerMaterial(ITEMS,"bismuth_nugget",()->new Item(new Item.Properties()),true);

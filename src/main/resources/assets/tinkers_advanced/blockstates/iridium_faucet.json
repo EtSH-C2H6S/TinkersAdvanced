@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=down":  { "model": "tinkers_advanced:block/smeltery/iridium/faucet_up" },
+    "facing=north": { "model": "tinkers_advanced:block/smeltery/iridium/faucet", "y":   0 },
+    "facing=east":  { "model": "tinkers_advanced:block/smeltery/iridium/faucet", "y":  90 },
+    "facing=south": { "model": "tinkers_advanced:block/smeltery/iridium/faucet", "y": 180 },
+    "facing=west":  { "model": "tinkers_advanced:block/smeltery/iridium/faucet", "y": 270 }
+  }
+}
