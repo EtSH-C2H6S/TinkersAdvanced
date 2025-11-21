@@ -4,11 +4,12 @@ import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.MovementInputUpdateEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = TinkersAdvanced.MODID)
+@Mod.EventBusSubscriber(modid = TinkersAdvanced.MODID,value = Dist.CLIENT)
 public class TiAcForgeEventHandler {
     @SubscribeEvent
     public static void onMovementInputUpdate(MovementInputUpdateEvent event){

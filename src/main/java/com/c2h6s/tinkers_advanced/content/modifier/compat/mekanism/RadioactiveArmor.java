@@ -44,7 +44,7 @@ public class RadioactiveArmor extends EtSTBaseModifier implements OnAttackedModi
                 LivingEntity attacker = event.getSource().getEntity() instanceof LivingEntity living1?living1:null;
                 if (attacker!=null){
                     attacker.getCapability(Capabilities.RADIATION_ENTITY).ifPresent(iRadiationEntity -> {
-                        float bonus = (float) Math.min(TiAcConfig.COMMON.IRRADIUM_MAX_BONUS.get(),iRadiationEntity.getRadiation() * TiAcConfig.COMMON.IRRADIUM_BONUS_PER_Sv.get());
+                        float bonus = (float) Math.min(TiAcConfig.COMMON.IRRADIUM_MAX_BONUS_ARMOR.get(),iRadiationEntity.getRadiation() * TiAcConfig.COMMON.IRRADIUM_BONUS_PER_Sv.get());
                         if (bonus>0.001){
                             event.setAmount(event.getAmount()*(1-bonus));
                         }

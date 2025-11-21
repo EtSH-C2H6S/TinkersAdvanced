@@ -51,6 +51,7 @@ public class TiAcConfig {
         public final ForgeConfigSpec.IntValue PROTO_REFINING_TIMES_REQUIRED;
         public final ForgeConfigSpec.DoubleValue IRRADIUM_RADIATION_INFLICT;
         public final ForgeConfigSpec.DoubleValue IRRADIUM_MAX_BONUS;
+        public final ForgeConfigSpec.DoubleValue IRRADIUM_MAX_BONUS_ARMOR;
         public final ForgeConfigSpec.DoubleValue IRRADIUM_BONUS_PER_Sv;
         public final ForgeConfigSpec.DoubleValue FRAGILE_CHANCE;
         public final ForgeConfigSpec.IntValue FRAGILE_EXTRA_COST;
@@ -153,8 +154,10 @@ public class TiAcConfig {
                     .defineInRange("proto_refining_requirement",5,1,Integer.MAX_VALUE);
 
             builder.comment("Radiation Burning and Radioactive Armor").comment("镭光合金相关");
-            this.IRRADIUM_MAX_BONUS = builder.comment("Max bonus for Radiation Burning and Radioactive Armor, 0.75 by default.").comment("最大增益，默认0.75。")
-                    .defineInRange("irradium_max_bonus",0.75,0,1);
+            this.IRRADIUM_MAX_BONUS = builder.comment("Max bonus for Radiation Burning, 0.75 by default.").comment("辐射灼伤最大增益，默认0.75。")
+                    .defineInRange("irradium_max_bonus",0.75,0,Float.MAX_VALUE);
+            this.IRRADIUM_MAX_BONUS_ARMOR = builder.comment("Max bonus for Radioactive Armor, 0.75 by default.").comment("放射性护甲最大增益，默认0.75。")
+                    .defineInRange("irradium_max_bonus_armor",0.75,0,1);
             this.IRRADIUM_RADIATION_INFLICT = builder.comment("Radiation amount for Radiation Burning and Radioactive Armor each trait level, 1.0 Sv by default.").comment("辐射施加，默认1.0Sv。")
                     .defineInRange("irradium_radiation_inflict",1d,0,Double.MAX_VALUE);
             this.IRRADIUM_BONUS_PER_Sv = builder.comment("Bonus for Radiation Burning and Radioactive Armor each Sv, 0.05 by default.").comment("每Sv辐射造成的增幅，默认0.05。")
@@ -188,10 +191,10 @@ public class TiAcConfig {
             builder.comment("Annihilation").comment("湮灭");
             this.ANNIHILATE_EXPLOSION_ATTACK_MULTIPLIER = builder.comment("Explosion damage multiplier for Annihilation Modifier, 5 by default.")
                     .comment("湮灭词条造成的爆炸伤害倍率，默认5倍。")
-                    .defineInRange("annihilation_attack_multiplier",5d,0,Integer.MAX_VALUE);
+                    .defineInRange("annihilation_attack_multiplier",5d,0,Float.MAX_VALUE);
             this.ANNIHILATE_EXPLOSION_SELF_MULTIPLIER = builder.comment("Explosion damage multiplier that deals to attacker, 2.5 by default.")
                     .comment("湮灭词条对自己造成的爆炸伤害倍率，默认2.5倍")
-                    .defineInRange("annihilation_attack_self_multiplier",2.5d,0,Integer.MAX_VALUE);
+                    .defineInRange("annihilation_attack_self_multiplier",2.5d,0,Float.MAX_VALUE);
             builder.comment("Disintegrate").comment("解离");
             this.DISINTEGRATE_EACH_BONUS = builder.comment("Bonus each block mined (%), 20(%) by default")
                     .comment("挖掘每个方块带来的加成（单位为%），默认20%。注：耐久惩罚是加成的一半。")

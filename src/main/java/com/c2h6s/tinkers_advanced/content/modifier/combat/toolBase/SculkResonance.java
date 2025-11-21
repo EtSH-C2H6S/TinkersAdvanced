@@ -35,7 +35,9 @@ public class SculkResonance extends FluidDisplayBaseModifier implements ToolStat
 
     @Override
     public LegacyDamageSource modifyDamageSource(IToolStackView tool, ModifierEntry entry, LivingEntity attacker, InteractionHand hand, Entity target, EquipmentSlot sourceSlot, boolean isFullyCharged, boolean isExtraAttack, boolean isCritical, LegacyDamageSource source) {
-        return new LegacyDamageSource(attacker.damageSources().sonicBoom(attacker));
+        var Ls = new LegacyDamageSource(attacker.damageSources().sonicBoom(attacker));
+        Ls.damageTypes = source.damageTypes;
+        return Ls;
     }
 
     @Override
