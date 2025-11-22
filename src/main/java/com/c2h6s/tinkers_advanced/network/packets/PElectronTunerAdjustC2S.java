@@ -1,9 +1,8 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
+import com.c2h6s.tinkers_advanced.tools.content.tool.item.ElectronTunerItem;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.NetworkEvent;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 

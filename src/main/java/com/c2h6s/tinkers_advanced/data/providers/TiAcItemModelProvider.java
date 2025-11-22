@@ -13,6 +13,8 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.RegistryObject;
 import slimeknights.mantle.registration.object.FluidObject;
 
+import static com.c2h6s.tinkers_advanced.core.init.TiAcCrItem.*;
+
 public class TiAcItemModelProvider extends ItemModelProvider {
     public static final String PARENT_SIMPLE_ITEM ="item/generated";
     public static final String PARENT_BUCKET_FLUID ="forge:item/bucket_drip";
@@ -43,13 +45,13 @@ public class TiAcItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for (RegistryObject<Item> object: TiAcItems.getListSimpleMaterialModel()){
+        for (RegistryObject<Item> object: getListSimpleMaterialModel()){
             generateItemModel(object,"material");
         }
-        for (RegistryObject<Item> object: TiAcItems.getListSimpleMiscModel()){
+        for (RegistryObject<Item> object: getListSimpleMiscModel()){
             generateItemModel(object,"misc");
         }
-        for (RegistryObject<BlockItem> object:TiAcItems.getListSimpleBlock()){
+        for (RegistryObject<BlockItem> object:getListSimpleBlock()){
             generateBlockItemModel(object);
         }
         generateBlockItemModel(TiAcItems.STIBNITE_ORE);

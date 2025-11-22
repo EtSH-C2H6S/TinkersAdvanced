@@ -1,13 +1,23 @@
 package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.content.entity.*;
+import com.c2h6s.tinkers_advanced.core.content.event.TiAcLoadRegistryClassEvent;
+import com.c2h6s.tinkers_advanced.materials.content.entity.AirSlashProjectile;
+import com.c2h6s.tinkers_advanced.materials.content.entity.ThermalSlashProjectile;
+import com.c2h6s.tinkers_advanced.tools.content.entity.MiningBeamProjectile;
+import com.c2h6s.tinkers_advanced.tools.content.entity.PlasmaBeamProjectile;
+import com.c2h6s.tinkers_advanced.tools.content.entity.PlasmaExplosionProjectile;
+import com.c2h6s.tinkers_advanced.tools.content.entity.PlasmaSlashEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
-
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TiAcEntities {
+    @SubscribeEvent
+    public static void init(TiAcLoadRegistryClassEvent event){}
     public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(TinkersAdvanced.MODID);
     public static final EntityTypeDeferredRegister THERMAL_ENTITIES = new EntityTypeDeferredRegister(TinkersAdvanced.MODID);
 

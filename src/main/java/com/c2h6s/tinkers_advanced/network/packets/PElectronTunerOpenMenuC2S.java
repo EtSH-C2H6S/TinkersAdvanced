@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
-import com.c2h6s.tinkers_advanced.content.menu.ElectronTunerMenu;
+import com.c2h6s.tinkers_advanced.tools.content.tool.item.ElectronTunerItem;
+import com.c2h6s.tinkers_advanced.tools.content.menu.ElectronTunerMenu;
 import com.c2h6s.tinkers_advanced.registery.TiAcMenus;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

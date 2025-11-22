@@ -1,7 +1,6 @@
 package com.c2h6s.tinkers_advanced.mixin.TconMixin;
 
-import com.c2h6s.tinkers_advanced.content.item.tinkering.TiAcToolDefinitions;
-import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
+import com.c2h6s.tinkers_advanced.tools.content.tool.item.ElectronTunerItem;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

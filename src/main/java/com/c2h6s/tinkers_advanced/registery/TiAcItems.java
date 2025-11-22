@@ -1,18 +1,20 @@
 package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
-import com.c2h6s.tinkers_advanced.content.item.HiddenMaterial;
-import com.c2h6s.tinkers_advanced.content.item.UltraDenseBookItem;
-import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
-import com.c2h6s.tinkers_advanced.content.item.toolItem.ElectronTunerItem;
-import com.c2h6s.tinkers_advanced.content.item.toolItem.IonizedCannonItem;
-import com.c2h6s.tinkers_advanced.content.item.toolItem.MatterManipulator;
+import com.c2h6s.tinkers_advanced.core.content.event.TiAcLoadRegistryClassEvent;
+import com.c2h6s.tinkers_advanced.core.content.item.HiddenMaterial;
+import com.c2h6s.tinkers_advanced.core.content.item.UltraDenseBookItem;
+import com.c2h6s.tinkers_advanced.tools.content.tool.tinkering.materialStat.FluxCoreMaterialStat;
+import com.c2h6s.tinkers_advanced.tools.content.tool.item.ElectronTunerItem;
+import com.c2h6s.tinkers_advanced.tools.content.tool.item.IonizedCannonItem;
+import com.c2h6s.tinkers_advanced.tools.content.tool.item.MatterManipulator;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -22,78 +24,20 @@ import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
-
+import static com.c2h6s.tinkers_advanced.core.init.TiAcCrItem.*;
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TiAcItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    @SubscribeEvent
+    public static void init(TiAcLoadRegistryClassEvent event){}
     public static final DeferredRegister<Item> MEK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> PNC_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> THERMAL_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> IF_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final ItemDeferredRegisterExtension TOOL_ITEMS = new ItemDeferredRegisterExtension(MODID);
 
-    public static final ItemDeferredRegisterExtension TINKER_ITEMS = new ItemDeferredRegisterExtension(MODID);
-
-    protected static List<RegistryObject<Item>> LIST_MIXC=new ArrayList<>( List.of());
-    protected static List<RegistryObject<Item>> LIST_MATERIAL=new ArrayList<>( List.of());
-    protected static List<RegistryObject<Item>> LIST_TOOL=new ArrayList<>( List.of());
-
-    protected static List<RegistryObject<BlockItem>> LIST_SIMPLE_BLOCK =new ArrayList<>( List.of());
-    protected static List<RegistryObject<BlockItem>> LIST_MIXC_BLOCK =new ArrayList<>( List.of());
-    protected static List<RegistryObject<BlockItem>> LIST_UTILITIES_BLOCK =new ArrayList<>( List.of());
-    protected static List<RegistryObject<Item>> LIST_MATERIAL_ITEM_MODEL =new ArrayList<>( List.of());
-    protected static List<RegistryObject<Item>> LIST_MIXC_ITEM_MODEL =new ArrayList<>( List.of());
-
-    public static List<RegistryObject<Item>> getListSimpleMaterialModel(){
-        return List.copyOf(LIST_MATERIAL_ITEM_MODEL);
-    }
-    public static List<RegistryObject<Item>> getListSimpleMiscModel(){
-        return List.copyOf(LIST_MIXC_ITEM_MODEL);
-    }
-
-    public static List<RegistryObject<BlockItem>> getListSimpleBlock(){
-        return List.copyOf(LIST_SIMPLE_BLOCK);
-    }
-
-    public static RegistryObject<Item> registerMixc(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup,boolean simpleModel){
-        RegistryObject<Item> object = register.register(name,sup);
-        LIST_MIXC.add(object);
-        if (simpleModel){
-            LIST_MIXC_ITEM_MODEL.add(object);
-        }
-        return object;
-    }
-    public static RegistryObject<Item> registerMaterial(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup,boolean simpleModel){
-        RegistryObject<Item> object = register.register(name,sup);
-        LIST_MATERIAL.add(object);
-        if (simpleModel){
-            LIST_MATERIAL_ITEM_MODEL.add(object);
-        }
-        return object;
-    }
-    public static RegistryObject<Item> registerToolOrPart(DeferredRegister<Item> register,String name, Supplier<? extends Item> sup){
-        RegistryObject<Item> object = register.register(name,sup);
-        LIST_TOOL.add(object);
-        return object;
-    }
-    public static RegistryObject<BlockItem> registerSimpleBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
-        RegistryObject<BlockItem> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
-        LIST_SIMPLE_BLOCK.add(object);
-        return object;
-    }
-    public static RegistryObject<BlockItem> registerBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
-        RegistryObject<BlockItem> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
-        LIST_MIXC_BLOCK.add(object);
-        return object;
-    }
-    public static RegistryObject<BlockItem> registerUtilitiesBlockItem(DeferredRegister<Item> register,RegistryObject<? extends Block> block){
-        RegistryObject<BlockItem> object = register.register(block.getId().getPath(),() -> new BlockItem(block.get(), new Item.Properties()));
-        LIST_UTILITIES_BLOCK.add(object);
-        return object;
-    }
 
     public static final RegistryObject<BlockItem> BISMUTHINITE_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.BISMUTHINITE);
     public static final RegistryObject<BlockItem> IRIDIUM_LEAN_ORE = registerSimpleBlockItem(ITEMS,TiAcBlocks.IRIDIUM_LEAN_ORE);
@@ -120,16 +64,15 @@ public class TiAcItems {
     public static final RegistryObject<Item> ANTIMONY_INGOT = registerMaterial(ITEMS,"antimony_ingot",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> ANTIMONY_NUGGET = registerMaterial(ITEMS,"antimony_nugget",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
     public static final RegistryObject<Item> STIBNITE = registerMaterial(ITEMS,"stibnite",()->new Item(new Item.Properties().rarity(Rarity.UNCOMMON)),true);
-    public static final RegistryObject<Item> ULTRA_DENSE_BOOK = registerMixc(ITEMS,"ultra_dense_book",()->new UltraDenseBookItem(new Item.Properties()),true);
 
-    public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TINKER_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
-    public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TINKER_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
-    public static final ItemObject<ToolPartItem> FLUX_CORE = TINKER_ITEMS.register("flux_core",()->new ToolPartItem(new Item.Properties(), FluxCoreMaterialStat.ID));
+    public static final ItemObject<ToolPartItem> IONIZE_CHAMBER = TOOL_ITEMS.register("ionize_chamber",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
+    public static final ItemObject<ToolPartItem> PARTICLE_CONTAINER = TOOL_ITEMS.register("particle_container",()->new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID));
+    public static final ItemObject<ToolPartItem> FLUX_CORE = TOOL_ITEMS.register("flux_core",()->new ToolPartItem(new Item.Properties(), FluxCoreMaterialStat.ID));
 
 
-    public static final ItemObject<ModifiableItem> IONIZED_CANNON = TINKER_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
-    public static final ItemObject<ModifiableItem> MATTER_MANIPULATOR = TINKER_ITEMS.register("matter_manipulator",()->new MatterManipulator(new Item.Properties().stacksTo(1)));
-    public static final ItemObject<ModifiableItem> ELECTRON_TUNER = TINKER_ITEMS.register("electron_tuner",()->new ElectronTunerItem(new Item.Properties().stacksTo(1)));
+    public static final ItemObject<ModifiableItem> IONIZED_CANNON = TOOL_ITEMS.register("ionized_cannon",()->new IonizedCannonItem(new Item.Properties().stacksTo(1)));
+    public static final ItemObject<ModifiableItem> MATTER_MANIPULATOR = TOOL_ITEMS.register("matter_manipulator",()->new MatterManipulator(new Item.Properties().stacksTo(1)));
+    public static final ItemObject<ModifiableItem> ELECTRON_TUNER = TOOL_ITEMS.register("electron_tuner",()->new ElectronTunerItem(new Item.Properties().stacksTo(1)));
 
 
 

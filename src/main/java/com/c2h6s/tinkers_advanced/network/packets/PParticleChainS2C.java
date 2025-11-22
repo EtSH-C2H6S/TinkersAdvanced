@@ -1,7 +1,6 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.util.ParticleChainUtil;
-import net.minecraft.client.Minecraft;
+import com.c2h6s.tinkers_advanced.core.util.ParticleChainUtil;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;

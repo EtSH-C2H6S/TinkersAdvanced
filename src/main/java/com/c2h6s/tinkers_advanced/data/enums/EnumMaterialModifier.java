@@ -2,8 +2,7 @@ package com.c2h6s.tinkers_advanced.data.enums;
 
 import com.c2h6s.etstlib.data.EtSTLibModifierIds;
 import com.c2h6s.etstlib.register.EtSTLibModifier;
-import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
-import com.c2h6s.tinkers_advanced.registery.TiAcMaterialStat;
+import com.c2h6s.tinkers_advanced.tools.content.tool.tinkering.materialStat.FluxCoreMaterialStat;
 import com.c2h6s.tinkers_advanced.registery.TiAcModifiers;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;

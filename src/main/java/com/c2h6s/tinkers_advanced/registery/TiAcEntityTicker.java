@@ -1,16 +1,18 @@
 package com.c2h6s.tinkers_advanced.registery;
 
 import com.c2h6s.etstlib.content.misc.entityTicker.EntityTicker;
-import com.c2h6s.etstlib.content.register.EtSTLibRegistries;
-import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.content.entity.tickers.IonizedEntityTicker;
-import com.c2h6s.tinkers_advanced.content.entity.tickers.SculkMarkedTicker;
-import net.minecraftforge.registries.DeferredRegister;
+import com.c2h6s.tinkers_advanced.core.TiAcCrModule;
+import com.c2h6s.tinkers_advanced.core.content.event.TiAcLoadRegistryClassEvent;
+import com.c2h6s.tinkers_advanced.materials.content.entityTicker.IonizedEntityTicker;
+import com.c2h6s.tinkers_advanced.materials.content.entityTicker.SculkMarkedTicker;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
-
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TiAcEntityTicker {
-    public static final DeferredRegister<EntityTicker> TICKERS = DeferredRegister.create(EtSTLibRegistries.ENTITY_TICKER, TinkersAdvanced.MODID);
+    @SubscribeEvent
+    public static void init(TiAcLoadRegistryClassEvent event){}
 
-    public static final RegistryObject<EntityTicker> SCULK_MARKED = TICKERS.register("sculk_marked",SculkMarkedTicker::new);
-    public static final RegistryObject<EntityTicker> IONIZED = TICKERS.register("ionized", IonizedEntityTicker::new);
+    public static final RegistryObject<EntityTicker> SCULK_MARKED = TiAcCrModule.TICKERS.register("sculk_marked",SculkMarkedTicker::new);
+    public static final RegistryObject<EntityTicker> IONIZED = TiAcCrModule.TICKERS.register("ionized", IonizedEntityTicker::new);
 }

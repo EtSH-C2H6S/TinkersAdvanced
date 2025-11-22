@@ -1,6 +1,6 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.content.modifier.compat.thermal.FluxInfused;
+import com.c2h6s.tinkers_advanced.materials.content.tool.modifiers.compat.thermal.FluxInfused;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;

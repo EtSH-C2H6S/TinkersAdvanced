@@ -1,8 +1,7 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.content.menu.ElectronTunerMenu;
+import com.c2h6s.tinkers_advanced.tools.content.menu.ElectronTunerMenu;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;

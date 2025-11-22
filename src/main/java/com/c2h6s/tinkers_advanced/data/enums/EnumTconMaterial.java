@@ -1,6 +1,5 @@
 package com.c2h6s.tinkers_advanced.data.enums;
 
-import com.c2h6s.tinkers_advanced.content.item.tinkering.materialStat.FluxCoreMaterialStat;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
 

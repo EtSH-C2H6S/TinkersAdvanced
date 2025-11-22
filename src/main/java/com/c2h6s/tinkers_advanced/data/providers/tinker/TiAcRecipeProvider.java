@@ -62,6 +62,7 @@ import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildin
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.tools.data.ModifierIds;
 import slimeknights.tconstruct.world.TinkerWorld;
 
 import java.util.Arrays;
@@ -386,13 +387,13 @@ public class TiAcRecipeProvider extends RecipeProvider implements ISmelteryRecip
         builder.save(consumer,modifierFolder(PLAYER_LOCATING.getId().getPath()));
         builder.saveSalvage(consumer,salvageFolder(PLAYER_LOCATING.getId().getPath()));
 
-        builder = ModifierRecipeBuilder.modifier(impaling.getId())
+        builder = ModifierRecipeBuilder.modifier(ModifierIds.arrowPierce)
                 .addInput(Items.POINTED_DRIPSTONE).addInput(Items.POINTED_DRIPSTONE).addInput(Items.POINTED_DRIPSTONE)
                 .addInput(TinkerWorld.earthGeode.asItem()).addInput(Items.ECHO_SHARD)
                 .setSlots(SlotType.UPGRADE,1)
                 .setTools(Ingredient.of(TiAcItems.IONIZED_CANNON.asItem()));
-        builder.save(consumer,modifierFolder(impaling.getId().getPath()));
-        builder.saveSalvage(consumer,salvageFolder(impaling.getId().getPath()));
+        builder.save(consumer,modifierFolder(ModifierIds.arrowPierce.getPath()));
+        builder.saveSalvage(consumer,salvageFolder(ModifierIds.arrowPierce.getPath()));
 
 
         conditional = withCondition(consumer, modLoaded("createutilities"));

@@ -1,7 +1,6 @@
 package com.c2h6s.tinkers_advanced.data.providers.tinker;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.content.modifier.common.ReturnToSlime;
 import com.c2h6s.tinkers_advanced.data.TiAcModifierIds;
 import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
 import net.minecraft.data.PackOutput;

@@ -1,6 +1,6 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.content.block.blockEntity.ExchangerBlockEntity;
+import com.c2h6s.tinkers_advanced.utilities.content.block.blockEntity.ExchangerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.ItemStack;

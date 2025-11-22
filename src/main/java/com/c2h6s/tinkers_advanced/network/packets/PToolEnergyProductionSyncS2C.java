@@ -1,6 +1,6 @@
 package com.c2h6s.tinkers_advanced.network.packets;
 
-import com.c2h6s.tinkers_advanced.content.objects.ToolEnergyProduction;
+import com.c2h6s.tinkers_advanced.tools.content.misc.ToolEnergyProduction;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 
