@@ -3,6 +3,8 @@ package com.c2h6s.tinkers_advanced.registery;
 import cofh.core.init.CoreMobEffects;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
+import com.c2h6s.tinkers_advanced.core.TiAcCrModule;
+import com.c2h6s.tinkers_advanced.core.content.event.TiAcLoadRegistryClassEvent;
 import mekanism.common.lib.radiation.RadiationManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -17,8 +19,10 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraftforge.common.SoundActions;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.minecraftforge.fml.common.Mod;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.tconstruct.fluids.block.BurningLiquidBlock;
@@ -28,8 +32,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static slimeknights.tconstruct.fluids.block.BurningLiquidBlock.createBurning;
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TiAcFluids {
-    public static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
+    @SubscribeEvent
+    public static void init(TiAcLoadRegistryClassEvent event){}
+
     public static final FluidDeferredRegister MEK_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     public static final FluidDeferredRegister THERMAL_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
     public static final FluidDeferredRegister IF_FLUIDS = new FluidDeferredRegister(TinkersAdvanced.MODID);
@@ -52,14 +59,14 @@ public class TiAcFluids {
         return object;
     }
 
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BISMUTH = registerHotBurning(FLUIDS,"molten_bismuth",770,1,4,0.5f,false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLAZE_NETHERITE = registerHotBurning(FLUIDS,"molten_blaze_netherite",1920,15,1920,9f,false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRIDIUM = registerHotBurning(FLUIDS,"molten_iridium",1375,10,20,3f,false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMONY = registerHotBurning(FLUIDS,"molten_antimony",970,5,16,2f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BISMUTH = registerHotBurning(TiAcCrModule.FLUIDS,"molten_bismuth",770,1,4,0.5f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLAZE_NETHERITE = registerHotBurning(TiAcCrModule.FLUIDS,"molten_blaze_netherite",1920,15,1920,9f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_IRIDIUM = registerHotBurning(TiAcCrModule.FLUIDS,"molten_iridium",1375,10,20,3f,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANTIMONY = registerHotBurning(TiAcCrModule.FLUIDS,"molten_antimony",970,5,16,2f,false);
 
 
-    public static final FluidObject<ForgeFlowingFluid> OVER_HEATED_LAVA = registerHotBurning(FLUIDS,"over_heated_lava",2300,15,200,6.5f,false);
-    public static final FluidObject<ForgeFlowingFluid> GASEOUS_LAVA = registerFluid(FLUIDS,"gaseous_lava",3300, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+    public static final FluidObject<ForgeFlowingFluid> OVER_HEATED_LAVA = registerHotBurning(TiAcCrModule.FLUIDS,"over_heated_lava",2300,15,200,6.5f,false);
+    public static final FluidObject<ForgeFlowingFluid> GASEOUS_LAVA = registerFluid(TiAcCrModule.FLUIDS,"gaseous_lava",3300, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             if (entity instanceof LivingEntity living) {
@@ -68,7 +75,7 @@ public class TiAcFluids {
             }
         }
     },true);
-    public static final FluidObject<ForgeFlowingFluid> PLASMATIC_LAVA = registerFluid(FLUIDS,"plasmatic_lava",4300, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
+    public static final FluidObject<ForgeFlowingFluid> PLASMATIC_LAVA = registerFluid(TiAcCrModule.FLUIDS,"plasmatic_lava",4300, supplier -> new BurningLiquidBlock(supplier, FluidDeferredRegister.createProperties(MapColor.COLOR_GRAY, 15), 200, 8){
         @Override
         public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             if (entity instanceof LivingEntity living) {

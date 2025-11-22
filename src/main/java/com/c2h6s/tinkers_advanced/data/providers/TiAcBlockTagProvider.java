@@ -2,6 +2,7 @@ package com.c2h6s.tinkers_advanced.data.providers;
 
 import com.c2h6s.etstlib.content.block.SelfDroppingTieredBlock;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
+import com.c2h6s.tinkers_advanced.core.TiAcCrModule;
 import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -46,7 +47,7 @@ public class TiAcBlockTagProvider extends BlockTagsProvider {
                 .add(TiAcBlocks.IRIDIUM_TABLE.get())
                 .add(TiAcBlocks.IRIDIUM_FAUCET.get())
         ;
-        TiAcBlocks.BLOCKS.getEntries().forEach(reg->{
+        TiAcCrModule.BLOCKS.getEntries().forEach(reg->{
             if (reg.isPresent()&&reg.get() instanceof SelfDroppingTieredBlock block){
                 block.getMiningTierOptional().ifPresent(blockTagKey -> tag(blockTagKey).add(block));
             }
