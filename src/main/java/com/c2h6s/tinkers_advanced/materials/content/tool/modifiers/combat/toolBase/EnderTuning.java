@@ -70,7 +70,7 @@ public class EnderTuning extends BasicFEModifier implements ModifierTraitHook, A
             if (ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),true)>=TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()) {
                 ToolEnergyUtil.extractEnergy(tool,TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get(),false);
                 PlasmaSlashEntity entity = PlasmaSlashEntity.create(player, ElectronTunerItem.getSlashScale(tool), player.getLookAngle(), (ToolStack) tool);
-                entity.baseDamage = tool.getStats().get(ToolStats.ATTACK_DAMAGE) * (0.25f + Math.min(0.75f, 0.25F * tool.getModifierLevel(TinkerModifiers.sweeping.get())));
+                entity.baseDamage = ElectronTunerItem.getSlashDamage(tool);
                 level.addFreshEntity(entity);
             }
         }

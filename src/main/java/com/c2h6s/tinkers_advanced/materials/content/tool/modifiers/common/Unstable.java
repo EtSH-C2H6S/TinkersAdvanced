@@ -3,7 +3,7 @@ package com.c2h6s.tinkers_advanced.materials.content.tool.modifiers.common;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.materials.content.block.StibniteOreBlock;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -92,7 +92,7 @@ public class Unstable extends EtSTBaseModifier implements BreakSpeedModifierHook
         if (breakSpeed.getEntity()!=null&&breakSpeed.getPosition().isPresent()) {
             Level level = breakSpeed.getEntity().level();
             BlockState blockState = breakSpeed.getState();
-            if (blockState.is(TiAcBlocks.STIBNITE_ORE.get()) && blockState.getValue(StibniteOreBlock.STIBNITE_STATE)) {
+            if (blockState.is(TiAcMeBlocks.STIBNITE_ORE.get()) && blockState.getValue(StibniteOreBlock.STIBNITE_STATE)) {
                 blockState.setValue(StibniteOreBlock.STIBNITE_STATE, false);
                 level.setBlockAndUpdate(breakSpeed.getPosition().get(), blockState);
             }

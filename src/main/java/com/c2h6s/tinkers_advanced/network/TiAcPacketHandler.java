@@ -2,6 +2,8 @@ package com.c2h6s.tinkers_advanced.network;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.network.packets.*;
+import com.c2h6s.tinkers_advanced.utilities.network.packets.PExchangerBEItemSyncC2S;
+import com.c2h6s.tinkers_advanced.utilities.network.packets.PExchangerBEItemSyncS2C;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;

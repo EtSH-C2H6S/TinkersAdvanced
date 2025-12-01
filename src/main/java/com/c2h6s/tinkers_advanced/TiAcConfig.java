@@ -118,12 +118,12 @@ public class TiAcConfig {
 
 
         public final ForgeConfigSpec.IntValue CINDER_SLIME_FAUCET_SPEED;
-        public final ForgeConfigSpec.IntValue IRIDIUM_FAUCET_SPEED;
+        public final ForgeConfigSpec.IntValue HEPATIZON_FAUCET_SPEED;
         public final ForgeConfigSpec.DoubleValue CINDER_SLIME_CASTING_INCREASE;
         public final ForgeConfigSpec.DoubleValue CINDER_SLIME_CASTING_DECREASE;
         public final ForgeConfigSpec.IntValue CINDER_SLIME_TABLE_SEPARATION;
         public final ForgeConfigSpec.IntValue CINDER_SLIME_BASIN_SEPARATION;
-        public final ForgeConfigSpec.DoubleValue IRIDIUM_CASTING_SPEED;
+        public final ForgeConfigSpec.DoubleValue HEPATIZON_CASTING_SPEED;
 
         public Common(ForgeConfigSpec.Builder builder){
             builder.comment("***注意！").comment("***Notice")
@@ -409,9 +409,9 @@ public class TiAcConfig {
             this.CINDER_SLIME_FAUCET_SPEED = builder.comment("Transfer speed for Cinderslime Faucet, 1000mB/t by default.")
                     .comment("余烬黏液浇筑口的传输速率，默认1000mB/t。")
                     .defineInRange("cinderslime_faucet_speed",1000,1,200000000);
-            this.IRIDIUM_FAUCET_SPEED = builder.comment("Transfer speed for Iridium Faucet, 2000000000mB/t by default.")
+            this.HEPATIZON_FAUCET_SPEED = builder.comment("Transfer speed for Hepatizon Faucet, 2000000000mB/t by default.")
                     .comment("铱浇筑口的传输速率，默认2000000000mB/t。")
-                    .defineInRange("iridium_faucet_speed",2000000000,1,2000000000);
+                    .defineInRange("hepatizon_faucet_speed",2000000000,1,2000000000);
             this.CINDER_SLIME_CASTING_INCREASE = builder.comment("Cinderslime Casting Speed multiplier with low temp recipes,5x by default.")
                     .comment("余烬黏液铸件台处理快速配方时的速度倍率，默认5x。")
                     .defineInRange("cinderslime_casting_increase",5f,0,Integer.MAX_VALUE);
@@ -424,9 +424,9 @@ public class TiAcConfig {
             this.CINDER_SLIME_BASIN_SEPARATION = builder.comment("Recipe time separator for Cinderslime Basin containers,180 ticks by default.")
                     .comment("余烬黏液铸件台的快慢速分界线，默认180刻(9秒)。")
                     .defineInRange("cinderslime_basin_separation",180,1,Integer.MAX_VALUE);
-            this.IRIDIUM_CASTING_SPEED = builder.comment("Iridium Casting speed modifier, 3x by default.")
+            this.HEPATIZON_CASTING_SPEED = builder.comment("Hepatizon Casting speed modifier, 3x by default.")
                     .comment("铱铸件台的速度倍率，默认3x。")
-                    .defineInRange("iridium_casting_speed",3f,0,Integer.MAX_VALUE);
+                    .defineInRange("hepatizon_casting_speed",3f,0,Integer.MAX_VALUE);
 
             builder.pop();
 

@@ -4,7 +4,7 @@ import com.c2h6s.etstlib.content.misc.entityTicker.EntityTickerInstance;
 import com.c2h6s.etstlib.content.misc.entityTicker.EntityTickerManager;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.etstlib.util.CommonConstants;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntityTicker;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeEntityTicker;
 import com.c2h6s.tinkers_advanced.core.util.CommonUtil;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -36,7 +36,7 @@ public class IonizedModifier extends EtSTBaseModifier implements OnAttackedModif
         if (context.getTarget() instanceof LivingEntity living&&context.isFullyCharged()){
             living.getPersistentData().putInt(CommonUtil.KEY_ATTACKER,context.getAttacker().getId());
             EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
-            EntityTickerInstance instance = new EntityTickerInstance(TiAcEntityTicker.IONIZED.get(), modifier.getLevel(),200);
+            EntityTickerInstance instance = new EntityTickerInstance(TiAcMeEntityTicker.IONIZED.get(), modifier.getLevel(),200);
             managerInstance.addTicker(instance,(a,b)->Math.min(a+b,10),Integer::sum);
         }
     }
@@ -47,7 +47,7 @@ public class IonizedModifier extends EtSTBaseModifier implements OnAttackedModif
                 target.getPersistentData().putInt(CommonUtil.KEY_ATTACKER, attacker.getId());
             }
             EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(target);
-            EntityTickerInstance instance = new EntityTickerInstance(TiAcEntityTicker.IONIZED.get(), entry.getLevel(), 200);
+            EntityTickerInstance instance = new EntityTickerInstance(TiAcMeEntityTicker.IONIZED.get(), entry.getLevel(), 200);
             managerInstance.addTicker(instance, (a, b) -> Math.min(a + b, 10), Integer::sum);
         }
     }
@@ -57,7 +57,7 @@ public class IonizedModifier extends EtSTBaseModifier implements OnAttackedModif
         if (damageSource.getEntity() instanceof LivingEntity living){
             living.getPersistentData().putInt(CommonUtil.KEY_ATTACKER,context.getEntity().getId());
             EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
-            EntityTickerInstance instance = new EntityTickerInstance(TiAcEntityTicker.IONIZED.get(), modifier.getLevel(), 200);
+            EntityTickerInstance instance = new EntityTickerInstance(TiAcMeEntityTicker.IONIZED.get(), modifier.getLevel(), 200);
             managerInstance.addTicker(instance, (a, c) -> Math.min(a + c, 10), Integer::sum);
         }
     }

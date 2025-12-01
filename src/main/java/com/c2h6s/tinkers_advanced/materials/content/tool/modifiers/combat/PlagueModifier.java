@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.materials.content.tool.modifiers.combat;
 
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.etstlib.util.CommonConstants;
-import com.c2h6s.tinkers_advanced.registery.TiAcEffects;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -18,14 +18,14 @@ public class PlagueModifier extends EtSTBaseModifier {
     @Override
     public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt,float damage) {
         if (context.isFullyCharged()&&context.getTarget() instanceof LivingEntity living){
-            living.addEffect(new MobEffectInstance(TiAcEffects.PLAGUE.get(),400,modifier.getLevel()-1));
+            living.addEffect(new MobEffectInstance(TiAcMeEffects.PLAGUE.get(),400,modifier.getLevel()-1));
         }
     }
 
     @Override
     public void afterArrowHit(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull LivingEntity target, float damageDealt) {
         if (arrow.getTags().contains(CommonConstants.KEY_CRITARROW)){
-            target.addEffect(new MobEffectInstance(TiAcEffects.PLAGUE.get(),400,entry.getLevel()-1));
+            target.addEffect(new MobEffectInstance(TiAcMeEffects.PLAGUE.get(),400,entry.getLevel()-1));
         }
     }
 }

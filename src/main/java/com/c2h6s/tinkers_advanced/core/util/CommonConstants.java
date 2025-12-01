@@ -17,4 +17,8 @@ public class CommonConstants {
         }
         public static final TagKey<Item> WRENCH = forgeTag("tools/wrench");
     }
+    public static class Materials{
+        public static final int ORDER_COMPAT = 5;
+        public static final int ORDER_ORIGINAL = 30;
+    }
 }

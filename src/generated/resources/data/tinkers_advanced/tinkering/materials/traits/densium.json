@@ -49,6 +49,20 @@
         "level": 1,
         "name": "etstlib:rude"
       }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "etstlib:extra_dense"
+      },
+      {
+        "level": 5,
+        "name": "tconstruct:momentum"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:heavy"
+      }
     ]
   }
 }

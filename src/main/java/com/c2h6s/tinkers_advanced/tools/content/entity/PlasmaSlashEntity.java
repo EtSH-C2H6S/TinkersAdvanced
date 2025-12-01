@@ -2,10 +2,14 @@ package com.c2h6s.tinkers_advanced.tools.content.entity;
 
 import com.c2h6s.etstlib.util.AttackUtil;
 import com.c2h6s.tinkers_advanced.core.content.entity.VisualScaledProjectile;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTEntities;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -16,12 +20,14 @@ import java.util.HashSet;
 import java.util.List;
 
 public class PlasmaSlashEntity extends VisualScaledProjectile {
+    public static final EntityDataAccessor<Boolean> DATA_POWERED = SynchedEntityData.defineId(PlasmaSlashEntity.class, EntityDataSerializers.BOOLEAN);
+
     public PlasmaSlashEntity(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.noPhysics = true;
     }
     public PlasmaSlashEntity(Level pLevel) {
-        this(TiAcEntities.PLASMA_SLASH.get(), pLevel);
+        this(TiAcTEntities.PLASMA_SLASH.get(), pLevel);
     }
     ToolStack toolStack = null;
     public float rotation = 0;
@@ -39,6 +45,18 @@ public class PlasmaSlashEntity extends VisualScaledProjectile {
         return entity;
     }
 
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_POWERED,false);
+    }
+
+    public void setPowered(boolean powered){
+        this.entityData.set(DATA_POWERED,powered);
+    }
+    public boolean isPowered(){
+        return this.entityData.get(DATA_POWERED);
+    }
 
     public HashSet<Entity> set = new HashSet<>();
 
@@ -59,33 +77,36 @@ public class PlasmaSlashEntity extends VisualScaledProjectile {
 
     @Override
     public void tick() {
-        if (this.tickCount > 7) {
-            this.set.clear();
-            this.discard();
-            return;
-        }
-
+        super.tick();
         if (this.toolStack != null && this.getOwner() instanceof LivingEntity living && !this.firstTick && !this.level().isClientSide) {
-            List<Entity> entities = this.level().getEntitiesOfClass(Entity.class, this.getBoundingBox().inflate(this.getScale()), entity -> !set.contains(entity) && entity != this.getOwner());
+            List<Entity> entities = this.level().getEntitiesOfClass(Entity.class, this.getBoundingBox().inflate(this.getScale()), this::canHitEntity);
             for (int i = 0; i < 8 && i < entities.size(); i++) {
                 Entity entity = entities.get(i);
                 set.add(entity);
-                if (entity == null||entity instanceof ItemEntity||entity instanceof ExperienceOrb) continue;
                 entity.invulnerableTime = 0;
-                AttackUtil.attackEntityWithBaseDamage(this.toolStack,
+                AttackUtil.attackEntity(this.toolStack,
                         living,
                         entity,
+                        0,
                         this.baseDamage,
-                        1,
                         true
                 );
             }
         }
-
-        super.tick();
         if (this.getOwner() != null) {
             Vec3 vec3 = this.getDeltaMovement().normalize();
             this.setPos(this.getOwner().position().add(0, 0.5 * this.getOwner().getBbHeight(), 0).add(vec3.scale(this.getScale())));
         }
+        if (this.tickCount >= 8) {
+            this.set.clear();
+            this.discard();
+        }
+    }
+
+    @Override
+    protected boolean canHitEntity(Entity pTarget) {
+        return !set.contains(pTarget) && pTarget != this.getOwner() &&
+                !( pTarget instanceof ItemEntity || pTarget instanceof ExperienceOrb)&&
+                !(pTarget instanceof Player)&&pTarget!=this;
     }
 }

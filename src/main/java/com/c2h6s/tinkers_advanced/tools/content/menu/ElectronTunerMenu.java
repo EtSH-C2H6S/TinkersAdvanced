@@ -1,6 +1,6 @@
 package com.c2h6s.tinkers_advanced.tools.content.menu;
 
-import com.c2h6s.tinkers_advanced.registery.TiAcMenus;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTMenus;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -67,7 +67,7 @@ public class ElectronTunerMenu extends AbstractContainerMenu {
     }
 
     public ElectronTunerMenu(int id, Inventory inventory, FriendlyByteBuf buffer) {
-        super(TiAcMenus.ELECTRON_TUNER_MENU.get(),id);
+        super(TiAcTMenus.ELECTRON_TUNER_MENU.get(),id);
         this.slotIndex = buffer.readVarInt();
         this.toolItem = inventory.getItem(this.slotIndex);
         this.playerInventory = inventory;

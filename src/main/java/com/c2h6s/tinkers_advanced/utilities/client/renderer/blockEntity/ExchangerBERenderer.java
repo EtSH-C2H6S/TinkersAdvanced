@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.utilities.client.renderer.blockEntity;
 
 import com.c2h6s.tinkers_advanced.utilities.content.block.blockEntity.ExchangerBlockEntity;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
-import com.c2h6s.tinkers_advanced.network.packets.PExchangerBEItemSyncC2S;
+import com.c2h6s.tinkers_advanced.utilities.network.packets.PExchangerBEItemSyncC2S;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;

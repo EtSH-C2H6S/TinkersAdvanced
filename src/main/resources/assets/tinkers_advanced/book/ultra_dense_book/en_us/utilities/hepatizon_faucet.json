@@ -1,0 +1,13 @@
+{
+  "title": "Hepatizon Faucet",
+  "text": [
+    {
+      "text": "A faucet with ultimate speed (But who need this?)."
+    },
+    {
+      "text": "Crafted by casting 1 ingot of Molten Hepatizon on Rose Gold Faucet.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:hepatizon_faucet"
+}

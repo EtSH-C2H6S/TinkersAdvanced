@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.tools.content.entity;
 
 import com.c2h6s.tinkers_advanced.core.content.entity.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.tools.content.tool.item.MatterManipulator;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTEntities;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -23,7 +23,7 @@ public class MiningBeamProjectile extends VisualScaledProjectile {
         super(pEntityType, pLevel);
     }
     public MiningBeamProjectile(Level pLevel,float Scale) {
-        this(TiAcEntities.MINING_BEAM.get(), pLevel);
+        this(TiAcTEntities.MINING_BEAM.get(), pLevel);
         this.setScale(Scale);
     }
 

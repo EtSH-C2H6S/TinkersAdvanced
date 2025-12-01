@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "tinkers_advanced:rose_gold_faucet"
+  },
+  "cast_consumed": true,
+  "cooling_time": 180,
+  "fluid": {
+    "amount": 30,
+    "tag": "forge:molten_hepatizon"
+  },
+  "result": "tinkers_advanced:hepatizon_faucet"
+}

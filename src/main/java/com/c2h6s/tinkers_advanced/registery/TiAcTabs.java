@@ -3,6 +3,9 @@ package com.c2h6s.tinkers_advanced.registery;
 import com.c2h6s.tinkers_advanced.core.content.event.TiAcLoadRegistryClassEvent;
 import com.c2h6s.tinkers_advanced.core.content.item.HiddenMaterial;
 import com.c2h6s.tinkers_advanced.core.init.TiAcCrItem;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeItems;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTItems;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,17 +36,17 @@ public class TiAcTabs {
     private static void addToolItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Objects.requireNonNull(tab);
         Consumer<ItemStack> output = tab::accept;
-        acceptTool(output,TiAcItems.IONIZED_CANNON);
-        acceptPart(output,TiAcItems.IONIZE_CHAMBER);
-        acceptTool(output,TiAcItems.MATTER_MANIPULATOR);
-        acceptPart(output,TiAcItems.PARTICLE_CONTAINER);
-        acceptPart(output,TiAcItems.FLUX_CORE);
-        acceptTool(output,TiAcItems.ELECTRON_TUNER);
+        acceptTool(output, TiAcTItems.IONIZED_CANNON);
+        acceptPart(output, TiAcTItems.IONIZE_CHAMBER);
+        acceptTool(output, TiAcTItems.MATTER_MANIPULATOR);
+        acceptPart(output, TiAcTItems.PARTICLE_CONTAINER);
+        acceptPart(output, TiAcTItems.FLUX_CORE);
+        acceptTool(output, TiAcTItems.ELECTRON_TUNER);
     }
 
     public static final RegistryObject<CreativeModeTab> MATERIAL_TAB = CREATIVE_MODE_TABS.register("tiac_material", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_material"))
-            .icon(() -> TiAcItems.BISMUTH_INGOT.get().getDefaultInstance())
+            .icon(() -> TiAcMeItems.BISMUTH_INGOT.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 for (RegistryObject<Item> object:TiAcCrItem.getListMaterial()){
                     if (object.isPresent()&&!(object.get() instanceof HiddenMaterial hiddenMaterial&&hiddenMaterial.config!=null&&!hiddenMaterial.config.get())) {
@@ -53,7 +56,7 @@ public class TiAcTabs {
             }).build());
     public static final RegistryObject<CreativeModeTab> BLOCK_TAB = CREATIVE_MODE_TABS.register("tiac_block", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_block"))
-            .icon(() -> TiAcItems.BISMUTHINITE_ORE.get().getDefaultInstance())
+            .icon(() -> TiAcMeItems.BISMUTHINITE_ORE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 for (RegistryObject<BlockItem> object:TiAcCrItem.getListSimpleBlock()){
                     if (object.isPresent()) {
@@ -67,20 +70,10 @@ public class TiAcTabs {
                 }
             })
             .build());
-    public static final RegistryObject<CreativeModeTab> UTILITIES_TAB = CREATIVE_MODE_TABS.register("tiac_utilities", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.tinkers_advanced.tiac_utilities"))
-            .icon(() -> TiAcItems.EXCHANGER.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                for (RegistryObject<BlockItem> object:TiAcCrItem.getListUtilitiesBlock()){
-                    if (object.isPresent()) {
-                        output.accept(object.get());
-                    }
-                }
-            })
-            .build());
+
     public static final RegistryObject<CreativeModeTab> TOOL_TAB = CREATIVE_MODE_TABS.register("tiac_tool", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_tool"))
-            .icon(() -> TiAcItems.IONIZED_CANNON.get().getRenderTool())
+            .icon(() -> TiAcTItems.IONIZED_CANNON.get().getRenderTool())
             .displayItems(TiAcTabs::addToolItems).build());
 
 }

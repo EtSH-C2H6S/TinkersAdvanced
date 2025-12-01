@@ -4,8 +4,7 @@ import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.core.content.effect.EtSTBaseEffect;
 import com.c2h6s.tinkers_advanced.materials.util.MaterialConstants;
-import com.c2h6s.tinkers_advanced.registery.TiAcEffects;
-import com.c2h6s.tinkers_advanced.core.util.CommonConstants;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeEffects;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -26,7 +25,7 @@ public class ProtoPoison extends EtSTBaseEffect {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onEffectApply(MobEffectEvent.Applicable event){
-        if (event.getEffectInstance().getEffect()== TiAcEffects.PROTO_POISON.get()) event.setResult(Event.Result.ALLOW);
+        if (event.getEffectInstance().getEffect()== TiAcMeEffects.PROTO_POISON.get()) event.setResult(Event.Result.ALLOW);
     }
 
     @Override

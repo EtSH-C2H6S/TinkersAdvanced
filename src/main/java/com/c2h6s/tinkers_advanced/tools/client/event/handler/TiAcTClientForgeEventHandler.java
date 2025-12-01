@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.tools.client.event.handler;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.registery.TiAcItems;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTItems;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.MovementInputUpdateEvent;
@@ -14,7 +14,7 @@ public class TiAcTClientForgeEventHandler {
     @SubscribeEvent
     public static void onMovementInputUpdate(MovementInputUpdateEvent event){
         Player player = event.getEntity();
-        if (player.isUsingItem()&&player.getUseItem().is(TiAcItems.MATTER_MANIPULATOR.asItem())&& TiAcConfig.COMMON.MATTER_MANIPULATOR_CANCEL_SLOWDOWN.get()){
+        if (player.isUsingItem()&&player.getUseItem().is(TiAcTItems.MATTER_MANIPULATOR.asItem())&& TiAcConfig.COMMON.MATTER_MANIPULATOR_CANCEL_SLOWDOWN.get()){
             var input = event.getInput();
             float leftImp = input.leftImpulse;
             float forwardImp = input.forwardImpulse;

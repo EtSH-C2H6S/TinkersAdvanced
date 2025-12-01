@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.tools.content.entity;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.core.content.entity.VisualScaledProjectile;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTEntities;
 import com.c2h6s.tinkers_advanced.core.init.TiAcCrParticleTypes;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -37,7 +37,7 @@ public class PlasmaExplosionProjectile extends VisualScaledProjectile {
     }
 
     public PlasmaExplosionProjectile(Level pLevel, float scale){
-        this(TiAcEntities.PLASMA_EXPLOSION.get(), pLevel,scale);
+        this(TiAcTEntities.PLASMA_EXPLOSION.get(), pLevel,scale);
     }
 
     public PlasmaExplosionProjectile(EntityType<? extends VisualScaledProjectile> entityEntityType, Level level) {

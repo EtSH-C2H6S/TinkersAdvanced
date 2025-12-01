@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.data;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.data.providers.*;
-import com.c2h6s.tinkers_advanced.data.providers.tinker.*;
+import com.c2h6s.tinkers_advanced.materials.data.providers.tinker.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

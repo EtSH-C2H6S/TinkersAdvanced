@@ -1,10 +1,7 @@
 package com.c2h6s.tinkers_advanced.core.plugin;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.core.content.item.HiddenMaterial;
-import com.c2h6s.tinkers_advanced.core.init.TiAcCrItem;
 import com.c2h6s.tinkers_advanced.core.library.interfaces.IHiddenMaterial;
-import com.c2h6s.tinkers_advanced.registery.TiAcItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeRegistration;

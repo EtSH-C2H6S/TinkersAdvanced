@@ -3,7 +3,8 @@ package com.c2h6s.tinkers_advanced.data.providers;
 import com.c2h6s.etstlib.content.block.SelfDroppingTieredBlock;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.core.TiAcCrModule;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeBlocks;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -22,30 +23,30 @@ public class TiAcBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(TiAcBlocks.IRIDIUM_LEAN_ORE.get());
-        tag(Tiers.DIAMOND.getTag()).add(TiAcBlocks.BISMUTHINITE.get(),
-                TiAcBlocks.STIBNITE_ORE.get()
+        tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(TiAcMeBlocks.IRIDIUM_LEAN_ORE.get());
+        tag(Tiers.DIAMOND.getTag()).add(TiAcMeBlocks.BISMUTHINITE.get(),
+                TiAcMeBlocks.STIBNITE_ORE.get()
         );
-        tag(Tiers.WOOD.getTag()).add(TiAcBlocks.EXCHANGER.get());
+        tag(Tiers.WOOD.getTag()).add(TiAcUBlocks.EXCHANGER.get());
         tag(Tiers.IRON.getTag()).add(
-                TiAcBlocks.CINDERSILME_FAUCET.get(),
-                TiAcBlocks.CINDERSLIME_TABLE.get(),
-                TiAcBlocks.CINDERSLIME_BASIN.get(),
-                TiAcBlocks.IRIDIUM_BASIN.get(),
-                TiAcBlocks.IRIDIUM_TABLE.get(),
-                TiAcBlocks.IRIDIUM_FAUCET.get()
+                TiAcUBlocks.ROSE_GOLD_FAUCET.get(),
+                TiAcUBlocks.ROSE_GOLD_TABLE.get(),
+                TiAcUBlocks.ROSE_GOLD_BASIN.get(),
+                TiAcUBlocks.HEPATIZON_BASIN.get(),
+                TiAcUBlocks.HEPATIZON_TABLE.get(),
+                TiAcUBlocks.HEPATIZON_FAUCET.get()
         );
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(TiAcBlocks.IRIDIUM_LEAN_ORE.get())
-                .add(TiAcBlocks.BISMUTHINITE.get())
-                .add(TiAcBlocks.STIBNITE_ORE.get())
-                .add(TiAcBlocks.EXCHANGER.get())
-                .add(TiAcBlocks.CINDERSILME_FAUCET.get())
-                .add(TiAcBlocks.CINDERSLIME_TABLE.get())
-                .add(TiAcBlocks.CINDERSLIME_BASIN.get())
-                .add(TiAcBlocks.IRIDIUM_BASIN.get())
-                .add(TiAcBlocks.IRIDIUM_TABLE.get())
-                .add(TiAcBlocks.IRIDIUM_FAUCET.get())
+                .add(TiAcMeBlocks.IRIDIUM_LEAN_ORE.get())
+                .add(TiAcMeBlocks.BISMUTHINITE.get())
+                .add(TiAcMeBlocks.STIBNITE_ORE.get())
+                .add(TiAcUBlocks.EXCHANGER.get())
+                .add(TiAcUBlocks.ROSE_GOLD_FAUCET.get())
+                .add(TiAcUBlocks.ROSE_GOLD_TABLE.get())
+                .add(TiAcUBlocks.ROSE_GOLD_BASIN.get())
+                .add(TiAcUBlocks.HEPATIZON_BASIN.get())
+                .add(TiAcUBlocks.HEPATIZON_TABLE.get())
+                .add(TiAcUBlocks.HEPATIZON_FAUCET.get())
         ;
         TiAcCrModule.BLOCKS.getEntries().forEach(reg->{
             if (reg.isPresent()&&reg.get() instanceof SelfDroppingTieredBlock block){

@@ -1,0 +1,16 @@
+{
+  "title": "Hepatizon Table",
+  "text": [
+    {
+      "text": "A reliable casting device."
+    },
+    {
+      "text": "Always requires a cast like the Scorched variant."
+    },
+    {
+      "text": "Crafted by casting 3 ingots of Molten Hepatizon on Rose Gold Table.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:hepatizon_casting_table"
+}

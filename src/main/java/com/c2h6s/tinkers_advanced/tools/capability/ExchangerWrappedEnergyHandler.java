@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.tools.capability;
 
 import com.c2h6s.tinkers_advanced.utilities.content.block.ExchangerBlock;
 import com.c2h6s.tinkers_advanced.utilities.content.block.blockEntity.ExchangerBlockEntity;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUBlocks;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -16,7 +16,7 @@ public class ExchangerWrappedEnergyHandler implements IEnergyStorage {
         this.energyStorage = exchangerBlockEntity.exchangingItem.getCapability(ForgeCapabilities.ENERGY).orElse(null);
         Level level = exchangerBlockEntity.getLevel();
         BlockState blockState = exchangerBlockEntity.getBlockState();
-        if (level!=null&&blockState.is(TiAcBlocks.EXCHANGER.get())){
+        if (level!=null&&blockState.is(TiAcUBlocks.EXCHANGER.get())){
             this.disallowInsert=blockState.getValue(ExchangerBlock.ENERGY_OUTPUT);
         } else this.disallowInsert = false;
     }

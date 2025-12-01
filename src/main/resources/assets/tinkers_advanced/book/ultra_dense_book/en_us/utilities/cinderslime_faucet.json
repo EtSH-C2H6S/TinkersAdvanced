@@ -1,13 +1,13 @@
 {
-  "title": "Cinderslime Faucet",
+  "title": "Rose Gold Faucet",
   "text": [
     {
       "text": "A faster faucet."
     },
     {
-      "text": "Crafted by casting 1 ingots of Molten Cinderslime on Scorched Faucet.",
+      "text": "Crafted by casting 1 ingots of Molten Rose Gold on Scorched Faucet.",
       "paragraph": true
     }
   ],
-  "item": "tinkers_advanced:cinderslime_faucet"
+  "item": "tinkers_advanced:rose_gold_faucet"
 }

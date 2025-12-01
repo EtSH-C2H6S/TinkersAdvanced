@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.materials.content.tool.modifiers.common;
 
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.tinkers_advanced.materials.content.block.StibniteOreBlock;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeBlocks;
 import com.c2h6s.tinkers_advanced.core.util.CommonUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -38,8 +38,8 @@ public class Stabilize extends EtSTBaseModifier implements BlockBreakModifierHoo
         for (Direction direction:Direction.values()){
             BlockPos blockPos = context.getTargetedPos().relative(direction);
             BlockState state = context.getWorld().getBlockState(blockPos);
-            if (state.is(TiAcBlocks.STIBNITE_ORE.get())){
-                context.getWorld().setBlockAndUpdate(blockPos,TiAcBlocks.STIBNITE_ORE.get().defaultBlockState().setValue(StibniteOreBlock.STIBNITE_STATE,false));
+            if (state.is(TiAcMeBlocks.STIBNITE_ORE.get())){
+                context.getWorld().setBlockAndUpdate(blockPos, TiAcMeBlocks.STIBNITE_ORE.get().defaultBlockState().setValue(StibniteOreBlock.STIBNITE_STATE,false));
             }
         }
     }

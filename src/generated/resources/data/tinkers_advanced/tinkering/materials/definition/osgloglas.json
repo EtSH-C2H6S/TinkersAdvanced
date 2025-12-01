@@ -3,12 +3,21 @@
     "type": "forge:or",
     "values": [
       {
-        "type": "tconstruct:config",
-        "prop": "force_integration_materials"
+        "type": "forge:or",
+        "values": [
+          {
+            "type": "tconstruct:config",
+            "prop": "force_integration_materials"
+          },
+          {
+            "type": "forge:mod_loaded",
+            "modid": "mekanism"
+          }
+        ]
       },
       {
-        "type": "forge:mod_loaded",
-        "modid": "mekanism"
+        "type": "tinkers_advanced:config",
+        "prop": "allow_original_materials"
       }
     ]
   },

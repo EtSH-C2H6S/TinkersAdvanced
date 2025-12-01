@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "tconstruct:scorched_table"
+  },
+  "cast_consumed": true,
+  "cooling_time": 270,
+  "fluid": {
+    "amount": 270,
+    "tag": "forge:molten_rose_gold"
+  },
+  "result": "tinkers_advanced:rose_gold_casting_table"
+}

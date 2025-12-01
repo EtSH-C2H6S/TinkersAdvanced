@@ -414,12 +414,12 @@
   "block.tinkers_advanced.stibnite_ore": "Stibnite Ore",
   "block.tinkers_advanced.exchanger": "Atom Exchanger",
 
-  "block.tinkers_advanced.cinderslime_faucet": "Cinderslime Faucet",
-  "block.tinkers_advanced.iridium_faucet": "Iridium Faucet",
-  "block.tinkers_advanced.cinderslime_casting_table": "Cinderslime Casting Table",
-  "block.tinkers_advanced.cinderslime_casting_basin": "Cinderslime Casting Basin",
-  "block.tinkers_advanced.iridium_casting_table": "Iridium Casting Table",
-  "block.tinkers_advanced.iridium_casting_basin": "Iridium Casting Basin",
+  "block.tinkers_advanced.rose_gold_faucet": "Rose Gold Faucet",
+  "block.tinkers_advanced.hepatizon_faucet": "Hepatizon Faucet",
+  "block.tinkers_advanced.rose_gold_casting_table": "Rose Gold Casting Table",
+  "block.tinkers_advanced.rose_gold_casting_basin": "Rose Gold Casting Basin",
+  "block.tinkers_advanced.hepatizon_casting_table": "Hepatizon Casting Table",
+  "block.tinkers_advanced.hepatizon_casting_basin": "Hepatizon Casting Basin",
 
 
 
@@ -587,7 +587,7 @@
   "tooltip.tinkers_advanced.exchanger3": "R-Click to insert tool ,R-Click with tool handle to toggle energy ejection.",
 
   "tooltip.tinkers_advanced.cinderslime_casting": "Cooling speed x%2$s when original cooling speed <%1$ss. Otherwise Cooling speed x%3$s.",
-  "tooltip.tinkers_advanced.iridium_casting": "x%1$s Cooling speed.",
+  "tooltip.tinkers_advanced.hepatizon_casting": "x%1$s Cooling speed.",
 
 
   "tooltip.tinkers_advanced.modifiers.shaping": "Current slot bonus :",

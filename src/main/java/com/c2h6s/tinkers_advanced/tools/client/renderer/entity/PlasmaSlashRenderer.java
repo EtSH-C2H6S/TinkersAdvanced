@@ -6,6 +6,9 @@ import com.c2h6s.tinkers_advanced.core.util.RenderUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import net.minecraft.client.Camera;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -13,6 +16,9 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Random;
@@ -24,7 +30,25 @@ public class PlasmaSlashRenderer extends EntityRenderer<PlasmaSlashEntity> {
 
     @Override
     public void render(PlasmaSlashEntity pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        if (pEntity.tickCount>=2){
+        if (pEntity.tickCount>=1&&pEntity.tickCount<=6){
+            Camera camera =Minecraft.getInstance().gameRenderer.getMainCamera();
+            Player player = pEntity.getOwner() instanceof Player player1?player1:null;
+            boolean firstPerson =camera.getEntity()==player&&Minecraft.getInstance().options.getCameraType().isFirstPerson();
+            if (firstPerson){
+                ClientLevel level = Minecraft.getInstance().level;
+                if (level == null) return;
+
+                var eyeOffset = player.getLookAngle().scale(pEntity.getScale()).add(0,(player.getBbHeight()/2)-player.getEyeHeight(),0);
+                double x = Mth.lerp(pPartialTick, pEntity.xOld, pEntity.getX());
+                double y = Mth.lerp(pPartialTick, pEntity.yOld, pEntity.getY());
+                double z = Mth.lerp(pPartialTick, pEntity.zOld, pEntity.getZ());
+
+                Vec3 finalpos;
+                finalpos = camera.getPosition().add(eyeOffset);
+                Vec3 offSet = finalpos.subtract(x,y,z);
+                pPoseStack.translate(offSet.x,offSet.y,offSet.z);
+            }
+
             if (pEntity.rotation==0){
                 Random random = new Random();
                 pEntity.rotation=random.nextFloat()*60-30;
@@ -37,18 +61,23 @@ public class PlasmaSlashRenderer extends EntityRenderer<PlasmaSlashEntity> {
             PoseStack.Pose pose = pPoseStack.last();
             Matrix4f poseMatrix = pose.pose();
             Matrix3f normalMatrix = pose.normal();
-            VertexConsumer consumer =pBuffer.getBuffer(RenderUtil.brightProjectileRenderType(getTextureLocation(pEntity)));
-            consumer.vertex(poseMatrix, -2*scale, -0.2f,-2*scale).color(255,255,255,255).uv(0, 1).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
-            consumer.vertex(poseMatrix, 2*scale,-0.1f, -2*scale).color(255,255,255,255).uv(1, 1).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
-            consumer.vertex(poseMatrix, 2*scale,-0.1f, 2*scale).color(255,255,255,255).uv(1, 0).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
-            consumer.vertex(poseMatrix, -2*scale, -0.1f,2*scale).color(255,255,255,255).uv(0, 0).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
+            VertexConsumer consumer =pBuffer.getBuffer(RenderUtil.brightProjectileRenderType(getTextureLocation(pEntity,pPartialTick)));
+            consumer.vertex(poseMatrix, -2*scale, -0.1f,-2*scale).color(255,255,255,255).uv(1, 1).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
+            consumer.vertex(poseMatrix, 2*scale,-0.1f, -2*scale).color(255,255,255,255).uv(0, 1).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
+            consumer.vertex(poseMatrix, 2*scale,-0.1f, 2*scale).color(255,255,255,255).uv(0, 0).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
+            consumer.vertex(poseMatrix, -2*scale, -0.1f,2*scale).color(255,255,255,255).uv(1, 0).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.FULL_BRIGHT).normal(normalMatrix, 0, -1, 0).endVertex();
             pPoseStack.popPose();
         }
     }
 
     @Override
     public ResourceLocation getTextureLocation(PlasmaSlashEntity pEntity) {
-        int frame = Mth.clamp(pEntity.tickCount-1,1,6);
+        return getTextureLocation(pEntity,0);
+    }
+
+    public ResourceLocation getTextureLocation(PlasmaSlashEntity pEntity,float partialTick) {
+        int frame = Math.round( Mth.clamp((pEntity.tickCount+partialTick)*1.5f,1,9));
+        if (pEntity.isPowered()) return TinkersAdvanced.getLocation("textures/entity/plasma_slash/powered/plasma_slash_powered_"+frame+".png");
         return TinkersAdvanced.getLocation("textures/entity/plasma_slash/plasma_slash_"+frame+".png");
     }
 }

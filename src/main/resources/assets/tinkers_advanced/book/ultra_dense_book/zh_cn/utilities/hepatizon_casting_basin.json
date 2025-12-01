@@ -1,0 +1,13 @@
+{
+  "title": "黑色科林斯青铜铸造盆",
+  "text": [
+    {
+      "text": "一种稳定、高效的铸造设备，能加快浇筑速率！"
+    },
+    {
+      "text": "将3锭熔融黑色科林斯青铜浇筑在玫瑰金铸造盆上来合成它。和焦褐铸造盆一样，它需要放入铸膜才能工作。",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:hepatizon_casting_basin"
+}

@@ -1,7 +1,9 @@
 package com.c2h6s.tinkers_advanced.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.registery.TiAcItems;
+import com.c2h6s.tinkers_advanced.core.library.registry.SimpleMaterialObject;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeItems;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeMaterials;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -12,6 +14,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.RegistryObject;
 import slimeknights.mantle.registration.object.FluidObject;
+import slimeknights.mantle.registration.object.ItemObject;
 
 import static com.c2h6s.tinkers_advanced.core.init.TiAcCrItem.*;
 
@@ -24,6 +27,9 @@ public class TiAcItemModelProvider extends ItemModelProvider {
     }
 
     public void generateItemModel(RegistryObject<Item> object,String typePath){
+        withExistingParent( object.getId().getPath(), PARENT_SIMPLE_ITEM).texture("layer0",getItemLocation(object.getId().getPath(),typePath));
+    }
+    public void generateItemModel(ItemObject<?> object, String typePath){
         withExistingParent( object.getId().getPath(), PARENT_SIMPLE_ITEM).texture("layer0",getItemLocation(object.getId().getPath(),typePath));
     }
     public void generateBlockItemModel(RegistryObject<BlockItem> object){
@@ -54,7 +60,12 @@ public class TiAcItemModelProvider extends ItemModelProvider {
         for (RegistryObject<BlockItem> object:getListSimpleBlock()){
             generateBlockItemModel(object);
         }
-        generateBlockItemModel(TiAcItems.STIBNITE_ORE);
+        for (SimpleMaterialObject object: TiAcMeMaterials.MATERIALS.getEntryMap().values()){
+            if (object.isSimpleModel()&&object.getItemObject()!=null){
+                generateItemModel(object.getItemObject(),"material");
+            }
+        }
+        generateBlockItemModel(TiAcMeItems.STIBNITE_ORE);
         withExistingParent("cinderslime_casting_basin",TinkersAdvanced.getLocation("block/smeltery/cinderslime/basin"));
         withExistingParent("cinderslime_casting_table",TinkersAdvanced.getLocation("block/smeltery/cinderslime/table"));
         withExistingParent("cinderslime_faucet",TinkersAdvanced.getLocation("block/smeltery/cinderslime/faucet"));

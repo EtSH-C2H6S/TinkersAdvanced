@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.network.packets;
 
 import com.c2h6s.tinkers_advanced.tools.content.tool.item.ElectronTunerItem;
 import com.c2h6s.tinkers_advanced.tools.content.menu.ElectronTunerMenu;
-import com.c2h6s.tinkers_advanced.registery.TiAcMenus;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTMenus;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleMenuProvider;
@@ -38,7 +38,7 @@ public class PElectronTunerOpenMenuC2S {
                 IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).filter(cap -> cap instanceof IItemHandlerModifiable).orElse(EmptyItemHandler.INSTANCE);
                 NetworkHooks.openScreen(player,
                         new SimpleMenuProvider(
-                                (id,inventory,p)->new ElectronTunerMenu(TiAcMenus.ELECTRON_TUNER_MENU.get(),inventory,id,stack,handler,slot),
+                                (id,inventory,p)->new ElectronTunerMenu(TiAcTMenus.ELECTRON_TUNER_MENU.get(),inventory,id,stack,handler,slot),
                                 ElectronTunerItem.itemName),
                         buf -> buf.writeVarInt(slot)
                 );

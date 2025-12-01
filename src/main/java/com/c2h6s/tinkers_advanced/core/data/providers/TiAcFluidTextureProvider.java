@@ -1,7 +1,9 @@
 package com.c2h6s.tinkers_advanced.core.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.registery.TiAcFluids;
+import com.c2h6s.tinkers_advanced.core.library.registry.SimpleMaterialObject;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeFluids;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeMaterials;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
@@ -9,7 +11,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.mantle.fluid.texture.AbstractFluidTextureProvider;
 import slimeknights.mantle.fluid.texture.FluidTexture;
 import slimeknights.mantle.registration.object.FluidObject;
-import slimeknights.tconstruct.TConstruct;
 
 
 public class TiAcFluidTextureProvider extends AbstractFluidTextureProvider {
@@ -18,7 +19,7 @@ public class TiAcFluidTextureProvider extends AbstractFluidTextureProvider {
     }
     @Override
     public void addTextures() {
-        for (FluidObject<ForgeFlowingFluid> object: TiAcFluids.getFluids()){
+        for (FluidObject<ForgeFlowingFluid> object: TiAcMeFluids.getFluids()){
             this.commonFluid(object.getType());
         }
     }

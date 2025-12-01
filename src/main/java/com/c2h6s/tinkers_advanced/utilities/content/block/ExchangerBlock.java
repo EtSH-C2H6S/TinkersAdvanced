@@ -1,9 +1,9 @@
 package com.c2h6s.tinkers_advanced.utilities.content.block;
 
 import com.c2h6s.tinkers_advanced.utilities.content.block.blockEntity.ExchangerBlockEntity;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlockEntities;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUBlockEntities;
 import com.c2h6s.tinkers_advanced.core.util.CommonConstants;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -83,14 +83,14 @@ public class ExchangerBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, TiAcBlockEntities.EXCHANGER_BLOCK_ENTITY.get(),ExchangerBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, TiAcUBlockEntities.EXCHANGER_BLOCK_ENTITY.get(),ExchangerBlockEntity::tick);
     }
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof ExchangerBlockEntity entity && entity.getBlockState().is(TiAcBlocks.EXCHANGER.get())) {
+            if (blockEntity instanceof ExchangerBlockEntity entity && entity.getBlockState().is(TiAcUBlocks.EXCHANGER.get())) {
                 entity.dropItem();
             }
             blockEntity.setRemoved();

@@ -16,7 +16,7 @@ import com.c2h6s.tinkers_advanced.core.library.capability.TiAcCapabilities;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
 import com.c2h6s.tinkers_advanced.network.packets.PElectronTunerMenuSyncS2C;
 import com.c2h6s.tinkers_advanced.network.packets.PElectronTunerOpenMenuC2S;
-import com.c2h6s.tinkers_advanced.registery.TiAcItems;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -67,7 +67,7 @@ public class ElectronTunerItem extends ModifiableSwordItem {
     }
     public static final ResourceLocation KEY_ATTACK_DAMAGE = TinkersAdvanced.getLocation("attack_damage_factor");
     public static final ResourceLocation KEY_DISALLOW_INSERT = TinkersAdvanced.getLocation("disallow_insert");
-    public static final MutableComponent itemName = Component.translatable("item."+ TiAcItems.ELECTRON_TUNER.getId().toLanguageKey());
+    public static final MutableComponent itemName = Component.translatable("item."+ TiAcTItems.ELECTRON_TUNER.getId().toLanguageKey());
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand hand) {
@@ -202,12 +202,11 @@ public class ElectronTunerItem extends ModifiableSwordItem {
     }
 
     public static float getSlashDamage(IToolStackView tool){
-        float bonus = Math.min(0.6f,0.2F*tool.getModifierLevel(TinkerModifiers.sweeping.get()));
-        return (tool.getStats().get(ToolStats.ATTACK_DAMAGE)+1)*(0.2f+bonus);
+        return 0.25F*tool.getModifierLevel(TinkerModifiers.sweeping.get())+0.25f;
     }
 
     public static float getSlashDamageBonus(IToolStackView tool){
-        float bonus = Math.min(0.6f,0.2F*tool.getModifierLevel(TinkerModifiers.sweeping.get()));
+        float bonus = 0.25F*tool.getModifierLevel(TinkerModifiers.sweeping.get());
         bonus = Math.min(bonus,ToolEnergyUtil.extractEnergy(tool,(int) (TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()*4*bonus),true)/(TiAcConfig.COMMON.ELECTRON_TUNER_CONSUMPTION.get()*4f));
         return bonus;
     }

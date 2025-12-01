@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced.tools.content.entity;
 
 import com.c2h6s.tinkers_advanced.core.content.entity.VisualScaledProjectile;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.tools.init.TiAcTEntities;
 import com.c2h6s.etstlib.util.AttackUtil;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -66,7 +66,7 @@ public class PlasmaBeamProjectile extends VisualScaledProjectile {
         this(pEntityType, pLevel,1);
     }
     public PlasmaBeamProjectile(Level pLevel,float Scale) {
-        this(TiAcEntities.PLASMA_BEAM.get(), pLevel,Scale);
+        this(TiAcTEntities.PLASMA_BEAM.get(), pLevel,Scale);
     }
 
     @Override

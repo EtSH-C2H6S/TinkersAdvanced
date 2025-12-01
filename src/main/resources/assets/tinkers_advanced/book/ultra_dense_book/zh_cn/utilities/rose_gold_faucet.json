@@ -1,0 +1,13 @@
+{
+  "title": "玫瑰金浇筑口",
+  "text": [
+    {
+      "text": "常规的浇筑口会以10mB/t的速率转移流体，对于一些急性子工匠来说这太慢了。"
+    },
+    {
+      "text": "只需要将1锭熔融玫瑰金浇筑在焦褐浇筑口上，你就能获得这款具有100倍传输速度的浇筑口！",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:rose_gold_faucet"
+}

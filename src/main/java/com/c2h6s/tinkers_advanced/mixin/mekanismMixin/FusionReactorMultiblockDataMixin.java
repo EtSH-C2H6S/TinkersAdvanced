@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.mixin.mekanismMixin;
 
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.registery.TiAcItems;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeItems;
 import com.c2h6s.tinkers_advanced.core.util.BlockUtil;
 import mekanism.api.Coord4D;
 import mekanism.common.lib.radiation.RadiationManager;
@@ -84,11 +84,11 @@ public class FusionReactorMultiblockDataMixin {
                 int entityCount = craftCount / 64;
                 int leftOver = craftCount % 64;
                 for (int i = 0; i < entityCount; i++) {
-                    ItemEntity entity = new ItemEntity(world, posCenter.x, posCenter.y, posCenter.z, new ItemStack(TiAcItems.NEUTRONITE_INGOT.get(), 64));
+                    ItemEntity entity = new ItemEntity(world, posCenter.x, posCenter.y, posCenter.z, new ItemStack(TiAcMeItems.NEUTRONITE_INGOT.get(), 64));
                     world.addFreshEntity(entity);
                 }
                 if (leftOver > 0) {
-                    ItemEntity entity = new ItemEntity(world, posCenter.x, posCenter.y, posCenter.z, new ItemStack(TiAcItems.NEUTRONITE_INGOT.get(), leftOver));
+                    ItemEntity entity = new ItemEntity(world, posCenter.x, posCenter.y, posCenter.z, new ItemStack(TiAcMeItems.NEUTRONITE_INGOT.get(), leftOver));
                     world.addFreshEntity(entity);
                 }
             }

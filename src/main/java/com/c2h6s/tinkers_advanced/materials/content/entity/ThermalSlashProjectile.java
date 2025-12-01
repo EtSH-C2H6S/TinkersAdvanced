@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.materials.content.entity;
 
 import cofh.core.init.CoreMobEffects;
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeEntities;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,7 +26,7 @@ public class ThermalSlashProjectile extends Projectile {
     }
 
     public ThermalSlashProjectile(Level level){
-        this(TiAcEntities.THERMAL_SLASH.get(),level);
+        this(TiAcMeEntities.THERMAL_SLASH.get(),level);
     }
 
     @Override

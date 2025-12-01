@@ -2,7 +2,7 @@ package com.c2h6s.tinkers_advanced.materials.content.block;
 
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
 import com.c2h6s.tinkers_advanced.TiAcConfig;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
@@ -49,18 +49,18 @@ public class StibniteOreBlock extends Block {
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
-        if (pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&(pNewState.getValue(MIDDLE_STATE))) return;
+        if (pNewState.is(TiAcMeBlocks.STIBNITE_ORE.get())&&(pNewState.getValue(MIDDLE_STATE))) return;
         if (pState.getValue(MIDDLE_STATE)) return;
-        if (!pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&TiAcConfig.COMMON.ALLOW_STIBNITE_UNSTABLE.get()&&!pState.getValue(STIBNITE_STATE)){
+        if (!pNewState.is(TiAcMeBlocks.STIBNITE_ORE.get())&&TiAcConfig.COMMON.ALLOW_STIBNITE_UNSTABLE.get()&&!pState.getValue(STIBNITE_STATE)){
             for (Direction direction:Direction.values()){
                 BlockPos pos = pPos.relative(direction);
                 BlockState state = pLevel.getBlockState(pos);
-                if (state.is(TiAcBlocks.STIBNITE_ORE.get())){
+                if (state.is(TiAcMeBlocks.STIBNITE_ORE.get())){
                     pLevel.setBlockAndUpdate(pos,defaultBlockState().setValue(STIBNITE_STATE,!state.getValue(STIBNITE_STATE)));
                 }
             }
         }
-        if (!pNewState.is(TiAcBlocks.STIBNITE_ORE.get())&&pState.getValue(STIBNITE_STATE)){
+        if (!pNewState.is(TiAcMeBlocks.STIBNITE_ORE.get())&&pState.getValue(STIBNITE_STATE)){
             pLevel.setBlockAndUpdate(pPos,defaultBlockState().setValue(MIDDLE_STATE,true));
             pLevel.setBlockAndUpdate(pPos,Blocks.AIR.defaultBlockState());
             this.blowUp(pPos,pLevel,8);

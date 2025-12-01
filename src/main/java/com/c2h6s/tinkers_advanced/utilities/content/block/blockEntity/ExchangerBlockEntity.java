@@ -5,10 +5,10 @@ import com.c2h6s.tinkers_advanced.tools.capability.ExchangerWrappedEnergyHandler
 import com.c2h6s.tinkers_advanced.core.content.tool.modifiers.PlayerLocating;
 import com.c2h6s.tinkers_advanced.core.library.capability.TiAcCapabilities;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
-import com.c2h6s.tinkers_advanced.network.packets.PExchangerBEItemSyncS2C;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlockEntities;
-import com.c2h6s.tinkers_advanced.registery.TiAcBlocks;
+import com.c2h6s.tinkers_advanced.utilities.network.packets.PExchangerBEItemSyncS2C;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUBlockEntities;
 import com.c2h6s.tinkers_advanced.core.util.CommonUtil;
+import com.c2h6s.tinkers_advanced.utilities.init.TiAcUBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -33,7 +33,7 @@ import java.util.UUID;
 
 public class ExchangerBlockEntity extends BlockEntity {
     public ExchangerBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(TiAcBlockEntities.EXCHANGER_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(TiAcUBlockEntities.EXCHANGER_BLOCK_ENTITY.get(), pPos, pBlockState);
         this.exchangingItem = ItemStack.EMPTY;
     }
     public @NotNull ItemStack exchangingItem;
@@ -72,7 +72,7 @@ public class ExchangerBlockEntity extends BlockEntity {
         this.exchangingItem = stack;
         if (level != null) {
             level.blockEntityChanged(this.worldPosition);
-            level.updateNeighborsAt(this.worldPosition, TiAcBlocks.EXCHANGER.get());
+            level.updateNeighborsAt(this.worldPosition, TiAcUBlocks.EXCHANGER.get());
         }
         invalidateCaps();
         this.syncToClient(stack);
@@ -109,7 +109,7 @@ public class ExchangerBlockEntity extends BlockEntity {
             }
             tickable.tick(blockEntity.exchangingItem,level,holder,blockEntity);
         });
-        if (state.is(TiAcBlocks.EXCHANGER.get())&&state.getValue(ExchangerBlock.ENERGY_OUTPUT)){
+        if (state.is(TiAcUBlocks.EXCHANGER.get())&&state.getValue(ExchangerBlock.ENERGY_OUTPUT)){
             ejectEnergy(level,blockPos,state,blockEntity);
         }
     }

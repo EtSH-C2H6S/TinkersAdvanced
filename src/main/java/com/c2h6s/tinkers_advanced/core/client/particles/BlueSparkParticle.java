@@ -33,7 +33,6 @@ public class BlueSparkParticle extends TextureSheetParticle {
 
     @Override
     public void render(VertexConsumer pBuffer, Camera pRenderInfo, float pPartialTicks) {
-        if (this.removed) return;
         Vec3 cameraPos = pRenderInfo.getPosition();
         Vector3f lookVec = pRenderInfo.getLookVector();
         float vx = (float)Mth.lerp(pPartialTicks, this.xdo, this.xd);

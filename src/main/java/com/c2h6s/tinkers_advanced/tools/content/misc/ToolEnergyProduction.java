@@ -60,7 +60,7 @@ public class ToolEnergyProduction {
             return production;
         }
         production = emptyInstance(tool);
-        if (IToolUuidGetter.getUuidForTool(tool).isPresent()) ENERGY_PRODUCTION_MAP.put(IToolUuidGetter.getUuidForTool(tool).get(),production);
+        if (IToolUuidGetter.getUuidOrRandomize(tool.createStack()).isPresent()) ENERGY_PRODUCTION_MAP.put(IToolUuidGetter.getUuidForTool(tool).get(),production);
         return production;
     }
 

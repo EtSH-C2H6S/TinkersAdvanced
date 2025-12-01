@@ -8,7 +8,7 @@ import com.c2h6s.etstlib.register.EtSTLibHooks;
 import com.c2h6s.etstlib.tool.hooks.VibrationListeningModifierHook;
 import com.c2h6s.etstlib.tool.modifiers.base.EtSTBaseModifier;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntityTicker;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeEntityTicker;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -54,11 +54,11 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         if (iToolStackView.getPersistentData().getInt(KEY_COOLDOWN)>0) return false;
         if (vibrationContext.directEntity instanceof LivingEntity living){
             EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(living);
-            return !instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())&&living!=player;
+            return !instance.hasTicker(TiAcMeEntityTicker.SCULK_MARKED.get())&&living!=player;
         }
         if (vibrationContext.projectileOwner instanceof LivingEntity living){
             EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(living);
-            return !instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())&&living!=player;
+            return !instance.hasTicker(TiAcMeEntityTicker.SCULK_MARKED.get())&&living!=player;
         }
         return false;
     }
@@ -70,7 +70,7 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
         if (vibrationContext.directEntity instanceof LivingEntity entity) living = entity;
         if (living!=null) {
             EntityTickerManager.EntityTickerManagerInstance managerInstance = EntityTickerManager.getInstance(living);
-            managerInstance.addTicker(new EntityTickerInstance(TiAcEntityTicker.SCULK_MARKED.get(), 1,10+10*modifierEntry.getLevel()),Integer::max,Integer::sum);
+            managerInstance.addTicker(new EntityTickerInstance(TiAcMeEntityTicker.SCULK_MARKED.get(), 1,10+10*modifierEntry.getLevel()),Integer::max,Integer::sum);
             iToolStackView.getPersistentData().putInt(KEY_COOLDOWN,4);
         }
     }
@@ -79,7 +79,7 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
     public void postMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt,float damage) {
         if (context.getTarget() instanceof LivingEntity living&&context.getLevel() instanceof ServerLevel serverLevel){
             EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(living);
-            if (instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())){
+            if (instance.hasTicker(TiAcMeEntityTicker.SCULK_MARKED.get())){
                 living.hurt(LegacyDamageSource.any(living.damageSources().sonicBoom(context.getAttacker())).setBypassInvulnerableTime(),damage*0.5f);
                 serverLevel.sendParticles(ParticleTypes.SONIC_BOOM,living.getX(),living.getY()+0.5*living.getBbHeight(),living.getZ(),1,0,0,0,0);
             }
@@ -90,7 +90,7 @@ public class EchoLocating extends EtSTBaseModifier implements VibrationListening
     public void afterArrowHit(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull LivingEntity target, float damageDealt) {
         if (attacker!=null&&attacker.level() instanceof ServerLevel serverLevel){
             EntityTickerManager.EntityTickerManagerInstance instance = EntityTickerManager.getInstance(target);
-            if (instance.hasTicker(TiAcEntityTicker.SCULK_MARKED.get())){
+            if (instance.hasTicker(TiAcMeEntityTicker.SCULK_MARKED.get())){
                 target.hurt(LegacyDamageSource.any(attacker.damageSources().sonicBoom(attacker)).setBypassInvulnerableTime(),damageDealt*0.5f);
                 serverLevel.sendParticles(ParticleTypes.SONIC_BOOM,target.getX(),target.getY()+0.5*target.getBbHeight(),target.getZ(),1,0,0,0,0);
             }

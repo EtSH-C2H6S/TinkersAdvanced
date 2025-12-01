@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced.materials.content.entity;
 
 import com.c2h6s.etstlib.entity.specialDamageSources.LegacyDamageSource;
-import com.c2h6s.tinkers_advanced.registery.TiAcEntities;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMeEntities;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
@@ -22,7 +22,7 @@ public class AirSlashProjectile extends Projectile {
         super(pEntityType, pLevel);
     }
     public AirSlashProjectile(Level pLevel) {
-        this(TiAcEntities.AIR_SLASH.get(), pLevel);
+        this(TiAcMeEntities.AIR_SLASH.get(), pLevel);
     }
 
 
