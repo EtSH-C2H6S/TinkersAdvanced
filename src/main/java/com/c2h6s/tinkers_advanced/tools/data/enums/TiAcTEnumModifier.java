@@ -1,6 +1,6 @@
-package com.c2h6s.tinkers_advanced.materials.data.enums;
+package com.c2h6s.tinkers_advanced.tools.data.enums;
 
-import com.c2h6s.tinkers_advanced.data.TiAcModifierIds;
+import com.c2h6s.tinkers_advanced.tools.data.TiAcTModifierIds;
 import com.c2h6s.tinkers_advanced.tools.init.TiAcTItems;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -17,9 +17,9 @@ import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBui
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
-public enum EnumModifier {
-    SWIFT_STRIKE_EX(TiAcModifierIds.SWIFT_STRIKE_EX,ModifierRecipeBuilder
-            .modifier(TiAcModifierIds.SWIFT_STRIKE_EX)
+public enum TiAcTEnumModifier {
+    SWIFT_STRIKE_EX(TiAcTModifierIds.SWIFT_STRIKE_EX,ModifierRecipeBuilder
+            .modifier(TiAcTModifierIds.SWIFT_STRIKE_EX)
             .setMaxLevel(5)
             .addInput(Items.AMETHYST_BLOCK,10)
             .addInput(Items.ECHO_SHARD)
@@ -38,7 +38,7 @@ public enum EnumModifier {
     public final ICondition condition;
     public final ModifierLevelDisplay display;
 
-    EnumModifier(ModifierId id, ModifierRecipeBuilder builder, @Nullable ICondition condition, BasicModifier.TooltipDisplay tooltipDisplay, ModifierLevelDisplay display, ModifierModule... modules) {
+    TiAcTEnumModifier(ModifierId id, ModifierRecipeBuilder builder, @Nullable ICondition condition, BasicModifier.TooltipDisplay tooltipDisplay, ModifierLevelDisplay display, ModifierModule... modules) {
         this.id = id;
         this.builder = builder;
         this.tooltipDisplay = tooltipDisplay;

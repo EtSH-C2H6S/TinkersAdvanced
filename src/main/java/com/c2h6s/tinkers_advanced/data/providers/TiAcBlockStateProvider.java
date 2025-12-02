@@ -11,8 +11,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
 public class TiAcBlockStateProvider extends BlockStateProvider {
-    public TiAcBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, TinkersAdvanced.MODID, exFileHelper);
+    public TiAcBlockStateProvider(PackOutput output,String modId, ExistingFileHelper exFileHelper) {
+        super(output, modId, exFileHelper);
     }
 
     @Override

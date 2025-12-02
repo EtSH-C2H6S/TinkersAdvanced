@@ -1,9 +1,9 @@
-package com.c2h6s.tinkers_advanced.materials.data.enums;
+package com.c2h6s.tinkers_advanced.tools.data.enums;
 
 import com.c2h6s.tinkers_advanced.tools.content.tool.tinkering.materialStat.FluxCoreMaterialStat;
 import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 
-public enum EnumTconExtraStat {
+public enum TiAcTEnumTconExtraStat {
     MANYULLYN(new FluxCoreMaterialStat(2.2f,3.9f)),
     HEPATIZON(new FluxCoreMaterialStat(3.5f,2.7f)),
     COBALT(new FluxCoreMaterialStat(0.9f,2.1f)),
@@ -15,7 +15,7 @@ public enum EnumTconExtraStat {
     ;
     public final IMaterialStats[] stats;
 
-    EnumTconExtraStat(IMaterialStats... stats) {
+    TiAcTEnumTconExtraStat(IMaterialStats... stats) {
         this.stats = stats;
     }
 }

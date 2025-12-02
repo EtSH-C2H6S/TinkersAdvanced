@@ -470,7 +470,10 @@ public class SimpleMaterialObject {
         public Builder addCompatModId(String modId){
             this.compatModIds.add(modId);
             this.conditions.add(new ModLoadedCondition(modId));
-            if (TiAcCrConditions.MODID_CONFIG_MAP.get(modId)!=null)
+            if (isOriginal&&TiAcCrConditions.MODID_ORIGINAL_CONDITIONAL_MAP.get(modId)!=null){
+                conditions.add(TiAcCrConditions.MODID_ORIGINAL_CONDITIONAL_MAP.get(modId));
+            }
+            else if (TiAcCrConditions.MODID_CONDITIONAL_MAP.get(modId)!=null)
                 conditions.add(TiAcCrConditions.MODID_CONDITIONAL_MAP.get(modId));
             return this;
         }

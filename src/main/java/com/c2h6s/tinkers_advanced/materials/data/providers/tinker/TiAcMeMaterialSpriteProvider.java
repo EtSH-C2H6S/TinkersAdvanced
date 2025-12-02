@@ -1,16 +1,16 @@
 package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToSpriteTransformer;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
-public class TiAcMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
+public class TiAcMeMaterialSpriteProvider extends AbstractMaterialSpriteProvider {
     @Override
     public String getName() {
-        return "Tinkers' Advanced Material Sprite Provider";
+        return "Tinkers' Advanced-Materials Material Sprite Provider";
     }
 
     @Override

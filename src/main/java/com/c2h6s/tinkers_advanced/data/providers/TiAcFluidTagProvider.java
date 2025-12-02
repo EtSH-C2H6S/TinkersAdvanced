@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcTagkeys;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

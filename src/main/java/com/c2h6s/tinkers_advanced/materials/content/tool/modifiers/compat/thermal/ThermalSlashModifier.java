@@ -6,7 +6,7 @@ import com.c2h6s.etstlib.util.ToolEnergyUtil;
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced.materials.content.entity.ThermalSlashProjectile;
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;

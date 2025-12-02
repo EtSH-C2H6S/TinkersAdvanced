@@ -7,8 +7,8 @@ import net.minecraft.data.PackOutput;
 import org.slf4j.Logger;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 
-public class TiAcMaterialProvider extends AbstractMaterialDataProvider {
-    public TiAcMaterialProvider(PackOutput packOutput) {
+public class TiAcMeMaterialProvider extends AbstractMaterialDataProvider {
+    public TiAcMeMaterialProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
@@ -28,6 +28,6 @@ public class TiAcMaterialProvider extends AbstractMaterialDataProvider {
 
     @Override
     public String getName() {
-        return "Tinkers' Advanced Material Data Provider";
+        return "Tinkers' Advanced-Materials Material Data Provider";
     }
 }

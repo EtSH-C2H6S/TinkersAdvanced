@@ -2,14 +2,14 @@ package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
 
 import com.c2h6s.tinkers_advanced.core.library.registry.SimpleMaterialObject;
 import com.c2h6s.tinkers_advanced.materials.data.enums.EnumMaterial;
-import com.c2h6s.tinkers_advanced.materials.data.enums.EnumTconMaterial;
+import com.c2h6s.tinkers_advanced.tools.data.enums.TiAcTEnumTconMaterial;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeMaterials;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 
-public class TiAcMaterialStatProvider extends AbstractMaterialStatsDataProvider {
-    public TiAcMaterialStatProvider(PackOutput packOutput) {
-        super(packOutput, new TiAcMaterialProvider(packOutput));
+public class TiAcMeMaterialStatProvider extends AbstractMaterialStatsDataProvider {
+    public TiAcMeMaterialStatProvider(PackOutput packOutput) {
+        super(packOutput, new TiAcMeMaterialProvider(packOutput));
     }
 
     @Override
@@ -23,7 +23,7 @@ public class TiAcMaterialStatProvider extends AbstractMaterialStatsDataProvider 
             }
             else addMaterialStats(material.id, material.stats.getStats());
         }
-        for (EnumTconMaterial material:EnumTconMaterial.values()){
+        for (TiAcTEnumTconMaterial material: TiAcTEnumTconMaterial.values()){
             addMaterialStats(material.id,material.stats.stats);
         }
         for (SimpleMaterialObject object: TiAcMeMaterials.MATERIALS.getEntryMap().values()){
@@ -38,6 +38,6 @@ public class TiAcMaterialStatProvider extends AbstractMaterialStatsDataProvider 
 
     @Override
     public String getName() {
-        return "Tinkers' Advanced Material Stats Data Provider";
+        return "Tinkers' Advanced-Materials Material Stats Data Provider";
     }
 }

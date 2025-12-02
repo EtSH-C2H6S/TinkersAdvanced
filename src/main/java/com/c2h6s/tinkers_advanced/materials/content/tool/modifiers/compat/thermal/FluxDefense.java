@@ -3,7 +3,7 @@ package com.c2h6s.tinkers_advanced.materials.content.tool.modifiers.compat.therm
 import cofh.core.common.network.packet.client.OverlayMessagePacket;
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;

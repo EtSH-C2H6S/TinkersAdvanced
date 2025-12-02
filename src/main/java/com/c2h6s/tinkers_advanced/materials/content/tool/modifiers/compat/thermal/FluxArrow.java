@@ -4,7 +4,7 @@ import cofh.core.common.network.packet.client.OverlayMessagePacket;
 import com.c2h6s.etstlib.util.ToolEnergyUtil;
 import com.c2h6s.tinkers_advanced.TiAcConfig;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
 import com.c2h6s.tinkers_advanced.core.util.FakeExplosionUtil;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.network.chat.Component;

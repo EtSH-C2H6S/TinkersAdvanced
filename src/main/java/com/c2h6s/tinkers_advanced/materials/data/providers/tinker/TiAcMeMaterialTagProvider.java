@@ -1,14 +1,14 @@
 package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.data.tinkering.AbstractMaterialTagProvider;
 
-public class TiAcMaterialTagProvider extends AbstractMaterialTagProvider {
-    public TiAcMaterialTagProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+public class TiAcMeMaterialTagProvider extends AbstractMaterialTagProvider {
+    public TiAcMeMaterialTagProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
         super(packOutput, TinkersAdvanced.MODID, existingFileHelper);
     }
 
@@ -20,6 +20,6 @@ public class TiAcMaterialTagProvider extends AbstractMaterialTagProvider {
 
     @Override
     public String getName() {
-        return "TiAc Material Tag Provider";
+        return "TiAcMe Material Tag Provider";
     }
 }

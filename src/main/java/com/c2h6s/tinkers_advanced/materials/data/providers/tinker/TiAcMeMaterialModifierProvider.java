@@ -3,14 +3,14 @@ package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
 import com.c2h6s.tinkers_advanced.core.library.registry.SimpleMaterialObject;
 import com.c2h6s.tinkers_advanced.materials.data.enums.EnumMaterial;
 import com.c2h6s.tinkers_advanced.materials.data.enums.EnumMaterialModifier;
-import com.c2h6s.tinkers_advanced.materials.data.enums.EnumTconMaterial;
+import com.c2h6s.tinkers_advanced.tools.data.enums.TiAcTEnumTconMaterial;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeMaterials;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
 
-public class TiAcMaterialModifierProvider extends AbstractMaterialTraitDataProvider {
-    public TiAcMaterialModifierProvider(PackOutput packOutput) {
-        super(packOutput, new TiAcMaterialProvider(packOutput));
+public class TiAcMeMaterialModifierProvider extends AbstractMaterialTraitDataProvider {
+    public TiAcMeMaterialModifierProvider(PackOutput packOutput) {
+        super(packOutput, new TiAcMeMaterialProvider(packOutput));
     }
 
     @Override
@@ -23,7 +23,7 @@ public class TiAcMaterialModifierProvider extends AbstractMaterialTraitDataProvi
                 else addTraits(material.id,materialModifier.statType,materialModifier.modifiers);
             }
         }
-        for (EnumTconMaterial material:EnumTconMaterial.values()){
+        for (TiAcTEnumTconMaterial material: TiAcTEnumTconMaterial.values()){
             for (EnumMaterialModifier modifier:material.modifiers){
                 addTraits(material.id,modifier.statType,modifier.modifiers);
             }
@@ -38,6 +38,6 @@ public class TiAcMaterialModifierProvider extends AbstractMaterialTraitDataProvi
 
     @Override
     public String getName() {
-        return "Tinkers' Advanced Material Modifier Provider";
+        return "Tinkers' Advanced-Materials Material Modifier Provider";
     }
 }

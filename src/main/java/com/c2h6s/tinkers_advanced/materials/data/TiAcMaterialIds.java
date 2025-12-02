@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.data;
+package com.c2h6s.tinkers_advanced.materials.data;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;

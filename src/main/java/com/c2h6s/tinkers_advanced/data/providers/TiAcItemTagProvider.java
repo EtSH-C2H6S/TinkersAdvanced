@@ -3,7 +3,7 @@ package com.c2h6s.tinkers_advanced.data.providers;
 import appeng.datagen.providers.tags.ConventionTags;
 import com.buuz135.industrial.utils.IndustrialTags;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcTagkeys;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeItems;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeMaterials;
 import me.desht.pneumaticcraft.api.data.PneumaticCraftTags;

@@ -1,18 +1,17 @@
-package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
+package com.c2h6s.tinkers_advanced.tools.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
-import com.c2h6s.tinkers_advanced.data.TiAcModifierIds;
-import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
+import com.c2h6s.tinkers_advanced.tools.data.TiAcTModifierIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcTagkeys;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierTagProvider;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
 import static com.c2h6s.tinkers_advanced.registery.TiAcModifiers.*;
 
-public class TiAcModifierTagProvider extends AbstractModifierTagProvider {
-    public TiAcModifierTagProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+public class TiAcTModifierTagProvider extends AbstractModifierTagProvider {
+    public TiAcTModifierTagProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
         super(packOutput, TinkersAdvanced.MODID, existingFileHelper);
     }
 
@@ -37,17 +36,11 @@ public class TiAcModifierTagProvider extends AbstractModifierTagProvider {
                         PLAYER_LOCATING.getId(),
                         TinkerModifiers.expanded.getId(),
                         TinkerModifiers.sweeping.getId(),
-                        TiAcModifierIds.SWIFT_STRIKE_EX);
-        this.tag(TinkerTags.Modifiers.OVERSLIME_FRIEND)
-                .add(
-                        RETURN_TO_SLIME.getId(),
-                        NUTRITIVE_SLIME.getId(),
-                        OVERSLIME_GENERATOR.getId()
-                );
+                        TiAcTModifierIds.SWIFT_STRIKE_EX);
     }
 
     @Override
     public String getName() {
-        return "Tinker's Advanced Modifier Tag Provider.";
+        return "Tinker's Advanced-Tools Modifier Tag Provider.";
     }
 }

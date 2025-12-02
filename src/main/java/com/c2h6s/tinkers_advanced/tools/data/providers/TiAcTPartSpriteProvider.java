@@ -1,18 +1,18 @@
-package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
+package com.c2h6s.tinkers_advanced.tools.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
-public class TiAcPartSpriteProvider extends AbstractPartSpriteProvider {
-    public TiAcPartSpriteProvider() {
+public class TiAcTPartSpriteProvider extends AbstractPartSpriteProvider {
+    public TiAcTPartSpriteProvider() {
         super(TinkersAdvanced.MODID);
     }
 
     @Override
     public String getName() {
-        return "Tinkers' Advanced Part Sprite Provider";
+        return "Tinkers' Advanced-Tools Part Sprite Provider";
     }
 
     @Override

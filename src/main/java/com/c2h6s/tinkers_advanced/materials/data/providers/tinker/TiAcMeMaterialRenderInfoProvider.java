@@ -1,14 +1,14 @@
 package com.c2h6s.tinkers_advanced.materials.data.providers.tinker;
 
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 
-public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
-    public TiAcMaterialRenderInfoProvider(PackOutput packOutput, @Nullable AbstractMaterialSpriteProvider materialSprites, @Nullable ExistingFileHelper existingFileHelper) {
+public class TiAcMeMaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
+    public TiAcMeMaterialRenderInfoProvider(PackOutput packOutput, @Nullable AbstractMaterialSpriteProvider materialSprites, @Nullable ExistingFileHelper existingFileHelper) {
         super(packOutput, materialSprites, existingFileHelper);
     }
 
@@ -50,6 +50,6 @@ public class TiAcMaterialRenderInfoProvider extends AbstractMaterialRenderInfoPr
 
     @Override
     public String getName() {
-        return "Tinkers' Advanced Material Info Provider";
+        return "Tinkers' Advanced-Materials Material Info Provider";
     }
 }

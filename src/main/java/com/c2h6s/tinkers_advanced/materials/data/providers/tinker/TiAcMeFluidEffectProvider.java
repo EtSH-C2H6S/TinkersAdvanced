@@ -36,8 +36,8 @@ import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect;
 import slimeknights.tconstruct.library.modifiers.fluid.general.ExplosionFluidEffect;
 import slimeknights.tconstruct.shared.TinkerEffects;
 
-public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
-    public TiAcFluidEffectProvider(PackOutput packOutput) {
+public class TiAcMeFluidEffectProvider extends AbstractFluidEffectProvider {
+    public TiAcMeFluidEffectProvider(PackOutput packOutput) {
         super(packOutput, TinkersAdvanced.MODID);
     }
 
@@ -169,6 +169,6 @@ public class TiAcFluidEffectProvider extends AbstractFluidEffectProvider {
 
     @Override
     public String getName() {
-        return "Tinkers' Advanced Fluid Effect Provider.";
+        return "Tinkers' Advanced-Materials Fluid Effect Provider.";
     }
 }

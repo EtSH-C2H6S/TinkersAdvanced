@@ -12,9 +12,15 @@ import java.util.function.Supplier;
 public class TiAcCrConditions {
     public static final Map<String, Supplier<Boolean>> MODID_CONFIG_MAP = new HashMap<>();
     public static final Map<String,ConfigCondition> MODID_CONDITIONAL_MAP = new HashMap<>();
+    public static final Map<String, Supplier<Boolean>> MODID_ORIGINAL_CONFIG_MAP = new HashMap<>();
+    public static final Map<String,ConfigCondition> MODID_ORIGINAL_CONDITIONAL_MAP = new HashMap<>();
     public static void registerModIdConfigCondition(String modId,ConfigCondition condition,Supplier<Boolean> supplier){
         MODID_CONDITIONAL_MAP.put(modId,condition);
         MODID_CONFIG_MAP.put(modId,supplier);
+    }
+    public static void registerModIdOriginalConfigCondition(String modId,ConfigCondition condition,Supplier<Boolean> supplier){
+        MODID_ORIGINAL_CONDITIONAL_MAP.put(modId,condition);
+        MODID_ORIGINAL_CONFIG_MAP.put(modId,supplier);
     }
     public static void init(){
         ConfigCondition.add(ALLOW_ORIGINAL_MATERIALS);

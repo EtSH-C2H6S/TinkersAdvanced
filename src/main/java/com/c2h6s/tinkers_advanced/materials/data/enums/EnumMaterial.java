@@ -2,8 +2,8 @@ package com.c2h6s.tinkers_advanced.materials.data.enums;
 
 import appeng.datagen.providers.tags.ConventionTags;
 import com.c2h6s.tinkers_advanced.core.init.TiAcCrConditions;
-import com.c2h6s.tinkers_advanced.data.TiAcMaterialIds;
-import com.c2h6s.tinkers_advanced.data.TiAcTagkeys;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcMaterialIds;
+import com.c2h6s.tinkers_advanced.materials.data.TiAcTagkeys;
 import me.desht.pneumaticcraft.api.data.PneumaticCraftTags;
 import mekanism.common.tags.MekanismTags;
 import net.minecraft.tags.TagKey;
