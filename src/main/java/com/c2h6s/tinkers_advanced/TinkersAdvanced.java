@@ -4,7 +4,7 @@ import com.c2h6s.etstlib.util.ModListConstants;
 import com.c2h6s.tinkers_advanced.core.TiAcCrModule;
 import com.c2h6s.tinkers_advanced.core.content.entity.VisualScaledProjectile;
 import com.c2h6s.tinkers_advanced.materials.TiAcMeModule;
-import com.c2h6s.tinkers_advanced.materials.content.worldgen.TiAcPlacementModifier;
+import com.c2h6s.tinkers_advanced.materials.init.TiAcMePlacementModifier;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeItems;
 import com.c2h6s.tinkers_advanced.materials.init.TiAcMeFluids;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;
@@ -43,7 +43,7 @@ public class TinkersAdvanced
         TiAcCrModule.register(modEventBus);
         TiAcTModule.register(modEventBus);
         TiAcMeModule.register(modEventBus);
-        TiAcPlacementModifier.PLACEMENT_MODIFIER.register(modEventBus);
+        TiAcMePlacementModifier.PLACEMENT_MODIFIER.register(modEventBus);
         if (ModListConstants.MekLoaded){
             TiAcMeItems.MEK_ITEMS.register(modEventBus);
             TiAcMeFluids.MEK_FLUIDS.register(modEventBus);

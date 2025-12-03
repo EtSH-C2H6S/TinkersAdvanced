@@ -8,6 +8,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.RegistryObject;
 
+import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
 import static com.c2h6s.tinkers_advanced.core.init.TiAcCrTabs.CREATIVE_MODE_TABS;
 
 public class TiAcUTabs {
@@ -17,7 +18,7 @@ public class TiAcUTabs {
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_utilities"))
             .icon(() -> TiAcUItems.EXCHANGER.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                for (RegistryObject<BlockItem> object: TiAcCrItem.getListUtilitiesBlock()){
+                for (RegistryObject<BlockItem> object: TiAcCrItem.getListUtilitiesBlock(MODID)){
                     if (object.isPresent()) {
                         output.accept(object.get());
                     }

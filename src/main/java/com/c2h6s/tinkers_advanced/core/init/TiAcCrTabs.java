@@ -15,7 +15,7 @@ public class TiAcCrTabs {
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_misc"))
             .icon(() -> TiAcCrItem.ULTRA_DENSE_BOOK.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                for (RegistryObject<Item> object:TiAcCrItem.getListMisc()){
+                for (RegistryObject<Item> object:TiAcCrItem.getListMisc(MODID)){
                     if (object.isPresent()) {
                         output.accept(object.get());
                     }

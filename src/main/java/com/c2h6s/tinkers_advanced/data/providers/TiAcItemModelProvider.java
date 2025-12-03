@@ -16,6 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.mantle.registration.object.ItemObject;
 
+import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
 import static com.c2h6s.tinkers_advanced.core.init.TiAcCrItem.*;
 
 public class TiAcItemModelProvider extends ItemModelProvider {
@@ -51,13 +52,13 @@ public class TiAcItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for (RegistryObject<Item> object: getListSimpleMaterialModel()){
+        for (RegistryObject<Item> object: getListSimpleMaterialModel(MODID)){
             generateItemModel(object,"material");
         }
-        for (RegistryObject<Item> object: getListSimpleMiscModel()){
+        for (RegistryObject<Item> object: getListSimpleMiscModel(MODID)){
             generateItemModel(object,"misc");
         }
-        for (RegistryObject<BlockItem> object:getListSimpleBlock()){
+        for (RegistryObject<BlockItem> object:getListSimpleBlock(MODID)){
             generateBlockItemModel(object);
         }
         for (SimpleMaterialObject object: TiAcMeMaterials.MATERIALS.getEntryMap().values()){

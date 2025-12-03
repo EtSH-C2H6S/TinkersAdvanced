@@ -140,7 +140,6 @@ repositories {
     maven { // Registrate
         url "https://maven.tterrag.com/"
     }
-    mavenLocal()
     flatDir {
         dir 'libs'
     }

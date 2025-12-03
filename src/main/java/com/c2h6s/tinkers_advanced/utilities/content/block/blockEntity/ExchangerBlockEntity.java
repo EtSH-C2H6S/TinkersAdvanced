@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced.utilities.content.block.blockEntity;
 
 import com.c2h6s.tinkers_advanced.utilities.content.block.ExchangerBlock;
-import com.c2h6s.tinkers_advanced.tools.capability.ExchangerWrappedEnergyHandler;
+import com.c2h6s.tinkers_advanced.utilities.capability.ExchangerWrappedEnergyHandler;
 import com.c2h6s.tinkers_advanced.core.content.tool.modifiers.PlayerLocating;
 import com.c2h6s.tinkers_advanced.core.library.capability.TiAcCapabilities;
 import com.c2h6s.tinkers_advanced.network.TiAcPacketHandler;

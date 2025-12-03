@@ -30,13 +30,14 @@ public class TiAcDataGenerator {
 
         generator.addProvider(event.includeClient(),new TiAcBlockStateProvider(output,TinkersAdvanced.MODID,helper));
         generator.addProvider(event.includeClient(),new TiAcItemModelProvider(output,helper));
+        TiAcBlockTagProvider blockTags = new TiAcBlockTagProvider(output, lookupProvider, helper);
+        generator.addProvider(event.includeClient(),blockTags);
+
         generator.addProvider(event.includeClient(),new TiAcFluidTextureProvider(output));
         generator.addProvider(event.includeClient(),new TiAcFluidTagProvider(output,lookupProvider,helper));
         generator.addProvider(event.includeClient(),new TiAcMeMaterialRenderInfoProvider(output,new TiAcMeMaterialSpriteProvider(),helper));
         generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output,helper,new TiAcTPartSpriteProvider(),new TinkerMaterialSpriteProvider(),new TiAcMeMaterialSpriteProvider()));
         generator.addProvider(event.includeClient(),new MaterialPartTextureGenerator(output,helper,new TinkerPartSpriteProvider(),new TiAcMeMaterialSpriteProvider()));
-        TiAcBlockTagProvider blockTags = new TiAcBlockTagProvider(output, lookupProvider, helper);
-        generator.addProvider(event.includeClient(),blockTags);
         generator.addProvider(event.includeServer(),new TiAcItemTagProvider(output,lookupProvider,blockTags.contentsGetter(),helper));
 
         //generator.addProvider(event.includeServer(),new TiAcLootTableProvider(output));

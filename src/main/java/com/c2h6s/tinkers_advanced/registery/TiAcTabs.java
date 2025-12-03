@@ -22,6 +22,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
 import static com.c2h6s.tinkers_advanced.core.init.TiAcCrTabs.CREATIVE_MODE_TABS;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TiAcTabs {
@@ -48,7 +49,7 @@ public class TiAcTabs {
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_material"))
             .icon(() -> TiAcMeItems.BISMUTH_INGOT.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                for (RegistryObject<Item> object:TiAcCrItem.getListMaterial()){
+                for (RegistryObject<Item> object:TiAcCrItem.getListMaterial(MODID)){
                     if (object.isPresent()&&!(object.get() instanceof HiddenMaterial hiddenMaterial&&hiddenMaterial.config!=null&&!hiddenMaterial.config.get())) {
                         output.accept(object.get());
                     }
@@ -58,12 +59,12 @@ public class TiAcTabs {
             .title(Component.translatable("itemGroup.tinkers_advanced.tiac_block"))
             .icon(() -> TiAcMeItems.BISMUTHINITE_ORE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                for (RegistryObject<BlockItem> object:TiAcCrItem.getListSimpleBlock()){
+                for (RegistryObject<BlockItem> object:TiAcCrItem.getListSimpleBlock(MODID)){
                     if (object.isPresent()) {
                         output.accept(object.get());
                     }
                 }
-                for (RegistryObject<BlockItem> object:TiAcCrItem.getListMiscBlock()){
+                for (RegistryObject<BlockItem> object:TiAcCrItem.getListMiscBlock(MODID)){
                     if (object.isPresent()) {
                         output.accept(object.get());
                     }

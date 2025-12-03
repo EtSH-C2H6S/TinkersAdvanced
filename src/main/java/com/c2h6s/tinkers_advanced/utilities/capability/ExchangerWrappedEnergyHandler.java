@@ -1,4 +1,4 @@
-package com.c2h6s.tinkers_advanced.tools.capability;
+package com.c2h6s.tinkers_advanced.utilities.capability;
 
 import com.c2h6s.tinkers_advanced.utilities.content.block.ExchangerBlock;
 import com.c2h6s.tinkers_advanced.utilities.content.block.blockEntity.ExchangerBlockEntity;

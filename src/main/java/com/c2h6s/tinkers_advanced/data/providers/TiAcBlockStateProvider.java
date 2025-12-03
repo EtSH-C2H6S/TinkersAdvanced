@@ -10,6 +10,8 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+import static com.c2h6s.tinkers_advanced.TinkersAdvanced.MODID;
+
 public class TiAcBlockStateProvider extends BlockStateProvider {
     public TiAcBlockStateProvider(PackOutput output,String modId, ExistingFileHelper exFileHelper) {
         super(output, modId, exFileHelper);
@@ -17,7 +19,7 @@ public class TiAcBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        for (RegistryObject<BlockItem> object: TiAcCrItem.getListSimpleBlock()){
+        for (RegistryObject<BlockItem> object: TiAcCrItem.getListSimpleBlock(MODID)){
             Block block =object.get().getBlock();
             ModelFile file = cubeAll(block);
             simpleBlock(block,file);
